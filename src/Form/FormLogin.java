@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package Form;
-
+import java.awt.event.KeyEvent;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 /**
  *
  * @author Aulia
@@ -14,8 +16,17 @@ public class FormLogin extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
     public FormLogin() {
         initComponents();
+    }
+    
+    public JTextField getTxtUsername() {
+        return TxtUsername;
+    }
+    
+    public JPasswordField getJpsPassword() {
+        return JpsPassword;
     }
 
     /**
@@ -31,11 +42,11 @@ public class FormLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        TxtPassword = new javax.swing.JTextField();
         BtnLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         TxtUsername = new javax.swing.JTextField();
         TxtClickHere = new javax.swing.JLabel();
+        JpsPassword = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,8 +56,6 @@ public class FormLogin extends javax.swing.JFrame {
         jLabel2.setText("Username");
 
         jLabel3.setText("Password");
-
-        TxtPassword.setText("jTextField2");
 
         BtnLogin.setText("LOGIN");
         BtnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -62,16 +71,23 @@ public class FormLogin extends javax.swing.JFrame {
 
         TxtClickHere.setText("Click Here");
 
+        JpsPassword.setText("jPasswordField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtClickHere)
+                .addGap(84, 84, 84))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -82,13 +98,12 @@ public class FormLogin extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(TxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtClickHere)))
+                        .addComponent(TxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JpsPassword)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,15 +116,15 @@ public class FormLogin extends javax.swing.JFrame {
                 .addComponent(TxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(JpsPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
                 .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(TxtClickHere))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jLabel5.setText("ICON");
@@ -184,8 +199,8 @@ public class FormLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnLogin;
+    private javax.swing.JPasswordField JpsPassword;
     private javax.swing.JLabel TxtClickHere;
-    private javax.swing.JTextField TxtPassword;
     private javax.swing.JTextField TxtUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

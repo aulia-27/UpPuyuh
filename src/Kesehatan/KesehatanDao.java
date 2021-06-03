@@ -8,6 +8,7 @@ package Kesehatan;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class KesehatanDao {
     public static void insert(Connection con, Kesehatan kesehatan ) throws SQLException{
@@ -37,5 +38,22 @@ public class KesehatanDao {
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kesehatan.getIdKesehatan());
         ps.executeUpdate();
+    }
+    
+    public static Kesehatan getKesehatan(Connection con, String id_kesehatan) throws SQLException {
+        String sql = "select * from kesehatan where id_kesehatan=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, id_kesehatan);
+        Kesehatan kesehatan = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            kesehatan = new Kesehatan();
+            kesehatan.setIdKesehatan(rs.getString(1));
+            kesehatan.setIdKandang(rs.getString(2));
+            kesehatan.setIdSakit(rs.getString(3));
+            kesehatan.setJmlSakit(rs.getInt(4));
+            kesehatan.setJmlMati(rs.getInt(5));
+        }
+        return kesehatan;
     }
 }

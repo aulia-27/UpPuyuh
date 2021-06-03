@@ -42,4 +42,22 @@ public class PegawaiDao {
         ps.setString(1, pengawai.getIdPegawai());
         ps.executeUpdate();
     }
+    
+    public static Pegawai getPegawai(Connection con, String id_Pegawai) throws SQLException {
+        String sql = "select * from pegawai where id_pegawai=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, id_Pegawai);
+        Pegawai pegawai = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            pegawai = new Pegawai();
+            pegawai.setIdPegawai(rs.getString(1));
+            pegawai.setNama(rs.getString(2));
+            pegawai.setTglLahir(rs.getString(3));
+            pegawai.setNoTelp(rs.getString(4));
+            pegawai.setAlamat(rs.getString(5));
+            pegawai.setIdKandang(rs.getString(6));
+        }
+        return pegawai;
+    }
 }

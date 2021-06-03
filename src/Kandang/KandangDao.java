@@ -35,4 +35,19 @@ public class KandangDao {
         ps.setString(1, kandang.getIdKandang());
         ps.executeUpdate();
     }
+    
+    public static Kandang getKandang(Connection con, String id_kandang) throws SQLException {
+        String sql = "select * from kandang where id_kandang=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, id_kandang);
+        Kandang kandang = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            kandang = new Kandang();
+            kandang.setIdKandang(rs.getString(1));
+            kandang.setNama(rs.getString(2));
+            kandang.setBlokKandang(rs.getString(3));
+        }
+        return kandang;
+    }
 }

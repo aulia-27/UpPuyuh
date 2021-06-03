@@ -8,6 +8,7 @@ package CekTernak;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class CekTernakDao {
     public static void insert(Connection con, CekTernak cekKandang ) throws SQLException{
@@ -40,4 +41,23 @@ public class CekTernakDao {
         ps.setString(1, cekKandang.getIdCek());
         ps.executeUpdate();
     }
+    
+    public static CekTernak getCekTernak(Connection con, String id_cek) throws SQLException {
+        String sql = "select * from kandang where id_cek=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, id_cek);
+        CekTernak cekTernak = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            cekTernak = new CekTernak();
+            cekTernak.setIdCek(rs.getString(1));
+            cekTernak.setIdKandang(rs.getString(2));
+            cekTernak.setIdPakan(rs.getString(3));
+            cekTernak.setJmlTelur(rs.getInt(4));
+            cekTernak.setKebersihan(rs.getString(5));
+            cekTernak.setTglCek(rs.getString(6));
+        }
+        return cekTernak;
+    }
+    
 }

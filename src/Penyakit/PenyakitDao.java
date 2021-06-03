@@ -8,6 +8,7 @@ package Penyakit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 /**
  *
@@ -37,5 +38,20 @@ public class PenyakitDao {
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, penyakit.getIdPenyakit());
         ps.executeUpdate();
+    }
+    
+    public static Penyakit getPenyakit(Connection con, String id_penyakit) throws SQLException {
+        String sql = "select * from penyakit where id_penyakit=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, id_penyakit);
+        Penyakit penyakit = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            penyakit = new Penyakit();
+            penyakit.setIdPenyakit(rs.getString(1));
+            penyakit.setNama(rs.getString(2));
+            penyakit.setKeterangan(rs.getString(3));
+        }
+        return penyakit;
     }
 }

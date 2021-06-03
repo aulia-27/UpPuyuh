@@ -40,4 +40,21 @@ public class PakanDao {
         ps.setString(1, pakan.getIdPakan());
         ps.executeUpdate();
     }
+    
+    public static Pakan getPakan(Connection con, String idPakan) throws SQLException {
+        String sql = "select * from pakan where id_pakan=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, idPakan);
+        Pakan pakan = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            pakan = new Pakan();
+            pakan.setIdPakan(rs.getString(1));
+            pakan.setNama(rs.getString(2));
+            pakan.setHarga(rs.getInt(3));
+            pakan.setStok(rs.getInt(4));
+            pakan.setJenis(rs.getString(5));
+        }
+        return pakan;
+    }
 }

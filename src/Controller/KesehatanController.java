@@ -83,17 +83,18 @@ public class KesehatanController {
         }
     }
     
-     public void viewTable(){
+    public void viewTable(){
         try {
             DefaultTableModel tabelModel = (DefaultTableModel) viewData.getTabelDataKesehatan().getModel();
             tabelModel.setRowCount(0);
-            ResultSet rs = con.createStatement().executeQuery("select * from anggota");
+            ResultSet rs = con.createStatement().executeQuery("select * from kesehatan");
             while(rs.next()){
                 Object[] data={
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getInt(3),
-                    rs.getInt(4)
+                    rs.getString(3),
+                    rs.getInt(4),
+                    rs.getInt(5)
                 };
                 tabelModel.addRow(data);
             }

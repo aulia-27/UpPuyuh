@@ -33,6 +33,22 @@ public class KesehatanController {
             this.viewInput = viewInput;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
+            clearForm();
+            isiCboIdKandang();
+            isiCboIdPenyakit();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+        }
+    }
+    
+    public KesehatanController (FormDataKesehatan viewData) {
+        try {
+            this.viewInput = viewInput;
+            Koneksi koneksi = new Koneksi();
+            con = koneksi.getKoneksi();
+            viewTable();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
@@ -44,6 +60,30 @@ public class KesehatanController {
         viewInput.getTxtIdKesehatan().setText("");
         viewInput.getTxtJumlahSakit().setText("");
         viewInput.getTxtJumlahMati().setText("");
+    }
+    
+    public void isiCboIdKandang() {
+        viewInput.getCboIdKandang().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from kandang");
+            while (rs.next()) {                
+                viewInput.getCboIdKandang().addItem(rs.getString(1)+" - "+rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void isiCboIdPenyakit() {
+        viewInput.getCboIdPenyakit().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from penyakit");
+            while (rs.next()) {                
+                viewInput.getCboIdPenyakit().addItem(rs.getString(1)+" - "+rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void insert(){

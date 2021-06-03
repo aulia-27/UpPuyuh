@@ -35,6 +35,20 @@ public class KandangController {
             this.viewInput = viewInput;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
+            clearForm();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+        }
+    }
+    
+    public KandangController (FormDataKandang viwData) {
+        try {
+            this.viewData = viewData;
+            Koneksi koneksi = new Koneksi();
+            con = koneksi.getKoneksi();
+            viewTable();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
@@ -80,6 +94,23 @@ public class KandangController {
             JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());
+        }
+    }
+    
+    public void onClickTabel() {
+        try {
+            String kode = viewData.getTabelDataKandang().getValueAt(viewData.getTabelDataKandang().getSelectedRow(), 0).toString();
+            kandang = KandangDao.getKandang(con, kode);
+            if (kandang != null) {
+                viewInput.getTxtIdKandang().setText(kandang.getIdKandang());
+                viewInput.getTxtLabelKandang().setText(kandang.getNama());
+                viewInput.getTxtBlokKandang().setText(kandang.getBlokKandang());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

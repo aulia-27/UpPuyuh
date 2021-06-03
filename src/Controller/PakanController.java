@@ -87,6 +87,25 @@ public class PakanController {
         }
     }
     
+    public void onClickTabel() {
+        try {
+            String kode = viewData.getTabelDataPakan().getValueAt(viewData.getTabelDataPakan().getSelectedRow(), 0).toString();
+            pakan = PakanDao.getPakan(con, kode);
+            if (pakan != null) {
+                viewInput.getTxtIdPakan().setText(pakan.getIdPakan());
+                viewInput.getTxtNama().setText(pakan.getNama());
+                viewInput.getTxtHarga().setText(""+pakan.getHarga());
+                viewInput.getTxtStok().setText(""+pakan.getStok());
+                viewInput.getTxtJenis().setText(pakan.getJenis());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void viewTable(){
         try {
             DefaultTableModel tabelModel = (DefaultTableModel) viewData.getTabelDataPakan().getModel();

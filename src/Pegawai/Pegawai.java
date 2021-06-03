@@ -10,7 +10,7 @@ public class Pegawai {
     private String id_Pegawai;
     private String nama;
     private String tgl_lahir;
-    private String noTelp;
+    private int noTelp;
     private String alamat;
     private String id_Kandang;
     
@@ -26,7 +26,7 @@ public class Pegawai {
         return tgl_lahir;
     }
 
-    public String getNoTelp() {
+    public int getNoTelp() {
         return noTelp;
     }
     
@@ -50,7 +50,7 @@ public class Pegawai {
         this.tgl_lahir = tgl_lahir;
     }
     
-    public void setNoTelp(String noTelp) {
+    public void setNoTelp(int noTelp) {
         this.noTelp = noTelp;
     }
     

@@ -42,6 +42,7 @@ public class PegawaiController {
     
     public void clearForm(){
         viewInput.getTxtIdPegawai().setText("");
+        viewInput.getTxtNama().setText("");
         viewInput.getTxtTglLhr().setText("");
         viewInput.getTxtNoTelp().setText("");
         viewInput.getTxtAlamat().setText("");
@@ -50,8 +51,9 @@ public class PegawaiController {
     public void insert(){
         pegawai = new Pegawai();
         pegawai.setIdPegawai(viewInput.getTxtIdPegawai().getText());
+        pegawai.setNama(viewInput.getTxtNama().getText());
         pegawai.setTglLahir(viewInput.getTxtTglLhr().getText());
-        pegawai.setNoTelp(viewInput.getTxtNoTelp().getText());
+        pegawai.setNoTelp(Integer.parseInt(viewInput.getTxtNoTelp().getText()));
         pegawai.setAlamat(viewInput.getTxtAlamat().getText());
         pegawai.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString());
         try {
@@ -65,8 +67,9 @@ public class PegawaiController {
     public void update(){
         pegawai = new Pegawai();
         pegawai.setIdPegawai(viewInput.getTxtIdPegawai().getText());
+        pegawai.setNama(viewInput.getTxtNama().getText());
         pegawai.setTglLahir(viewInput.getTxtTglLhr().getText());
-        pegawai.setNoTelp(viewInput.getTxtNoTelp().getText());
+        pegawai.setNoTelp(Integer.parseInt(viewInput.getTxtNoTelp().getText()));
         pegawai.setAlamat(viewInput.getTxtAlamat().getText());
         pegawai.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString());
         try {
@@ -83,6 +86,26 @@ public class PegawaiController {
             JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());
+        }
+    }
+    
+    public void onClickTabel() {
+        try {
+            String kode = viewData.getTableDataPegawai().getValueAt(viewData.getTableDataPegawai().getSelectedRow(), 0).toString();
+            pegawai = PegawaiDao.getPegawai(con, kode);
+            if (pegawai != null) {
+                viewInput.getTxtIdPegawai().setText(pegawai.getIdPegawai());
+                viewInput.getTxtNama().setText(pegawai.getNama());
+                viewInput.getTxtTglLhr().setText(pegawai.getTglLahir());
+                viewInput.getTxtNoTelp().setText(""+pegawai.getNoTelp());
+                viewInput.getTxtAlamat().setText(pegawai.getAlamat());
+                viewInput.getCboIdKandang().setSelectedIndex(Integer.parseInt(pegawai.getIdKandang()));
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -80,6 +80,23 @@ public class PenyakitController {
         }
     }
     
+    public void onClickTabel() {
+        try {
+            String kode = viewData.getTblDataPenyakit().getValueAt(viewData.getTblDataPenyakit().getSelectedRow(), 0).toString();
+            penyakit = PenyakitDao.getPenyakit(con, kode);
+            if (penyakit != null) {
+                viewInput.getTxtIdPenyakit().setText(penyakit.getIdPenyakit());
+                viewInput.getTxtNama().setText(penyakit.getNama());
+                viewInput.getJtxtKeterangan().setText(penyakit.getKeterangan());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void viewTable() {
         try {
             DefaultTableModel tableModel = (DefaultTableModel) viewData.getTblDataPenyakit().getModel();

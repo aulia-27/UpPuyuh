@@ -18,7 +18,7 @@ public class PegawaiDao {
         ps.setString(1, pengawai.getIdPegawai());
         ps.setString(2, pengawai.getNama());
         ps.setString(3, pengawai.getTglLahir());
-        ps.setString(4, pengawai.getNoTelp());
+        ps.setInt(4, pengawai.getNoTelp());
         ps.setString(5, pengawai.getAlamat());
         ps.setString(6, pengawai.getIdKandang());
         ps.executeUpdate();
@@ -29,7 +29,7 @@ public class PegawaiDao {
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pengawai.getNama());
         ps.setString(2, pengawai.getTglLahir());
-        ps.setString(3, pengawai.getNoTelp());
+        ps.setInt(3, pengawai.getNoTelp());
         ps.setString(4, pengawai.getAlamat());
         ps.setString(5, pengawai.getIdKandang());
         ps.setString(6, pengawai.getIdPegawai());
@@ -54,7 +54,7 @@ public class PegawaiDao {
             pegawai.setIdPegawai(rs.getString(1));
             pegawai.setNama(rs.getString(2));
             pegawai.setTglLahir(rs.getString(3));
-            pegawai.setNoTelp(rs.getString(4));
+            pegawai.setNoTelp(rs.getInt(4));
             pegawai.setAlamat(rs.getString(5));
             pegawai.setIdKandang(rs.getString(6));
         }

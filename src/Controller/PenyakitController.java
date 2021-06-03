@@ -33,6 +33,20 @@ public class PenyakitController {
             this.viewInput = viewInput;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
+            clearForm();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+        }
+    }
+    
+    public PenyakitController (FormDataPenyakit viewData) {
+        try {
+            this.viewData = viewData;
+            Koneksi koneksi = new Koneksi();
+            con = koneksi.getKoneksi();
+            viewTable();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {

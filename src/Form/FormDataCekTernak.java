@@ -21,7 +21,7 @@ public class FormDataCekTernak extends javax.swing.JFrame {
         initComponents();
     }
     
-    public JTable getTabelDataKandang() {
+    public JTable getTabelCekTernak() {
         return TblDataCekTernak;
     }
 

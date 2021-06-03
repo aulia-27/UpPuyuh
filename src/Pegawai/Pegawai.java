@@ -6,7 +6,7 @@
 package Pegawai;
 
 
-public class Pengawai {
+public class Pegawai {
     private String id_Pegawai;
     private String nama;
     private String tgl_lahir;

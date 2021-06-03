@@ -10,17 +10,17 @@ import javax.swing.JTable;
  *
  * @author Aulia
  */
-public class FormDataPegawai extends javax.swing.JFrame {
+public class FormDataPenyakit extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormDataPegawai
+     * Creates new form FormPenyakit
      */
-    public FormDataPegawai() {
+    public FormDataPenyakit() {
         initComponents();
     }
     
-    public JTable getTableDataPegawai() {
-        return TblDataPegawai;
+    public JTable getTblDataPenyakit() {
+        return TblDataPenyakit;
     }
 
     /**
@@ -35,24 +35,24 @@ public class FormDataPegawai extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         TxtDataKandang = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TblDataPegawai = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        TxtKembali = new javax.swing.JLabel();
-        TxtDate = new javax.swing.JLabel();
-        TxtTime = new javax.swing.JLabel();
-        BtnTambahData = new javax.swing.JButton();
+        TblDataPenyakit = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         TxtDashboard = new javax.swing.JLabel();
         TxtUser = new javax.swing.JLabel();
         TxtJadwal = new javax.swing.JLabel();
         TxtReport = new javax.swing.JLabel();
         TxtLogout = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        TxtKembali = new javax.swing.JLabel();
+        TxtDate = new javax.swing.JLabel();
+        TxtTime = new javax.swing.JLabel();
+        BtnTambahData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TxtDataKandang.setText("Data Pegawai");
+        TxtDataKandang.setText("Data Penyakit");
 
-        TblDataPegawai.setModel(new javax.swing.table.DefaultTableModel(
+        TblDataPenyakit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -71,7 +71,7 @@ public class FormDataPegawai extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(TblDataPegawai);
+        jScrollPane1.setViewportView(TblDataPenyakit);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -93,45 +93,6 @@ public class FormDataPegawai extends javax.swing.JFrame {
                 .addComponent(TxtDataKandang)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        TxtKembali.setText("Kembali");
-
-        TxtDate.setText("Date");
-
-        TxtTime.setText("Time");
-
-        BtnTambahData.setText("Tambah Data");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(TxtKembali)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(TxtDate)
-                        .addGap(104, 104, 104)
-                        .addComponent(TxtTime)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnTambahData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TxtKembali)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtDate)
-                    .addComponent(TxtTime)
-                    .addComponent(BtnTambahData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -175,6 +136,45 @@ public class FormDataPegawai extends javax.swing.JFrame {
                 .addGap(36, 36, 36))
         );
 
+        TxtKembali.setText("Kembali");
+
+        TxtDate.setText("Date");
+
+        TxtTime.setText("Time");
+
+        BtnTambahData.setText("Tambah Data");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(TxtKembali)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(TxtDate)
+                        .addGap(104, 104, 104)
+                        .addComponent(TxtTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnTambahData, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TxtKembali)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtDate)
+                    .addComponent(TxtTime)
+                    .addComponent(BtnTambahData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,8 +198,7 @@ public class FormDataPegawai extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(688, 467));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -219,27 +218,28 @@ public class FormDataPegawai extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormDataPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormDataPenyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormDataPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormDataPenyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormDataPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormDataPenyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormDataPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormDataPenyakit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormDataPegawai().setVisible(true);
+                new FormDataPenyakit().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnTambahData;
-    private javax.swing.JTable TblDataPegawai;
+    private javax.swing.JTable TblDataPenyakit;
     private javax.swing.JLabel TxtDashboard;
     private javax.swing.JLabel TxtDataKandang;
     private javax.swing.JLabel TxtDate;

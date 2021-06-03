@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class PegawaiDao {
-    public static void insert(Connection con, Pengawai pengawai) throws SQLException{
+    public static void insert(Connection con, Pegawai pengawai) throws SQLException{
         String sql = "insert into pegawai values (?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pengawai.getIdPegawai());
@@ -24,7 +24,7 @@ public class PegawaiDao {
         ps.executeUpdate();
     }
     
-    public static void update(Connection con, Pengawai pengawai) throws SQLException{
+    public static void update(Connection con, Pegawai pengawai) throws SQLException{
         String sql = "update pegawai set nama=?, tgllahir=?, notelp=?, alamat=?, id_kandang=?" + "where id_pegawai=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pengawai.getNama());
@@ -36,7 +36,7 @@ public class PegawaiDao {
         ps.executeUpdate();
     }
     
-    public static void delete(Connection con, Pengawai pengawai) throws SQLException{
+    public static void delete(Connection con, Pegawai pengawai) throws SQLException{
         String sql = "delete from pegawai where id_pegawai=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pengawai.getIdPegawai());

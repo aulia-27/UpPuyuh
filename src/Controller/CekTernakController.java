@@ -140,7 +140,7 @@ public class CekTernakController {
                     rs.getString(3),
                     rs.getInt(4),
                     rs.getString(5),
-                    rs.getDate(6)
+                    rs.getString(6)
                 };
             tableModel.addRow(data);
             }

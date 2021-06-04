@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package Form;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Timer;
 /**
  *
  * @author Aulia
@@ -16,6 +20,26 @@ public class FormMainMenu extends javax.swing.JFrame {
      */
     public FormMainMenu() {
         initComponents();
+        showDate();
+        showTime();
+    }
+    
+    public void showDate() {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        dateLab.setText(sdf.format(d));
+    }
+    
+    public void showTime() {
+        new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+                timeLab.setText(sdf.format(d));
+            }
+        }
+        ).start();
     }
 
     /**
@@ -43,9 +67,10 @@ public class FormMainMenu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        dateLab = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        timeLab = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,17 +116,47 @@ public class FormMainMenu extends javax.swing.JFrame {
         );
 
         BtnDataKandang.setText("Data Kandang");
+        BtnDataKandang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDataKandangActionPerformed(evt);
+            }
+        });
 
         BtnDataPegawai.setText("Data Pegawai");
+        BtnDataPegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDataPegawaiActionPerformed(evt);
+            }
+        });
 
         BtnDataKesehatan.setText("Data Kesehatan");
+        BtnDataKesehatan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDataKesehatanActionPerformed(evt);
+            }
+        });
 
         BtnDataPakan.setText("Data Pakan");
+        BtnDataPakan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDataPakanActionPerformed(evt);
+            }
+        });
 
         BtnDataPenyakit.setText("Data Penyakit");
+        BtnDataPenyakit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDataPenyakitActionPerformed(evt);
+            }
+        });
 
         BtnDataKerja.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         BtnDataKerja.setText("Data Cek Kandang");
+        BtnDataKerja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDataKerjaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("TUGAS");
 
@@ -150,11 +205,13 @@ public class FormMainMenu extends javax.swing.JFrame {
 
         jLabel1.setText("Avatar");
 
-        jLabel2.setText("Waktu");
+        dateLab.setText("Date");
 
         jLabel3.setText("Name");
 
         jLabel4.setText("Status");
+
+        timeLab.setText("Time");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -167,14 +224,19 @@ public class FormMainMenu extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(dateLab)
+                        .addGap(50, 50, 50)
+                        .addComponent(timeLab)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateLab)
+                    .addComponent(timeLab))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -226,6 +288,48 @@ public class FormMainMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtnDataKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataKandangActionPerformed
+        // TODO add your handling code here:
+        FormDataKandang formDataKandang = new FormDataKandang();
+        formDataKandang.setVisible(true);
+        formDataKandang.toFront();
+    }//GEN-LAST:event_BtnDataKandangActionPerformed
+
+    private void BtnDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataPegawaiActionPerformed
+        // TODO add your handling code here:
+        FormDataPegawai formDataPegawai = new FormDataPegawai();
+        formDataPegawai.setVisible(true);
+        formDataPegawai.toFront();
+    }//GEN-LAST:event_BtnDataPegawaiActionPerformed
+
+    private void BtnDataKesehatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataKesehatanActionPerformed
+        // TODO add your handling code here:
+        FormDataKesehatan formDataKesehatan = new FormDataKesehatan();
+        formDataKesehatan.setVisible(true);
+        formDataKesehatan.toFront();
+    }//GEN-LAST:event_BtnDataKesehatanActionPerformed
+
+    private void BtnDataPakanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataPakanActionPerformed
+        // TODO add your handling code here:
+        FormDataPakan formDataPakan = new FormDataPakan();
+        formDataPakan.setVisible(true);
+        formDataPakan.toFront();
+    }//GEN-LAST:event_BtnDataPakanActionPerformed
+
+    private void BtnDataPenyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataPenyakitActionPerformed
+        // TODO add your handling code here:
+        FormDataPenyakit formDataPenyakit = new FormDataPenyakit();
+        formDataPenyakit.setVisible(true);
+        formDataPenyakit.toFront();
+    }//GEN-LAST:event_BtnDataPenyakitActionPerformed
+
+    private void BtnDataKerjaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataKerjaActionPerformed
+        // TODO add your handling code here:
+        FormDataCekTernak formDataCekTernak = new FormDataCekTernak();
+        formDataCekTernak.setVisible(true);
+        formDataCekTernak.toFront();
+    }//GEN-LAST:event_BtnDataKerjaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,8 +377,8 @@ public class FormMainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel TxtLogout;
     private javax.swing.JLabel TxtReport;
     private javax.swing.JLabel TxtUser;
+    private javax.swing.JLabel dateLab;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -282,5 +386,6 @@ public class FormMainMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel timeLab;
     // End of variables declaration//GEN-END:variables
 }

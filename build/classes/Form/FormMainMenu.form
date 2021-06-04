@@ -187,26 +187,41 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Kandang"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDataKandangActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnDataPegawai">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Pegawai"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDataPegawaiActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnDataKesehatan">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Kesehatan"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDataKesehatanActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnDataPakan">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Pakan"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDataPakanActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnDataPenyakit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data Penyakit"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDataPenyakitActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnDataKerja">
           <Properties>
@@ -215,6 +230,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Data Cek Kandang"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDataKerjaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -235,7 +253,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="dateLab" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="timeLab" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -245,7 +267,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="dateLab" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="timeLab" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -269,9 +294,9 @@
             <Property name="text" type="java.lang.String" value="Avatar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="dateLab">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Waktu"/>
+            <Property name="text" type="java.lang.String" value="Date"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -282,6 +307,11 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Status"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="timeLab">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Time"/>
           </Properties>
         </Component>
       </SubComponents>

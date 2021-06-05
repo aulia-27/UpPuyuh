@@ -74,6 +74,11 @@ public class FormInputDataKesehatan extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         TxtKembali.setText("Kembali");
+        TxtKembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtKembaliMouseClicked(evt);
+            }
+        });
 
         TxtDashboard.setText("Dashboard");
 
@@ -234,6 +239,11 @@ public class FormInputDataKesehatan extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(688, 470));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TxtKembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtKembaliMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TxtKembaliMouseClicked
 
     /**
      * @param args the command line arguments

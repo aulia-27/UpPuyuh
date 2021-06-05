@@ -139,12 +139,22 @@ public class FormDataCekTernak extends javax.swing.JFrame {
         );
 
         TxtKembali.setText("Kembali");
+        TxtKembali.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtKembaliMouseClicked(evt);
+            }
+        });
 
         TxtDate.setText("Date");
 
         TxtTime.setText("Time");
 
         BtnTambahData.setText("Tambah Data");
+        BtnTambahData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTambahDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -203,6 +213,22 @@ public class FormDataCekTernak extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(690, 467));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TxtKembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtKembaliMouseClicked
+        // TODO add your handling code here:
+        FormMainMenu formMainMenu = new FormMainMenu();
+        formMainMenu.setVisible(true);
+        formMainMenu.toFront();
+        dispose();
+    }//GEN-LAST:event_TxtKembaliMouseClicked
+
+    private void BtnTambahDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahDataActionPerformed
+        // TODO add your handling code here:
+        FormInputCekTernak formInputCekTernak = new FormInputCekTernak();
+        formInputCekTernak.setVisible(true);
+        formInputCekTernak.toFront();
+        dispose();
+    }//GEN-LAST:event_BtnTambahDataActionPerformed
 
     /**
      * @param args the command line arguments

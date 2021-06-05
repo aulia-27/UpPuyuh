@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Form;
+import Controller.CekTernakController;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 /**
@@ -15,8 +16,11 @@ public class FormInputCekTernak extends javax.swing.JFrame {
     /**
      * Creates new form FormInputCekTernak
      */
+    
+    CekTernakController cekTernakController;
     public FormInputCekTernak() {
         initComponents();
+        cekTernakController = new CekTernakController(this);
     }
     
     public JTextField getTxtIdTernak() {
@@ -78,6 +82,15 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         TxtKembali.setText("Kembali");
+        TxtKembali.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                TxtKembaliAncestorRemoved(evt);
+            }
+        });
 
         TxtDashboard.setText("Dashboard");
 
@@ -130,10 +143,25 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         TxtJmlTelur.setText("jTextField1");
 
         BtnSimpan.setText("Simpan");
+        BtnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSimpanActionPerformed(evt);
+            }
+        });
 
         BtnHapus.setText("Hapus");
+        BtnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnHapusActionPerformed(evt);
+            }
+        });
 
         BtnBatal.setText("Batal");
+        BtnBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBatalActionPerformed(evt);
+            }
+        });
 
         CboIdKandang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -252,6 +280,28 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(688, 467));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
+        // TODO add your handling code here:
+        cekTernakController.insert();
+        cekTernakController.clearForm();
+    }//GEN-LAST:event_BtnSimpanActionPerformed
+
+    private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
+        // TODO add your handling code here:
+        cekTernakController.clearForm();
+    }//GEN-LAST:event_BtnHapusActionPerformed
+
+    private void BtnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatalActionPerformed
+        // TODO add your handling code here:
+        FormDataCekTernak formDataCekTernak = new FormDataCekTernak();
+        formDataCekTernak.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnBatalActionPerformed
+
+    private void TxtKembaliAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_TxtKembaliAncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtKembaliAncestorRemoved
 
     /**
      * @param args the command line arguments

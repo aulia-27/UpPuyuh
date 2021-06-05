@@ -220,6 +220,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Kembali"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TxtKembaliMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="TxtDate">
           <Properties>
@@ -235,6 +238,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Tambah Data"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnTambahDataActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

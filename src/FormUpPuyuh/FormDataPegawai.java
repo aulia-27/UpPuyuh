@@ -194,11 +194,11 @@ public class FormDataPegawai extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Kandang", "Nama", "Blok Kandang"
+                "ID Pegawai", "Nama", "Tanggal Lahir", "No Telepon", "Alamat", "ID Kandang"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -206,19 +206,26 @@ public class FormDataPegawai extends javax.swing.JFrame {
             }
         });
         JspDataKandang.setViewportView(TblDataKandang1);
+        if (TblDataKandang1.getColumnModel().getColumnCount() > 0) {
+            TblDataKandang1.getColumnModel().getColumn(0).setResizable(false);
+            TblDataKandang1.getColumnModel().getColumn(0).setPreferredWidth(50);
+            TblDataKandang1.getColumnModel().getColumn(4).setResizable(false);
+            TblDataKandang1.getColumnModel().getColumn(4).setPreferredWidth(300);
+            TblDataKandang1.getColumnModel().getColumn(5).setPreferredWidth(80);
+        }
 
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);
         MenuTabel.setLayout(MenuTabelLayout);
         MenuTabelLayout.setHorizontalGroup(
             MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuTabelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JspDataKandang)
-                .addContainerGap())
-            .addGroup(MenuTabelLayout.createSequentialGroup()
                 .addGap(460, 460, 460)
                 .addComponent(jLabel9)
                 .addContainerGap(486, Short.MAX_VALUE))
+            .addGroup(MenuTabelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JspDataKandang)
+                .addContainerGap())
         );
         MenuTabelLayout.setVerticalGroup(
             MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

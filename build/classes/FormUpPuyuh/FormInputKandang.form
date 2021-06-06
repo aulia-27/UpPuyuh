@@ -336,7 +336,7 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="JspDataKandang2" pref="566" max="32767" attributes="0"/>
+                      <Component id="JspDataKandang" pref="566" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -377,7 +377,7 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="JspDataKandang2" min="-2" pref="501" max="-2" attributes="0"/>
+                              <Component id="JspDataKandang" min="-2" pref="501" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -410,11 +410,11 @@
                 <Property name="text" type="java.lang.String" value="Blok Kandang"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="JspDataKandang2">
+            <Container class="javax.swing.JScrollPane" name="JspDataKandang">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="TblDataKandang2">
+                <Component class="javax.swing.JTable" name="TblDataKandang">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="0">
@@ -434,16 +434,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Simpan"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BtnUpdate">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdateActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BtnDelete">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hapus"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDeleteActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtIdKandang">
               <Properties>

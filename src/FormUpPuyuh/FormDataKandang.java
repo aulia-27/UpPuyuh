@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.Timer;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author Aulia
@@ -44,6 +46,10 @@ public class FormDataKandang extends javax.swing.JFrame {
         ).start();
     }
     
+    public JTable getTblDataKandang() {
+        return TblDataKandang;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,10 +65,10 @@ public class FormDataKandang extends javax.swing.JFrame {
         MenuTabel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         JspDataKandang = new javax.swing.JScrollPane();
-        TblDataKandang1 = new javax.swing.JTable();
+        TblDataKandang = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         BtnTambah = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BtnKembali = new javax.swing.JButton();
         SubMenu = new javax.swing.JPanel();
         jDashboard = new javax.swing.JLabel();
         Tab1 = new javax.swing.JPanel();
@@ -92,7 +98,7 @@ public class FormDataKandang extends javax.swing.JFrame {
 
         JspDataKandang.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
-        TblDataKandang1.setModel(new javax.swing.table.DefaultTableModel(
+        TblDataKandang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -108,7 +114,7 @@ public class FormDataKandang extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JspDataKandang.setViewportView(TblDataKandang1);
+        JspDataKandang.setViewportView(TblDataKandang);
 
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);
         MenuTabel.setLayout(MenuTabelLayout);
@@ -144,10 +150,10 @@ public class FormDataKandang extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Kembali");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnKembali.setText("Kembali");
+        BtnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnKembaliActionPerformed(evt);
             }
         });
 
@@ -174,14 +180,14 @@ public class FormDataKandang extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(MainMenuLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainMenuLayout.setVerticalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainMenuLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainMenuLayout.createSequentialGroup()
@@ -335,12 +341,12 @@ public class FormDataKandang extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnTambahActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliActionPerformed
         // TODO add your handling code here:
         FormMainMenu formMainMenu = new FormMainMenu();
         formMainMenu.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnKembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,6 +384,7 @@ public class FormDataKandang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnKembali;
     private javax.swing.JButton BtnTambah;
     private javax.swing.JScrollPane JspDataKandang;
     private javax.swing.JPanel MainMenu;
@@ -387,8 +394,7 @@ public class FormDataKandang extends javax.swing.JFrame {
     private javax.swing.JPanel Tab2;
     private javax.swing.JPanel Tab3;
     private javax.swing.JPanel Tab4;
-    private javax.swing.JTable TblDataKandang1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTable TblDataKandang;
     private javax.swing.JLabel jDashboard;
     private javax.swing.JLabel jDate;
     private javax.swing.JLabel jJadwal;

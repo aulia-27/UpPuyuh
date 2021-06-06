@@ -5,6 +5,9 @@
  */
 package FormUpPuyuh;
 
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Aulia
@@ -16,6 +19,22 @@ public class FormInputKandang extends javax.swing.JFrame {
      */
     public FormInputKandang() {
         initComponents();
+    }
+    
+    public JTextField getTxtIdKandang() {
+        return TxtIdKandang;
+    }
+    
+    public JTextField getTxtLabelKandang() {
+        return TxtLabelKandang;
+    }
+    
+    public JTextField getTxtBlokKandang() {
+        return TxtBlokKandang;
+    }
+    
+    public JTable getTblDataKandang() {
+        return TblDataKandang;
     }
 
     /**
@@ -43,8 +62,8 @@ public class FormInputKandang extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        JspDataKandang2 = new javax.swing.JScrollPane();
-        TblDataKandang2 = new javax.swing.JTable();
+        JspDataKandang = new javax.swing.JScrollPane();
+        TblDataKandang = new javax.swing.JTable();
         BtnSimpan = new javax.swing.JButton();
         BtnUpdate = new javax.swing.JButton();
         BtnDelete = new javax.swing.JButton();
@@ -196,7 +215,7 @@ public class FormInputKandang extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Blok Kandang");
 
-        TblDataKandang2.setModel(new javax.swing.table.DefaultTableModel(
+        TblDataKandang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -212,13 +231,28 @@ public class FormInputKandang extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JspDataKandang2.setViewportView(TblDataKandang2);
+        JspDataKandang.setViewportView(TblDataKandang);
 
         BtnSimpan.setText("Simpan");
+        BtnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSimpanActionPerformed(evt);
+            }
+        });
 
         BtnUpdate.setText("Update");
+        BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateActionPerformed(evt);
+            }
+        });
 
         BtnDelete.setText("Hapus");
+        BtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDeleteActionPerformed(evt);
+            }
+        });
 
         TxtIdKandang.setText("jTextField1");
 
@@ -259,7 +293,7 @@ public class FormInputKandang extends javax.swing.JFrame {
                                 .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)))))
                 .addGap(12, 12, 12)
-                .addComponent(JspDataKandang2, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                .addComponent(JspDataKandang, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(MenuInputDataLayout.createSequentialGroup()
                 .addGap(424, 424, 424)
@@ -292,7 +326,7 @@ public class FormInputKandang extends javax.swing.JFrame {
                             .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(JspDataKandang2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JspDataKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -349,6 +383,18 @@ public class FormInputKandang extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnKembaliActionPerformed
 
+    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSimpanActionPerformed
+
+    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnUpdateActionPerformed
+
+    private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -389,7 +435,7 @@ public class FormInputKandang extends javax.swing.JFrame {
     private javax.swing.JButton BtnKembali;
     private javax.swing.JButton BtnSimpan;
     private javax.swing.JButton BtnUpdate;
-    private javax.swing.JScrollPane JspDataKandang2;
+    private javax.swing.JScrollPane JspDataKandang;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JPanel MenuInputData;
     private javax.swing.JPanel SubMenu;
@@ -397,7 +443,7 @@ public class FormInputKandang extends javax.swing.JFrame {
     private javax.swing.JPanel Tab2;
     private javax.swing.JPanel Tab3;
     private javax.swing.JPanel Tab4;
-    private javax.swing.JTable TblDataKandang2;
+    private javax.swing.JTable TblDataKandang;
     private javax.swing.JTextField TxtBlokKandang;
     private javax.swing.JTextField TxtIdKandang;
     private javax.swing.JTextField TxtLabelKandang;

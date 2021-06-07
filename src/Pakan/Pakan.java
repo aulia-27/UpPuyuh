@@ -11,6 +11,7 @@ public class Pakan {
     private int harga;
     private int stok;
     private String jenis;
+    private String keterangan;
     
     public String getIdPakan() {
         return idPakan;
@@ -32,6 +33,10 @@ public class Pakan {
         return jenis;
     }
     
+    public String getKeterangan() {
+        return keterangan;
+    }
+    
     public void setIdPakan(String idPakan) {
         this.idPakan = idPakan;
     }
@@ -46,6 +51,10 @@ public class Pakan {
     
     public void setStok(int stok) {
         this.stok = stok;
+    }
+    
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
     
     public void setJenis(String jenis) {

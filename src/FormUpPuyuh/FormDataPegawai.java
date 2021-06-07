@@ -28,7 +28,12 @@ public class FormDataPegawai extends javax.swing.JFrame {
         initComponents();
         showDate();
         showTime();
+        editing();
         controller = new PegawaiController(this);
+    }
+    
+    public void editing() {
+        TblDataPegawai.setEnabled(false);
     }
     
     public void showDate() {

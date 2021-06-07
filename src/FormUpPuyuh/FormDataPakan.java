@@ -5,7 +5,14 @@
  */
 package FormUpPuyuh;
 
+import Controller.PakanController;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JTable;
+import javax.swing.Timer;
 
 /**
  *
@@ -16,14 +23,37 @@ public class FormDataPakan extends javax.swing.JFrame {
     /**
      * Creates new form FormDataPakan
      */
+    PakanController controller;
     public FormDataPakan() {
         initComponents();
+        showDate();
+        showTime();
+        controller = new PakanController(this);
     }
+    
+    public void showDate() {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        jDate.setText(sdf.format(d));
+    }
+    
+    public void showTime() {
+        new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+                jTime.setText(sdf.format(d));
+            }
+        }
+        ).start();
+    }
+    
     
     public JTable getTblDataPakan() {
         return TblDataPakan;
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -200,18 +230,32 @@ public class FormDataPakan extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Pakan", "Nama Pakan", "Harga", "Stok", "Keterangan"
+                "ID Pakan", "Nama Pakan", "Harga", "Stok", "Jenis", "Keterangan"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        TblDataPakan.setRowHeight(32);
         JspDataPakan.setViewportView(TblDataPakan);
+        if (TblDataPakan.getColumnModel().getColumnCount() > 0) {
+            TblDataPakan.getColumnModel().getColumn(0).setResizable(false);
+            TblDataPakan.getColumnModel().getColumn(0).setPreferredWidth(75);
+            TblDataPakan.getColumnModel().getColumn(1).setResizable(false);
+            TblDataPakan.getColumnModel().getColumn(1).setPreferredWidth(130);
+            TblDataPakan.getColumnModel().getColumn(2).setResizable(false);
+            TblDataPakan.getColumnModel().getColumn(2).setPreferredWidth(80);
+            TblDataPakan.getColumnModel().getColumn(3).setResizable(false);
+            TblDataPakan.getColumnModel().getColumn(3).setPreferredWidth(80);
+            TblDataPakan.getColumnModel().getColumn(4).setResizable(false);
+            TblDataPakan.getColumnModel().getColumn(4).setPreferredWidth(100);
+            TblDataPakan.getColumnModel().getColumn(5).setPreferredWidth(200);
+        }
 
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);
         MenuTabel.setLayout(MenuTabelLayout);

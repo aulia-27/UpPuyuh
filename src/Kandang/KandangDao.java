@@ -21,7 +21,7 @@ public class KandangDao {
     }
     
     public static void update(Connection con, Kandang kandang) throws SQLException {
-        String sql = "update kandang set nama=?, kebersihan=?, blok_kandang=? " + "where id_kandang=?";
+        String sql = "update kandang set nama=?, blok_kandang=? " + "where id_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kandang.getNama());
         ps.setString(2, kandang.getBlokKandang());

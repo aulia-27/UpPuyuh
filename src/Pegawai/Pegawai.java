@@ -5,12 +5,14 @@
  */
 package Pegawai;
 
+import java.util.Date;
+
 
 public class Pegawai {
     private String id_Pegawai;
     private String nama;
     private String tgl_lahir;
-    private int noTelp;
+    private String noTelp;
     private String alamat;
     private String id_Kandang;
     
@@ -26,7 +28,7 @@ public class Pegawai {
         return tgl_lahir;
     }
 
-    public int getNoTelp() {
+    public String getNoTelp() {
         return noTelp;
     }
     
@@ -50,7 +52,7 @@ public class Pegawai {
         this.tgl_lahir = tgl_lahir;
     }
     
-    public void setNoTelp(int noTelp) {
+    public void setNoTelp(String noTelp) {
         this.noTelp = noTelp;
     }
     

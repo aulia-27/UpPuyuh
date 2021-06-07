@@ -5,6 +5,8 @@
  */
 package FormUpPuyuh;
 
+import Controller.KandangController;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -22,10 +24,12 @@ public class FormDataKandang extends javax.swing.JFrame {
     /**
      * Creates new form FormDataKandang
      */
+    KandangController controller;
     public FormDataKandang() {
         initComponents();
         showTime();
         showDate();
+        controller = new KandangController(this);
     }
     
     public void showDate() {
@@ -98,6 +102,7 @@ public class FormDataKandang extends javax.swing.JFrame {
 
         JspDataKandang.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
+        TblDataKandang.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         TblDataKandang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -114,6 +119,7 @@ public class FormDataKandang extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TblDataKandang.setRowHeight(32);
         JspDataKandang.setViewportView(TblDataKandang);
 
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);

@@ -5,6 +5,13 @@
  */
 package FormUpPuyuh;
 
+import Controller.PegawaiController;
+import javax.swing.JButton;
+
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JComboBox;
 /**
  *
  * @author Aulia
@@ -12,10 +19,44 @@ package FormUpPuyuh;
 public class FormInputPegawai extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormInputPegawai
+     * Creates new form FormInputPegawai1
      */
+    PegawaiController controller;
     public FormInputPegawai() {
         initComponents();
+        controller = new PegawaiController(this);
+    }
+    
+    public JTextField getTxtIdPegawai() {
+        return TxtIdPegawai;
+    }
+    
+    public JTextField getTxtNama() {
+        return TxtNama;
+    }
+    
+    public JTextField getTxtTaggalLahir() {
+        return TxtTglLahir;
+    }
+    
+    public JTextField getTxtNoTelepon() {
+        return TxtNoTelepon;
+    }
+    
+    public JTextArea getTxtAlamat() {
+        return JtxAlamat;
+    }
+    
+    public JComboBox getCboIdKandang() {
+        return CboIdKandang;
+    }
+    
+    public JTable getTblDataPegawai() {
+        return TblDataPegawai;
+    }
+    
+    public JButton getBtnSimpan() {
+        return BtnSimpan;
     }
 
     /**
@@ -43,22 +84,25 @@ public class FormInputPegawai extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        JspDataKandang2 = new javax.swing.JScrollPane();
-        TblDataKandang2 = new javax.swing.JTable();
         BtnSimpan = new javax.swing.JButton();
         BtnUpdate = new javax.swing.JButton();
         BtnDelete = new javax.swing.JButton();
         TxtIdPegawai = new javax.swing.JTextField();
         TxtNama = new javax.swing.JTextField();
-        TxtTaggalLahir = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        TxtBlokKandang1 = new javax.swing.JTextField();
+        TxtNoTelepon = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JtxAlamat = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        CboIdKandang = new javax.swing.JComboBox<>();
+        JspDataPegawai = new javax.swing.JScrollPane();
+        TblDataPegawai = new javax.swing.JTable();
+        BtnClear = new javax.swing.JButton();
+        jDateTglLahir = new com.toedter.calendar.JDateChooser();
+        TxtTglLahir = new javax.swing.JTextField();
+        BtnSet = new javax.swing.JButton();
         BtnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -203,35 +247,35 @@ public class FormInputPegawai extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Tanggal Lahir");
 
-        TblDataKandang2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID Kandang", "Nama", "Blok Kandang"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        BtnSimpan.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        BtnSimpan.setText("Simpan");
+        BtnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSimpanActionPerformed(evt);
             }
         });
-        JspDataKandang2.setViewportView(TblDataKandang2);
 
-        BtnSimpan.setText("Simpan");
-
+        BtnUpdate.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         BtnUpdate.setText("Update");
+        BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateActionPerformed(evt);
+            }
+        });
 
+        BtnDelete.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         BtnDelete.setText("Hapus");
+        BtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDeleteActionPerformed(evt);
+            }
+        });
 
+        TxtIdPegawai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TxtIdPegawai.setText("jTextField1");
 
+        TxtNama.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TxtNama.setText("jTextField1");
-
-        TxtTaggalLahir.setText("jTextField1");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Input Data Pegawai");
@@ -239,67 +283,125 @@ public class FormInputPegawai extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("No Telepon");
 
-        TxtBlokKandang1.setText("jTextField1");
+        TxtNoTelepon.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TxtNoTelepon.setText("jTextField1");
+        TxtNoTelepon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNoTeleponKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Alamat");
 
         JtxAlamat.setColumns(20);
+        JtxAlamat.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        JtxAlamat.setLineWrap(true);
         JtxAlamat.setRows(5);
         jScrollPane1.setViewportView(JtxAlamat);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("ID Kandang");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CboIdKandang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CboIdKandang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        JspDataPegawai.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        TblDataPegawai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TblDataPegawai.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Pegawai", "Nama", "Tanggal Lahir", "No Telepon", "Alamat", "ID Kandang"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TblDataPegawai.setRowHeight(24);
+        TblDataPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblDataPegawaiMouseClicked(evt);
+            }
+        });
+        JspDataPegawai.setViewportView(TblDataPegawai);
+
+        BtnClear.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        BtnClear.setText("Clear");
+        BtnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnClearActionPerformed(evt);
+            }
+        });
+
+        jDateTglLahir.setDateFormatString("yyyy-MM-dd\n");
+
+        TxtTglLahir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TxtTglLahir.setText("jTextField1");
+
+        BtnSet.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BtnSet.setText("Set");
+        BtnSet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MenuInputDataLayout = new javax.swing.GroupLayout(MenuInputData);
         MenuInputData.setLayout(MenuInputDataLayout);
         MenuInputDataLayout.setHorizontalGroup(
             MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuInputDataLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuInputDataLayout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtIdPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(TxtIdPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(TxtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuInputDataLayout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNoTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtTaggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuInputDataLayout.createSequentialGroup()
-                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                                .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TxtTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(BtnSet, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1))
+                                .addComponent(jDateTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtBlokKandang1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(JspDataKandang2, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CboIdKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(104, 104, 104)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(JspDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(MenuInputDataLayout.createSequentialGroup()
                 .addGap(424, 424, 424)
@@ -311,13 +413,9 @@ public class FormInputPegawai extends javax.swing.JFrame {
             .addGroup(MenuInputDataLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
+                .addGap(39, 39, 39)
                 .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(JspDataKandang2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuInputDataLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtIdPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -328,27 +426,36 @@ public class FormInputPegawai extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtTaggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jDateTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnSet, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtBlokKandang1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(TxtNoTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuInputDataLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39)
-                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CboIdKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49))))
+                            .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addComponent(JspDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         BtnKembali.setText("Kembali");
@@ -372,7 +479,7 @@ public class FormInputPegawai extends javax.swing.JFrame {
                             .addGroup(MainMenuLayout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 443, Short.MAX_VALUE))
                     .addGroup(MainMenuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(MenuInputData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -397,12 +504,61 @@ public class FormInputPegawai extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
+        // TODO add your handling code here:
+        controller.insert();
+        controller.clearForm();
+        controller.viewTableInput();
+    }//GEN-LAST:event_BtnSimpanActionPerformed
+
+    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
+        // TODO add your handling code here:
+        controller.update();
+        controller.clearForm();
+        controller.viewTableInput();
+        BtnSimpan.setEnabled(true);
+    }//GEN-LAST:event_BtnUpdateActionPerformed
+
+    private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
+        // TODO add your handling code here:
+        controller.delete();
+        controller.clearForm();
+        controller.viewTableInput();
+        BtnSimpan.setEnabled(true);
+    }//GEN-LAST:event_BtnDeleteActionPerformed
+
+    private void TxtNoTeleponKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNoTeleponKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtNoTeleponKeyTyped
+
+    private void TblDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDataPegawaiMouseClicked
+        // TODO add your handling code here:
+        controller.onClickTabel();
+    }//GEN-LAST:event_TblDataPegawaiMouseClicked
+
+    private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
+        // TODO add your handling code here:
+        controller.clearForm();
+        BtnSimpan.setEnabled(true);
+    }//GEN-LAST:event_BtnClearActionPerformed
+
     private void BtnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliActionPerformed
         // TODO add your handling code here:
         FormDataPegawai formDataPegawai = new FormDataPegawai();
         formDataPegawai.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnKembaliActionPerformed
+
+    private void BtnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSetActionPerformed
+        // TODO add your handling code here:
+        String formatDate = ((JTextField)jDateTglLahir.getDateEditor().getUiComponent()).getText();
+        TxtTglLahir.setText(formatDate);
+    }//GEN-LAST:event_BtnSetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,6 +586,7 @@ public class FormInputPegawai extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FormInputPegawai.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -440,11 +597,14 @@ public class FormInputPegawai extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnClear;
     private javax.swing.JButton BtnDelete;
     private javax.swing.JButton BtnKembali;
+    private javax.swing.JButton BtnSet;
     private javax.swing.JButton BtnSimpan;
     private javax.swing.JButton BtnUpdate;
-    private javax.swing.JScrollPane JspDataKandang2;
+    private javax.swing.JComboBox<String> CboIdKandang;
+    private javax.swing.JScrollPane JspDataPegawai;
     private javax.swing.JTextArea JtxAlamat;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JPanel MenuInputData;
@@ -453,13 +613,13 @@ public class FormInputPegawai extends javax.swing.JFrame {
     private javax.swing.JPanel Tab2;
     private javax.swing.JPanel Tab3;
     private javax.swing.JPanel Tab4;
-    private javax.swing.JTable TblDataKandang2;
-    private javax.swing.JTextField TxtBlokKandang1;
+    private javax.swing.JTable TblDataPegawai;
     private javax.swing.JTextField TxtIdPegawai;
     private javax.swing.JTextField TxtNama;
-    private javax.swing.JTextField TxtTaggalLahir;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField TxtNoTelepon;
+    private javax.swing.JTextField TxtTglLahir;
     private javax.swing.JLabel jDashboard;
+    private com.toedter.calendar.JDateChooser jDateTglLahir;
     private javax.swing.JLabel jJadwal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

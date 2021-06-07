@@ -3,22 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Form/FormMainMenu.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Pakan/Pakan.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/KandangController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/PegawaiController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Form/FormInputDataPenyakit.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/KesehatanController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/PenyakitController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/CekTernakController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Form/FormLogin.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Kandang/Kandang.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Form/FormDataPegawai.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Kesehatan/Kesehatan.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/PakanController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Form/FormInputDataPegawai.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Form/FormInputCekTernak.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/CekTernak/CekTernak.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataPegawai.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormInputPenyakit.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataPenyakit.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormMainMenu.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormInputPegawai.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataKesehatan.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormInputKesehatan.java</file>
         </group>
     </open-files>
 </project-private>

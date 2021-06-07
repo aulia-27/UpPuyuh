@@ -5,6 +5,14 @@
  */
 package FormUpPuyuh;
 
+import Controller.PegawaiController;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JTable;
+import javax.swing.Timer;
 /**
  *
  * @author Aulia
@@ -14,10 +22,36 @@ public class FormDataPegawai extends javax.swing.JFrame {
     /**
      * Creates new form FormDataPegawai
      */
+    
+    PegawaiController controller;
     public FormDataPegawai() {
         initComponents();
+        showDate();
+        showTime();
+        controller = new PegawaiController(this);
+    }
+    
+    public void showDate() {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        jDate.setText(sdf.format(d));
+    }
+    
+    public void showTime() {
+        new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+                jTime.setText(sdf.format(d));
+            }
+        }
+        ).start();
     }
 
+    public JTable getTblDataPegawai() {
+        return TblDataPegawai;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,13 +74,13 @@ public class FormDataPegawai extends javax.swing.JFrame {
         MainMenu = new javax.swing.JPanel();
         jDate = new javax.swing.JLabel();
         jTime = new javax.swing.JLabel();
-        MenuTabel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        JspDataKandang = new javax.swing.JScrollPane();
-        TblDataKandang1 = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         BtnTambah = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BtnKembali = new javax.swing.JButton();
+        MenuTabel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        JspDataPegawai = new javax.swing.JScrollPane();
+        TblDataPegawai = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -182,14 +216,33 @@ public class FormDataPegawai extends javax.swing.JFrame {
         jTime.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTime.setText("Time");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("2021 Perternakan Burung Puyuh");
+
+        BtnTambah.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnTambah.setText("Tambah Data");
+        BtnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTambahActionPerformed(evt);
+            }
+        });
+
+        BtnKembali.setText("Kembali");
+        BtnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnKembaliActionPerformed(evt);
+            }
+        });
+
         MenuTabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel9.setText("Data Pegawai");
 
-        JspDataKandang.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        JspDataPegawai.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
-        TblDataKandang1.setModel(new javax.swing.table.DefaultTableModel(
+        TblDataPegawai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TblDataPegawai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -205,13 +258,14 @@ public class FormDataPegawai extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JspDataKandang.setViewportView(TblDataKandang1);
-        if (TblDataKandang1.getColumnModel().getColumnCount() > 0) {
-            TblDataKandang1.getColumnModel().getColumn(0).setResizable(false);
-            TblDataKandang1.getColumnModel().getColumn(0).setPreferredWidth(50);
-            TblDataKandang1.getColumnModel().getColumn(4).setResizable(false);
-            TblDataKandang1.getColumnModel().getColumn(4).setPreferredWidth(300);
-            TblDataKandang1.getColumnModel().getColumn(5).setPreferredWidth(80);
+        TblDataPegawai.setRowHeight(28);
+        JspDataPegawai.setViewportView(TblDataPegawai);
+        if (TblDataPegawai.getColumnModel().getColumnCount() > 0) {
+            TblDataPegawai.getColumnModel().getColumn(0).setResizable(false);
+            TblDataPegawai.getColumnModel().getColumn(0).setPreferredWidth(50);
+            TblDataPegawai.getColumnModel().getColumn(4).setResizable(false);
+            TblDataPegawai.getColumnModel().getColumn(4).setPreferredWidth(300);
+            TblDataPegawai.getColumnModel().getColumn(5).setPreferredWidth(80);
         }
 
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);
@@ -224,7 +278,7 @@ public class FormDataPegawai extends javax.swing.JFrame {
                 .addContainerGap(486, Short.MAX_VALUE))
             .addGroup(MenuTabelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JspDataKandang)
+                .addComponent(JspDataPegawai)
                 .addContainerGap())
         );
         MenuTabelLayout.setVerticalGroup(
@@ -233,27 +287,9 @@ public class FormDataPegawai extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JspDataKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JspDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("2021 Perternakan Burung Puyuh");
-
-        BtnTambah.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnTambah.setText("Tambah Data");
-        BtnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTambahActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Kembali");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout MainMenuLayout = new javax.swing.GroupLayout(MainMenu);
         MainMenu.setLayout(MainMenuLayout);
@@ -278,14 +314,14 @@ public class FormDataPegawai extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(MainMenuLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainMenuLayout.setVerticalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainMenuLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainMenuLayout.createSequentialGroup()
@@ -316,12 +352,12 @@ public class FormDataPegawai extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnTambahActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliActionPerformed
         // TODO add your handling code here:
         FormMainMenu formMainMenu = new FormMainMenu();
         formMainMenu.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnKembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,8 +395,9 @@ public class FormDataPegawai extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnKembali;
     private javax.swing.JButton BtnTambah;
-    private javax.swing.JScrollPane JspDataKandang;
+    private javax.swing.JScrollPane JspDataPegawai;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JPanel MenuTabel;
     private javax.swing.JPanel SubMenu;
@@ -368,8 +405,7 @@ public class FormDataPegawai extends javax.swing.JFrame {
     private javax.swing.JPanel Tab2;
     private javax.swing.JPanel Tab3;
     private javax.swing.JPanel Tab4;
-    private javax.swing.JTable TblDataKandang1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTable TblDataPegawai;
     private javax.swing.JLabel jDashboard;
     private javax.swing.JLabel jDate;
     private javax.swing.JLabel jJadwal;

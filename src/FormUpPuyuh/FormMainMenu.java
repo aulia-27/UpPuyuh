@@ -405,18 +405,30 @@ public class FormMainMenu extends javax.swing.JFrame {
 
     private void BtnDataKesehatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataKesehatanActionPerformed
         // TODO add your handling code here:
+        FormDataKesehatan formDataKesehatan = new FormDataKesehatan();
+        formDataKesehatan.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnDataKesehatanActionPerformed
 
     private void BtnDataPakanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataPakanActionPerformed
         // TODO add your handling code here:
+        FormDataPakan formDataPakan = new FormDataPakan();
+        formDataPakan.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnDataPakanActionPerformed
 
     private void BtnDataPenyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataPenyakitActionPerformed
         // TODO add your handling code here:
+        FormDataPenyakit formDataPenyakit = new FormDataPenyakit();
+        formDataPenyakit.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnDataPenyakitActionPerformed
 
     private void BtnDataCekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataCekActionPerformed
         // TODO add your handling code here:
+        FormDataCekTernak formDataCekTernak = new FormDataCekTernak();
+        formDataCekTernak.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BtnDataCekActionPerformed
 
     private void Tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab1MouseClicked

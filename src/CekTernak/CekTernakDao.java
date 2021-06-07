@@ -14,7 +14,7 @@ public class CekTernakDao {
     public static void insert(Connection con, CekTernak cekKandang ) throws SQLException{
         String sql = "insert into cek_kandang values (?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, cekKandang.getIdCek());
+        ps.setInt(1, cekKandang.getIdCek());
         ps.setString(2, cekKandang.getIdKandang());
         ps.setString(3, cekKandang.getIdPakan());
         ps.setInt(4, cekKandang.getJmlTelur());
@@ -31,14 +31,14 @@ public class CekTernakDao {
         ps.setInt(3, cekKandang.getJmlTelur());
         ps.setString(4, cekKandang.getKebersihan());
         ps.setString(5, cekKandang.getTglCek());
-        ps.setString(6, cekKandang.getIdCek());
+        ps.setInt(6, cekKandang.getIdCek());
         ps.executeUpdate();
     }
     
     public static void delete(Connection con, CekTernak cekKandang) throws SQLException{
         String sql = "delete from cek_kandang where id_cek=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, cekKandang.getIdCek());
+        ps.setInt(1, cekKandang.getIdCek());
         ps.executeUpdate();
     }
     
@@ -50,7 +50,7 @@ public class CekTernakDao {
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {            
             cekTernak = new CekTernak();
-            cekTernak.setIdCek(rs.getString(1));
+            cekTernak.setIdCek(rs.getInt(1));
             cekTernak.setIdKandang(rs.getString(2));
             cekTernak.setIdPakan(rs.getString(3));
             cekTernak.setJmlTelur(rs.getInt(4));

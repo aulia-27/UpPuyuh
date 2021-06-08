@@ -64,14 +64,6 @@ public class FormDataCekTernak extends javax.swing.JFrame {
 
         SubMenu = new javax.swing.JPanel();
         jDashboard = new javax.swing.JLabel();
-        Tab1 = new javax.swing.JPanel();
-        jUser = new javax.swing.JLabel();
-        Tab2 = new javax.swing.JPanel();
-        jJadwal = new javax.swing.JLabel();
-        Tab3 = new javax.swing.JPanel();
-        jReport = new javax.swing.JLabel();
-        Tab4 = new javax.swing.JPanel();
-        jLogout = new javax.swing.JLabel();
         MainMenu = new javax.swing.JPanel();
         jDate = new javax.swing.JLabel();
         jTime = new javax.swing.JLabel();
@@ -89,121 +81,21 @@ public class FormDataCekTernak extends javax.swing.JFrame {
         jDashboard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jDashboard.setText("Dashboard");
 
-        Tab1.setBackground(new java.awt.Color(204, 204, 204));
-
-        jUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jUser.setText("User");
-
-        javax.swing.GroupLayout Tab1Layout = new javax.swing.GroupLayout(Tab1);
-        Tab1.setLayout(Tab1Layout);
-        Tab1Layout.setHorizontalGroup(
-            Tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jUser)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tab1Layout.setVerticalGroup(
-            Tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab1Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jUser)
-                .addContainerGap())
-        );
-
-        Tab2.setBackground(new java.awt.Color(204, 204, 204));
-
-        jJadwal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jJadwal.setText("Jadwal");
-
-        javax.swing.GroupLayout Tab2Layout = new javax.swing.GroupLayout(Tab2);
-        Tab2.setLayout(Tab2Layout);
-        Tab2Layout.setHorizontalGroup(
-            Tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab2Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jJadwal)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tab2Layout.setVerticalGroup(
-            Tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab2Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jJadwal)
-                .addContainerGap())
-        );
-
-        Tab3.setBackground(new java.awt.Color(204, 204, 204));
-
-        jReport.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jReport.setText("Laporan");
-
-        javax.swing.GroupLayout Tab3Layout = new javax.swing.GroupLayout(Tab3);
-        Tab3.setLayout(Tab3Layout);
-        Tab3Layout.setHorizontalGroup(
-            Tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab3Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jReport)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tab3Layout.setVerticalGroup(
-            Tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab3Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jReport)
-                .addContainerGap())
-        );
-
-        Tab4.setBackground(new java.awt.Color(204, 204, 204));
-
-        jLogout.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLogout.setText("LogOut");
-
-        javax.swing.GroupLayout Tab4Layout = new javax.swing.GroupLayout(Tab4);
-        Tab4.setLayout(Tab4Layout);
-        Tab4Layout.setHorizontalGroup(
-            Tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab4Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLogout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tab4Layout.setVerticalGroup(
-            Tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab4Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLogout)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout SubMenuLayout = new javax.swing.GroupLayout(SubMenu);
         SubMenu.setLayout(SubMenuLayout);
         SubMenuLayout.setHorizontalGroup(
             SubMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tab1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Tab2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Tab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(SubMenuLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jDashboard)
                 .addContainerGap(41, Short.MAX_VALUE))
-            .addComponent(Tab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         SubMenuLayout.setVerticalGroup(
             SubMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SubMenuLayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(Tab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(Tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(Tab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                .addComponent(Tab4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addContainerGap(598, Short.MAX_VALUE))
         );
 
         getContentPane().add(SubMenu);
@@ -394,19 +286,11 @@ public class FormDataCekTernak extends javax.swing.JFrame {
     private javax.swing.JPanel MainMenu;
     private javax.swing.JPanel MenuTabel;
     private javax.swing.JPanel SubMenu;
-    private javax.swing.JPanel Tab1;
-    private javax.swing.JPanel Tab2;
-    private javax.swing.JPanel Tab3;
-    private javax.swing.JPanel Tab4;
     private javax.swing.JTable TblDataCekTernak;
     private javax.swing.JLabel jDashboard;
     private javax.swing.JLabel jDate;
-    private javax.swing.JLabel jJadwal;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLogout;
-    private javax.swing.JLabel jReport;
     private javax.swing.JLabel jTime;
-    private javax.swing.JLabel jUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -98,14 +98,6 @@ public class FormDataKandang extends javax.swing.JFrame {
         BtnClear = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         SubMenu = new javax.swing.JPanel();
-        Tab1 = new javax.swing.JPanel();
-        jUser = new javax.swing.JLabel();
-        Tab2 = new javax.swing.JPanel();
-        jJadwal = new javax.swing.JLabel();
-        Tab3 = new javax.swing.JPanel();
-        jReport = new javax.swing.JLabel();
-        Tab4 = new javax.swing.JPanel();
-        jLogout = new javax.swing.JLabel();
         Home = new javax.swing.JPanel();
         jDashboard = new javax.swing.JLabel();
 
@@ -439,109 +431,6 @@ public class FormDataKandang extends javax.swing.JFrame {
         getContentPane().add(MenuInput);
         MenuInput.setBounds(160, 0, 1120, 720);
 
-        Tab1.setBackground(new java.awt.Color(204, 204, 204));
-        Tab1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab1MouseClicked(evt);
-            }
-        });
-
-        jUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jUser.setText("User");
-
-        javax.swing.GroupLayout Tab1Layout = new javax.swing.GroupLayout(Tab1);
-        Tab1.setLayout(Tab1Layout);
-        Tab1Layout.setHorizontalGroup(
-            Tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jUser)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tab1Layout.setVerticalGroup(
-            Tab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab1Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jUser)
-                .addContainerGap())
-        );
-
-        Tab2.setBackground(new java.awt.Color(204, 204, 204));
-        Tab2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab2MouseClicked(evt);
-            }
-        });
-
-        jJadwal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jJadwal.setText("Jadwal");
-
-        javax.swing.GroupLayout Tab2Layout = new javax.swing.GroupLayout(Tab2);
-        Tab2.setLayout(Tab2Layout);
-        Tab2Layout.setHorizontalGroup(
-            Tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab2Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jJadwal)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tab2Layout.setVerticalGroup(
-            Tab2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab2Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jJadwal)
-                .addContainerGap())
-        );
-
-        Tab3.setBackground(new java.awt.Color(204, 204, 204));
-        Tab3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab3MouseClicked(evt);
-            }
-        });
-
-        jReport.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jReport.setText("Laporan");
-
-        javax.swing.GroupLayout Tab3Layout = new javax.swing.GroupLayout(Tab3);
-        Tab3.setLayout(Tab3Layout);
-        Tab3Layout.setHorizontalGroup(
-            Tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab3Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jReport)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        Tab3Layout.setVerticalGroup(
-            Tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab3Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jReport)
-                .addContainerGap())
-        );
-
-        Tab4.setBackground(new java.awt.Color(204, 204, 204));
-
-        jLogout.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLogout.setText("LogOut");
-
-        javax.swing.GroupLayout Tab4Layout = new javax.swing.GroupLayout(Tab4);
-        Tab4.setLayout(Tab4Layout);
-        Tab4Layout.setHorizontalGroup(
-            Tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Tab4Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLogout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Tab4Layout.setVerticalGroup(
-            Tab4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Tab4Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLogout)
-                .addContainerGap())
-        );
-
         Home.setBackground(new java.awt.Color(204, 204, 204));
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -559,7 +448,7 @@ public class FormDataKandang extends javax.swing.JFrame {
             .addGroup(HomeLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jDashboard)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         HomeLayout.setVerticalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,10 +462,6 @@ public class FormDataKandang extends javax.swing.JFrame {
         SubMenu.setLayout(SubMenuLayout);
         SubMenuLayout.setHorizontalGroup(
             SubMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Tab1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Tab2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Tab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Tab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(SubMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -587,15 +472,7 @@ public class FormDataKandang extends javax.swing.JFrame {
             .addGroup(SubMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(Tab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(Tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(Tab3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                .addComponent(Tab4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addContainerGap(588, Short.MAX_VALUE))
         );
 
         getContentPane().add(SubMenu);
@@ -655,26 +532,6 @@ public class FormDataKandang extends javax.swing.JFrame {
         controller.clearForm();
     }//GEN-LAST:event_BtnClearActionPerformed
 
-    private void Tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab1MouseClicked
-        // TODO add your handling code here:
-        FormMainMenu formMainMenu = new FormMainMenu();
-        formMainMenu.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_Tab1MouseClicked
-
-    private void Tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab2MouseClicked
-        // TODO add your handling code here:
-        FormMainMenu formMainMenu = new FormMainMenu();
-        formMainMenu.setVisible(false);
-        formMainMenu.getMenu1().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_Tab2MouseClicked
-
-    private void Tab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab3MouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_Tab3MouseClicked
-
     private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
         // TODO add your handling code here:
         
@@ -731,10 +588,6 @@ public class FormDataKandang extends javax.swing.JFrame {
     private javax.swing.JPanel MenuInputData;
     private javax.swing.JPanel MenuTabel;
     private javax.swing.JPanel SubMenu;
-    private javax.swing.JPanel Tab1;
-    private javax.swing.JPanel Tab2;
-    private javax.swing.JPanel Tab3;
-    private javax.swing.JPanel Tab4;
     private javax.swing.JTable TblDataKandang;
     private javax.swing.JTable TblDataKandang1;
     private javax.swing.JTextField TxtBlokKandang;
@@ -742,7 +595,6 @@ public class FormDataKandang extends javax.swing.JFrame {
     private javax.swing.JTextField TxtLabelKandang;
     private javax.swing.JLabel jDashboard;
     private javax.swing.JLabel jDate;
-    private javax.swing.JLabel jJadwal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -750,9 +602,6 @@ public class FormDataKandang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLogout;
-    private javax.swing.JLabel jReport;
     private javax.swing.JLabel jTime;
-    private javax.swing.JLabel jUser;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,14 +19,16 @@ public class UserDao {
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, user.getUsername());
         ps.setString(2, user.getPassword());
-        ps.setString(3, user.getAkses());
+        ps.setString(3, user.getNamaAkun());
+        ps.setString(4, user.getAkses());
         ps.executeUpdate();
     }
     
     public static void update(Connection con, User user) throws SQLException {
-        String sql = "update user set password=?, akses=? " + "where username=?";
+        String sql = "update user set password=?, nama=?, akses=? " + "where username=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, user.getPassword());
+        ps.setString(1, user.getNamaAkun());
         ps.setString(2, user.getAkses());
         ps.setString(3, user.getUsername());
         ps.executeUpdate();
@@ -49,7 +51,8 @@ public class UserDao {
             user = new User();
             user.setUsername(rs.getString(1));
             user.setPassword(rs.getString(2));
-            user.setAkses(rs.getString(3));
+            user.setNamaAkun(rs.getString(3));
+            user.setAkses(rs.getString(4));
         }
         return user;
     }

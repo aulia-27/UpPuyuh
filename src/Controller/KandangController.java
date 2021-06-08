@@ -7,6 +7,7 @@ package Controller;
 
 import FormUpPuyuh.FormDataKandang;
 import FormUpPuyuh.FormInputKandang;
+import FormUpPuyuh.FormInputKandang;
 
 import Kandang.Kandang;
 import Kandang.KandangDao;
@@ -72,7 +73,7 @@ public class KandangController {
             KandangDao.insert(con, kandang);
             JOptionPane.showMessageDialog(viewInput, "Entri Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewInput, "ID Kandang Sudah Ada"); 
         }
     }
     
@@ -94,7 +95,7 @@ public class KandangController {
             KandangDao.delete(con, kandang);
             JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());
+            JOptionPane.showMessageDialog(viewInput, "Silakan Pilih Data Pada Tabel");
         }
     }
     

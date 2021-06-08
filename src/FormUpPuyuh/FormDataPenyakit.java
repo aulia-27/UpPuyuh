@@ -5,6 +5,8 @@
  */
 package FormUpPuyuh;
 
+import Controller.PenyakitController;
+
 import javax.swing.JTable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,10 +23,13 @@ public class FormDataPenyakit extends javax.swing.JFrame {
     /**
      * Creates new form FormDataPenyakit
      */
+    
+    PenyakitController controller;
     public FormDataPenyakit() {
         initComponents();
         showDate();
         showTime();
+        controller = new PenyakitController(this);
     }
     
     public void showDate() {
@@ -236,7 +241,19 @@ public class FormDataPenyakit extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TblDataPenyakit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TblDataPenyakit.setDoubleBuffered(true);
+        TblDataPenyakit.setEnabled(false);
+        TblDataPenyakit.setRowHeight(32);
+        TblDataPenyakit.setRowMargin(2);
         JspDataPenyakit.setViewportView(TblDataPenyakit);
+        if (TblDataPenyakit.getColumnModel().getColumnCount() > 0) {
+            TblDataPenyakit.getColumnModel().getColumn(0).setResizable(false);
+            TblDataPenyakit.getColumnModel().getColumn(0).setPreferredWidth(50);
+            TblDataPenyakit.getColumnModel().getColumn(1).setPreferredWidth(150);
+            TblDataPenyakit.getColumnModel().getColumn(2).setResizable(false);
+            TblDataPenyakit.getColumnModel().getColumn(2).setPreferredWidth(700);
+        }
 
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);
         MenuTabel.setLayout(MenuTabelLayout);

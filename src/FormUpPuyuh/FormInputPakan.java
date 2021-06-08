@@ -6,6 +6,7 @@
 package FormUpPuyuh;
 
 import Controller.PakanController;
+import javax.swing.JButton;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -53,6 +54,10 @@ public class FormInputPakan extends javax.swing.JFrame {
     
     public JTable getTblDataPakan() {
         return TblDataPakan;
+    }
+    
+    public JButton getBtnSimpan() {
+        return BtnSimpan;
     }
 
     /**
@@ -385,13 +390,13 @@ public class FormInputPakan extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(59, 59, 59)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(JspDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JspDataPegawai)
                 .addContainerGap())
             .addGroup(MenuInputDataLayout.createSequentialGroup()
                 .addGap(424, 424, 424)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(482, Short.MAX_VALUE))
         );
         MenuInputDataLayout.setVerticalGroup(
             MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,7 +501,6 @@ public class FormInputPakan extends javax.swing.JFrame {
         controller.update();
         controller.clearForm();
         controller.viewTableInput();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
@@ -517,7 +521,6 @@ public class FormInputPakan extends javax.swing.JFrame {
     private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
         // TODO add your handling code here:
         controller.clearForm();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnClearActionPerformed
 
     private void TxtStokKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtStokKeyTyped
@@ -532,7 +535,6 @@ public class FormInputPakan extends javax.swing.JFrame {
     private void TblDataPakanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDataPakanMouseClicked
         // TODO add your handling code here:
         controller.onClickTabel();
-        BtnSimpan.setEnabled(false);
     }//GEN-LAST:event_TblDataPakanMouseClicked
 
     private void TxtHargaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtHargaKeyTyped

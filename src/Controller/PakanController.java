@@ -98,7 +98,7 @@ public class PakanController {
     
     public void delete() {
         try {
-            PakanDao.insert(con, pakan);
+            PakanDao.delete(con, pakan);
             JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());

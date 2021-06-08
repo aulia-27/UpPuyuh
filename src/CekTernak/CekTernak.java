@@ -6,14 +6,14 @@
 package CekTernak;
 
 public class CekTernak {
-    private int id_cek;
+    private String id_cek;
     private String id_kandang;
     private String id_pakan;
     private int jml_telur;
     private String kebersihan;
     private String tgl_cek;
     
-    public int getIdCek() {
+    public String getIdCek() {
         return id_cek;
     }
     
@@ -37,7 +37,7 @@ public class CekTernak {
         return tgl_cek;
     }
     
-    public void setIdCek(int id_cek) {
+    public void setIdCek(String id_cek) {
         this.id_cek = id_cek;
     }
     

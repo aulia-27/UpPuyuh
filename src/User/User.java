@@ -13,6 +13,7 @@ public class User {
     private String username;
     private String password;
     private String akses;
+    private String nama_akun;
     
     public String getUsername() {
         return username;
@@ -28,11 +29,20 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    
     public String getAkses() {
         return akses;
     }
     
     public void setAkses(String akses) {
         this.akses = akses;
+    }
+    
+    public String getNamaAkun() {
+        return nama_akun;
+    }
+    
+    public void setNamaAkun(String nama_akun) {
+        this.nama_akun = nama_akun;
     }
 }

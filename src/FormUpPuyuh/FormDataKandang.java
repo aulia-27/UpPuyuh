@@ -25,11 +25,13 @@ public class FormDataKandang extends javax.swing.JFrame {
      * Creates new form FormDataKandang
      */
     KandangController controller;
+
     public FormDataKandang() {
         initComponents();
         showTime();
         showDate();
         controller = new KandangController(this);
+        MenuData();
     }
     
     public void showDate() {
@@ -50,6 +52,11 @@ public class FormDataKandang extends javax.swing.JFrame {
         ).start();
     }
     
+    public void MenuData() {
+        MenuData.setVisible(true);
+        MenuInput.setVisible(false);
+    }
+    
     public JTable getTblDataKandang() {
         return TblDataKandang;
     }
@@ -63,7 +70,7 @@ public class FormDataKandang extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MainMenu = new javax.swing.JPanel();
+        MenuData = new javax.swing.JPanel();
         jDate = new javax.swing.JLabel();
         jTime = new javax.swing.JLabel();
         MenuTabel = new javax.swing.JPanel();
@@ -72,9 +79,25 @@ public class FormDataKandang extends javax.swing.JFrame {
         TblDataKandang = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         BtnTambah = new javax.swing.JButton();
-        BtnKembali = new javax.swing.JButton();
+        BtnKembaliMenu = new javax.swing.JButton();
+        MenuInput = new javax.swing.JPanel();
+        BtnKembaliData = new javax.swing.JButton();
+        MenuInputData = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        JspDataKandang1 = new javax.swing.JScrollPane();
+        TblDataKandang1 = new javax.swing.JTable();
+        BtnSimpan = new javax.swing.JButton();
+        BtnUpdate = new javax.swing.JButton();
+        BtnDelete = new javax.swing.JButton();
+        TxtIdKandang = new javax.swing.JTextField();
+        TxtLabelKandang = new javax.swing.JTextField();
+        TxtBlokKandang = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        BtnClear = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         SubMenu = new javax.swing.JPanel();
-        jDashboard = new javax.swing.JLabel();
         Tab1 = new javax.swing.JPanel();
         jUser = new javax.swing.JLabel();
         Tab2 = new javax.swing.JPanel();
@@ -83,11 +106,13 @@ public class FormDataKandang extends javax.swing.JFrame {
         jReport = new javax.swing.JLabel();
         Tab4 = new javax.swing.JPanel();
         jLogout = new javax.swing.JLabel();
+        Home = new javax.swing.JPanel();
+        jDashboard = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        MainMenu.setBackground(new java.awt.Color(255, 255, 255));
+        MenuData.setBackground(new java.awt.Color(255, 255, 255));
 
         jDate.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jDate.setText("Date");
@@ -156,67 +181,270 @@ public class FormDataKandang extends javax.swing.JFrame {
             }
         });
 
-        BtnKembali.setText("Kembali");
-        BtnKembali.addActionListener(new java.awt.event.ActionListener() {
+        BtnKembaliMenu.setText("Kembali");
+        BtnKembaliMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnKembaliActionPerformed(evt);
+                BtnKembaliMenuActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout MainMenuLayout = new javax.swing.GroupLayout(MainMenu);
-        MainMenu.setLayout(MainMenuLayout);
-        MainMenuLayout.setHorizontalGroup(
-            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MenuTabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout MenuDataLayout = new javax.swing.GroupLayout(MenuData);
+        MenuData.setLayout(MenuDataLayout);
+        MenuDataLayout.setHorizontalGroup(
+            MenuDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuDataLayout.createSequentialGroup()
+                .addGroup(MenuDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuDataLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(MenuTabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(MenuDataLayout.createSequentialGroup()
+                        .addGroup(MenuDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuDataLayout.createSequentialGroup()
+                                .addGap(107, 107, 107)
+                                .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuDataLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(BtnKembaliMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)))
                 .addContainerGap())
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGap(407, 407, 407)
-                        .addComponent(jLabel6))
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(MenuDataLayout.createSequentialGroup()
+                .addGap(414, 414, 414)
+                .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        MainMenuLayout.setVerticalGroup(
-            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainMenuLayout.createSequentialGroup()
+        MenuDataLayout.setVerticalGroup(
+            MenuDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuDataLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(MenuDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(MenuDataLayout.createSequentialGroup()
                         .addComponent(BtnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenuLayout.createSequentialGroup()
-                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(MenuDataLayout.createSequentialGroup()
+                        .addComponent(BtnKembaliMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(MenuDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTime, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
                 .addComponent(MenuTabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addGap(13, 13, 13))
+                .addGap(7, 7, 7))
         );
 
-        getContentPane().add(MainMenu);
-        MainMenu.setBounds(160, 0, 1120, 720);
+        getContentPane().add(MenuData);
+        MenuData.setBounds(160, 0, 1120, 720);
 
-        jDashboard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jDashboard.setText("Dashboard");
+        MenuInput.setBackground(new java.awt.Color(255, 255, 255));
+
+        BtnKembaliData.setText("Kembali");
+        BtnKembaliData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnKembaliDataActionPerformed(evt);
+            }
+        });
+
+        MenuInputData.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("ID Kandang");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Label Kandang");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Blok Kandang");
+
+        TblDataKandang1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        TblDataKandang1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Kandang", "Nama", "Blok Kandang"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TblDataKandang1.setRowHeight(32);
+        TblDataKandang1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblDataKandang1MouseClicked(evt);
+            }
+        });
+        JspDataKandang1.setViewportView(TblDataKandang1);
+
+        BtnSimpan.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        BtnSimpan.setText("Simpan");
+        BtnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSimpanActionPerformed(evt);
+            }
+        });
+
+        BtnUpdate.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        BtnUpdate.setText("Update");
+        BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateActionPerformed(evt);
+            }
+        });
+
+        BtnDelete.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        BtnDelete.setText("Hapus");
+        BtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDeleteActionPerformed(evt);
+            }
+        });
+
+        TxtIdKandang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TxtIdKandang.setText("jTextField1");
+
+        TxtLabelKandang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TxtLabelKandang.setText("jTextField1");
+
+        TxtBlokKandang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TxtBlokKandang.setText("jTextField1");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setText("Input Data Kandang");
+
+        BtnClear.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        BtnClear.setText("Clear");
+        BtnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnClearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MenuInputDataLayout = new javax.swing.GroupLayout(MenuInputData);
+        MenuInputData.setLayout(MenuInputDataLayout);
+        MenuInputDataLayout.setHorizontalGroup(
+            MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuInputDataLayout.createSequentialGroup()
+                .addGap(424, 424, 424)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(MenuInputDataLayout.createSequentialGroup()
+                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnClear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(52, 52, 52))
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(TxtLabelKandang))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(TxtIdKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(MenuInputDataLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtBlokKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(JspDataKandang1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        MenuInputDataLayout.setVerticalGroup(
+            MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuInputDataLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtIdKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TxtLabelKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtBlokKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(JspDataKandang1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("2021 Perternakan Burung Puyuh");
+
+        javax.swing.GroupLayout MenuInputLayout = new javax.swing.GroupLayout(MenuInput);
+        MenuInput.setLayout(MenuInputLayout);
+        MenuInputLayout.setHorizontalGroup(
+            MenuInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuInputLayout.createSequentialGroup()
+                .addGroup(MenuInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuInputLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(BtnKembaliData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(MenuInputLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(MenuInputData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(MenuInputLayout.createSequentialGroup()
+                .addGap(414, 414, 414)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MenuInputLayout.setVerticalGroup(
+            MenuInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuInputLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(BtnKembaliData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(MenuInputData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7))
+        );
+
+        getContentPane().add(MenuInput);
+        MenuInput.setBounds(160, 0, 1120, 720);
 
         Tab1.setBackground(new java.awt.Color(204, 204, 204));
+        Tab1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab1MouseClicked(evt);
+            }
+        });
 
         jUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jUser.setText("User");
@@ -239,6 +467,11 @@ public class FormDataKandang extends javax.swing.JFrame {
         );
 
         Tab2.setBackground(new java.awt.Color(204, 204, 204));
+        Tab2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab2MouseClicked(evt);
+            }
+        });
 
         jJadwal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jJadwal.setText("Jadwal");
@@ -261,6 +494,11 @@ public class FormDataKandang extends javax.swing.JFrame {
         );
 
         Tab3.setBackground(new java.awt.Color(204, 204, 204));
+        Tab3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tab3MouseClicked(evt);
+            }
+        });
 
         jReport.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jReport.setText("Laporan");
@@ -272,7 +510,7 @@ public class FormDataKandang extends javax.swing.JFrame {
             .addGroup(Tab3Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jReport)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         Tab3Layout.setVerticalGroup(
             Tab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,6 +542,33 @@ public class FormDataKandang extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        Home.setBackground(new java.awt.Color(204, 204, 204));
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+        });
+
+        jDashboard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jDashboard.setText("Dashboard");
+
+        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
+        Home.setLayout(HomeLayout);
+        HomeLayout.setHorizontalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jDashboard)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        HomeLayout.setVerticalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout SubMenuLayout = new javax.swing.GroupLayout(SubMenu);
         SubMenu.setLayout(SubMenuLayout);
         SubMenuLayout.setHorizontalGroup(
@@ -311,18 +576,18 @@ public class FormDataKandang extends javax.swing.JFrame {
             .addComponent(Tab1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Tab2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Tab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(SubMenuLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jDashboard)
-                .addContainerGap(41, Short.MAX_VALUE))
             .addComponent(Tab4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(SubMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         SubMenuLayout.setVerticalGroup(
             SubMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SubMenuLayout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addContainerGap()
+                .addComponent(Home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
                 .addComponent(Tab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(Tab2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,17 +607,78 @@ public class FormDataKandang extends javax.swing.JFrame {
 
     private void BtnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahActionPerformed
         // TODO add your handling code here:
-        FormInputKandang formInputKandang = new FormInputKandang();
-        formInputKandang.setVisible(true);
-        dispose();
+        MenuData.setVisible(false);
+        MenuInput.setVisible(true);
     }//GEN-LAST:event_BtnTambahActionPerformed
 
-    private void BtnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliActionPerformed
+    private void BtnKembaliMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliMenuActionPerformed
         // TODO add your handling code here:
         FormMainMenu formMainMenu = new FormMainMenu();
         formMainMenu.setVisible(true);
         dispose();
-    }//GEN-LAST:event_BtnKembaliActionPerformed
+    }//GEN-LAST:event_BtnKembaliMenuActionPerformed
+
+    private void BtnKembaliDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliDataActionPerformed
+        // TODO add your handling code here:
+        MenuData.setVisible(true);
+        MenuInput.setVisible(false);
+    }//GEN-LAST:event_BtnKembaliDataActionPerformed
+
+    private void TblDataKandang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDataKandang1MouseClicked
+        // TODO add your handling code here:
+        controller.onClickTabel();
+    }//GEN-LAST:event_TblDataKandang1MouseClicked
+
+    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
+        // TODO add your handling code here:
+        controller.insert();
+        controller.clearForm();
+        controller.viewTableInput();
+    }//GEN-LAST:event_BtnSimpanActionPerformed
+
+    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
+        // TODO add your handling code here:
+        controller.update();
+        controller.clearForm();
+        controller.viewTableInput();
+    }//GEN-LAST:event_BtnUpdateActionPerformed
+
+    private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
+        // TODO add your handling code here:
+        controller.delete();
+        controller.clearForm();
+        controller.viewTableInput();
+    }//GEN-LAST:event_BtnDeleteActionPerformed
+
+    private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
+        // TODO add your handling code here:
+        controller.clearForm();
+    }//GEN-LAST:event_BtnClearActionPerformed
+
+    private void Tab1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab1MouseClicked
+        // TODO add your handling code here:
+        FormMainMenu formMainMenu = new FormMainMenu();
+        formMainMenu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Tab1MouseClicked
+
+    private void Tab2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab2MouseClicked
+        // TODO add your handling code here:
+        FormMainMenu formMainMenu = new FormMainMenu();
+        formMainMenu.setVisible(false);
+        formMainMenu.getMenu1().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Tab2MouseClicked
+
+    private void Tab3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab3MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Tab3MouseClicked
+
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_HomeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -390,10 +716,19 @@ public class FormDataKandang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnKembali;
+    private javax.swing.JButton BtnClear;
+    private javax.swing.JButton BtnDelete;
+    private javax.swing.JButton BtnKembaliData;
+    private javax.swing.JButton BtnKembaliMenu;
+    private javax.swing.JButton BtnSimpan;
     private javax.swing.JButton BtnTambah;
+    private javax.swing.JButton BtnUpdate;
+    private javax.swing.JPanel Home;
     private javax.swing.JScrollPane JspDataKandang;
-    private javax.swing.JPanel MainMenu;
+    private javax.swing.JScrollPane JspDataKandang1;
+    private javax.swing.JPanel MenuData;
+    private javax.swing.JPanel MenuInput;
+    private javax.swing.JPanel MenuInputData;
     private javax.swing.JPanel MenuTabel;
     private javax.swing.JPanel SubMenu;
     private javax.swing.JPanel Tab1;
@@ -401,10 +736,19 @@ public class FormDataKandang extends javax.swing.JFrame {
     private javax.swing.JPanel Tab3;
     private javax.swing.JPanel Tab4;
     private javax.swing.JTable TblDataKandang;
+    private javax.swing.JTable TblDataKandang1;
+    private javax.swing.JTextField TxtBlokKandang;
+    private javax.swing.JTextField TxtIdKandang;
+    private javax.swing.JTextField TxtLabelKandang;
     private javax.swing.JLabel jDashboard;
     private javax.swing.JLabel jDate;
     private javax.swing.JLabel jJadwal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLogout;
     private javax.swing.JLabel jReport;

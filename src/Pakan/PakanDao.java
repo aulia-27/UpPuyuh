@@ -25,7 +25,7 @@ public class PakanDao {
     }
     
     public static void update(Connection con, Pakan pakan) throws SQLException{
-        String sql = "update pakan set nama=?, harga=?, stok=?, jenis=? " + "where id_pakan=?";
+        String sql = "update pakan set nama=?, harga=?, stok=?, jenis=?, keterangan=?" + "where id_pakan=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pakan.getNama());
         ps.setInt(2, pakan.getHarga());

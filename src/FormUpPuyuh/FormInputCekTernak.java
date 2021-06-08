@@ -26,6 +26,10 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         controller = new CekTernakController(this);
     }
     
+    public JTextField getTxtIdCek() {
+        return TxtIdCek;
+    }
+    
     public JComboBox getCboIdKandang() {
         return CboIdKandang;
     }
@@ -88,6 +92,9 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         CboIdPakan = new javax.swing.JComboBox<>();
         CboKebersihan = new javax.swing.JComboBox<>();
         TxtTglCek = new javax.swing.JTextField();
+        BtnClear = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        TxtIdCek = new javax.swing.JTextField();
         BtnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -254,6 +261,11 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         });
 
         TxtJmlTelur.setText("jTextField1");
+        TxtJmlTelur.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtJmlTelurKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Input Data Cek Ternak");
@@ -282,6 +294,11 @@ public class FormInputCekTernak extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TblDataCekTernak.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblDataCekTernakMouseClicked(evt);
+            }
+        });
         JspDataCekTernak.setViewportView(TblDataCekTernak);
 
         CboIdKandang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -291,6 +308,23 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         CboKebersihan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         TxtTglCek.setText("jTextField1");
+        TxtTglCek.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTglCekKeyTyped(evt);
+            }
+        });
+
+        BtnClear.setText("Clear");
+        BtnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnClearActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("ID Cek");
+
+        TxtIdCek.setText("jTextField1");
 
         javax.swing.GroupLayout MenuInputDataLayout = new javax.swing.GroupLayout(MenuInputData);
         MenuInputData.setLayout(MenuInputDataLayout);
@@ -299,7 +333,6 @@ public class FormInputCekTernak extends javax.swing.JFrame {
             .addGroup(MenuInputDataLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,14 +353,22 @@ public class FormInputCekTernak extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuInputDataLayout.createSequentialGroup()
-                                    .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(56, 56, 56)
-                                    .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(TxtTglCek, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addComponent(JspDataCekTernak, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                            .addComponent(TxtTglCek, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(80, 80, 80)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtIdCek, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JspDataCekTernak, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
                 .addGap(11, 11, 11))
             .addGroup(MenuInputDataLayout.createSequentialGroup()
                 .addGap(392, 392, 392)
@@ -345,7 +386,11 @@ public class FormInputCekTernak extends javax.swing.JFrame {
                         .addComponent(JspDataCekTernak, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
-                        .addGap(84, 84, 84)
+                        .addGap(67, 67, 67)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtIdCek, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CboIdKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -365,11 +410,14 @@ public class FormInputCekTernak extends javax.swing.JFrame {
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TxtTglCek, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                        .addGap(18, 18, 18)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -447,6 +495,29 @@ public class FormInputCekTernak extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnKembaliActionPerformed
 
+    private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnClearActionPerformed
+
+    private void TxtJmlTelurKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtJmlTelurKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtJmlTelurKeyTyped
+
+    private void TxtTglCekKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTglCekKeyTyped
+        // TODO add your handling code here:
+        TxtTglCek.setEditable(false);
+    }//GEN-LAST:event_TxtTglCekKeyTyped
+
+    private void TblDataCekTernakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDataCekTernakMouseClicked
+        // TODO add your handling code here:
+        controller.onClickTabel();
+    }//GEN-LAST:event_TblDataCekTernakMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -483,6 +554,7 @@ public class FormInputCekTernak extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnClear;
     private javax.swing.JButton BtnDelete;
     private javax.swing.JButton BtnKembali;
     private javax.swing.JButton BtnSimpan;
@@ -499,6 +571,7 @@ public class FormInputCekTernak extends javax.swing.JFrame {
     private javax.swing.JPanel Tab3;
     private javax.swing.JPanel Tab4;
     private javax.swing.JTable TblDataCekTernak;
+    private javax.swing.JTextField TxtIdCek;
     private javax.swing.JTextField TxtJmlTelur;
     private javax.swing.JTextField TxtTglCek;
     private javax.swing.JLabel jDashboard;
@@ -510,6 +583,7 @@ public class FormInputCekTernak extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLogout;
     private javax.swing.JLabel jReport;
     private javax.swing.JLabel jUser;

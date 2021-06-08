@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 
 public class KesehatanDao {
     public static void insert(Connection con, Kesehatan kesehatan ) throws SQLException{
-        String sql = "insert into kesehatan values (?,?,?,?,?,?)";
+        String sql = "insert into kesehatan values (?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kesehatan.getIdKesehatan());
         ps.setString(2, kesehatan.getIdKandang());

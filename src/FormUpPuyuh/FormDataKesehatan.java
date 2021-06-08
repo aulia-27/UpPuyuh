@@ -5,6 +5,8 @@
  */
 package FormUpPuyuh;
 
+import Controller.KesehatanController;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -20,10 +22,13 @@ public class FormDataKesehatan extends javax.swing.JFrame {
     /**
      * Creates new form FormDataKesehatan
      */
+    
+    KesehatanController controller;
     public FormDataKesehatan() {
         initComponents();
         showDate();
         showTime();
+        controller = new KesehatanController(this);
     }
     
     public void showDate() {

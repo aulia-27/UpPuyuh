@@ -428,7 +428,6 @@ public class FormInputKandang extends javax.swing.JFrame {
         controller.update();
         controller.clearForm();
         controller.viewTableInput();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
@@ -436,19 +435,16 @@ public class FormInputKandang extends javax.swing.JFrame {
         controller.delete();
         controller.clearForm();
         controller.viewTableInput();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnDeleteActionPerformed
 
     private void TblDataKandangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDataKandangMouseClicked
         // TODO add your handling code here:
         controller.onClickTabel();
-        BtnSimpan.setEnabled(false);
     }//GEN-LAST:event_TblDataKandangMouseClicked
 
     private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
         // TODO add your handling code here:
         controller.clearForm();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnClearActionPerformed
 
     /**

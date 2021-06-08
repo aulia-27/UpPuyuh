@@ -14,6 +14,8 @@ import Koneksi.Koneksi;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -37,6 +39,7 @@ public class CekTernakController {
             isiCboIdKandang();
             isiCboIdPakan();
             isiCboKebersihan();
+            DateNow();
             viewTableInput();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
@@ -59,8 +62,14 @@ public class CekTernakController {
     }
     
     public void clearForm(){
+        viewInput.getTxtIdCek().setText("");
         viewInput.getTxtJmlTelur().setText("");
-        viewInput.getTxtTglCek().setText("");
+    }
+    
+    public void DateNow() {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        viewInput.getTxtTglCek().setText(sdf.format(d));
     }
     
     public void isiCboIdKandang() {
@@ -97,9 +106,9 @@ public class CekTernakController {
     
     public void insert(){
         CekTernak = new CekTernak();
-        CekTernak.setIdCek(Integer.parseInt(viewInput.toString()));
-        CekTernak.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString());
-        CekTernak.setIdPakan(viewInput.getCboIdPakan().getSelectedItem().toString());
+        CekTernak.setIdCek(viewInput.getTxtIdCek().getText());
+        CekTernak.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setIdPakan(viewInput.getCboIdPakan().getSelectedItem().toString().split("-")[0]);
         CekTernak.setJmlTelur(Integer.parseInt(viewInput.getTxtJmlTelur().getText()));
         CekTernak.setKebersihan(viewInput.getCboKebersihan().getSelectedItem().toString());
         CekTernak.setTglCek(viewInput.getTxtTglCek().getText());
@@ -113,14 +122,14 @@ public class CekTernakController {
     
     public void update(){
         CekTernak = new CekTernak();
-        CekTernak.setIdCek(Integer.parseInt(viewInput.toString()));
-        CekTernak.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString());
-        CekTernak.setIdPakan(viewInput.getCboIdPakan().getSelectedItem().toString());
+        CekTernak.setIdCek(viewInput.getTxtIdCek().getText());
+        CekTernak.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setIdPakan(viewInput.getCboIdPakan().getSelectedItem().toString().split("-")[0]);
         CekTernak.setJmlTelur(Integer.parseInt(viewInput.getTxtJmlTelur().getText()));
         CekTernak.setKebersihan(viewInput.getCboKebersihan().getSelectedItem().toString());
         CekTernak.setTglCek(viewInput.getTxtTglCek().getText());
         try {
-            CekTernakDao.insert(con, CekTernak);
+            CekTernakDao.update(con, CekTernak);
             JOptionPane.showMessageDialog(viewInput, "Update Data Ok");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
@@ -129,10 +138,30 @@ public class CekTernakController {
     
     public void delete() {
         try {
-            CekTernakDao.insert(con, CekTernak);
+            CekTernakDao.delete(con, CekTernak);
             JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());
+        }
+    }
+    
+    public void onClickTabel() {
+        try {
+            String kode = viewInput.getTblDataCekTernak().getValueAt(viewInput.getTblDataCekTernak().getSelectedRow(), 0).toString();
+            CekTernak = CekTernakDao.getCekTernak(con, kode);
+            if (CekTernak != null) {
+                viewInput.getTxtIdCek().setText(CekTernak.getIdCek());
+                viewInput.getCboIdKandang().setSelectedItem(CekTernak.getIdKandang());
+                viewInput.getCboIdPakan().setSelectedItem(CekTernak.getIdPakan());
+                viewInput.getTxtJmlTelur().setText(""+CekTernak.getJmlTelur());
+                viewInput.getCboKebersihan().setSelectedItem(CekTernak.getKebersihan());
+                viewInput.getTxtTglCek().setText(CekTernak.getTglCek());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -140,10 +169,10 @@ public class CekTernakController {
         try {
             DefaultTableModel tableModel = (DefaultTableModel) viewData.getTblDataCekTernak().getModel();
             tableModel.setRowCount(0);
-            ResultSet rs = con.createStatement().executeQuery("select * cek_kandang");
+            ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
             while (rs.next()) { 
                 Object [] data = {
-                    rs.getInt(1),
+                    rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getInt(4),
@@ -161,10 +190,10 @@ public class CekTernakController {
         try {
             DefaultTableModel tableModel = (DefaultTableModel) viewInput.getTblDataCekTernak().getModel();
             tableModel.setRowCount(0);
-            ResultSet rs = con.createStatement().executeQuery("select * cek_kandang");
+            ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
             while (rs.next()) { 
                 Object [] data = {
-                    rs.getInt(1),
+                    rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getInt(4),

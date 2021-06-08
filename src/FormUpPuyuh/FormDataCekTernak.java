@@ -5,7 +5,14 @@
  */
 package FormUpPuyuh;
 
+import Controller.CekTernakController;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.JTable;
+import javax.swing.Timer;
 /**
  *
  * @author Aulia
@@ -15,8 +22,31 @@ public class FormDataCekTernak extends javax.swing.JFrame {
     /**
      * Creates new form FormDataCekKandang
      */
+    
+    CekTernakController controller;
     public FormDataCekTernak() {
         initComponents();
+        showDate();
+        showTime();
+        controller = new CekTernakController(this);
+    }
+    
+    public void showDate() {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        jDate.setText(sdf.format(d));
+    }
+    
+    public void showTime() {
+        new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+                jTime.setText(sdf.format(d));
+            }
+        }
+        ).start();
     }
     
     public JTable getTblDataCekTernak() {

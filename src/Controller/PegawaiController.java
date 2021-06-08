@@ -133,7 +133,6 @@ public class PegawaiController {
                 viewInput.getTxtNoTelepon().setText(pegawai.getNoTelp());
                 viewInput.getTxtAlamat().setText(pegawai.getAlamat());
                 viewInput.getCboIdKandang().setSelectedItem(pegawai.getIdKandang());
-                viewInput.getBtnSimpan().setEnabled(false);
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
                 clearForm();

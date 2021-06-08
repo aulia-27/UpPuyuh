@@ -54,10 +54,6 @@ public class FormInputPegawai extends javax.swing.JFrame {
     public JTable getTblDataPegawai() {
         return TblDataPegawai;
     }
-    
-    public JButton getBtnSimpan() {
-        return BtnSimpan;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -100,9 +96,9 @@ public class FormInputPegawai extends javax.swing.JFrame {
         JspDataPegawai = new javax.swing.JScrollPane();
         TblDataPegawai = new javax.swing.JTable();
         BtnClear = new javax.swing.JButton();
-        jDateTglLahir = new com.toedter.calendar.JDateChooser();
-        TxtTglLahir = new javax.swing.JTextField();
+        JDateTglLahir = new com.toedter.calendar.JDateChooser();
         BtnSet = new javax.swing.JButton();
+        TxtTglLahir = new javax.swing.JTextField();
         BtnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -341,18 +337,17 @@ public class FormInputPegawai extends javax.swing.JFrame {
             }
         });
 
-        jDateTglLahir.setDateFormatString("yyyy-MM-dd\n");
+        JDateTglLahir.setDateFormatString("yyyy-MM-dd");
 
-        TxtTglLahir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        TxtTglLahir.setText("jTextField1");
-
-        BtnSet.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BtnSet.setText("Set");
         BtnSet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSetActionPerformed(evt);
             }
         });
+
+        TxtTglLahir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TxtTglLahir.setText("jTextField1");
 
         javax.swing.GroupLayout MenuInputDataLayout = new javax.swing.GroupLayout(MenuInputData);
         MenuInputData.setLayout(MenuInputDataLayout);
@@ -367,26 +362,30 @@ public class FormInputPegawai extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtIdPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtNoTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(BtnSet, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(TxtNama))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
+                                    .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtTglLahir)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(BtnSet, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(JDateTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtNoTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MenuInputDataLayout.createSequentialGroup()
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(TxtIdPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -400,7 +399,7 @@ public class FormInputPegawai extends javax.swing.JFrame {
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addComponent(JspDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(MenuInputDataLayout.createSequentialGroup()
@@ -424,12 +423,12 @@ public class FormInputPegawai extends javax.swing.JFrame {
                             .addComponent(TxtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TxtTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BtnSet, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                                .addComponent(BtnSet, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TxtTglLahir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JDateTglLahir, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -480,7 +479,7 @@ public class FormInputPegawai extends javax.swing.JFrame {
                             .addGroup(MainMenuLayout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 443, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(MainMenuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(MenuInputData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -517,7 +516,6 @@ public class FormInputPegawai extends javax.swing.JFrame {
         controller.update();
         controller.clearForm();
         controller.viewTableInput();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
     private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
@@ -525,7 +523,6 @@ public class FormInputPegawai extends javax.swing.JFrame {
         controller.delete();
         controller.clearForm();
         controller.viewTableInput();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnDeleteActionPerformed
 
     private void TxtNoTeleponKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNoTeleponKeyTyped
@@ -545,7 +542,6 @@ public class FormInputPegawai extends javax.swing.JFrame {
     private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
         // TODO add your handling code here:
         controller.clearForm();
-        BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnClearActionPerformed
 
     private void BtnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliActionPerformed
@@ -555,11 +551,15 @@ public class FormInputPegawai extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnKembaliActionPerformed
 
-    private void BtnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSetActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSetActionPerformed
         // TODO add your handling code here:
-        String formatDate = ((JTextField)jDateTglLahir.getDateEditor().getUiComponent()).getText();
-        TxtTglLahir.setText(formatDate);
     }//GEN-LAST:event_BtnSetActionPerformed
+
+    private void BtnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String formatDate = ((JTextField)JDateTglLahir.getDateEditor().getUiComponent()).getText();
+        TxtTglLahir.setText(formatDate);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -605,6 +605,7 @@ public class FormInputPegawai extends javax.swing.JFrame {
     private javax.swing.JButton BtnSimpan;
     private javax.swing.JButton BtnUpdate;
     private javax.swing.JComboBox<String> CboIdKandang;
+    private com.toedter.calendar.JDateChooser JDateTglLahir;
     private javax.swing.JScrollPane JspDataPegawai;
     private javax.swing.JTextArea JtxAlamat;
     private javax.swing.JPanel MainMenu;
@@ -620,7 +621,6 @@ public class FormInputPegawai extends javax.swing.JFrame {
     private javax.swing.JTextField TxtNoTelepon;
     private javax.swing.JTextField TxtTglLahir;
     private javax.swing.JLabel jDashboard;
-    private com.toedter.calendar.JDateChooser jDateTglLahir;
     private javax.swing.JLabel jJadwal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

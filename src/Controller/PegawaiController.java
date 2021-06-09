@@ -6,7 +6,6 @@
 package Controller;
 
 import FormUpPuyuh.FormDataPegawai;
-import FormUpPuyuh.FormInputPegawai;
 import Pegawai.Pegawai;
 import Pegawai.PegawaiDao;
 import Koneksi.Koneksi;
@@ -27,17 +26,18 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PegawaiController {
     FormDataPegawai viewData;
-    FormInputPegawai viewInput;
     Pegawai pegawai;
     Connection con;
     
-    public PegawaiController (FormInputPegawai viewInput) {
+    public PegawaiController (FormDataPegawai viewData) {
         try {
-            this.viewInput = viewInput;
+            this.viewData = viewData;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
             clearForm();
             isiCboIdKandang();
+            isiCboJekel();
+            viewTableData();
             viewTableInput();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
@@ -46,93 +46,94 @@ public class PegawaiController {
         }
     }
     
-    public PegawaiController (FormDataPegawai viewData) {
-        try {
-            this.viewData = viewData;
-            Koneksi koneksi = new Koneksi();
-            con = koneksi.getKoneksi();
-            viewTableData();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
-        }
-    }
-    
     public void clearForm(){
-        viewInput.getTxtIdPegawai().setText("");
-        viewInput.getTxtNama().setText("");
-        viewInput.getTxtTaggalLahir().setText("");
-        viewInput.getTxtTaggalLahir().setEditable(false);
-        viewInput.getTxtNoTelepon().setText("");
-        viewInput.getTxtAlamat().setText("");
+        viewData.getTxtIdPegawai().setText("");
+        viewData.getTxtNama().setText("");
+        viewData.getTxtAsal().setText("");
+        viewData.getTxtTaggalLahir().setText("");
+        viewData.getTxtTaggalLahir().setEditable(false);
+        viewData.getTxtNoTelepon().setText("");
+        viewData.getTxtAlamat().setText("");
     }
     
     public void isiCboIdKandang() {
-        viewInput.getCboIdKandang().removeAllItems();
+        viewData.getCboIdKandang().removeAllItems();
         try {
             ResultSet rs = con.createStatement().executeQuery("select * from kandang");
             while (rs.next()) {                
-                viewInput.getCboIdKandang().addItem(rs.getString(1)+" - "+rs.getString(2));
+                viewData.getCboIdKandang().addItem(rs.getString(1)+" - "+rs.getString(2));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    public void isiCboJekel() {
+        viewData.getCboJekel().removeAllItems();
+        viewData.getCboJekel().addItem("L");
+        viewData.getCboJekel().addItem("P");
+    }
+    
     public void insert(){
         pegawai = new Pegawai();
-        pegawai.setIdPegawai(viewInput.getTxtIdPegawai().getText());
-        pegawai.setNama(viewInput.getTxtNama().getText());
-        pegawai.setTglLahir(viewInput.getTxtTaggalLahir().getText());
-        pegawai.setNoTelp(viewInput.getTxtNoTelepon().getText());
-        pegawai.setAlamat(viewInput.getTxtAlamat().getText());
-        pegawai.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString().split("-")[0]);
+        pegawai = new Pegawai();
+        pegawai.setIdPegawai(viewData.getTxtIdPegawai().getText());
+        pegawai.setNama(viewData.getTxtNama().getText());
+        pegawai.setAsal(viewData.getTxtAsal().getText());
+        pegawai.setTglLahir(viewData.getTxtTaggalLahir().getText());
+        pegawai.setJekel(viewData.getCboJekel().getSelectedItem().toString());
+        pegawai.setNoTelp(viewData.getTxtNoTelepon().getText());
+        pegawai.setAlamat(viewData.getTxtAlamat().getText());
+        pegawai.setIdKandang(viewData.getCboIdKandang().getSelectedItem().toString().split("-")[0]);
         try {
             PegawaiDao.insert(con, pegawai);
-            JOptionPane.showMessageDialog(viewInput, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewData, "Entri Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
         }
     }
     
     public void update(){
         pegawai = new Pegawai();
-        pegawai.setIdPegawai(viewInput.getTxtIdPegawai().getText());
-        pegawai.setNama(viewInput.getTxtNama().getText());
-        pegawai.setTglLahir(viewInput.getTxtTaggalLahir().getText());
-        pegawai.setNoTelp(viewInput.getTxtNoTelepon().getText());
-        pegawai.setAlamat(viewInput.getTxtAlamat().getText());
-        pegawai.setIdKandang(viewInput.getCboIdKandang().getSelectedItem().toString().split("-")[0]);
+        pegawai.setIdPegawai(viewData.getTxtIdPegawai().getText());
+        pegawai.setNama(viewData.getTxtNama().getText());
+        pegawai.setAsal(viewData.getTxtAsal().getText());
+        pegawai.setTglLahir(viewData.getTxtTaggalLahir().getText());
+        pegawai.setJekel(viewData.getCboJekel().getSelectedItem().toString());
+        pegawai.setNoTelp(viewData.getTxtNoTelepon().getText());
+        pegawai.setAlamat(viewData.getTxtAlamat().getText());
+        pegawai.setIdKandang(viewData.getCboIdKandang().getSelectedItem().toString().split("-")[0]);
         try {
             PegawaiDao.update(con, pegawai);
-            JOptionPane.showMessageDialog(viewInput, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewData, "Update Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
         }
     }
     
     public void delete() {
         try {
             PegawaiDao.delete(con, pegawai);
-            JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewData, "Delete Data OK");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());
+            JOptionPane.showMessageDialog(viewData, "Error"+e.getMessage());
         }
     }
     
     public void onClickTabel() {
         try {
-            String kode = viewInput.getTblDataPegawai().getValueAt(viewInput.getTblDataPegawai().getSelectedRow(), 0).toString();
+            String kode = viewData.getTblInputPegawai().getValueAt(viewData.getTblInputPegawai().getSelectedRow(), 0).toString();
             pegawai = PegawaiDao.getPegawai(con, kode);
             if (pegawai != null) {
-                viewInput.getTxtIdPegawai().setText(pegawai.getIdPegawai());
-                viewInput.getTxtNama().setText(pegawai.getNama());
-                viewInput.getTxtTaggalLahir().setText(pegawai.getTglLahir());
-                viewInput.getTxtTaggalLahir().setEditable(true);
-                viewInput.getTxtNoTelepon().setText(pegawai.getNoTelp());
-                viewInput.getTxtAlamat().setText(pegawai.getAlamat());
-                viewInput.getCboIdKandang().setSelectedItem(pegawai.getIdKandang());
+                viewData.getTxtIdPegawai().setText(pegawai.getIdPegawai());
+                viewData.getTxtNama().setText(pegawai.getNama());
+                viewData.getTxtAsal().setText(pegawai.getAsal());
+                viewData.getTxtTaggalLahir().setText(pegawai.getTglLahir());
+                viewData.getTxtTaggalLahir().setEditable(true);
+                viewData.getCboJekel().setSelectedItem(pegawai.getJekel());
+                viewData.getTxtNoTelepon().setText(pegawai.getNoTelp());
+                viewData.getTxtAlamat().setText(pegawai.getAlamat());
+                viewData.getCboIdKandang().setSelectedItem(pegawai.getIdKandang());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
                 clearForm();
@@ -154,7 +155,9 @@ public class PegawaiController {
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getString(8)
                 };
                 tabelModel.addRow(data);
             }
@@ -165,7 +168,7 @@ public class PegawaiController {
     
     public void viewTableInput(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewInput.getTblDataPegawai().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewData.getTblInputPegawai().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
             while(rs.next()){
@@ -176,6 +179,8 @@ public class PegawaiController {
                     rs.getString(4),
                     rs.getString(5),
                     rs.getString(6),
+                    rs.getString(7),
+                    rs.getString(8)
                 };
                 tabelModel.addRow(data);
             }

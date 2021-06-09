@@ -11,8 +11,10 @@ import java.util.Date;
 public class Pegawai {
     private String id_Pegawai;
     private String nama;
+    private String asal;
     private String tgl_lahir;
     private String noTelp;
+    private String jekel;
     private String alamat;
     private String id_Kandang;
     
@@ -24,12 +26,20 @@ public class Pegawai {
         return nama;
     }
     
+    public String getAsal() {
+        return asal;
+    }
+    
     public String getTglLahir() {
         return tgl_lahir;
     }
 
     public String getNoTelp() {
         return noTelp;
+    }
+
+    public String getJekel() {
+        return jekel;
     }
     
     public String getAlamat() {
@@ -48,8 +58,16 @@ public class Pegawai {
         this.nama = nama;
     }
     
+    public void setAsal(String asal) {
+        this.asal = asal;
+    }
+    
     public void setTglLahir(String tgl_lahir) {
         this.tgl_lahir = tgl_lahir;
+    }
+    
+    public void setJekel(String jekel) {
+        this.jekel = jekel;
     }
     
     public void setNoTelp(String noTelp) {

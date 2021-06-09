@@ -6,7 +6,6 @@
 package Controller;
 
 import FormUpPuyuh.FormDataPenyakit;
-import FormUpPuyuh.FormInputPenyakit;
 import Penyakit.Penyakit;
 import Penyakit.PenyakitDao;
 import Koneksi.Koneksi;
@@ -24,29 +23,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PenyakitController {
     FormDataPenyakit viewData;
-    FormInputPenyakit viewInput;
     Penyakit penyakit;
     Connection con;
-    
-    public PenyakitController (FormInputPenyakit viewInput) {
-        try {
-            this.viewInput = viewInput;
-            Koneksi koneksi = new Koneksi();
-            con = koneksi.getKoneksi();
-            clearForm();
-            viewTableInput();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
-        }
-    }
     
     public PenyakitController (FormDataPenyakit viewData) {
         try {
             this.viewData = viewData;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
+            clearForm();
+            viewTableInput();
             viewTableData();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
@@ -56,54 +42,54 @@ public class PenyakitController {
     }
     
     public void clearForm(){
-        viewInput.getTxtIdPenyakit().setText("");
-        viewInput.getTxtNamaPenyakit().setText("");
-        viewInput.getJtxKeterangan().setText("");
+        viewData.getTxtIdPenyakit().setText("");
+        viewData.getTxtNamaPenyakit().setText("");
+        viewData.getJtxKeterangan().setText("");
     }
     
     public void insert(){
         penyakit = new Penyakit();
-        penyakit.setIdPenyakit(viewInput.getTxtIdPenyakit().getText());
-        penyakit.setNama(viewInput.getTxtNamaPenyakit().getText());
-        penyakit.setKeterangan(viewInput.getJtxKeterangan().getText());
+        penyakit.setIdPenyakit(viewData.getTxtIdPenyakit().getText());
+        penyakit.setNama(viewData.getTxtNamaPenyakit().getText());
+        penyakit.setKeterangan(viewData.getJtxKeterangan().getText());
         try {
             PenyakitDao.insert(con, penyakit);
-            JOptionPane.showMessageDialog(viewInput, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewData, "Entri Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
         }
     }
     
     public void update(){
         penyakit = new Penyakit();
-        penyakit.setIdPenyakit(viewInput.getTxtIdPenyakit().getText());
-        penyakit.setNama(viewInput.getTxtNamaPenyakit().getText());
-        penyakit.setKeterangan(viewInput.getJtxKeterangan().getText());
+        penyakit.setIdPenyakit(viewData.getTxtIdPenyakit().getText());
+        penyakit.setNama(viewData.getTxtNamaPenyakit().getText());
+        penyakit.setKeterangan(viewData.getJtxKeterangan().getText());
         try {
             PenyakitDao.update(con, penyakit);
-            JOptionPane.showMessageDialog(viewInput, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewData, "Update Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
         }
     }
     
     public void delete() {
         try {
             PenyakitDao.delete(con, penyakit);
-            JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewData, "Delete Data OK");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());
+            JOptionPane.showMessageDialog(viewData, "Error"+e.getMessage());
         }
     }
     
     public void onClickTabel() {
         try {
-            String kode = viewInput.getTblDataPenyakit().getValueAt(viewInput.getTblDataPenyakit().getSelectedRow(), 0).toString();
+            String kode = viewData.getTblInputPenyakit().getValueAt(viewData.getTblInputPenyakit().getSelectedRow(), 0).toString();
             penyakit = PenyakitDao.getPenyakit(con, kode);
             if (penyakit != null) {
-                viewInput.getTxtIdPenyakit().setText(penyakit.getIdPenyakit());
-                viewInput.getTxtNamaPenyakit().setText(penyakit.getNama());
-                viewInput.getJtxKeterangan().setText(penyakit.getKeterangan());
+                viewData.getTxtIdPenyakit().setText(penyakit.getIdPenyakit());
+                viewData.getTxtNamaPenyakit().setText(penyakit.getNama());
+                viewData.getJtxKeterangan().setText(penyakit.getKeterangan());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
                 clearForm();
@@ -133,7 +119,7 @@ public class PenyakitController {
     
     public void viewTableInput() {
         try {
-            DefaultTableModel tableModel = (DefaultTableModel) viewInput.getTblDataPenyakit().getModel();
+            DefaultTableModel tableModel = (DefaultTableModel) viewData.getTblInputPenyakit().getModel();
             tableModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from penyakit");
             while (rs.next()) {                

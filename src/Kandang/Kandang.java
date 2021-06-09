@@ -9,6 +9,7 @@ package Kandang;
 public class Kandang {
     private String id_Kandang;
     private String nama;
+    private int jmlTernak;
     private String blok_kandang;
     
     public String getIdKandang() {
@@ -17,6 +18,10 @@ public class Kandang {
     
     public String getNama() {
         return nama;
+    }
+    
+    public int getJmlTernak() {
+        return jmlTernak;
     }
     
     public String getBlokKandang() {
@@ -29,6 +34,10 @@ public class Kandang {
     
     public void setNama(String nama) {
         this.nama = nama;
+    }
+    
+    public void setJmlTernak(int jmlTernak) {
+        this.jmlTernak = jmlTernak;
     }
     
     public void setBlokKandang(String blok_kandang) {

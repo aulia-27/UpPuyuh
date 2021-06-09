@@ -12,20 +12,22 @@ import java.sql.SQLException;
 
 public class KandangDao {
     public static void insert(Connection con, Kandang kandang) throws SQLException {
-        String sql = "insert into kandang values(?,?,?)";
+        String sql = "insert into kandang values(?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kandang.getIdKandang());
         ps.setString(2, kandang.getNama());
-        ps.setString(3, kandang.getBlokKandang());
+        ps.setInt(3, kandang.getJmlTernak());
+        ps.setString(4, kandang.getBlokKandang());
         ps.executeUpdate();
     }
     
     public static void update(Connection con, Kandang kandang) throws SQLException {
-        String sql = "update kandang set nama=?, blok_kandang=? " + "where id_kandang=?";
+        String sql = "update kandang set nama=?, jml_ternak=?, blok_kandang=? " + "where id_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kandang.getNama());
-        ps.setString(2, kandang.getBlokKandang());
-        ps.setString(3, kandang.getIdKandang());
+        ps.setInt(2, kandang.getJmlTernak());
+        ps.setString(3, kandang.getBlokKandang());
+        ps.setString(4, kandang.getIdKandang());
         ps.executeUpdate();
     }
     
@@ -46,7 +48,24 @@ public class KandangDao {
             kandang = new Kandang();
             kandang.setIdKandang(rs.getString(1));
             kandang.setNama(rs.getString(2));
-            kandang.setBlokKandang(rs.getString(3));
+            kandang.setJmlTernak(rs.getInt(3));
+            kandang.setBlokKandang(rs.getString(4));
+        }
+        return kandang;
+    }
+    
+    public static Kandang getKandangCek(Connection con, String id_kandang) throws SQLException {
+        String sql = "select * from kandang where id_kandang=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, id_kandang);
+        Kandang kandang = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            kandang = new Kandang();
+            kandang.setIdKandang(rs.getString(1));
+            kandang.setNama(rs.getString(2));
+            kandang.setJmlTernak(rs.getInt(3));
+            kandang.setBlokKandang(rs.getString(4));
         }
         return kandang;
     }

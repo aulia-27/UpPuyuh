@@ -7,7 +7,6 @@ package Controller;
 import Pakan.Pakan;
 import Pakan.PakanDao;
 import FormUpPuyuh.FormDataPakan;
-import FormUpPuyuh.FormInputPakan;
 import Koneksi.Koneksi;
 
 import java.sql.Connection;
@@ -23,16 +22,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PakanController {
     FormDataPakan viewData;
-    FormInputPakan viewInput;
     Pakan pakan;
     PakanDao PakanDao;
     Connection con;
     
-    public PakanController (FormInputPakan viewInput) {
+    public PakanController (FormDataPakan viewData) {
         try {
-            this.viewInput = viewInput;
+            this.viewData = viewData;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
+            viewTableData();
             clearForm();
             viewTableInput();
         } catch (ClassNotFoundException ex) {
@@ -42,80 +41,67 @@ public class PakanController {
         }
     }
     
-    public PakanController (FormDataPakan viewData) {
-        try {
-            this.viewData = viewData;
-            Koneksi koneksi = new Koneksi();
-            con = koneksi.getKoneksi();
-            viewTableData();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
-        }
-    }
-    
     public void clearForm(){
-        viewInput.getTxtIdPakan().setText("");
-        viewInput.getTxtNamaPakan().setText("");
-        viewInput.getTxtHarga().setText("");
-        viewInput.getTxtStok().setText("");
-        viewInput.getTxtJenis().setText("");
-        viewInput.getJtxKeterangan().setText("");
+        viewData.getTxtIdPakan().setText("");
+        viewData.getTxtNamaPakan().setText("");
+        viewData.getTxtHarga().setText("");
+        viewData.getTxtStok().setText("");
+        viewData.getTxtJenis().setText("");
+        viewData.getJtxKeterangan().setText("");
     }
     
     public void insert(){
         pakan = new Pakan();
-        pakan.setIdPakan(viewInput.getTxtIdPakan().getText());
-        pakan.setNama(viewInput.getTxtNamaPakan().getText());
-        pakan.setHarga(Integer.parseInt(viewInput.getTxtHarga().getText()));
-        pakan.setStok(Integer.parseInt(viewInput.getTxtStok().getText()));
-        pakan.setJenis(viewInput.getTxtJenis().getText());
-        pakan.setKeterangan(viewInput.getJtxKeterangan().getText());
+        pakan.setIdPakan(viewData.getTxtIdPakan().getText());
+        pakan.setNama(viewData.getTxtNamaPakan().getText());
+        pakan.setHarga(Integer.parseInt(viewData.getTxtHarga().getText()));
+        pakan.setStok(Integer.parseInt(viewData.getTxtStok().getText()));
+        pakan.setJenis(viewData.getTxtJenis().getText());
+        pakan.setKeterangan(viewData.getJtxKeterangan().getText());
         try {
             PakanDao.insert(con, pakan);
-            JOptionPane.showMessageDialog(viewInput, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewData, "Entri Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
         }
     }
     
     public void update(){
         pakan = new Pakan();
-        pakan.setIdPakan(viewInput.getTxtIdPakan().getText());
-        pakan.setNama(viewInput.getTxtNamaPakan().getText());
-        pakan.setHarga(Integer.parseInt(viewInput.getTxtHarga().getText()));
-        pakan.setStok(Integer.parseInt(viewInput.getTxtStok().getText()));
-        pakan.setJenis(viewInput.getTxtJenis().getText());
-        pakan.setKeterangan(viewInput.getJtxKeterangan().getText());
+        pakan.setIdPakan(viewData.getTxtIdPakan().getText());
+        pakan.setNama(viewData.getTxtNamaPakan().getText());
+        pakan.setHarga(Integer.parseInt(viewData.getTxtHarga().getText()));
+        pakan.setStok(Integer.parseInt(viewData.getTxtStok().getText()));
+        pakan.setJenis(viewData.getTxtJenis().getText());
+        pakan.setKeterangan(viewData.getJtxKeterangan().getText());
         try {
             PakanDao.update(con, pakan);
-            JOptionPane.showMessageDialog(viewInput, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewData, "Update Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewInput, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
         }
     }
     
     public void delete() {
         try {
             PakanDao.delete(con, pakan);
-            JOptionPane.showMessageDialog(viewInput, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewData, "Delete Data OK");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(viewInput, "Error"+e.getMessage());
+            JOptionPane.showMessageDialog(viewData, "Error"+e.getMessage());
         }
     }
     
     public void onClickTabel() {
         try {
-            String kode = viewInput.getTblDataPakan().getValueAt(viewInput.getTblDataPakan().getSelectedRow(), 0).toString();
+            String kode = viewData.getTblInputPakan().getValueAt(viewData.getTblInputPakan().getSelectedRow(), 0).toString();
             pakan = PakanDao.getPakan(con, kode);
             if (pakan != null) {
-                viewInput.getTxtIdPakan().setText(pakan.getIdPakan());
-                viewInput.getTxtNamaPakan().setText(pakan.getNama());
-                viewInput.getTxtHarga().setText(""+pakan.getHarga());
-                viewInput.getTxtStok().setText(""+pakan.getStok());
-                viewInput.getTxtJenis().setText(pakan.getJenis());
-                viewInput.getJtxKeterangan().setText(pakan.getKeterangan());
+                viewData.getTxtIdPakan().setText(pakan.getIdPakan());
+                viewData.getTxtNamaPakan().setText(pakan.getNama());
+                viewData.getTxtHarga().setText(""+pakan.getHarga());
+                viewData.getTxtStok().setText(""+pakan.getStok());
+                viewData.getTxtJenis().setText(pakan.getJenis());
+                viewData.getJtxKeterangan().setText(pakan.getKeterangan());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
                 clearForm();
@@ -148,7 +134,7 @@ public class PakanController {
     
     public void viewTableInput(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewInput.getTblDataPakan().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewData.getTblInputPakan().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from pakan");
             while(rs.next()){

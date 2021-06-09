@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataPegawai.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormInputPenyakit.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataPenyakit.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataKandang.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Pegawai/Pegawai.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/KandangController.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Kandang/KandangDao.java</file>
             <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormMainMenu.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormInputPegawai.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/KesehatanController.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Pegawai/PegawaiDao.java</file>
             <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataKesehatan.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormInputKesehatan.java</file>
         </group>
     </open-files>
 </project-private>

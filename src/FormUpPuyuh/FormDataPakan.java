@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -74,14 +76,6 @@ public class FormDataPakan extends javax.swing.JFrame {
         return TxtStok;
     }
     
-    public JTextField getTxtJenis() {
-        return TxtJenis;
-    }
-    
-    public JTextArea getJtxKeterangan() {
-        return JtxKeterangan;
-    }
-    
     public JTable getTblDataPakan() {
         return TblDataPakan;
     }
@@ -127,13 +121,8 @@ public class FormDataPakan extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         TxtStok = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JtxKeterangan = new javax.swing.JTextArea();
         JspInputPakan = new javax.swing.JScrollPane();
         TblInputPakan = new javax.swing.JTable();
-        TxtJenis = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         BtnClear = new javax.swing.JButton();
         BtnKembaliData = new javax.swing.JButton();
 
@@ -207,11 +196,11 @@ public class FormDataPakan extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Pakan", "Nama Pakan", "Harga", "Stok", "Jenis", "Keterangan"
+                "ID Pakan", "Nama Pakan", "Harga", "Stok"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -229,9 +218,6 @@ public class FormDataPakan extends javax.swing.JFrame {
             TblDataPakan.getColumnModel().getColumn(2).setPreferredWidth(80);
             TblDataPakan.getColumnModel().getColumn(3).setResizable(false);
             TblDataPakan.getColumnModel().getColumn(3).setPreferredWidth(80);
-            TblDataPakan.getColumnModel().getColumn(4).setResizable(false);
-            TblDataPakan.getColumnModel().getColumn(4).setPreferredWidth(100);
-            TblDataPakan.getColumnModel().getColumn(5).setPreferredWidth(200);
         }
 
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);
@@ -393,13 +379,6 @@ public class FormDataPakan extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Keterangan");
-
-        JtxKeterangan.setColumns(20);
-        JtxKeterangan.setRows(5);
-        jScrollPane1.setViewportView(JtxKeterangan);
-
         JspInputPakan.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
         TblInputPakan.setModel(new javax.swing.table.DefaultTableModel(
@@ -407,11 +386,11 @@ public class FormDataPakan extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Pakan", "Nama Pakan", "Harga", "Stok", "Jenis", "Keterangan"
+                "ID Pakan", "Nama Pakan", "Harga", "Stok"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -426,12 +405,6 @@ public class FormDataPakan extends javax.swing.JFrame {
         });
         JspInputPakan.setViewportView(TblInputPakan);
 
-        TxtJenis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        TxtJenis.setText("jTextField1");
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setText("Jenis");
-
         BtnClear.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         BtnClear.setText("Clear");
         BtnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -445,14 +418,10 @@ public class FormDataPakan extends javax.swing.JFrame {
         MenuInputDataLayout.setHorizontalGroup(
             MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuInputDataLayout.createSequentialGroup()
-                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -462,30 +431,28 @@ public class FormDataPakan extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TxtNamaPakan))
                             .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtIdPakan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
                                 .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(MenuInputDataLayout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtIdPakan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE))
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
+                        .addGap(35, 35, 35)
+                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(59, 59, 59)))
-                .addComponent(JspInputPakan)
+                            .addComponent(BtnUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnClear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)))
+                .addComponent(JspInputPakan, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(MenuInputDataLayout.createSequentialGroup()
                 .addGap(424, 424, 424)
@@ -498,7 +465,8 @@ public class FormDataPakan extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(39, 39, 39)
-                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JspInputPakan, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -515,25 +483,15 @@ public class FormDataPakan extends javax.swing.JFrame {
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TxtJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MenuInputDataLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(36, 36, 36)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BtnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(JspInputPakan, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66)))
                 .addContainerGap())
         );
 
@@ -598,7 +556,9 @@ public class FormDataPakan extends javax.swing.JFrame {
 
     private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
         // TODO add your handling code here:
-
+        FormMainMenuAdmin formMainMenu = new FormMainMenuAdmin();
+        formMainMenu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_HomeMouseClicked
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
@@ -622,15 +582,6 @@ public class FormDataPakan extends javax.swing.JFrame {
         controller.viewTableInput();
         BtnSimpan.setEnabled(true);
     }//GEN-LAST:event_BtnDeleteActionPerformed
-
-    private void TxtHargaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtHargaKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-
-        if (!Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_TxtHargaKeyTyped
 
     private void TxtStokKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtStokKeyTyped
         // TODO add your handling code here:
@@ -656,6 +607,15 @@ public class FormDataPakan extends javax.swing.JFrame {
         MenuData.setVisible(true);
         MenuInput.setVisible(false);
     }//GEN-LAST:event_BtnKembaliDataActionPerformed
+
+    private void TxtHargaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtHargaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtHargaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -703,7 +663,6 @@ public class FormDataPakan extends javax.swing.JFrame {
     private javax.swing.JPanel Home;
     private javax.swing.JScrollPane JspDataPakan;
     private javax.swing.JScrollPane JspInputPakan;
-    private javax.swing.JTextArea JtxKeterangan;
     private javax.swing.JPanel MenuData;
     private javax.swing.JPanel MenuInput;
     private javax.swing.JPanel MenuInputData;
@@ -713,22 +672,18 @@ public class FormDataPakan extends javax.swing.JFrame {
     private javax.swing.JTable TblInputPakan;
     private javax.swing.JTextField TxtHarga;
     private javax.swing.JTextField TxtIdPakan;
-    private javax.swing.JTextField TxtJenis;
     private javax.swing.JTextField TxtNamaPakan;
     private javax.swing.JTextField TxtStok;
     private javax.swing.JLabel jDashboard;
     private javax.swing.JLabel jDate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jTime;
     // End of variables declaration//GEN-END:variables
 }

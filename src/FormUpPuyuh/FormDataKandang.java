@@ -120,8 +120,6 @@ public class FormDataKandang extends javax.swing.JFrame {
         BtnClear = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         TxtJmlTernak = new javax.swing.JTextField();
-        JpsInputKandang1 = new javax.swing.JScrollPane();
-        TblInputKandang1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         SubMenu = new javax.swing.JPanel();
         Home = new javax.swing.JPanel();
@@ -358,31 +356,6 @@ public class FormDataKandang extends javax.swing.JFrame {
             }
         });
 
-        TblInputKandang1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        TblInputKandang1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID Kandang", "Nama", "Jumlah Ternak", "Blok Kandang"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        TblInputKandang1.setRowHeight(32);
-        TblInputKandang1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TblInputKandang1MouseClicked(evt);
-            }
-        });
-        JpsInputKandang1.setViewportView(TblInputKandang1);
-
         javax.swing.GroupLayout MenuInputDataLayout = new javax.swing.GroupLayout(MenuInputData);
         MenuInputData.setLayout(MenuInputDataLayout);
         MenuInputDataLayout.setHorizontalGroup(
@@ -425,9 +398,7 @@ public class FormDataKandang extends javax.swing.JFrame {
                                 .addComponent(TxtBlokKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(JpsInputKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JpsInputKandang1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(639, 639, 639))
         );
         MenuInputDataLayout.setVerticalGroup(
             MenuInputDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,10 +433,7 @@ public class FormDataKandang extends javax.swing.JFrame {
                             .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MenuInputDataLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(JpsInputKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MenuInputDataLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(JpsInputKandang1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JpsInputKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -480,15 +448,13 @@ public class FormDataKandang extends javax.swing.JFrame {
                 .addGroup(MenuInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuInputLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(BtnKembaliData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(BtnKembaliData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuInputLayout.createSequentialGroup()
+                        .addGap(414, 414, 414)
+                        .addComponent(jLabel7))
                     .addGroup(MenuInputLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(MenuInputData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(MenuInputLayout.createSequentialGroup()
-                .addGap(414, 414, 414)
-                .addComponent(jLabel7)
+                        .addComponent(MenuInputData, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuInputLayout.setVerticalGroup(
@@ -623,10 +589,6 @@ public class FormDataKandang extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TxtJmlTernakKeyTyped
 
-    private void TblInputKandang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputKandang1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TblInputKandang1MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -672,7 +634,6 @@ public class FormDataKandang extends javax.swing.JFrame {
     private javax.swing.JButton BtnUpdate;
     private javax.swing.JPanel Home;
     private javax.swing.JScrollPane JpsInputKandang;
-    private javax.swing.JScrollPane JpsInputKandang1;
     private javax.swing.JScrollPane JspDataKandang;
     private javax.swing.JPanel MenuData;
     private javax.swing.JPanel MenuInput;
@@ -681,7 +642,6 @@ public class FormDataKandang extends javax.swing.JFrame {
     private javax.swing.JPanel SubMenu;
     private javax.swing.JTable TblDataKandang;
     private javax.swing.JTable TblInputKandang;
-    private javax.swing.JTable TblInputKandang1;
     private javax.swing.JTextField TxtBlokKandang;
     private javax.swing.JTextField TxtIdKandang;
     private javax.swing.JTextField TxtJmlTernak;

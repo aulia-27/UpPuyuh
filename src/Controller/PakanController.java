@@ -35,9 +35,9 @@ public class PakanController {
             clearForm();
             viewTableInput();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE,null, ex);
         }
     }
     
@@ -46,19 +46,15 @@ public class PakanController {
         viewData.getTxtNamaPakan().setText("");
         viewData.getTxtHarga().setText("");
         viewData.getTxtStok().setText("");
-        viewData.getTxtJenis().setText("");
-        viewData.getJtxKeterangan().setText("");
     }
     
     public void insert(){
-        pakan = new Pakan();
-        pakan.setIdPakan(viewData.getTxtIdPakan().getText());
-        pakan.setNama(viewData.getTxtNamaPakan().getText());
-        pakan.setHarga(Integer.parseInt(viewData.getTxtHarga().getText()));
-        pakan.setStok(Integer.parseInt(viewData.getTxtStok().getText()));
-        pakan.setJenis(viewData.getTxtJenis().getText());
-        pakan.setKeterangan(viewData.getJtxKeterangan().getText());
         try {
+            pakan = new Pakan();
+            pakan.setIdPakan(viewData.getTxtIdPakan().getText());
+            pakan.setNama(viewData.getTxtNamaPakan().getText());
+            pakan.setHarga(Integer.parseInt(viewData.getTxtHarga().getText()));
+            pakan.setStok(Integer.parseInt(viewData.getTxtStok().getText()));
             PakanDao.insert(con, pakan);
             JOptionPane.showMessageDialog(viewData, "Entri Data Ok");
         } catch (SQLException ex) {
@@ -72,8 +68,6 @@ public class PakanController {
         pakan.setNama(viewData.getTxtNamaPakan().getText());
         pakan.setHarga(Integer.parseInt(viewData.getTxtHarga().getText()));
         pakan.setStok(Integer.parseInt(viewData.getTxtStok().getText()));
-        pakan.setJenis(viewData.getTxtJenis().getText());
-        pakan.setKeterangan(viewData.getJtxKeterangan().getText());
         try {
             PakanDao.update(con, pakan);
             JOptionPane.showMessageDialog(viewData, "Update Data Ok");
@@ -100,14 +94,12 @@ public class PakanController {
                 viewData.getTxtNamaPakan().setText(pakan.getNama());
                 viewData.getTxtHarga().setText(""+pakan.getHarga());
                 viewData.getTxtStok().setText(""+pakan.getStok());
-                viewData.getTxtJenis().setText(pakan.getJenis());
-                viewData.getJtxKeterangan().setText(pakan.getKeterangan());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
                 clearForm();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -121,14 +113,12 @@ public class PakanController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getInt(3),
-                    rs.getInt(4),
-                    rs.getString(5),
-                    rs.getString(6)
+                    rs.getInt(4)
                 };
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -142,14 +132,12 @@ public class PakanController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getInt(3),
-                    rs.getInt(4),
-                    rs.getString(5),
-                    rs.getString(6)
+                    rs.getInt(4)
                 };
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

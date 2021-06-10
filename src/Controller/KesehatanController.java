@@ -22,12 +22,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.util.HashMap;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Aulia
  */
 public class KesehatanController {
     FormDataKesehatan viewData;
+    Koneksi koneksi;
     Kandang kandang;
     KandangDao kandangDao;
     Kesehatan kesehatan;
@@ -44,9 +53,9 @@ public class KesehatanController {
             viewTableData();
             viewTableKandang();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE,null, ex);
         }
     }
     
@@ -67,7 +76,7 @@ public class KesehatanController {
                 viewData.getCboIdPenyakit().addItem(rs.getString(1)+" - "+rs.getString(2));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -128,15 +137,24 @@ public class KesehatanController {
     
     
     public void update(){
-        kesehatan = new Kesehatan();
-        kesehatan.setIdKesehatan(viewData.getTxtIdKesehatan().getText());
-        kesehatan.setIdKandang(viewData.getTxtIdKandang().getText());
-        kesehatan.setIdSakit(viewData.getCboIdPenyakit().getSelectedItem().toString());
-        kesehatan.setJmlSakit(Integer.getInteger(viewData.getTxtJmlSakit().getText()));
-        kesehatan.setJmlMati(Integer.getInteger(viewData.getTxtJmlMati().getText()));
         try {
+            String kodeKandang =  viewData.getTblDataKandang().getValueAt(viewData.getTblDataKandang().getSelectedRow(), 0).toString();
+            kandang = KandangDao.getKandangCek(con, kodeKandang);
+            kandang.getJmlTernak();
+            int all = Integer.parseInt(viewData.getTxtJmlTernak().getText()) - Integer.parseInt(viewData.getTxtJmlMati().getText());
+            
+            viewData.getTxtTotal().setText(""+all);
+            
+            kesehatan = new Kesehatan();
+            kesehatan.setIdKesehatan(viewData.getTxtIdKesehatan().getText());
+            kesehatan.setIdKandang(viewData.getTxtIdKandang().getText());
+            kesehatan.setIdSakit(viewData.getCboIdPenyakit().getSelectedItem().toString().split("-")[0]);
+            kesehatan.setJmlSakit(Integer.parseInt(viewData.getTxtJmlSakit().getText()));
+            kesehatan.setJmlMati(Integer.parseInt(viewData.getTxtJmlMati().getText()));
+            kandang.setJmlTernak(Integer.parseInt(viewData.getTxtTotal().getText()));
+            kandangDao.update(con, kandang);
             KesehatanDao.update(con, kesehatan);
-            JOptionPane.showMessageDialog(viewData, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewData, "Entri Data Ok");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
         }
@@ -167,7 +185,7 @@ public class KesehatanController {
                 clearForm();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -186,7 +204,7 @@ public class KesehatanController {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -206,7 +224,7 @@ public class KesehatanController {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -226,7 +244,19 @@ public class KesehatanController {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void previewKesehatan() {
+        HashMap parameter = new HashMap();
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport("report/kesehatan.jasper", parameter, con);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
+            //Logger.getLogger(formlaporan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

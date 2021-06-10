@@ -142,7 +142,7 @@ public class FormDataPenyakit extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Penyakit", "Nama Penyakit", "Keterangan"
+                "ID Penyakit", "Nama Penyakit", "Gejala"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -342,7 +342,7 @@ public class FormDataPenyakit extends javax.swing.JFrame {
         jLabel4.setText("Input Data Penyakit");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Keterangan");
+        jLabel5.setText("Gejala");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("ID Penyakit");
@@ -354,7 +354,7 @@ public class FormDataPenyakit extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Penyakit", "Nama Penyakit", "Keterangan"
+                "ID Penyakit", "Nama Penyakit", "Gejala"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -373,6 +373,14 @@ public class FormDataPenyakit extends javax.swing.JFrame {
             }
         });
         JpsInputPenyakit.setViewportView(TblInputPenyakit);
+        if (TblInputPenyakit.getColumnModel().getColumnCount() > 0) {
+            TblInputPenyakit.getColumnModel().getColumn(0).setResizable(false);
+            TblInputPenyakit.getColumnModel().getColumn(0).setPreferredWidth(60);
+            TblInputPenyakit.getColumnModel().getColumn(1).setResizable(false);
+            TblInputPenyakit.getColumnModel().getColumn(1).setPreferredWidth(80);
+            TblInputPenyakit.getColumnModel().getColumn(2).setResizable(false);
+            TblInputPenyakit.getColumnModel().getColumn(2).setPreferredWidth(300);
+        }
 
         TxtIdPenyakit.setText("jTextField1");
 

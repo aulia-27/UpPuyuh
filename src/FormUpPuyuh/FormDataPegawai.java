@@ -9,8 +9,11 @@ import Controller.PegawaiController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -272,12 +275,14 @@ public class FormDataPegawai extends javax.swing.JFrame {
         MenuTabelLayout.setHorizontalGroup(
             MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuTabelLayout.createSequentialGroup()
-                .addGap(460, 460, 460)
-                .addComponent(jLabel9)
-                .addContainerGap(486, Short.MAX_VALUE))
-            .addGroup(MenuTabelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JspDataPegawai)
+                .addGroup(MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuTabelLayout.createSequentialGroup()
+                        .addGap(460, 460, 460)
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(MenuTabelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(JspDataPegawai)))
                 .addContainerGap())
         );
         MenuTabelLayout.setVerticalGroup(
@@ -285,8 +290,8 @@ public class FormDataPegawai extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuTabelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JspDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(JspDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -314,7 +319,7 @@ public class FormDataPegawai extends javax.swing.JFrame {
                     .addGroup(MenuDataLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(BtnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
         MenuDataLayout.setVerticalGroup(
             MenuDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

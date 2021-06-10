@@ -9,12 +9,20 @@ import Controller.KesehatanController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import Koneksi.Koneksi;
+import java.sql.SQLException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.Timer;
+
 /**
  *
  * @author Aulia
@@ -26,6 +34,7 @@ public class FormDataKesehatan extends javax.swing.JFrame {
      */
     
     KesehatanController controller;
+    Koneksi koneksi;
     public FormDataKesehatan() {
         initComponents();
         showDate();
@@ -118,6 +127,7 @@ public class FormDataKesehatan extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         JspDataKesehatan = new javax.swing.JScrollPane();
         TblDataKesehatan = new javax.swing.JTable();
+        BtnExportKesehatan = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         BtnTambah = new javax.swing.JButton();
         BtnKembali = new javax.swing.JButton();
@@ -231,24 +241,40 @@ public class FormDataKesehatan extends javax.swing.JFrame {
         });
         JspDataKesehatan.setViewportView(TblDataKesehatan);
 
+        BtnExportKesehatan.setText("Export Data To PDF");
+        BtnExportKesehatan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExportKesehatanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuTabelLayout = new javax.swing.GroupLayout(MenuTabel);
         MenuTabel.setLayout(MenuTabelLayout);
         MenuTabelLayout.setHorizontalGroup(
             MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuTabelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JspDataKesehatan, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE)
+                .addGroup(MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuTabelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(JspDataKesehatan, javax.swing.GroupLayout.DEFAULT_SIZE, 1068, Short.MAX_VALUE))
+                    .addGroup(MenuTabelLayout.createSequentialGroup()
+                        .addGap(443, 443, 443)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnExportKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(MenuTabelLayout.createSequentialGroup()
-                .addGap(443, 443, 443)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuTabelLayout.setVerticalGroup(
             MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuTabelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9)
+                .addGroup(MenuTabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuTabelLayout.createSequentialGroup()
+                        .addComponent(BtnExportKesehatan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(3, 3, 3))
+                    .addGroup(MenuTabelLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JspDataKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -632,7 +658,9 @@ public class FormDataKesehatan extends javax.swing.JFrame {
 
     private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
         // TODO add your handling code here:
-
+        FormMainMenuAdmin formMainMenu = new FormMainMenuAdmin();
+        formMainMenu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_HomeMouseClicked
 
     private void BtnKembaliTabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKembaliTabelActionPerformed
@@ -710,6 +738,11 @@ public class FormDataKesehatan extends javax.swing.JFrame {
         TxtTotal.setVisible(false);
     }//GEN-LAST:event_TxtTotalKeyTyped
 
+    private void BtnExportKesehatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExportKesehatanActionPerformed
+        // TODO add your handling code here:
+        controller.previewKesehatan();
+    }//GEN-LAST:event_BtnExportKesehatanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -748,6 +781,7 @@ public class FormDataKesehatan extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnDelete;
     private javax.swing.JButton BtnDelete1;
+    private javax.swing.JButton BtnExportKesehatan;
     private javax.swing.JButton BtnKembali;
     private javax.swing.JButton BtnKembaliTabel;
     private javax.swing.JButton BtnSimpan;

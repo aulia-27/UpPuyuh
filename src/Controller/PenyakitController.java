@@ -35,9 +35,9 @@ public class PenyakitController {
             viewTableInput();
             viewTableData();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(PenyakitController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(PenyakitController.class.getName()).log(Level.SEVERE,null, ex);
         }
     }
     
@@ -95,7 +95,7 @@ public class PenyakitController {
                 clearForm();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PenyakitController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -113,7 +113,7 @@ public class PenyakitController {
                 tableModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PenyakitController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -131,7 +131,7 @@ public class PenyakitController {
                 tableModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PenyakitController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

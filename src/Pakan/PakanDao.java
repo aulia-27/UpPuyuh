@@ -13,26 +13,22 @@ import javax.swing.JOptionPane;
 
 public class PakanDao {
     public static void insert(Connection con, Pakan pakan) throws SQLException{
-        String sql = "insert into pakan values(?,?,?,?,?,?)";
+        String sql = "insert into pakan values(?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pakan.getIdPakan());
         ps.setString(2, pakan.getNama());
         ps.setInt(3, pakan.getHarga());
         ps.setInt(4, pakan.getStok());
-        ps.setString(5, pakan.getJenis());
-        ps.setString(6, pakan.getKeterangan());
         ps.executeUpdate();
     }
     
     public static void update(Connection con, Pakan pakan) throws SQLException{
-        String sql = "update pakan set nama=?, harga=?, stok=?, jenis=?, keterangan=?" + "where id_pakan=?";
+        String sql = "update pakan set nama=?, harga=?, stok=? " + "where id_pakan=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pakan.getNama());
         ps.setInt(2, pakan.getHarga());
         ps.setInt(3, pakan.getStok());
-        ps.setString(4, pakan.getJenis());
-        ps.setString(5, pakan.getKeterangan());
-        ps.setString(6, pakan.getIdPakan());
+        ps.setString(4, pakan.getIdPakan());
         ps.executeUpdate();
     }
     
@@ -55,8 +51,6 @@ public class PakanDao {
             pakan.setNama(rs.getString(2));
             pakan.setHarga(rs.getInt(3));
             pakan.setStok(rs.getInt(4));
-            pakan.setJenis(rs.getString(5));
-            pakan.setKeterangan(rs.getString(6));
         }
         return pakan;
     }

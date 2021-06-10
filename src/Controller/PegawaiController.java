@@ -13,9 +13,6 @@ import Koneksi.Koneksi;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -40,9 +37,9 @@ public class PegawaiController {
             viewTableData();
             viewTableInput();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE,null, ex);
         }
     }
     
@@ -139,7 +136,7 @@ public class PegawaiController {
                 clearForm();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -162,7 +159,7 @@ public class PegawaiController {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -185,7 +182,7 @@ public class PegawaiController {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

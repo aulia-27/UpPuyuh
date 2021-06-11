@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormDataKesehatan;
 
 import Kesehatan.Kesehatan;
 import Kesehatan.KesehatanDao;
@@ -252,7 +251,7 @@ public class KesehatanController {
         HashMap parameter = new HashMap();
         JasperPrint jasperPrint = null;
         try {
-            jasperPrint = JasperFillManager.fillReport("report/kesehatan.jasper", parameter, con);
+            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
             JasperViewer.viewReport(jasperPrint, false);
         } catch (Exception ex) {
             System.out.print(ex.toString());

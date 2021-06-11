@@ -5,8 +5,6 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormMainMenuAdmin;
-import FormUpPuyuh.FormMainMenuPetugas;
 
 import User.User;
 import User.UserDao;
@@ -70,16 +68,16 @@ public class MainMenuController {
     
     ////////////////////////        User            ////////////////////////////
     
-     public void cleartextUser() {
+    public void cleartextUser() {
         view.getTxtUsername().setText("");
         view.getTxtNamaUser().setText("");
-     }
-     
-     public void setUser() {
-         view.getTxtUsername().setText(user.getUsername());
-         view.getTxtNamaUser().setText(user.getNamaAkun());
-         view.getTxtStatus().setText(user.getAkses());
-     }
+    }
+    
+    public void setUser() {
+        view.getTxtUsername().setText(user.getUsername());
+        view.getTxtNamaUser().setText(user.getNamaAkun());
+        view.getTxtStatus().setText(user.getAkses());
+    }
     
     ////////////////////////        Laporan         ////////////////////////////
     

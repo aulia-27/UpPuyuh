@@ -5,15 +5,17 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormDataKandang;
 
 import Kandang.Kandang;
 import Kandang.KandangDao;
 import Koneksi.Koneksi;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -33,8 +35,9 @@ public class KandangController {
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
             clearForm();
-            viewTableInput();
             viewTableData();
+            viewTableInput();
+            clearForm();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {

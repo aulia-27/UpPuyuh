@@ -6,7 +6,7 @@
 package Controller;
 import Pakan.Pakan;
 import Pakan.PakanDao;
-import FormUpPuyuh.FormDataPakan;
+
 import Koneksi.Koneksi;
 
 import java.sql.Connection;

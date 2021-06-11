@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanCekTernak" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ea0c455-3e47-41aa-bd99-5ce2de0164b4">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     cek_ternak.`id_cek` AS cek_ternak_id_cek,
+     cek_ternak.`id_kandang` AS cek_ternak_id_kandang,
+     cek_ternak.`id_pakan` AS cek_ternak_id_pakan,
+     cek_ternak.`jml_telur` AS cek_ternak_jml_telur,
+     cek_ternak.`kebersihan` AS cek_ternak_kebersihan,
+     cek_ternak.`tgl_cek` AS cek_ternak_tgl_cek
+FROM
+     `cek_ternak` cek_ternak]]>
+	</queryString>
+	<field name="cek_ternak_id_cek" class="java.lang.String"/>
+	<field name="cek_ternak_id_kandang" class="java.lang.String"/>
+	<field name="cek_ternak_id_pakan" class="java.lang.String"/>
+	<field name="cek_ternak_jml_telur" class="java.lang.Integer"/>
+	<field name="cek_ternak_kebersihan" class="java.lang.String"/>
+	<field name="cek_ternak_tgl_cek" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="60021870-74cd-4fe0-b470-6ea1efcef132" x="120" y="0" width="313" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Kesehatan ]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="884d697a-740d-41cd-b4f3-2d83ecb90412" x="1" y="0" width="99" height="89"/>
+				<imageExpression><![CDATA["D:\\Kuliah\\1. MATERI KULIAH\\SMS 4\\Project 1\\UpPuyuh\\UpPuyuh\\src\\Imange\\puyuh.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="20dff77f-66cb-4bc3-9762-a1277c3cfe11" x="120" y="20" width="313" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Peternakan Burung Puyuh]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64884ef8-60dc-4186-a5cd-abc2b3433522" mode="Opaque" x="0" y="0" width="60" height="20" forecolor="#000000" backcolor="#33CCFF"/>
+				<textElement/>
+				<text><![CDATA[cek_ternak_id_cek]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9aec79bd-6ac4-4c04-823a-4b9e56eeab0e" mode="Opaque" x="60" y="0" width="60" height="20" forecolor="#000000" backcolor="#33CCFF"/>
+				<textElement/>
+				<text><![CDATA[cek_ternak_id_kandang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3e4a6f84-bc04-4b1e-9d43-e3b9b49ac440" mode="Opaque" x="120" y="0" width="100" height="20" forecolor="#000000" backcolor="#33CCFF"/>
+				<textElement/>
+				<text><![CDATA[cek_ternak_id_pakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4b14c5b6-5b0b-4efb-a0b5-4f7fcb475e6b" mode="Opaque" x="220" y="0" width="100" height="20" forecolor="#000000" backcolor="#33CCFF"/>
+				<textElement/>
+				<text><![CDATA[cek_ternak_jml_telur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6758bb6a-70f7-4077-a4d0-d32ecad1f088" mode="Opaque" x="320" y="0" width="100" height="20" forecolor="#000000" backcolor="#33CCFF"/>
+				<textElement/>
+				<text><![CDATA[cek_ternak_kebersihan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8f6f0143-11b2-4470-90aa-e2bb0ef3acba" mode="Opaque" x="420" y="0" width="135" height="20" forecolor="#000000" backcolor="#33CCFF"/>
+				<textElement/>
+				<text><![CDATA[cek_ternak_tgl_cek]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement uuid="65bf53b7-f7c9-4fc9-8ef1-f2bbd0573f78" x="0" y="0" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cek_ternak_id_cek}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8561422f-b22a-4cff-adf2-fb1ecb26e8c9" x="60" y="0" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cek_ternak_id_kandang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="52b93236-a712-453b-8640-4b8c86c888ee" x="120" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cek_ternak_id_pakan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="206cb639-bea8-488c-ae63-5078fbee3b58" x="220" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cek_ternak_jml_telur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cc06a8d3-4936-4365-b593-92e971467ea6" x="320" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cek_ternak_kebersihan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ac72de04-7e22-4c97-b33a-41f00956e50c" x="420" y="0" width="135" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cek_ternak_tgl_cek}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9a02e06e-0285-4015-a4bb-a747bff04299" x="199" y="0" width="160" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[2021 Peternakan Burung Puyuh]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

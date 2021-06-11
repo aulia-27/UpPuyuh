@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanPegawai" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="82415761-173d-4f7c-9805-0a1d44cb6aa2">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="25"/>
+	<queryString>
+		<![CDATA[SELECT
+     pegawai.`id_pegawai` AS pegawai_id_pegawai,
+     pegawai.`nama` AS pegawai_nama,
+     pegawai.`asal` AS pegawai_asal,
+     pegawai.`tgl_lahir` AS pegawai_tgl_lahir,
+     pegawai.`jekel` AS pegawai_jekel,
+     pegawai.`no_telp` AS pegawai_no_telp,
+     pegawai.`alamat` AS pegawai_alamat,
+     pegawai.`id_kandang` AS pegawai_id_kandang
+FROM
+     `pegawai` pegawai]]>
+	</queryString>
+	<field name="pegawai_id_pegawai" class="java.lang.String"/>
+	<field name="pegawai_nama" class="java.lang.String"/>
+	<field name="pegawai_asal" class="java.lang.String"/>
+	<field name="pegawai_tgl_lahir" class="java.sql.Date"/>
+	<field name="pegawai_jekel" class="java.lang.String"/>
+	<field name="pegawai_no_telp" class="java.lang.String"/>
+	<field name="pegawai_alamat" class="java.lang.String"/>
+	<field name="pegawai_id_kandang" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="60021870-74cd-4fe0-b470-6ea1efcef132" x="120" y="0" width="313" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Kesehatan ]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="884d697a-740d-41cd-b4f3-2d83ecb90412" x="1" y="0" width="99" height="89"/>
+				<imageExpression><![CDATA["D:\\Kuliah\\1. MATERI KULIAH\\SMS 4\\Project 1\\UpPuyuh\\UpPuyuh\\src\\Imange\\puyuh.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="20dff77f-66cb-4bc3-9762-a1277c3cfe11" x="120" y="20" width="313" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Peternakan Burung Puyuh]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="389f678b-98ef-466f-8be8-8c719b0f2ae1" x="1" y="0" width="43" height="20"/>
+				<textElement/>
+				<text><![CDATA[pegawai_id_pegawai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7862b553-5850-4982-96a5-de6d6a3997e7" x="44" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[pegawai_nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0a323c13-1924-4547-af02-a87b64c4ee1a" x="144" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[pegawai_asal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="103b1959-4839-4d1a-aebd-926df15d9cc2" x="244" y="0" width="83" height="20"/>
+				<textElement/>
+				<text><![CDATA[pegawai_tgl_lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="893d3f01-797f-4500-98eb-2d25816bb21a" x="327" y="0" width="46" height="20"/>
+				<textElement/>
+				<text><![CDATA[pegawai_jekel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5834f97e-917c-48e6-a176-223476823473" x="373" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[pegawai_no_telp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41240db0-32e1-472f-9e61-b740c84c96b4" x="473" y="0" width="82" height="20"/>
+				<textElement/>
+				<text><![CDATA[pegawai_alamat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b5f60f04-7627-4f57-9d07-44459156c4f0" x="1" y="0" width="43" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pegawai_id_pegawai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f00bf97b-a3d9-4826-81b9-9b82c393b79d" x="44" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pegawai_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="85fb576e-6ebe-44e4-abb7-9c92f19269a7" x="144" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pegawai_asal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0da7899f-51f0-4c6e-9c34-fb7d90f91c0d" x="244" y="0" width="83" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pegawai_tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0f4e4cf3-0bde-461d-a784-78c60f3d9894" x="327" y="0" width="46" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pegawai_jekel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d2d12cd3-64e3-4614-9f27-3f2e84afcf20" x="373" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pegawai_no_telp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d8ebe543-2ab1-4fb2-9da8-2ceee1c4ad08" x="473" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pegawai_alamat}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

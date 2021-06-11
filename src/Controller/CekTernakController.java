@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormDataCekTernak;
+
 import CekTernak.CekTernak;
 import CekTernak.CekTernakDao;
 import Koneksi.Koneksi;

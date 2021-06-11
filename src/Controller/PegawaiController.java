@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormDataPegawai;
 import Pegawai.Pegawai;
 import Pegawai.PegawaiDao;
 import Koneksi.Koneksi;

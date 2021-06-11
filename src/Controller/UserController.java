@@ -5,62 +5,115 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormLogin;
-import FormUpPuyuh.FormMainMenuAdmin;
-import FormUpPuyuh.FormLogin;
-
 import User.User;
-import User.UserDao;
-import Koneksi.Koneksi;
-
+import java.sql.Statement;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aulia
  */
 public class UserController {
-    FormLogin viewLogin;
-    User user;
-    UserDao userDao;
-    Connection con;
+    Connection con = null;
+    Statement st = null;
+    ResultSet rs = null;
+    String sql = null;
     
-    public UserController (FormLogin viewLogin) {
+    public UserController() {
         try {
-            this.viewLogin = viewLogin;
-            Koneksi koneksi = new Koneksi();
-            con = koneksi.getKoneksi();
-            clearViewLogin();
-        } catch (ClassNotFoundException ec) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ec);
-        } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/uppuyuh", "root", "");
+            st=con.createStatement();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Koneksi Database gagal, Terjadi kesalahan pada : \n " +e);
         }
     }
     
-    public void clearViewLogin() {
-        viewLogin.getTxtUsername().setText("");
-        viewLogin.getTxtPassword().setText("");
+    public List cariLogin(String username, String password) {
+        List logLogin = new ArrayList();
+        int result;
+        sql = "select username, password, nama, akses from user where username='" +username+ "' and password='" +password+"' ";
+        try {
+            rs=st.executeQuery(sql);
+            while (rs.next()) {                
+                User user = new User();
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setNamaAkun(rs.getString("nama"));
+                user.setAkses(rs.getString("akses"));
+                logLogin.add(user);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ternjadi kesalahan login, pada:n" +e);
+        }
+        return logLogin;
     }
     
-    public boolean ClickBtnLogin() {
+    public List cariId(int id_user) {
+        List logLogin = new ArrayList();
+        int result;
+        sql =  "select id_user from user where id_user ='" +id_user+ "'";
         try {
-            ResultSet rs = con.createStatement().executeQuery("select * from user");
-            FormMainMenuAdmin formMainMenuAdmin = new FormMainMenuAdmin();
-
-        }catch (SQLException ex) {
-            Logger.getLogger(FormLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (NullPointerException ex){
-            JOptionPane.showMessageDialog(viewLogin, "Username dan password salah !!!");
-            clearViewLogin();
-        }finally {
-            clearViewLogin();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {                
+                User user = new User(); 
+                user.setIdUser(rs.getInt("id_user"));
+                logLogin.add(user);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pencarian data id, pada" +e);
         }
-        return false;
+        return logLogin;
+    } 
+    
+    public int tambah(User user) {
+        sql = "insert into user  values ('"+user.getIdUser()+"','"+user.getUsername()+"','" +user.getPassword()+ "','" +user.getNamaAkun()+ "','"+user.getAkses()+ "')";
+        int hasil = 0;
+        try {
+            hasil = st.executeUpdate(sql);
+        } catch (Exception e) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return hasil;
+    }
+    
+    public int delete(User user) {
+        sql = "delete user where id_user='"+user.getIdUser()+"'";
+        int hasil = 0;
+        try {
+            hasil = st.executeUpdate(sql);
+        } catch (Exception e) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return hasil;
+    }
+    
+    public List Tampiil () {
+        List logMainMenu = new ArrayList();
+        sql = "select id_user, username, password, nama, akses from user order by id_user";
+        try {
+            rs = st.executeQuery(sql);
+            while (rs.next()) {                
+                User user = new User(); 
+                user.setIdUser(rs.getInt("id_user"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setNamaAkun(rs.getString("nama"));
+                user.setAkses(rs.getString("akses"));
+                logMainMenu.add(user);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Tampil, pada : "+e);
+        }
+        return logMainMenu;
     }
     
 }

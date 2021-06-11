@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormDataPenyakit;
 import Penyakit.Penyakit;
 import Penyakit.PenyakitDao;
 import Koneksi.Koneksi;

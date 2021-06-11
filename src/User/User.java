@@ -10,6 +10,7 @@ package User;
  * @author Aulia
  */
 public class User {
+    private int id_user;
     private String username;
     private String password;
     private String akses;
@@ -44,5 +45,13 @@ public class User {
     
     public void setNamaAkun(String nama_akun) {
         this.nama_akun = nama_akun;
+    }
+    
+    public int getIdUser() {
+        return id_user;
+    }
+    
+    public void setIdUser(int id_user) {
+        this.id_user = id_user;
     }
 }

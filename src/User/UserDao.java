@@ -15,44 +15,47 @@ import java.sql.ResultSet;
  */
 public class UserDao {
     public static void insert(Connection con, User user) throws SQLException {
-        String sql = "insert into user values(?,?,?)";
+        String sql = "insert into user values(?,?,?,?)";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, user.getIdUser());
+        ps.setString(2, user.getUsername());
+        ps.setString(3, user.getPassword());
+        ps.setString(4, user.getNamaAkun());
+        ps.setString(5, user.getAkses());
+        ps.executeUpdate();
+    }
+    
+    public static void update(Connection con, User user) throws SQLException {
+        String sql = "update user set username=?, password=?, nama=?, akses=? " + "where id_user=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, user.getUsername());
         ps.setString(2, user.getPassword());
         ps.setString(3, user.getNamaAkun());
         ps.setString(4, user.getAkses());
-        ps.executeUpdate();
-    }
-    
-    public static void update(Connection con, User user) throws SQLException {
-        String sql = "update user set password=?, nama=?, akses=? " + "where username=?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, user.getPassword());
-        ps.setString(1, user.getNamaAkun());
-        ps.setString(2, user.getAkses());
-        ps.setString(3, user.getUsername());
+        ps.setInt(5, user.getIdUser());
         ps.executeUpdate();
     }
     
     public static void delete(Connection con, User user) throws SQLException{
-        String sql = "delete from penyakit where username=?";
+        String sql = "delete from penyakit where id_user=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, user.getUsername());
+        ps.setInt(1, user.getIdUser());
         ps.executeUpdate();
     } 
     
     public static User getUser(Connection con, String username) throws SQLException {
-        String sql = "select * from user where username=?";
+        String sql = "select * from user where id_user=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, username);
         User user = null;
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {            
             user = new User();
-            user.setUsername(rs.getString(1));
-            user.setPassword(rs.getString(2));
-            user.setNamaAkun(rs.getString(3));
-            user.setAkses(rs.getString(4));
+            user.setIdUser(rs.getInt(1));
+            user.setUsername(rs.getString(2));
+            user.setPassword(rs.getString(3));
+            user.setNamaAkun(rs.getString(4));
+            user.setAkses(rs.getString(5));
         }
         return user;
     }

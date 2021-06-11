@@ -4,10 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormMainMenuAdmin.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/MainMenuController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataCekTernak.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/Controller/KesehatanController.java</file>
-            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataKesehatan.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataPegawai.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormMenuAdmin.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormDataUser.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/SplasScreenUpPuyuh.java</file>
+            <file>file:/D:/Kuliah/1.%20MATERI%20KULIAH/SMS%204/Project%201/UpPuyuh/UpPuyuh/src/FormUpPuyuh/FormLogin.java</file>
         </group>
     </open-files>
 </project-private>

@@ -12,29 +12,25 @@ import java.sql.SQLException;
 
 public class KandangDao {
     public static void insert(Connection con, Kandang kandang) throws SQLException {
-        String sql = "insert into kandang values(?,?,?,?)";
+        String sql = "insert into kandang values(?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, kandang.getIdKandang());
-        ps.setString(2, kandang.getNama());
-        ps.setInt(3, kandang.getJmlTernak());
-        ps.setString(4, kandang.getBlokKandang());
+        ps.setString(1, kandang.getNamaKandang());
+        ps.setInt(2, kandang.getJmlTernak());
         ps.executeUpdate();
     }
     
     public static void update(Connection con, Kandang kandang) throws SQLException {
-        String sql = "update kandang set nama=?, jml_ternak=?, blok_kandang=? " + "where id_kandang=?";
+        String sql = "update kandang jml_ternak=? where nama_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, kandang.getNama());
-        ps.setInt(2, kandang.getJmlTernak());
-        ps.setString(3, kandang.getBlokKandang());
-        ps.setString(4, kandang.getIdKandang());
+        ps.setInt(1, kandang.getJmlTernak());
+        ps.setString(2, kandang.getNamaKandang());
         ps.executeUpdate();
     }
     
     public static void delete(Connection con, Kandang kandang) throws SQLException{
-        String sql = "delete from kandang where id_kandang=?";
+        String sql = "delete from kandang where nama_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, kandang.getIdKandang());
+        ps.setString(1, kandang.getNamaKandang());
         ps.executeUpdate();
     }
     
@@ -46,10 +42,8 @@ public class KandangDao {
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {            
             kandang = new Kandang();
-            kandang.setIdKandang(rs.getString(1));
-            kandang.setNama(rs.getString(2));
-            kandang.setJmlTernak(rs.getInt(3));
-            kandang.setBlokKandang(rs.getString(4));
+            kandang.setNamaKandang(rs.getString(1));
+            kandang.setJmlTernak(rs.getInt(2));
         }
         return kandang;
     }
@@ -62,10 +56,8 @@ public class KandangDao {
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {            
             kandang = new Kandang();
-            kandang.setIdKandang(rs.getString(1));
-            kandang.setNama(rs.getString(2));
-            kandang.setJmlTernak(rs.getInt(3));
-            kandang.setBlokKandang(rs.getString(4));
+            kandang.setNamaKandang(rs.getString(1));
+            kandang.setJmlTernak(rs.getInt(2));
         }
         return kandang;
     }

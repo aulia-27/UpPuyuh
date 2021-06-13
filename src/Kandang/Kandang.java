@@ -7,40 +7,23 @@ package Kandang;
 
 
 public class Kandang {
-    private String id_Kandang;
-    private String nama;
+    private String nama_kandang;
     private int jmlTernak;
-    private String blok_kandang;
     
-    public String getIdKandang() {
-        return id_Kandang;
-    }
     
-    public String getNama() {
-        return nama;
+    public String getNamaKandang() {
+        return nama_kandang;
     }
     
     public int getJmlTernak() {
         return jmlTernak;
     }
     
-    public String getBlokKandang() {
-        return blok_kandang;
-    }
-    
-    public void setIdKandang(String id_Kandang) {
-        this.id_Kandang = id_Kandang;
-    }
-    
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setNamaKandang(String nama_kandang) {
+        this.nama_kandang = nama_kandang;
     }
     
     public void setJmlTernak(int jmlTernak) {
         this.jmlTernak = jmlTernak;
-    }
-    
-    public void setBlokKandang(String blok_kandang) {
-        this.blok_kandang = blok_kandang;
     }
 }

@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class PegawaiDao {
     public static void insert(Connection con, Pegawai pengawai) throws SQLException{
-        String sql = "insert into pegawai values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into pegawai values (?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pengawai.getIdPegawai());
         ps.setString(2, pengawai.getNama());
@@ -22,12 +22,11 @@ public class PegawaiDao {
         ps.setString(5, pengawai.getJekel());
         ps.setString(6, pengawai.getNoTelp());
         ps.setString(7, pengawai.getAlamat());
-        ps.setString(8, pengawai.getIdKandang());
         ps.executeUpdate();
     }
     
     public static void update(Connection con, Pegawai pengawai) throws SQLException{
-        String sql = "update pegawai set nama=?, asal=?, tgl_lahir=?, jekel=?, no_telp=?, alamat=?, id_kandang=?" + "where id_pegawai=?";
+        String sql = "update pegawai set nama=?, asal=?, tgl_lahir=?, jekel=?, no_telp=?, alamat=? " + "where id_pegawai=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pengawai.getNama());
         ps.setString(2, pengawai.getAsal());
@@ -35,8 +34,7 @@ public class PegawaiDao {
         ps.setString(4, pengawai.getJekel());
         ps.setString(5, pengawai.getNoTelp());
         ps.setString(6, pengawai.getAlamat());
-        ps.setString(7, pengawai.getIdKandang());
-        ps.setString(8, pengawai.getIdPegawai());
+        ps.setString(7, pengawai.getIdPegawai());
         ps.executeUpdate();
     }
     
@@ -62,7 +60,6 @@ public class PegawaiDao {
             pegawai.setJekel(rs.getString(5));
             pegawai.setNoTelp(rs.getString(6));
             pegawai.setAlamat(rs.getString(7));
-            pegawai.setIdKandang(rs.getString(8));
         }
         return pegawai;
     }

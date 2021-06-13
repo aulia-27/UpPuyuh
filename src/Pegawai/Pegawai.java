@@ -16,7 +16,6 @@ public class Pegawai {
     private String noTelp;
     private String jekel;
     private String alamat;
-    private String id_Kandang;
     
     public String getIdPegawai() {
         return id_Pegawai;
@@ -46,10 +45,6 @@ public class Pegawai {
         return alamat;
     }
     
-    public String getIdKandang() {
-        return id_Kandang;
-    }
-    
     public void setIdPegawai(String id_Pegawai) {
         this.id_Pegawai = id_Pegawai;
     }
@@ -76,9 +71,5 @@ public class Pegawai {
     
     public void setAlamat(String alamat) {
         this.alamat = alamat;
-    }
-    
-    public void setIdKandang(String id_Kandang) {
-        this.id_Kandang = id_Kandang;
     }
 }

@@ -8,6 +8,7 @@ package Controller;
 
 import Kandang.Kandang;
 import Kandang.KandangDao;
+import FormUpPuyuh.FormMenuAdmin;
 import Koneksi.Koneksi;
 
 import java.sql.Connection;
@@ -25,18 +26,18 @@ import javax.swing.table.DefaultTableModel;
  * @author Aulia
  */
 public class KandangController {
-    FormDataKandang viewData;
+    FormMenuAdmin viewAdmin;
     Kandang kandang;
     Connection con;
     
-    public KandangController (FormDataKandang viewData) {
+    public KandangController (FormMenuAdmin viewAdmin) {
         try {
-            this.viewData = viewData;
+            this.viewAdmin = viewAdmin;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
             clearForm();
             viewTableData();
-            viewTableInput();
+            //viewTableInput();
             clearForm();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
@@ -46,78 +47,70 @@ public class KandangController {
     }
     
     public void clearForm(){
-        viewData.getTxtIdKandang().setText("");
-        viewData.getTxtLabelKandang().setText("");
-        viewData.getTxtJmlTernak().setText("");
-        viewData.getTxtBlokKandang().setText("");
+        viewAdmin.getTxtNamaKandang().setText("");
+        viewAdmin.getTxtJumlahTernak().setText("");
     }
     
     public void insert(){
         kandang = new Kandang();
-        kandang.setIdKandang(viewData.getTxtIdKandang().getText());
-        kandang.setNama(viewData.getTxtLabelKandang().getText());
-        kandang.setJmlTernak(Integer.parseInt(viewData.getTxtJmlTernak().getText()));
-        kandang.setBlokKandang(viewData.getTxtBlokKandang().getText());
+        kandang.setNamaKandang(viewAdmin.getTxtNamaKandang().getText());
+        kandang.setJmlTernak(Integer.parseInt(viewAdmin.getTxtJumlahTernak().getText()));
         try {
             KandangDao.insert(con, kandang);
-            JOptionPane.showMessageDialog(viewData, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewData, "ID Kandang Sudah Ada"); 
+            JOptionPane.showMessageDialog(viewAdmin, "Nama Kandang Sudah Ada"); 
         }
     }
     
     public void update() {
         kandang = new Kandang();
-        kandang.setIdKandang(viewData.getTxtIdKandang().getText());
-        kandang.setNama(viewData.getTxtLabelKandang().getText());
-        kandang.setJmlTernak(Integer.parseInt(viewData.getTxtJmlTernak().getText()));
-        kandang.setBlokKandang(viewData.getTxtBlokKandang().getText());
+        kandang.setNamaKandang(viewAdmin.getTxtNamaKandang().getText());
+        kandang.setJmlTernak(Integer.parseInt(viewAdmin.getTxtNamaKandang().getText()));
         try {
             KandangDao.update(con, kandang);
-            JOptionPane.showMessageDialog(viewData, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewAdmin, "Update Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewData, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
         }
     }
     
     public void delete() {
         try {
             KandangDao.delete(con, kandang);
-            JOptionPane.showMessageDialog(viewData, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(viewData, "Silakan Pilih Data Pada Tabel");
+            JOptionPane.showMessageDialog(viewAdmin, "Silakan Pilih Data Pada Tabel");
         }
     }
     
-    public void onClickTabel() {
+    /*public void onClickTabel() {
         try {
-            String kode = viewData.getTblInputKandang().getValueAt(viewData.getTblInputKandang().getSelectedRow(), 0).toString();
+            String kode = viewAdmin.getTblInputKandang().getValueAt(viewAdmin.getTblInputKandang().getSelectedRow(), 0).toString();
             kandang = KandangDao.getKandang(con, kode);
             if (kandang != null) {
-                viewData.getTxtIdKandang().setText(kandang.getIdKandang());
-                viewData.getTxtLabelKandang().setText(kandang.getNama());
-                viewData.getTxtJmlTernak().setText(""+kandang.getJmlTernak());
-                viewData.getTxtBlokKandang().setText(kandang.getBlokKandang());
+                viewAdmin.getTxtIdKandang().setText(kandang.getIdKandang());
+                viewAdmin.getTxtLabelKandang().setText(kandang.getNama());
+                viewAdmin.getTxtJmlTernak().setText(""+kandang.getJmlTernak());
+                viewAdmin.getTxtBlokKandang().setText(kandang.getBlokKandang());
             } else {
-                javax.swing.JOptionPane.showMessageDialog(viewData, "Data Tidak Ada");
+                javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
                 clearForm();
             }
         } catch (SQLException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
     
     public void viewTableData(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewData.getTblDataKandang().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblDataKandang().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from kandang");
             while(rs.next()){
                 Object[] data={
                     rs.getString(1),
-                    rs.getString(2),
-                    rs.getInt(3),
-                    rs.getString(4)
+                    rs.getInt(2),
                 };
                 tabelModel.addRow(data);
             }
@@ -126,9 +119,9 @@ public class KandangController {
         }
     }
      
-    public void viewTableInput(){
+    /*public void viewTableInput(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewData.getTblInputKandang().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputKandang().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from kandang");
             while(rs.next()){
@@ -143,5 +136,5 @@ public class KandangController {
         } catch (SQLException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
 }

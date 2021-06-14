@@ -51,7 +51,7 @@ import org.apache.poi.ss.usermodel.Row;
  *
  * @author Aulia
  */
-public class ControllerMenuAdmin {
+public class MenuAdminController {
     FormMenuAdmin viewAdmin;
     Kandang kandang;
     Pegawai pegawai;
@@ -61,7 +61,7 @@ public class ControllerMenuAdmin {
     Kesehatan kesehatan;
     Connection con;
     
-    public ControllerMenuAdmin (FormMenuAdmin viewAdmin) {
+    public MenuAdminController (FormMenuAdmin viewAdmin) {
         try {
             this.viewAdmin = viewAdmin;
             Koneksi koneksi = new Koneksi();
@@ -109,9 +109,9 @@ public class ControllerMenuAdmin {
             
  
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE,null, ex);
         }
     }
     
@@ -184,7 +184,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
      
@@ -201,7 +201,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -339,7 +339,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -361,7 +361,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -380,7 +380,7 @@ public class ControllerMenuAdmin {
             pakan = new Pakan();
             pakan.setIdPakan(viewAdmin.getTxtIdPakan().getText());
             pakan.setNama(viewAdmin.getTxtNamaPakan().getText());
-            pakan.setHarga(Integer.parseInt(viewAdmin.getTxtHarga().getText()));
+            pakan.setHarga(Double.parseDouble(viewAdmin.getTxtHarga().getText()));
             pakan.setStok(Integer.parseInt(viewAdmin.getTxtStok().getText()));
             PakanDao.insert(con, pakan);
             JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
@@ -393,7 +393,7 @@ public class ControllerMenuAdmin {
         pakan = new Pakan();
         pakan.setIdPakan(viewAdmin.getTxtIdPakan().getText());
         pakan.setNama(viewAdmin.getTxtNamaPakan().getText());
-        pakan.setHarga(Integer.parseInt(viewAdmin.getTxtHarga().getText()));
+        pakan.setHarga(Double.parseDouble(viewAdmin.getTxtHarga().getText()));
         pakan.setStok(Integer.parseInt(viewAdmin.getTxtStok().getText()));
         try {
             PakanDao.update(con, pakan);
@@ -439,13 +439,13 @@ public class ControllerMenuAdmin {
                 Object[] data={
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getInt(3),
+                    rs.getDouble(3),
                     rs.getInt(4)
                 };
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -458,13 +458,13 @@ public class ControllerMenuAdmin {
                 Object[] data={
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getInt(3),
+                    rs.getDouble(3),
                     rs.getInt(4)
                 };
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -473,12 +473,18 @@ public class ControllerMenuAdmin {
     public void clearFormPenyakit(){
         viewAdmin.getTxtNamaPenyakit().setText("");
         viewAdmin.getJtxGejala().setText("");
+        viewAdmin.getJtxPenularan().setText("");
+        viewAdmin.getJtxPencegahan().setText("");
+        viewAdmin.getJtxPengobatan().setText("");
     }
     
-    public void insert(){
+    public void insertPenyakit(){
         penyakit = new Penyakit();
         penyakit.setNamaPenyakit(viewAdmin.getTxtNamaPenyakit().getText());
         penyakit.setGejala(viewAdmin.getJtxGejala().getText());
+        penyakit.setPenularan(viewAdmin.getJtxPenularan().getText());
+        penyakit.setPencegahan(viewAdmin.getJtxPencegahan().getText());
+        penyakit.setPengobatan(viewAdmin.getJtxPengobatan().getText());
         try {
             PenyakitDao.insert(con, penyakit);
             JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
@@ -487,10 +493,13 @@ public class ControllerMenuAdmin {
         }
     }
     
-    public void update(){
+    public void updatePenyakit(){
         penyakit = new Penyakit();
         penyakit.setNamaPenyakit(viewAdmin.getTxtNamaPenyakit().getText());
         penyakit.setGejala(viewAdmin.getJtxGejala().getText());
+        penyakit.setPenularan(viewAdmin.getJtxPenularan().getText());
+        penyakit.setPencegahan(viewAdmin.getJtxPencegahan().getText());
+        penyakit.setPengobatan(viewAdmin.getJtxPengobatan().getText());
         try {
             PenyakitDao.update(con, penyakit);
             JOptionPane.showMessageDialog(viewAdmin, "Update Data Ok");
@@ -499,7 +508,7 @@ public class ControllerMenuAdmin {
         }
     }
     
-    public void delete() {
+    public void deletePenyakit() {
         try {
             PenyakitDao.delete(con, penyakit);
             JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
@@ -532,12 +541,15 @@ public class ControllerMenuAdmin {
             while (rs.next()) {                
                 Object[] data= {
                     rs.getString(1),
-                    rs.getString(2)
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5)
                 };
                 tableModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -549,12 +561,15 @@ public class ControllerMenuAdmin {
             while (rs.next()) {                
                 Object[] data= {
                     rs.getString(1),
-                    rs.getString(2)
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5)
                 };
                 tableModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -575,7 +590,7 @@ public class ControllerMenuAdmin {
                 viewAdmin.getCboPenyakit().addItem(rs.getString(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -587,7 +602,7 @@ public class ControllerMenuAdmin {
                 viewAdmin.getCboKandang().addItem(rs.getString(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -704,7 +719,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -725,7 +740,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -750,7 +765,7 @@ public class ControllerMenuAdmin {
                 viewAdmin.getCboKandangCek().addItem(rs.getString(1));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -762,7 +777,7 @@ public class ControllerMenuAdmin {
                 viewAdmin.getCboIdPakanCek().addItem(rs.getString(1)+" - "+rs.getString(2));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -774,7 +789,7 @@ public class ControllerMenuAdmin {
                 viewAdmin.getCboIdPakanCek().addItem(rs.getString(1)+" - "+rs.getString(2));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -845,7 +860,7 @@ public class ControllerMenuAdmin {
                 clearForm();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
     
@@ -867,7 +882,7 @@ public class ControllerMenuAdmin {
             tableModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -889,7 +904,7 @@ public class ControllerMenuAdmin {
             tableModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -1098,7 +1113,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -1120,11 +1135,11 @@ public class ControllerMenuAdmin {
             tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void viewTablePegawai(){
+    public void viewTablePegawaiLaporan(){
         try {
             DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
             tabelModel.setRowCount(0);
@@ -1142,11 +1157,11 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void viewTablePakan(){
+    public void viewTablePakanLaporan(){
         try {
             DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
             tabelModel.setRowCount(0);
@@ -1161,7 +1176,7 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

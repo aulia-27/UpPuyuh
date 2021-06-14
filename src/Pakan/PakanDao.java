@@ -17,7 +17,7 @@ public class PakanDao {
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pakan.getIdPakan());
         ps.setString(2, pakan.getNama());
-        ps.setInt(3, pakan.getHarga());
+        ps.setDouble(3, pakan.getHarga());
         ps.setInt(4, pakan.getStok());
         ps.executeUpdate();
     }
@@ -26,7 +26,7 @@ public class PakanDao {
         String sql = "update pakan set nama=?, harga=?, stok=? " + "where id_pakan=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pakan.getNama());
-        ps.setInt(2, pakan.getHarga());
+        ps.setDouble(2, pakan.getHarga());
         ps.setInt(3, pakan.getStok());
         ps.setString(4, pakan.getIdPakan());
         ps.executeUpdate();
@@ -49,7 +49,7 @@ public class PakanDao {
             pakan = new Pakan();
             pakan.setIdPakan(rs.getString(1));
             pakan.setNama(rs.getString(2));
-            pakan.setHarga(rs.getInt(3));
+            pakan.setHarga(rs.getDouble(3));
             pakan.setStok(rs.getInt(4));
         }
         return pakan;

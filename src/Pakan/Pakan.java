@@ -8,7 +8,7 @@ package Pakan;
 public class Pakan {
     private String idPakan;
     private String nama;
-    private int harga;
+    private double harga;
     private int stok;
     
     public String getIdPakan() {
@@ -19,7 +19,7 @@ public class Pakan {
         return nama;
     }
     
-    public int getHarga() {
+    public double getHarga() {
         return harga;
     }
     
@@ -35,7 +35,7 @@ public class Pakan {
         this.nama = nama;
     }
     
-    public void setHarga(int harga) {
+    public void setHarga(double harga) {
         this.harga = harga;
     }
     

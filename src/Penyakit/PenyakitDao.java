@@ -16,18 +16,24 @@ import java.sql.ResultSet;
  */
 public class PenyakitDao {
     public static void insert(Connection con, Penyakit penyakit) throws SQLException {
-        String sql = "insert into penyakit values(?,?)";
+        String sql = "insert into penyakit values(?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, penyakit.getNamaPenyakit());
         ps.setString(2, penyakit.getGejala());
+        ps.setString(3, penyakit.getPenularan());
+        ps.setString(4, penyakit.getPencegahan());
+        ps.setString(5, penyakit.getPengobatan());
         ps.executeUpdate();
     }
     
     public static void update(Connection con, Penyakit penyakit) throws SQLException {
-        String sql = "update penyakit set keterangan=? " + "where nama_penyakit=?";
+        String sql = "update penyakit set gejala=?, penularan=?, pencegahan=?, pengobatan=? " + "where nama_penyakit=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(2, penyakit.getGejala());
-        ps.setString(1, penyakit.getNamaPenyakit());
+        ps.setString(1, penyakit.getGejala());
+        ps.setString(2, penyakit.getPenularan());
+        ps.setString(3, penyakit.getPencegahan());
+        ps.setString(4, penyakit.getPengobatan());
+        ps.setString(5, penyakit.getNamaPenyakit());
         ps.executeUpdate();
     }
     
@@ -48,6 +54,9 @@ public class PenyakitDao {
             penyakit = new Penyakit();
             penyakit.setNamaPenyakit(rs.getString(1));
             penyakit.setGejala(rs.getString(2));
+            penyakit.setPenularan(rs.getString(3));
+            penyakit.setPencegahan(rs.getString(4));
+            penyakit.setPengobatan(rs.getString(5));
         }
         return penyakit;
     }

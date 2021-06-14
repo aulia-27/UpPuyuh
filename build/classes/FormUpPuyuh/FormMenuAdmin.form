@@ -1107,8 +1107,8 @@
                                       </Group>
                                       <EmptySpace pref="303" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton13" max="32767" attributes="0"/>
-                                          <Component id="jButton12" max="32767" attributes="0"/>
+                                          <Component id="BtnExportPdf" max="32767" attributes="0"/>
+                                          <Component id="BtnExportExcel" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1121,7 +1121,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton12" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Component id="BtnExportExcel" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1137,7 +1137,7 @@
                                                   <Component id="BtnCekKodeLpr" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="jButton13" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Component id="BtnExportPdf" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1194,22 +1194,31 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cek"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCekKodeLprActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton12">
+                            <Component class="javax.swing.JButton" name="BtnExportExcel">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="18" style="0"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Cetak Laporan Format Excel"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExportExcelActionPerformed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton13">
+                            <Component class="javax.swing.JButton" name="BtnExportPdf">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="18" style="0"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Cetak Laporan Format PDF"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExportPdfActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2401,7 +2410,7 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel34" alignment="0" pref="1142" max="32767" attributes="0"/>
+                                  <Component id="jLabel34" alignment="0" pref="1141" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jPanel2" min="-2" pref="527" max="-2" attributes="0"/>
@@ -2893,7 +2902,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="KembaliMenuUtamaPkn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KembaliMenuUtama3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -2904,7 +2913,7 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                          <Component id="KembaliMenuUtamaPkn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="KembaliMenuUtama3" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="TimePakan" alignment="3" max="32767" attributes="0"/>
@@ -2929,6 +2938,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Tambah Data"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataPakanActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="TimePakan">
                           <Properties>
@@ -2946,12 +2958,15 @@
                             <Property name="text" type="java.lang.String" value="Date"/>
                           </Properties>
                         </Component>
-                        <Container class="javax.swing.JPanel" name="KembaliMenuUtamaPkn">
+                        <Container class="javax.swing.JPanel" name="KembaliMenuUtama3">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliMenuUtama3MouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -3074,7 +3089,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="PanelMenuInputPakan" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="PanelInputPakan" max="32767" attributes="0"/>
+                              <Component id="PanelInputPakan" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3092,7 +3108,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="KembaliDataKandang1" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <Component id="KembaliDataPakan" min="-2" pref="136" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -3101,19 +3117,22 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="KembaliDataKandang1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KembaliDataPakan" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Container class="javax.swing.JPanel" name="KembaliDataKandang1">
+                        <Container class="javax.swing.JPanel" name="KembaliDataPakan">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliDataPakanMouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -3177,12 +3196,12 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPane13" pref="517" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="PanelInputDataKandang1" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane13" pref="522" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -3330,6 +3349,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanPakanActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnHapusPakan">
                               <Properties>
@@ -3338,6 +3360,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnHapusPakanActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnBatalPakan">
                               <Properties>
@@ -3346,6 +3371,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Batal"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalPakanActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="CariIdPakan">
                               <Properties>
@@ -3359,6 +3387,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Update"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdatePakanActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3407,6 +3438,9 @@
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TblInputDataPakanMouseClicked"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3488,7 +3522,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="KembaliMenuUtamaPnyt" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KembaliMenuUtama4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -3499,7 +3533,7 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                          <Component id="KembaliMenuUtamaPnyt" min="-2" max="-2" attributes="0"/>
+                                          <Component id="KembaliMenuUtama4" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="TimePenyakit" alignment="3" max="32767" attributes="0"/>
@@ -3524,6 +3558,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Tambah Data"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataPenyakitActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="TimePenyakit">
                           <Properties>
@@ -3541,12 +3578,15 @@
                             <Property name="text" type="java.lang.String" value="Date"/>
                           </Properties>
                         </Component>
-                        <Container class="javax.swing.JPanel" name="KembaliMenuUtamaPnyt">
+                        <Container class="javax.swing.JPanel" name="KembaliMenuUtama4">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliMenuUtama4MouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -3610,13 +3650,31 @@
                         <Component class="javax.swing.JTable" name="TblDataPenyakit">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="2" rowCount="4">
+                              <Table columnCount="5" rowCount="4">
                                 <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
                                 <Column editable="true" title="Gejala" type="java.lang.Object"/>
+                                <Column editable="true" title="Penularan" type="java.lang.Object"/>
+                                <Column editable="true" title="Pencegahan" type="java.lang.Object"/>
+                                <Column editable="true" title="Pengobatan" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>
@@ -3639,6 +3697,11 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="MenuInputPenyakit">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                       <CardConstraints cardName="card3"/>
@@ -3656,7 +3719,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="PanelMenuInputPenyakit" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="PanelInputPenyakit" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -3675,7 +3738,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="KembaliDataKandang2" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <Component id="KembaliDataPenyakit" min="-2" pref="136" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -3684,19 +3747,22 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="KembaliDataKandang2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="KembaliDataPenyakit" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Container class="javax.swing.JPanel" name="KembaliDataKandang2">
+                        <Container class="javax.swing.JPanel" name="KembaliDataPenyakit">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliDataPenyakitMouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -3750,17 +3816,20 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="PanelInputDataPenyaki" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane14" pref="544" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane14" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel43" alignment="0" pref="1141" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="39" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="PanelInputDataPenyaki" max="32767" attributes="0"/>
                                       <Component id="jScrollPane14" max="32767" attributes="0"/>
                                   </Group>
@@ -3775,25 +3844,10 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jLabel62" alignment="0" pref="180" max="32767" attributes="0"/>
-                                                  <Component id="jLabel63" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="TxtNamaPenyakit" max="32767" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="CariIdPenyakit" min="-2" pref="82" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jScrollPane7" pref="356" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Component id="BtnSimpanPeenyakit" min="-2" pref="115" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Component id="BtnUpdatePenyakit" min="-2" pref="115" max="-2" attributes="0"/>
@@ -3801,6 +3855,36 @@
                                               <Component id="BtnHapusPenyakit" min="-2" pref="115" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                               <Component id="BtnBatalPenyakit" min="-2" pref="115" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel97" min="-2" pref="169" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel62" min="-2" pref="169" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="1" attributes="0">
+                                                              <Component id="jLabel63" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                                                              <Component id="jLabel95" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                                                              <Component id="jLabel96" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jScrollPane19" linkSize="2" pref="340" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane18" linkSize="2" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane17" linkSize="2" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane7" linkSize="2" max="32767" attributes="0"/>
+                                                  <Component id="TxtNamaPenyakit" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -3810,18 +3894,32 @@
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel62" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtNamaPenyakit" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="CariIdPenyakit" alignment="3" pref="37" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane7" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
                                           <Component id="jLabel63" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane7" min="-2" pref="184" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane17" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Component id="jLabel95" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane18" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Component id="jLabel96" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane19" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Component id="jLabel97" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="BtnBatalPenyakit" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -3830,7 +3928,7 @@
                                               <Component id="BtnUpdatePenyakit" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -3864,6 +3962,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanPeenyakitActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnHapusPenyakit">
                               <Properties>
@@ -3872,6 +3973,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnHapusPenyakitActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnBatalPenyakit">
                               <Properties>
@@ -3880,11 +3984,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Batal"/>
                               </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="CariIdPenyakit">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Cari"/>
-                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalPenyakitActionPerformed"/>
+                              </Events>
                             </Component>
                             <Container class="javax.swing.JScrollPane" name="jScrollPane7">
                               <AuxValues>
@@ -3908,6 +4010,78 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Update"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdatePenyakitActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Container class="javax.swing.JScrollPane" name="jScrollPane17">
+                              <AuxValues>
+                                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                              </AuxValues>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JTextArea" name="JtxPenularan">
+                                  <Properties>
+                                    <Property name="columns" type="int" value="20"/>
+                                    <Property name="rows" type="int" value="5"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Component class="javax.swing.JLabel" name="jLabel95">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Penularan"/>
+                              </Properties>
+                            </Component>
+                            <Container class="javax.swing.JScrollPane" name="jScrollPane18">
+                              <AuxValues>
+                                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                              </AuxValues>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JTextArea" name="JtxPencegahan">
+                                  <Properties>
+                                    <Property name="columns" type="int" value="20"/>
+                                    <Property name="rows" type="int" value="5"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Component class="javax.swing.JLabel" name="jLabel96">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Pencegahan"/>
+                              </Properties>
+                            </Component>
+                            <Container class="javax.swing.JScrollPane" name="jScrollPane19">
+                              <AuxValues>
+                                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                              </AuxValues>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JTextArea" name="JtxPengobatan">
+                                  <Properties>
+                                    <Property name="columns" type="int" value="20"/>
+                                    <Property name="rows" type="int" value="5"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Component class="javax.swing.JLabel" name="jLabel97">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Pengobatan"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3921,13 +4095,31 @@
                             <Component class="javax.swing.JTable" name="TblInputDataPenyakit">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="2" rowCount="4">
+                                  <Table columnCount="5" rowCount="4">
                                     <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
                                     <Column editable="true" title="Gejala" type="java.lang.Object"/>
+                                    <Column editable="true" title="Penularan" type="java.lang.Object"/>
+                                    <Column editable="true" title="Pencegahan" type="java.lang.Object"/>
+                                    <Column editable="true" title="Pengobatan" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                   <TableColumnModel selectionModel="0">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                       <Title/>
                                       <Editor/>
@@ -3944,9 +4136,21 @@
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TblInputDataPenyakitMouseClicked"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
+                        <Component class="javax.swing.JLabel" name="jLabel43">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="24" style="0"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
+                            <Property name="text" type="java.lang.String" value="Input Penyakit Kandang Peternakan Burung Puyuh"/>
+                          </Properties>
+                        </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>
@@ -4052,6 +4256,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Tambah Data"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataKesehatanActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="TimeKesehatan">
                           <Properties>
@@ -4075,6 +4282,9 @@
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliMenuUtamaKshtMouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -4249,6 +4459,9 @@
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliDataKesehatanMouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -4540,6 +4753,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanKesehatanActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnHapusKesehatan">
                               <Properties>
@@ -4548,6 +4764,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnHapusKesehatanActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnBatalKesehatan">
                               <Properties>
@@ -4556,11 +4775,17 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Batal"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalKesehatanActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnIdKandang">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnIdKandangActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnUpdateKesehatan">
                               <Properties>
@@ -4569,6 +4794,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Update"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdateKesehatanActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -4629,6 +4857,9 @@
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TblInputDataKesehatanMouseClicked"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -4672,8 +4903,8 @@
                               <Component id="PanelMenuDataKesehatan1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="40" max="32767" attributes="0"/>
-                              <Component id="jScrollPane9" min="-2" pref="437" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane9" pref="470" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -4696,7 +4927,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="TimeCekTernak" min="-2" pref="171" max="-2" attributes="0"/>
                                   <EmptySpace pref="301" max="32767" attributes="0"/>
-                                  <Component id="BtnInputDataKesehatan1" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="BtnInputDataCekTernak" min="-2" pref="240" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -4721,7 +4952,7 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="BtnInputDataKesehatan1" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="BtnInputDataCekTernak" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -4730,13 +4961,16 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="BtnInputDataKesehatan1">
+                        <Component class="javax.swing.JButton" name="BtnInputDataCekTernak">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Montserrat" size="18" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Tambah Data"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataCekTernakActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="TimeCekTernak">
                           <Properties>
@@ -4760,6 +4994,9 @@
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliMenuUtamaCekMouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -4919,7 +5156,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                                   <Component id="KembaliDataCekTernak" min="-2" pref="136" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="955" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5017,277 +5254,34 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel83" min="-2" pref="204" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="TxtJmlTelur" min="-2" pref="130" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel84" min="-2" pref="204" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="CboKebersihan" min="-2" pref="264" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="jLabel81" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                                          <Component id="jLabel79" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                                          <Component id="jLabel80" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                                          <Component id="jLabel82" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="TxtIdCekTernak" min="-2" pref="150" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="BtnCekIdTernak" min="-2" pref="107" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Component id="CboKandangCek" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
-                                                          <Component id="CboIdPegawaiCek" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
-                                                          <Component id="CboIdPakanCek" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel85" min="-2" pref="204" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="TxtTglCek" min="-2" pref="175" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jScrollPane16" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                              <Component id="BtnSimpanCek" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="BtnHapusCek1" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="BtnHapusCek" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="BtnBatalCek" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel98" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="jScrollPane16" min="-2" pref="567" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel98" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane16" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel79" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="TxtIdCekTernak" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="BtnCekIdTernak" alignment="3" pref="44" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="CboKandangCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="jLabel80" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="CboIdPakanCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="jLabel81" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CboIdPegawaiCek" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="jLabel82" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="TxtJmlTelur" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="jLabel83" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel84" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="CboKebersihan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel85" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                                  <Component id="TxtTglCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="BtnSimpanCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="BtnHapusCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="BtnBatalCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="BtnHapusCek1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jScrollPane16" pref="496" max="32767" attributes="0"/>
+                                          <Component id="jPanel5" max="32767" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel79">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="ID Cek Ternak "/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel80">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Nama Kandang"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel81">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="ID Pakan"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel82">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="ID Pegawai"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel83">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Jumlah Telur"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel84">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Kebersihan"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtIdCekTernak">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField1"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtJmlTelur">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField1"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="CboKandangCek">
-                              <Properties>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
-                                </Property>
-                              </Properties>
-                              <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                              </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="CboIdPegawaiCek">
-                              <Properties>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
-                                </Property>
-                              </Properties>
-                              <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                              </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="CboIdPakanCek">
-                              <Properties>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
-                                </Property>
-                              </Properties>
-                              <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                              </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="BtnSimpanCek">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="16" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Simpan"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="BtnHapusCek">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="16" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Hapus"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="BtnBatalCek">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="16" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Batal"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="BtnCekIdTernak">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Cari"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JComboBox" name="CboKebersihan">
-                              <Properties>
-                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
-                                  </StringArray>
-                                </Property>
-                              </Properties>
-                              <AuxValues>
-                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                              </AuxValues>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel85">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Tanggal Cek Ternak"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtTglCek">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField1"/>
-                              </Properties>
-                            </Component>
                             <Container class="javax.swing.JScrollPane" name="jScrollPane16">
                               <AuxValues>
                                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -5351,15 +5345,318 @@
                                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TblInputDataCekTernakMouseClicked"/>
+                                  </Events>
                                 </Component>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JButton" name="BtnHapusCek1">
+                            <Container class="javax.swing.JPanel" name="jPanel5">
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel79" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="TxtIdCekTernak" min="-2" pref="150" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="BtnCekIdTernak" min="-2" pref="107" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel80" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="CboKandangCek" min="-2" pref="264" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="jLabel81" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                                      <Component id="jLabel82" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="CboIdPegawaiCek" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
+                                                      <Component id="CboIdPakanCek" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel83" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="TxtJmlTelur" min="-2" pref="130" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel84" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="CboKebersihan" min="-2" pref="264" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel85" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="TxtTglCek" min="-2" pref="175" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                          <Component id="BtnSimpanCek" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                                          <Component id="BtnUpdateCek" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="BtnHapusCek" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="BtnBatalCek" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel79" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="TxtIdCekTernak" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="BtnCekIdTernak" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="CboKandangCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="jLabel80" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="CboIdPakanCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="jLabel81" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="CboIdPegawaiCek" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="jLabel82" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="TxtJmlTelur" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="jLabel83" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel84" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="CboKebersihan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel85" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="TxtTglCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="BtnSimpanCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="BtnHapusCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="BtnBatalCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="BtnUpdateCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JButton" name="BtnCekIdTernak">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Cari"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCekIdTernakActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="TxtIdCekTernak">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jTextField1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel79">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="ID Cek Ternak "/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel80">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Nama Kandang"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JComboBox" name="CboKandangCek">
+                                  <Properties>
+                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                      <StringArray count="4">
+                                        <StringItem index="0" value="Item 1"/>
+                                        <StringItem index="1" value="Item 2"/>
+                                        <StringItem index="2" value="Item 3"/>
+                                        <StringItem index="3" value="Item 4"/>
+                                      </StringArray>
+                                    </Property>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                  </AuxValues>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel81">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="ID Pakan"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel82">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="ID Pegawai"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JComboBox" name="CboIdPegawaiCek">
+                                  <Properties>
+                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                      <StringArray count="4">
+                                        <StringItem index="0" value="Item 1"/>
+                                        <StringItem index="1" value="Item 2"/>
+                                        <StringItem index="2" value="Item 3"/>
+                                        <StringItem index="3" value="Item 4"/>
+                                      </StringArray>
+                                    </Property>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                  </AuxValues>
+                                </Component>
+                                <Component class="javax.swing.JComboBox" name="CboIdPakanCek">
+                                  <Properties>
+                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                      <StringArray count="4">
+                                        <StringItem index="0" value="Item 1"/>
+                                        <StringItem index="1" value="Item 2"/>
+                                        <StringItem index="2" value="Item 3"/>
+                                        <StringItem index="3" value="Item 4"/>
+                                      </StringArray>
+                                    </Property>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                  </AuxValues>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="TxtTglCek">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jTextField1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JComboBox" name="CboKebersihan">
+                                  <Properties>
+                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                      <StringArray count="4">
+                                        <StringItem index="0" value="Item 1"/>
+                                        <StringItem index="1" value="Item 2"/>
+                                        <StringItem index="2" value="Item 3"/>
+                                        <StringItem index="3" value="Item 4"/>
+                                      </StringArray>
+                                    </Property>
+                                  </Properties>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                                  </AuxValues>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="TxtJmlTelur">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="jTextField1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel83">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Jumlah Telur"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel84">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Kebersihan"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel85">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="18" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Tanggal Cek Ternak"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="BtnSimpanCek">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Simpan"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanCekActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="BtnUpdateCek">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Update"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdateCekActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="BtnHapusCek">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Hapus"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnHapusCekActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="BtnBatalCek">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Batal"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalCekActionPerformed"/>
+                                  </Events>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Component class="javax.swing.JLabel" name="jLabel98">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="16" style="0"/>
+                                  <Font name="Montserrat" size="24" style="0"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="Update"/>
+                                <Property name="horizontalAlignment" type="int" value="0"/>
+                                <Property name="text" type="java.lang.String" value="Data Cek Ternak Peternakan Burung Puyuh"/>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -5464,6 +5761,9 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TblDataUserMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -5529,6 +5829,9 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliMenuUtamaUserMouseClicked"/>
+                      </Events>
 
                       <Layout>
                         <DimensionLayout dim="0">
@@ -5651,16 +5954,19 @@
                                   <Component id="TxtDataUsername" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="JpsDataPassword" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="jLabel91" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel91" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="JpsDataPassword" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel92" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="JpsDataRePassword" alignment="3" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel92" pref="35" max="32767" attributes="0"/>
+                                  <Component id="JpsDataRePassword" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel93" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="TxtDataNama" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
@@ -5788,6 +6094,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Simpan"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="BtnHapus">
                       <Properties>
@@ -5796,6 +6105,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Hapus"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnHapusActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="BtnDelete">
                       <Properties>
@@ -5804,6 +6116,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Batal"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnDeleteActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

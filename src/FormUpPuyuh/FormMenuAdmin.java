@@ -533,7 +533,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         BtnInputDataPegawai = new javax.swing.JButton();
         TimePegawai = new javax.swing.JLabel();
         DatePegawai = new javax.swing.JLabel();
-        KembaliMenuUtamaPgw = new javax.swing.JPanel();
+        KembaliMenuUtama2 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -1531,14 +1531,14 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         MenuAdminLayout.setHorizontalGroup(
             MenuAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ProfilAkun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, 1141, Short.MAX_VALUE)
+            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         MenuAdminLayout.setVerticalGroup(
             MenuAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuAdminLayout.createSequentialGroup()
                 .addComponent(ProfilAkun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
+                .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         MenuUtama.add(MenuAdmin, "card3");
@@ -1551,6 +1551,11 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
         BtnInputDataKandang.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         BtnInputDataKandang.setText("Tambah Data");
+        BtnInputDataKandang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnInputDataKandangActionPerformed(evt);
+            }
+        });
 
         TimeKandang.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         TimeKandang.setText("Time");
@@ -1559,6 +1564,11 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         DateKandang.setText("Date");
 
         KembaliMenuUtama1.setBackground(new java.awt.Color(255, 255, 255));
+        KembaliMenuUtama1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KembaliMenuUtama1MouseClicked(evt);
+            }
+        });
 
         IconBack1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imange/IconBack.png"))); // NOI18N
 
@@ -1570,15 +1580,14 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         KembaliMenuUtama1Layout.setHorizontalGroup(
             KembaliMenuUtama1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(KembaliMenuUtama1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(IconBack1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel42))
         );
         KembaliMenuUtama1Layout.setVerticalGroup(
-            KembaliMenuUtama1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(IconBack1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jLabel42, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+            KembaliMenuUtama1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(IconBack1)
+            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout PanelMenuDataKandangLayout = new javax.swing.GroupLayout(PanelMenuDataKandang);
@@ -1676,6 +1685,11 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         PanelMenuInputKandang.setBackground(new java.awt.Color(255, 255, 255));
 
         KembaliDataKandang.setBackground(new java.awt.Color(255, 255, 255));
+        KembaliDataKandang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KembaliDataKandangMouseClicked(evt);
+            }
+        });
 
         IconBackKandang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imange/IconBack.png"))); // NOI18N
 
@@ -1707,7 +1721,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             PanelMenuInputKandangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenuInputKandangLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(KembaliDataKandang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(KembaliDataKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelMenuInputKandangLayout.setVerticalGroup(
@@ -1730,17 +1744,37 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
         BtnSimpanKandang.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnSimpanKandang.setText("Simpan");
+        BtnSimpanKandang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSimpanKandangActionPerformed(evt);
+            }
+        });
 
         BtnHapusKandang.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnHapusKandang.setText("Hapus");
+        BtnHapusKandang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnHapusKandangActionPerformed(evt);
+            }
+        });
 
         BtnBatalKandang.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnBatalKandang.setText("Batal");
+        BtnBatalKandang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBatalKandangActionPerformed(evt);
+            }
+        });
 
         CariIdKandang.setText("Cari");
 
         BtnUpdateKandang.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnUpdateKandang.setText("Update");
+        BtnUpdateKandang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateKandangActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelInputDataKandangLayout = new javax.swing.GroupLayout(PanelInputDataKandang);
         PanelInputDataKandang.setLayout(PanelInputDataKandangLayout);
@@ -1806,6 +1840,11 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         ));
         TblInputDataKandang.setRowHeight(32);
         TblInputDataKandang.setRowMargin(5);
+        TblInputDataKandang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblInputDataKandangMouseClicked(evt);
+            }
+        });
         jScrollPane11.setViewportView(TblInputDataKandang);
 
         javax.swing.GroupLayout PanelInputKandangLayout = new javax.swing.GroupLayout(PanelInputKandang);
@@ -1857,6 +1896,11 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
         BtnInputDataPegawai.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         BtnInputDataPegawai.setText("Tambah Data");
+        BtnInputDataPegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnInputDataPegawaiActionPerformed(evt);
+            }
+        });
 
         TimePegawai.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         TimePegawai.setText("Time");
@@ -1864,10 +1908,10 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         DatePegawai.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         DatePegawai.setText("Date");
 
-        KembaliMenuUtamaPgw.setBackground(new java.awt.Color(255, 255, 255));
-        KembaliMenuUtamaPgw.addMouseListener(new java.awt.event.MouseAdapter() {
+        KembaliMenuUtama2.setBackground(new java.awt.Color(255, 255, 255));
+        KembaliMenuUtama2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                KembaliMenuUtamaPgwMouseClicked(evt);
+                KembaliMenuUtama2MouseClicked(evt);
             }
         });
 
@@ -1876,20 +1920,20 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
         jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imange/IconBack.png"))); // NOI18N
 
-        javax.swing.GroupLayout KembaliMenuUtamaPgwLayout = new javax.swing.GroupLayout(KembaliMenuUtamaPgw);
-        KembaliMenuUtamaPgw.setLayout(KembaliMenuUtamaPgwLayout);
-        KembaliMenuUtamaPgwLayout.setHorizontalGroup(
-            KembaliMenuUtamaPgwLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(KembaliMenuUtamaPgwLayout.createSequentialGroup()
+        javax.swing.GroupLayout KembaliMenuUtama2Layout = new javax.swing.GroupLayout(KembaliMenuUtama2);
+        KembaliMenuUtama2.setLayout(KembaliMenuUtama2Layout);
+        KembaliMenuUtama2Layout.setHorizontalGroup(
+            KembaliMenuUtama2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KembaliMenuUtama2Layout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(jLabel45)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        KembaliMenuUtamaPgwLayout.setVerticalGroup(
-            KembaliMenuUtamaPgwLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(KembaliMenuUtamaPgwLayout.createSequentialGroup()
-                .addGroup(KembaliMenuUtamaPgwLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        KembaliMenuUtama2Layout.setVerticalGroup(
+            KembaliMenuUtama2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KembaliMenuUtama2Layout.createSequentialGroup()
+                .addGroup(KembaliMenuUtama2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -1909,7 +1953,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(PanelMenuDataPegawaiLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(KembaliMenuUtamaPgw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(KembaliMenuUtama2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelMenuDataPegawaiLayout.setVerticalGroup(
@@ -1918,7 +1962,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addGroup(PanelMenuDataPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelMenuDataPegawaiLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(KembaliMenuUtamaPgw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(KembaliMenuUtama2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addGroup(PanelMenuDataPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TimePegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2059,17 +2103,37 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
         BtnSimpanPegawai.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnSimpanPegawai.setText("Simpan");
+        BtnSimpanPegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSimpanPegawaiActionPerformed(evt);
+            }
+        });
 
         BtnHapusPegawai.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnHapusPegawai.setText("Hapus");
+        BtnHapusPegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnHapusPegawaiActionPerformed(evt);
+            }
+        });
 
         BtnBatalPegawai.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnBatalPegawai.setText("Batal");
+        BtnBatalPegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBatalPegawaiActionPerformed(evt);
+            }
+        });
 
         BtnCariIdPegawai.setText("Cari");
 
         BtnUpdatePegawai.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         BtnUpdatePegawai.setText("Update");
+        BtnUpdatePegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdatePegawaiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -2182,19 +2246,24 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 "ID Pegawai", "Nama Pegawai", "Asal", "Tanggal Lahir", "Jenis Kelamin", "No Telepon", "Alamat Kandang"
             }
         ));
+        TblInputDataPegawai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblInputDataPegawaiMouseClicked(evt);
+            }
+        });
         jScrollPane12.setViewportView(TblInputDataPegawai);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 1142, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane12)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2350,8 +2419,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel52)
                 .addGap(40, 40, 40)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         MenuPakan.add(MenuDataPakan, "card2");
@@ -2667,8 +2736,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel60)
                 .addGap(40, 40, 40)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         MenuPenyakit.add(MenuDataPenyakit, "card2");
@@ -2956,8 +3025,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel66)
                 .addGap(40, 40, 40)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         MenuKesehatan.add(MenuDataKesehatan, "card2");
@@ -3292,9 +3361,9 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addComponent(PanelMenuDataKesehatan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel76)
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         MenuCekTernak.add(MenuDataCekTernak, "card2");
@@ -3796,7 +3865,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(1298, 767));
@@ -4021,17 +4090,109 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         MenuDataUser.setVisible(false);
     }//GEN-LAST:event_NotifBtnCekActionPerformed
 
+    /////////////////       Panel Kandang     /////////////////
+    private void BtnInputDataKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInputDataKandangActionPerformed
+        // TODO add your handling code here:
+        MenuDataKandang.setVisible(false);
+        MenuInputKandang.setVisible(true);
+    }//GEN-LAST:event_BtnInputDataKandangActionPerformed
+
+    private void KembaliMenuUtama1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliMenuUtama1MouseClicked
+        // TODO add your handling code here:
+        setActiveMenu();
+    }//GEN-LAST:event_KembaliMenuUtama1MouseClicked
+
+    private void BtnSimpanKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanKandangActionPerformed
+        // TODO add your handling code here:
+        controller.insertKandang();
+        controller.clearFormKandang();
+        controller.viewTableDataKandang();
+        controller.viewTableInputKandang();
+    }//GEN-LAST:event_BtnSimpanKandangActionPerformed
+
+    private void BtnUpdateKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateKandangActionPerformed
+        // TODO add your handling code here:
+        controller.updateKandang();
+        controller.clearFormKandang();
+        controller.viewTableDataKandang();
+        controller.viewTableInputKandang();
+    }//GEN-LAST:event_BtnUpdateKandangActionPerformed
+
+    private void BtnHapusKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusKandangActionPerformed
+        // TODO add your handling code here:
+        controller.deleteKandang();
+        controller.clearFormKandang();
+        controller.viewTableDataKandang();
+        controller.viewTableInputKandang();
+    }//GEN-LAST:event_BtnHapusKandangActionPerformed
+
+    private void BtnBatalKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatalKandangActionPerformed
+        // TODO add your handling code here:
+        controller.clearFormKandang();
+    }//GEN-LAST:event_BtnBatalKandangActionPerformed
+
+    private void TblInputDataKandangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataKandangMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TblInputDataKandangMouseClicked
+
+    private void KembaliDataKandangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataKandangMouseClicked
+        // TODO add your handling code here:
+        MenuDataKandang.setVisible(true);
+        MenuInputKandang.setVisible(false);
+    }//GEN-LAST:event_KembaliDataKandangMouseClicked
+
+    ////////////////////////  Panel Pegawai
+    private void BtnInputDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInputDataPegawaiActionPerformed
+        // TODO add your handling code here:
+        MenuDataPegawai.setVisible(false);
+        MenuInputPegawai.setVisible(true);
+    }//GEN-LAST:event_BtnInputDataPegawaiActionPerformed
+
+    private void KembaliMenuUtama2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliMenuUtama2MouseClicked
+        // TODO add your handling code here:
+        setActiveMenu();
+    }//GEN-LAST:event_KembaliMenuUtama2MouseClicked
+
+    private void BtnSimpanPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanPegawaiActionPerformed
+        // TODO add your handling code here:
+        controller.insertPegawai();
+        controller.clearFormPegawai();
+        controller.viewTableDataPegawai();
+        controller.viewTableInputPegawai();
+    }//GEN-LAST:event_BtnSimpanPegawaiActionPerformed
+
+    private void BtnUpdatePegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdatePegawaiActionPerformed
+        // TODO add your handling code here:
+        controller.updatePegawai();
+        controller.clearFormPegawai();
+        controller.viewTableDataPegawai();
+        controller.viewTableInputPegawai();
+    }//GEN-LAST:event_BtnUpdatePegawaiActionPerformed
+
+    private void BtnHapusPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusPegawaiActionPerformed
+        // TODO add your handling code here:
+        controller.deletePegawai();
+        controller.clearFormPegawai();
+        controller.viewTableDataPegawai();
+        controller.viewTableInputPegawai();
+    }//GEN-LAST:event_BtnHapusPegawaiActionPerformed
+
+    private void BtnBatalPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatalPegawaiActionPerformed
+        // TODO add your handling code here:
+        controller.clearFormPegawai();
+    }//GEN-LAST:event_BtnBatalPegawaiActionPerformed
+
+    private void TblInputDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataPegawaiMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TblInputDataPegawaiMouseClicked
+
     private void KembaliDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataPegawaiMouseClicked
         // TODO add your handling code here:
         MenuDataPegawai.setVisible(true);
         MenuInputPegawai.setVisible(false);
     }//GEN-LAST:event_KembaliDataPegawaiMouseClicked
 
-    private void KembaliMenuUtamaPgwMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliMenuUtamaPgwMouseClicked
-        // TODO add your handling code here:
-        setActiveMenu();
-    }//GEN-LAST:event_KembaliMenuUtamaPgwMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -4149,9 +4310,9 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel KembaliDataKesehatan;
     private javax.swing.JPanel KembaliDataPegawai;
     private javax.swing.JPanel KembaliMenuUtama1;
+    private javax.swing.JPanel KembaliMenuUtama2;
     private javax.swing.JPanel KembaliMenuUtamaCek;
     private javax.swing.JPanel KembaliMenuUtamaKsht;
-    private javax.swing.JPanel KembaliMenuUtamaPgw;
     private javax.swing.JPanel KembaliMenuUtamaPkn;
     private javax.swing.JPanel KembaliMenuUtamaPnyt;
     private javax.swing.JPanel KembaliMenuUtamaUser;

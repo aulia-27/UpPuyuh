@@ -77,6 +77,7 @@ public class ControllerMenuAdmin {
 
             //  Pegawai //
             clearFormPegawai();
+            jekel();
             viewTableDataPegawai();
             viewTableInputPegawai();
             
@@ -214,6 +215,11 @@ public class ControllerMenuAdmin {
         viewAdmin.getTxtNoTelp().setText("");
         viewAdmin.getJtxAlamat().setText("");
     }
+     
+     public void jekel() {
+         viewAdmin.getRbLakiLaki().setText("Laki-Laki");
+         viewAdmin.getRbPerempuan().setText("Perempuan");
+     }
     
     public void insertPegawai(){
         if (true) {
@@ -224,13 +230,19 @@ public class ControllerMenuAdmin {
 
             SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
             String strDate = dateFormat.format(viewAdmin.getJdtTglLahir().getDate());
-
             pegawai.setTglLahir(strDate);
-            if (viewAdmin.getRbLakiLaki().equals("Laki-Laki")) {
-                pegawai.setJekel(viewAdmin.getRbLakiLaki().getText());
-            } else if (viewAdmin.getRbLakiLaki().equals("Perempuan")){
-                pegawai.setJekel(viewAdmin.getRbPerempuan().getText());
+            
+            if(viewAdmin.getRbLakiLaki().isSelected())  {
+                String Jekel;
+                Jekel = "Laki-Laki";
+                pegawai.setJekel(Jekel);
             }
+            else if(viewAdmin.getRbPerempuan().isSelected()) {
+                String Jekel;
+                Jekel = "Perempuan";
+                pegawai.setJekel(Jekel);
+            }
+            
             pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
             pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
         } else {
@@ -252,20 +264,21 @@ public class ControllerMenuAdmin {
         
         SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MM/yyyy");
         String strDate = dateFormat.format(viewAdmin.getJdtTglLahir().getDate());
-        
         pegawai.setTglLahir(strDate);
-        if (viewAdmin.getRbLakiLaki().equals("Laki-Laki")) {
-            pegawai.setJekel(viewAdmin.getRbLakiLaki().getText());
-        } else {
-            pegawai.setJekel(viewAdmin.getRbPerempuan().getText());
+        
+        if(viewAdmin.getRbLakiLaki().isSelected())  {
+                String Jekel;
+                Jekel = "Laki-Laki";
+                pegawai.setJekel(Jekel);
+            }
+        else if(viewAdmin.getRbPerempuan().isSelected()) {
+            String Jekel;
+            Jekel = "Perempuan";
+            pegawai.setJekel(Jekel);
         }
+        
         pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
         pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
-        if (viewAdmin.getRbLakiLaki().equals("Laki-Laki")) {
-            pegawai.setJekel(viewAdmin.getRbLakiLaki().getText());
-        } else {
-            pegawai.setJekel(viewAdmin.getRbPerempuan().getText());
-        }
         pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
         pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
         try {

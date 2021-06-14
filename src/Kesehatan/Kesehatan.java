@@ -8,8 +8,9 @@ package Kesehatan;
 
 public class Kesehatan {
     private String id_kesehatan;
-    private String id_kandang;
-    private String id_sakit;
+    private String nama_kandang;
+    private String nama_penyakit;
+    private String id_pegawai;
     private int jml_sakit;
     private int jml_mati;
     
@@ -17,12 +18,16 @@ public class Kesehatan {
         return id_kesehatan;
     }
     
-    public String getIdKandang() {
-        return id_kandang;
+    public String getNamaKandang() {
+        return nama_kandang;
     }
     
-    public String getIdSakit() {
-        return id_sakit;
+    public String getNamaPenyakit() {
+        return nama_penyakit;
+    }
+    
+    public String getIdPegawai() {
+        return id_pegawai;
     }
     
     public int getJmlSakit() {
@@ -37,12 +42,16 @@ public class Kesehatan {
         this.id_kesehatan = id_kesehatan;
     }
     
-    public void setIdKandang(String id_kandang) {
-        this.id_kandang = id_kandang;
+    public void setNamaKandang(String nama_kandang) {
+        this.nama_kandang = nama_kandang;
     }
     
-    public void setIdSakit(String id_sakit) {
-        this.id_sakit = id_sakit;
+    public void setNamaPenyakit(String nama_kandang) {
+        this.nama_kandang = nama_kandang;
+    }
+    
+    public void setIdPegawai(String id_pegawai) {
+        this.id_pegawai = id_pegawai;
     }
     
     public void setJmlSakit(int jml_sakit) {

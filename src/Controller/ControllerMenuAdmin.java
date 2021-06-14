@@ -5,8 +5,10 @@
  */
 package Controller;
 
-
 import FormUpPuyuh.FormMenuAdmin;
+
+import CekTernak.CekTernak;
+import CekTernak.CekTernakDao;
 import Kesehatan.Kesehatan;
 import Kesehatan.KesehatanDao;
 import Kandang.Kandang;
@@ -17,21 +19,34 @@ import Pakan.Pakan;
 import Pakan.PakanDao;
 
 import Koneksi.Koneksi;
+import Penyakit.Penyakit;
+import Penyakit.PenyakitDao;
+import User.User;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.HashMap;
+import java.util.List;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 /**
  *
  * @author Aulia
@@ -41,6 +56,9 @@ public class ControllerMenuAdmin {
     Kandang kandang;
     Pegawai pegawai;
     Pakan pakan;
+    Penyakit penyakit;
+    CekTernak CekTernak;
+    Kesehatan kesehatan;
     Connection con;
     
     public ControllerMenuAdmin (FormMenuAdmin viewAdmin) {
@@ -48,19 +66,51 @@ public class ControllerMenuAdmin {
             this.viewAdmin = viewAdmin;
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
+            
+            // Laporan
+            cleartextLaporan();
+            
             //  Kandang //
             clearFormKandang();
             viewTableDataKandang();
-            //viewTableInput();
+            viewTableInputKandang();
 
             //  Pegawai //
             clearFormPegawai();
             viewTableDataPegawai();
+            viewTableInputPegawai();
             
+            //  Pakan   //
+            clearFormPakan();
+            viewTableDataPakan();
+            viewTableInputPakan();
+            
+            //  penyakit   //
+            clearFormPenyakit();
+            viewTableDataPenyakit();
+            viewTableInputPenyakit();
+            
+            //  Kesehatan   //
+            clearFormKesehatan();
+            viewTableDataKesehatan();
+            viewTableInputKesehatan();
+            isiCboKandang();
+            isiCboPenyakit();
+            
+            //  Cek Ternak  //
+            clearFormCekTernak();
+            DateNow();
+            isiCboIdPakanCek();
+            isiCboIdPegawaiCek();
+            isiCboKandangCek();
+            viewTableDataCekTernak();
+            viewTableInputCekTernak();
+            
+ 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE,null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE,null, ex);
         }
     }
     
@@ -104,18 +154,16 @@ public class ControllerMenuAdmin {
         }
     }
     
-    /*public void onClickTabel() {
+    /*public void onClickTabelKandang() {
         try {
-            String kode = viewAdmin.getTblInputKandang().getValueAt(viewAdmin.getTblInputKandang().getSelectedRow(), 0).toString();
+            String kode = viewAdmin.getTblInputDataKandang().getValueAt(viewAdmin.getTblInputDataKandang().getSelectedRow(), 0).toString();
             kandang = KandangDao.getKandang(con, kode);
             if (kandang != null) {
-                viewAdmin.getTxtIdKandang().setText(kandang.getIdKandang());
-                viewAdmin.getTxtLabelKandang().setText(kandang.getNama());
-                viewAdmin.getTxtJmlTernak().setText(""+kandang.getJmlTernak());
-                viewAdmin.getTxtBlokKandang().setText(kandang.getBlokKandang());
+                kandang.setNamaKandang(viewAdmin.getTxtNamaKandang().getText());
+                kandang.setJmlTernak(Integer.parseInt(viewAdmin.getTxtJumlahTernak().getText()));
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
-                clearForm();
+                clearFormKandang();
             }
         } catch (SQLException ex) {
             Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,33 +178,31 @@ public class ControllerMenuAdmin {
             while(rs.next()){
                 Object[] data={
                     rs.getString(1),
-                    rs.getInt(2),
+                    rs.getInt(2)
                 };
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
      
-    /*public void viewTableInput(){
+    public void viewTableInputKandang(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputKandang().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputDataKandang().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from kandang");
             while(rs.next()){
                 Object[] data={
                     rs.getString(1),
-                    rs.getString(2),
-                    rs.getInt(3),
-                    rs.getString(4)
+                    rs.getInt(2)
                 };
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
     
     ////////////////////////        Pegawai         ////////////////////////////
     
@@ -239,7 +285,7 @@ public class ControllerMenuAdmin {
         }
     }
     
-    /*public void onClickTabel() {
+    /*public void onClickTabelPegawai() {
         try {
             String kode = viewAdmin.getTblInputPegawai().getValueAt(viewAdmin.getTblInputPegawai().getSelectedRow(), 0).toString();
             pegawai = PegawaiDao.getPegawai(con, kode);
@@ -280,13 +326,13 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    /*public void viewTableInput(){
+    public void viewTableInputPegawai(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputPegawai().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputDataPegawai().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
             while(rs.next()){
@@ -297,15 +343,14 @@ public class ControllerMenuAdmin {
                     rs.getString(4),
                     rs.getString(5),
                     rs.getString(6),
-                    rs.getString(7),
-                    rs.getString(8)
+                    rs.getString(7)
                 };
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
     
     
     ////////////////                Pakan                   ////////////////////
@@ -354,7 +399,7 @@ public class ControllerMenuAdmin {
         }
     }
     
-    public void onClickTabelPakan() {
+    /*public void onClickTabelPakan() {
         try {
             String kode = viewAdmin.getTblInputPakan().getValueAt(viewAdmin.getTblInputPakan().getSelectedRow(), 0).toString();
             pakan = PakanDao.getPakan(con, kode);
@@ -370,7 +415,7 @@ public class ControllerMenuAdmin {
         } catch (SQLException ex) {
             Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
     
     public void viewTableDataPakan(){
         try {
@@ -387,13 +432,13 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public void viewTableInputPakan(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputPakan().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputDataPakan().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from pakan");
             while(rs.next()){
@@ -406,7 +451,704 @@ public class ControllerMenuAdmin {
                 tabelModel.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    ////////////////////        Penyakit        ///////////////////////////////
+    
+    public void clearFormPenyakit(){
+        viewAdmin.getTxtNamaPenyakit().setText("");
+        viewAdmin.getJtxGejala().setText("");
+    }
+    
+    public void insert(){
+        penyakit = new Penyakit();
+        penyakit.setNamaPenyakit(viewAdmin.getTxtNamaPenyakit().getText());
+        penyakit.setGejala(viewAdmin.getJtxGejala().getText());
+        try {
+            PenyakitDao.insert(con, penyakit);
+            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+        }
+    }
+    
+    public void update(){
+        penyakit = new Penyakit();
+        penyakit.setNamaPenyakit(viewAdmin.getTxtNamaPenyakit().getText());
+        penyakit.setGejala(viewAdmin.getJtxGejala().getText());
+        try {
+            PenyakitDao.update(con, penyakit);
+            JOptionPane.showMessageDialog(viewAdmin, "Update Data Ok");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+        }
+    }
+    
+    public void delete() {
+        try {
+            PenyakitDao.delete(con, penyakit);
+            JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error"+e.getMessage());
+        }
+    }
+    
+    /*public void onClickTabel() {
+        try {
+            String kode = viewAdmin.getTblInputPenyakit().getValueAt(viewAdmin.getTblInputPenyakit().getSelectedRow(), 0).toString();
+            penyakit = PenyakitDao.getPenyakit(con, kode);
+            if (penyakit != null) {
+                viewAdmin.getTxtNamaPenyakit().setText(penyakit.getNama());
+                viewAdmin.getJtxKeterangan().setText(penyakit.getKeterangan());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PenyakitController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }*/
+    
+    public void viewTableDataPenyakit() {
+        try {
+            DefaultTableModel tableModel = (DefaultTableModel) viewAdmin.getTblDataPenyakit().getModel();
+            tableModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from penyakit");
+            while (rs.next()) {                
+                Object[] data= {
+                    rs.getString(1),
+                    rs.getString(2)
+                };
+                tableModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void viewTableInputPenyakit() {
+        try {
+            DefaultTableModel tableModel = (DefaultTableModel) viewAdmin.getTblInputDataPenyakit().getModel();
+            tableModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from penyakit");
+            while (rs.next()) {                
+                Object[] data= {
+                    rs.getString(1),
+                    rs.getString(2)
+                };
+                tableModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /////////////////////////       Kesehatan       ////////////////////////////
+    
+    public void clearFormKesehatan(){
+        viewAdmin.getTxtIdKesehatan().setText("");
+        viewAdmin.getTxtNamaKandang().setText("");
+        viewAdmin.getTxtJmlSakit().setText("");
+        viewAdmin.getTxtJmlMati().setText("");
+    }
+    
+    public void isiCboPenyakit() {
+        viewAdmin.getCboPenyakit().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from penyakit");
+            while (rs.next()) {                
+                viewAdmin.getCboPenyakit().addItem(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void isiCboKandang() {
+        viewAdmin.getCboKandang().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from kandang");
+            while (rs.next()) {                
+                viewAdmin.getCboKandang().addItem(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /*public void onClickTabelKandang() {
+        try {
+            String kodeKandang =  viewAdmin.getTblDataKandang().getValueAt(viewAdmin.getTblDataKandang().getSelectedRow(), 0).toString();
+            kandang = KandangDao.getKandangCek(con, kodeKandang);
+            kandang.getJmlTernak();
+            if (kandang != null) {
+                viewAdmin.getTxtIdKandang().setText(kandang.getIdKandang());
+                viewAdmin.getTxtJmlTernak().setText(""+kandang.getJmlTernak());
+            } else {
+                JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada, Silakan Pilih Data Pada Tabel Kandang");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } */
+    
+    public void insertKesehatan(){
+        kesehatan = new Kesehatan();
+        kesehatan.setIdKesehatan(viewAdmin.getTxtIdKesehatan().getText());
+        kesehatan.setNamaKandang(viewAdmin.getCboKandang().getSelectedItem().toString());
+        kesehatan.setNamaPenyakit(viewAdmin.getCboPenyakit().getSelectedItem().toString());
+        kesehatan.setJmlSakit(Integer.parseInt(viewAdmin.getTxtJmlSakit().getText()));
+        kesehatan.setJmlMati(Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
+        try {
+            KesehatanDao.insert(con, kesehatan);
+            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+        }
+    }
+    
+    /*public void insert(){
+        try {
+            kandang = KandangDao.getKandangCek(con, kodeKandang);
+            kandang.getJmlTernak();
+            
+            kesehatan = new Kesehatan();
+            kesehatan.setIdKesehatan(viewAdmin.getTxtIdKesehatan().getText());
+            kesehatan.setIdKandang(viewAdmin.getTxtIdKandang().getText());
+            kesehatan.setIdSakit(viewAdmin.getCboIdPenyakit().getSelectedItem().toString().split("-")[0]);
+            kesehatan.setJmlSakit(Integer.parseInt(viewAdmin.getTxtJmlSakit().getText()));
+            kesehatan.setJmlMati(Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
+            kandang.setJmlTernak(Integer.parseInt(viewAdmin.getTxtTotal().getText()));
+            kandangDao.update(con, kandang);
+            KesehatanDao.insert(con, kesehatan);
+            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+        }
+    } */
+    
+    
+    public void updateKesehatan(){
+        kesehatan = new Kesehatan();
+        kesehatan.setIdKesehatan(viewAdmin.getTxtIdKesehatan().getText());
+        kesehatan.setNamaKandang(viewAdmin.getCboKandang().getSelectedItem().toString());
+        kesehatan.setNamaPenyakit(viewAdmin.getCboPenyakit().getSelectedItem().toString());
+        kesehatan.setJmlSakit(Integer.parseInt(viewAdmin.getTxtJmlSakit().getText()));
+        kesehatan.setJmlMati(Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
+        try {
+            KesehatanDao.update(con, kesehatan);
+            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+        }
+    }
+    
+    public void deleteKesehatan() {
+        try {
+            KesehatanDao.delete(con, kesehatan);
+            JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error"+e.getMessage());
+        }
+    }
+    
+    /*public void onClickTabel() {
+        try {
+            String kode = viewAdmin.getTblInputKesehatan().getValueAt(viewAdmin.getTblInputKesehatan().getSelectedRow(), 0).toString();
+            kesehatan = KesehatanDao.getKesehatan(con, kode);
+            kandang = KandangDao.getKandangCek(con, kode);
+            if (kesehatan != null) {
+                viewAdmin.getTxtIdKesehatan().setText(kesehatan.getIdKesehatan());
+                viewAdmin.getTxtIdKandang().setText(kesehatan.getIdKandang());
+                viewAdmin.getCboIdPenyakit().setSelectedItem(kesehatan.getIdSakit());
+                viewAdmin.getTxtJmlSakit().setText(""+kesehatan.getJmlMati());
+                viewAdmin.getTxtJmlMati().setText(""+kesehatan.getJmlSakit());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } */
+    
+    public void viewTableDataKesehatan(){
+        try {
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblDataKesehatan().getModel();
+            tabelModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from kesehatan");
+            while(rs.next()){
+                Object[] data={
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getInt(6)
+                };
+                tabelModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void viewTableInputKesehatan(){
+        try {
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputDataKesehatan().getModel();
+            tabelModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from kesehatan");
+            while(rs.next()){
+                Object[] data={
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getInt(6)
+                };
+                tabelModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    ////////////////        Cek Ternak          ///////////////////////////////
+    
+    public void clearFormCekTernak(){
+        viewAdmin.getTxtIdCekTernak().setText("");
+        viewAdmin.getTxtJmlTelur().setText("");
+    }
+    
+    public void DateNow() {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        viewAdmin.getTxtTglCek().setText(sdf.format(d));
+    }
+    
+    public void isiCboKandangCek() {
+        viewAdmin.getCboKandangCek().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from kandang");
+            while (rs.next()) {                
+                viewAdmin.getCboKandangCek().addItem(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void isiCboIdPakanCek() {
+        viewAdmin.getCboIdPakanCek().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from pakan");
+            while (rs.next()) {                
+                viewAdmin.getCboIdPakanCek().addItem(rs.getString(1)+" - "+rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void isiCboIdPegawaiCek() {
+        viewAdmin.getCboIdPakanCek().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
+            while (rs.next()) {                
+                viewAdmin.getCboIdPakanCek().addItem(rs.getString(1)+" - "+rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void isiCboKebersihan(){
+        viewAdmin.getCboKebersihan().removeAllItems();
+        viewAdmin.getCboKebersihan().addItem("Sangat bersih");
+        viewAdmin.getCboKebersihan().addItem("Bersih");
+        viewAdmin.getCboKebersihan().addItem("Kurang Bersih");
+        viewAdmin.getCboKebersihan().addItem("Kotor");
+    }
+    
+    public void insertCekTernak(){
+        CekTernak = new CekTernak();
+        CekTernak.setIdCek(viewAdmin.getTxtIdCekTernak().getText());
+        CekTernak.setNamaKandang(viewAdmin.getCboKandangCek().getSelectedItem().toString());
+        CekTernak.setIdPakan(viewAdmin.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setIdPegawai(viewAdmin.getCboIdPegawaiCek().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setJmlTelur(Integer.parseInt(viewAdmin.getTxtJmlTelur().getText()));
+        CekTernak.setKebersihan(viewAdmin.getCboKebersihan().getSelectedItem().toString());
+        CekTernak.setTglCek(viewAdmin.getTxtTglCek().getText());
+        try {
+            CekTernakDao.insert(con, CekTernak);
+            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+        }
+    }
+    
+    public void updateCekTernak(){
+        CekTernak = new CekTernak();
+        CekTernak.setIdCek(viewAdmin.getTxtIdCekTernak().getText());
+        CekTernak.setNamaKandang(viewAdmin.getCboKandangCek().getSelectedItem().toString());
+        CekTernak.setIdPakan(viewAdmin.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setIdPegawai(viewAdmin.getCboIdPegawaiCek().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setJmlTelur(Integer.parseInt(viewAdmin.getTxtJmlTelur().getText()));
+        CekTernak.setKebersihan(viewAdmin.getCboKebersihan().getSelectedItem().toString());
+        CekTernak.setTglCek(viewAdmin.getTxtTglCek().getText());
+        try {
+            CekTernakDao.update(con, CekTernak);
+            JOptionPane.showMessageDialog(viewAdmin, "Update Data Ok");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+        }
+    }
+    
+    public void deleteCekTernak() {
+        try {
+            CekTernakDao.delete(con, CekTernak);
+            JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(viewAdmin, "Error"+e.getMessage());
+        }
+    }
+    
+    /*public void onClickTabel() {
+        try {
+            String kode = viewAdmin.getTblInputCekTernak().getValueAt(viewAdmin.getTblInputCekTernak().getSelectedRow(), 0).toString();
+            CekTernak = CekTernakDao.getCekTernak(con, kode);
+            if (CekTernak != null) {
+                viewAdmin.getTxtIdCek().setText(CekTernak.getIdCek());
+                viewAdmin.getCboIdKandang().setSelectedItem(CekTernak.getIdKandang());
+                viewAdmin.getCboIdPakan().setSelectedItem(CekTernak.getIdPakan());
+                viewAdmin.getTxtJmlTelur().setText(""+CekTernak.getJmlTelur());
+                viewAdmin.getCboKebersihan().setSelectedItem(CekTernak.getKebersihan());
+                viewAdmin.getTxtTglCek().setText(CekTernak.getTglCek());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
+                clearForm();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }*/
+    
+    public void viewTableDataCekTernak() {
+        try {
+            DefaultTableModel tableModel = (DefaultTableModel) viewAdmin.getTblDataCekTernak().getModel();
+            tableModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
+            while (rs.next()) { 
+                Object [] data = {
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6),
+                    rs.getString(7)
+                };
+            tableModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void viewTableInputCekTernak() {
+        try {
+            DefaultTableModel tableModel = (DefaultTableModel) viewAdmin.getTblInputDataCekTernak().getModel();
+            tableModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
+            while (rs.next()) { 
+                Object [] data = {
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6),
+                    rs.getString(7)
+                };
+            tableModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /////////////////////       Laporan         ////////////////////////////////
+    
+    public void cleartextLaporan() {
+        viewAdmin.getTxtKolom1().setText("");
+        viewAdmin.getTxtKolom2().setText("");
+        viewAdmin.getTxtKolom3().setText("");
+        viewAdmin.getTxtKolom4().setText("");
+        viewAdmin.getTxtKolom5().setText("");
+        viewAdmin.getTxtKolom6().setText("");
+        viewAdmin.getTxtKolom7().setText("");
+        viewAdmin.getTxtKolom8().setText("");
+        viewAdmin.getTxtKodeLaporan().setText("");
+    }
+    
+    public void setDataKesehatan(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/uppuyuh","root","");
+            Statement statement = con.createStatement();
+            FileOutputStream fileOut;
+            fileOut = new FileOutputStream("C:\\Laporan Kesehatan.xls");
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            HSSFSheet worksheet = workbook.createSheet("Sheet 0");
+            Row row1 = worksheet.createRow((short)0);
+            row1.createCell(0).setCellValue("ID Kesehatan") ;
+            row1.createCell(1).setCellValue("Nama Kandang");
+            row1.createCell(2).setCellValue("Nama Penyakit");
+            row1.createCell(3).setCellValue("ID Pegawai");
+            row1.createCell(4).setCellValue("Jumlah Sakit");
+            row1.createCell(5).setCellValue("Jumlah Mati");
+            Row row2 ;
+            ResultSet rs = statement.executeQuery("select id_kesehatan, nama_kandang, nama_penyakit, id_pegawai, jml_sakit, jml_mati from kesehatan");
+            while(rs.next()){
+                int a = rs.getRow();
+                row2 = worksheet.createRow((short)a);
+                row2.createCell(0).setCellValue(rs.getString(1));
+                row2.createCell(1).setCellValue(rs.getString(2));
+                row2.createCell(2).setCellValue(rs.getString(3));
+                row2.createCell(3).setCellValue(rs.getString(4));
+                row2.createCell(4).setCellValue(rs.getInt(5));
+                row2.createCell(5).setCellValue(rs.getInt(6));
+            }
+            workbook.write(fileOut);
+            fileOut.flush();
+            fileOut.close();
+            rs.close();
+            statement.close();
+            con.close();
+            JOptionPane.showMessageDialog(null,"Export Berhasil ! File Tersimpan Di Folder");
+        }catch(ClassNotFoundException e){
+            JOptionPane.showInternalMessageDialog(viewAdmin, e.getMessage());
+        }catch(SQLException ex){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ex.getMessage());
+        }catch(IOException ioe){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ioe.getMessage());
+        }
+    }
+    
+    public void setDataCekTernak(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/uppuyuh","root","");
+            Statement statement = con.createStatement();
+            FileOutputStream fileOut;
+            fileOut = new FileOutputStream("C:\\Laporan Cek Ternak.xls");
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            HSSFSheet worksheet = workbook.createSheet("Sheet 0");
+            Row row1 = worksheet.createRow((short)0);
+            row1.createCell(0).setCellValue("ID Cek") ;
+            row1.createCell(1).setCellValue("Nama Kandang");
+            row1.createCell(2).setCellValue("ID Pakan");
+            row1.createCell(3).setCellValue("ID Pegawai");
+            row1.createCell(4).setCellValue("Jumlah Telur");
+            row1.createCell(5).setCellValue("Kebersihan");
+            row1.createCell(6).setCellValue("Tanggal Cek");
+            Row row2 ;
+            ResultSet rs = statement.executeQuery("select id_cek, nama_kandang, id_pakan, id_pegawai, jml_telur, kebersihan, tgl_cek from cek_ternak");
+            while(rs.next()){
+                int a = rs.getRow();
+                row2 = worksheet.createRow((short)a);
+                row2.createCell(0).setCellValue(rs.getString(1));
+                row2.createCell(1).setCellValue(rs.getString(2));
+                row2.createCell(2).setCellValue(rs.getString(3));
+                row2.createCell(3).setCellValue(rs.getString(4));
+                row2.createCell(4).setCellValue(rs.getInt(5));
+                row2.createCell(5).setCellValue(rs.getString(6));
+                row2.createCell(6).setCellValue(rs.getString(7));
+            }
+            workbook.write(fileOut);
+            fileOut.flush();
+            fileOut.close();
+            rs.close();
+            statement.close();
+            con.close();
+            JOptionPane.showMessageDialog(null,"Export Berhasil ! File Tersimpan Di Folder");
+        }catch(ClassNotFoundException e){
+            JOptionPane.showInternalMessageDialog(viewAdmin, e.getMessage());
+        }catch(SQLException ex){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ex.getMessage());
+        }catch(IOException ioe){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ioe.getMessage());
+        }
+    }
+     public void setDataPegawai(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/uppuyuh","root","");
+            Statement statement = con.createStatement();
+            FileOutputStream fileOut;
+            fileOut = new FileOutputStream("C:\\Laporan Pegawai.xls");
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            HSSFSheet worksheet = workbook.createSheet("Sheet 0");
+            Row row1 = worksheet.createRow((short)0);
+            row1.createCell(0).setCellValue("ID Pegawai") ;
+            row1.createCell(1).setCellValue("Nama");
+            row1.createCell(2).setCellValue("Asal");
+            row1.createCell(3).setCellValue("Tanggal Lahir");
+            row1.createCell(4).setCellValue("Jenis Kelamin");
+            row1.createCell(5).setCellValue("No Telepon");
+            row1.createCell(6).setCellValue("Alamat");
+            Row row2 ;
+            ResultSet rs = statement.executeQuery("select id_pegawai, nama, asal, tgl_lahir, jekel, no_telp, alamat from pegawai");
+            while(rs.next()){
+                int a = rs.getRow();
+                row2 = worksheet.createRow((short)a);
+                row2.createCell(0).setCellValue(rs.getString(1));
+                row2.createCell(1).setCellValue(rs.getString(2));
+                row2.createCell(2).setCellValue(rs.getString(3));
+                row2.createCell(3).setCellValue(rs.getString(4));
+                row2.createCell(4).setCellValue(rs.getString(5));
+                row2.createCell(5).setCellValue(rs.getString(6));
+                row2.createCell(6).setCellValue(rs.getString(7));
+                }
+            workbook.write(fileOut);
+            fileOut.flush();
+            fileOut.close();
+            rs.close();
+            statement.close();
+            con.close();
+            JOptionPane.showMessageDialog(null,"Export Berhasil ! File Tersimpan Di Folder");
+        }catch(ClassNotFoundException e){
+            JOptionPane.showInternalMessageDialog(viewAdmin, e.getMessage());
+        }catch(SQLException ex){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ex.getMessage());
+        }catch(IOException ioe){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ioe.getMessage());
+        }
+    }
+    public void setDataPakan(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/uppuyuh","root","");
+            Statement statement = con.createStatement();
+            FileOutputStream fileOut;
+            fileOut = new FileOutputStream("C:\\Laporan Pakan.xls");
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            HSSFSheet worksheet = workbook.createSheet("Sheet 0");
+            Row row1 = worksheet.createRow((short)0);
+            row1.createCell(0).setCellValue("ID Pakan") ;
+            row1.createCell(1).setCellValue("Nama Pakan");
+            row1.createCell(2).setCellValue("Harga");
+            row1.createCell(3).setCellValue("Stok");
+            Row row2 ;
+            ResultSet rs = statement.executeQuery("select id_pakan, nama, harga, stok from pakan ");
+            while(rs.next()){
+                int a = rs.getRow();
+                row2 = worksheet.createRow((short)a);
+                row2.createCell(0).setCellValue(rs.getString(1));
+                row2.createCell(1).setCellValue(rs.getString(2));
+                row2.createCell(2).setCellValue(rs.getInt(3));
+                row2.createCell(3).setCellValue(rs.getInt(4));
+            }
+            workbook.write(fileOut);
+            fileOut.flush();
+            fileOut.close();
+            rs.close();
+            statement.close();
+            con.close();
+            JOptionPane.showMessageDialog(null,"Export Berhasil ! File Tersimpan Di Folder");
+        }catch(ClassNotFoundException e){
+            JOptionPane.showInternalMessageDialog(viewAdmin, e.getMessage());
+        }catch(SQLException ex){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ex.getMessage());
+        }catch(IOException ioe){
+            JOptionPane.showInternalMessageDialog(viewAdmin, ioe.getMessage());
+        }
+    }
+    
+    public void viewTableKesehatanLaporan(){
+        try {
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            tabelModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from kesehatan");
+            while(rs.next()){
+                Object[] data={
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getInt(6)
+                };
+                tabelModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void viewTableCekTernakLaporan(){
+        try {
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            tabelModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
+            while (rs.next()) { 
+                Object [] data = {
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6),
+                    rs.getString(7)
+                };
+            tabelModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void viewTablePegawai(){
+        try {
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            tabelModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
+            while(rs.next()){
+                Object[] data={
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6),
+                    rs.getString(7)
+                };
+                tabelModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void viewTablePakan(){
+        try {
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            tabelModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from pakan");
+            while(rs.next()){
+                Object[] data={
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getInt(3),
+                    rs.getInt(4)
+                };
+                tabelModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControllerMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

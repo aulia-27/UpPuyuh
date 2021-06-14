@@ -10,31 +10,22 @@ package Penyakit;
  * @author Aulia
  */
 public class Penyakit {
-    private String id_penyakit;
-    private String nama;
-    private String keterangan;
-    
-    public String getIdPenyakit() {
-        return id_penyakit;
+    private String nama_penyakit;
+    private String gejala;
+
+    public String getNamaPenyakit() {
+        return nama_penyakit;
     }
     
-    public String getNama() {
-        return nama;
+    public String getGejala() {
+        return gejala;
     }
     
-    public String getKeterangan() {
-        return keterangan;
+    public void setNamaPenyakit(String nama_penyakit) {
+        this.nama_penyakit = nama_penyakit;
     }
     
-    public void setIdPenyakit(String id_penyakit) {
-        this.id_penyakit = id_penyakit;
-    }
-    
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-    
-    public void setKeterangan(String keterangan) {
-        this.keterangan = keterangan;
+    public void setGejala(String gejala) {
+        this.gejala = gejala;
     }
 }

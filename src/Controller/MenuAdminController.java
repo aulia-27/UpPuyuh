@@ -29,6 +29,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -225,32 +226,28 @@ public class MenuAdminController {
      }
     
     public void insertPegawai(){
-        if (true) {
-            pegawai = new Pegawai();
-            pegawai.setIdPegawai(viewAdmin.getTxtIdPegawai().getText());
-            pegawai.setNama(viewAdmin.getTxtNamaPegawai().getText());
-            pegawai.setAsal(viewAdmin.getTxtAsal().getText());
+        pegawai = new Pegawai();
+        pegawai.setIdPegawai(viewAdmin.getTxtIdPegawai().getText());
+        pegawai.setNama(viewAdmin.getTxtNamaPegawai().getText());
+        pegawai.setAsal(viewAdmin.getTxtAsal().getText());
 
-            SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
-            String strDate = dateFormat.format(viewAdmin.getJdtTglLahir().getDate());
-            pegawai.setTglLahir(strDate);
-            
-            if(viewAdmin.getRbLakiLaki().isSelected())  {
-                String Jekel;
-                Jekel = "Laki-Laki";
-                pegawai.setJekel(Jekel);
-            }
-            else if(viewAdmin.getRbPerempuan().isSelected()) {
-                String Jekel;
-                Jekel = "Perempuan";
-                pegawai.setJekel(Jekel);
-            }
-            
-            pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
-            pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
-        } else {
-            JOptionPane.showMessageDialog(viewAdmin, "Silakan Isi Data");
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = dateFormat.format(viewAdmin.getJdtTglLahir().getDate());
+        pegawai.setTglLahir(strDate);
+
+        if(viewAdmin.getRbLakiLaki().isSelected())  {
+            String Jekel;
+            Jekel = "Laki-Laki";
+            pegawai.setJekel(Jekel);
         }
+        else if(viewAdmin.getRbPerempuan().isSelected()) {
+            String Jekel;
+            Jekel = "Perempuan";
+            pegawai.setJekel(Jekel);
+        }
+
+        pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
+        pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
         try {
             PegawaiDao.insert(con, pegawai);
             JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
@@ -264,24 +261,22 @@ public class MenuAdminController {
         pegawai.setIdPegawai(viewAdmin.getTxtIdPegawai().getText());
         pegawai.setNama(viewAdmin.getTxtNamaPegawai().getText());
         pegawai.setAsal(viewAdmin.getTxtAsal().getText());
-        
-        SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MM/yyyy");
+
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
         String strDate = dateFormat.format(viewAdmin.getJdtTglLahir().getDate());
         pegawai.setTglLahir(strDate);
-        
+
         if(viewAdmin.getRbLakiLaki().isSelected())  {
-                String Jekel;
-                Jekel = "Laki-Laki";
-                pegawai.setJekel(Jekel);
-            }
+            String Jekel;
+            Jekel = "Laki-Laki";
+            pegawai.setJekel(Jekel);
+        }
         else if(viewAdmin.getRbPerempuan().isSelected()) {
             String Jekel;
             Jekel = "Perempuan";
             pegawai.setJekel(Jekel);
         }
-        
-        pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
-        pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
+
         pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
         pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
         try {
@@ -301,14 +296,17 @@ public class MenuAdminController {
         }
     }
     
-    public void onClickTabelPegawai() {
+    public void onClickTabelPegawai() throws ParseException{
         try {
             String kode = viewAdmin.getTblInputDataPegawai().getValueAt(viewAdmin.getTblInputDataPegawai().getSelectedRow(), 0).toString();
+            ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
             pegawai = PegawaiDao.getPegawai(con, kode);
             if (pegawai != null) {
                 viewAdmin.getTxtIdPegawai().setText(pegawai.getIdPegawai());
                 viewAdmin.getTxtNamaPegawai().setText(pegawai.getNama());
                 viewAdmin.getTxtAsal().setText(pegawai.getAsal());
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String)pegawai.getTglLahir());
+                viewAdmin.getJdtTglLahir().setDate(date);
                 viewAdmin.getTxtNoTelp().setText(pegawai.getNoTelp());
                 viewAdmin.getJtxAlamat().setText(pegawai.getAlamat());
             } else {

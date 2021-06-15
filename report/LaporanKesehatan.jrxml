@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f0f2a795-c419-43b0-bac2-6541b56ac7a0">
-	<property name="ireport.zoom" value="2.5937424601000023"/>
-	<property name="ireport.x" value="24"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanKesehatan" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a89f2f3-b815-443b-87c4-f5483ef10629">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
@@ -26,23 +26,23 @@ FROM
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="c77b4562-c147-4d36-ad8b-bfb0549f0e18"/>
+				<reportElement uuid="9c43b944-e183-40c6-8754-33b6df33feaa" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
 				<staticText>
-					<reportElement x="140" y="20" width="322" height="43" forecolor="#FFFFFF" uuid="8b9ba6da-2900-4ea4-ad7f-3efc8b608898"/>
+					<reportElement uuid="e44a1a82-f781-4f65-9713-095b6251fec7" x="142" y="29" width="318" height="43" forecolor="#FFFFFF"/>
 					<textElement textAlignment="Center">
-						<font size="34" isBold="true"/>
+						<font size="32" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Laporan Kesehatan]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="208" y="72" width="180" height="20" forecolor="#FFFFFF" uuid="1e082beb-16ec-4c29-8452-43bd154ab35e"/>
+					<reportElement uuid="59a80851-a73b-4e52-a79f-b19e17a0787a" x="208" y="72" width="180" height="20" forecolor="#FFFFFF"/>
 					<textElement textAlignment="Center">
 						<font size="14" isBold="false"/>
 					</textElement>
 					<text><![CDATA[Sistem Informasi Up Puyuh]]></text>
 				</staticText>
 				<image>
-					<reportElement x="20" y="0" width="97" height="92" uuid="0e5e166d-112b-4278-84f6-3a2fccab053f"/>
+					<reportElement uuid="324b58b8-8846-445d-9053-9ef46036ec6f" x="33" y="9" width="79" height="83"/>
 					<imageExpression><![CDATA["D:\\Kuliah\\1. MATERI KULIAH\\SMS 4\\Project 1\\UpPuyuh\\UpPuyuh\\src\\Imange\\Dashboard.png"]]></imageExpression>
 				</image>
 			</frame>
@@ -54,47 +54,47 @@ FROM
 	<columnHeader>
 		<band height="21">
 			<line>
-				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="dc6aafe5-bed3-4a41-adec-8143a9e46912"/>
+				<reportElement uuid="6700e8c9-a173-4442-ab93-d38214688901" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="56" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d68ef712-2fd1-40fd-8a8f-2f74b1dc43c6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+				<reportElement uuid="ec044abc-f54a-4bed-9611-1061ad4bb7f6" mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ID Kesehatan]]></text>
+				<text><![CDATA[ID ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="56" y="0" width="106" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9bbf2c40-97d5-4741-967d-e64bb87b3d11"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+				<reportElement uuid="97f49aa2-2da0-4f45-b5a6-03d812c7d52b" mode="Opaque" x="92" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Kandang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="162" y="0" width="114" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f10a9422-bca3-4369-b68f-3f00152e2bb7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+				<reportElement uuid="f4c31c74-c1d8-417d-894e-03961b2093d3" mode="Opaque" x="184" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Penyakit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3853468f-e7bc-4e94-be91-bb117cf4b60a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+				<reportElement uuid="bff779fd-1e4a-4e8f-91d9-92566efec467" mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[ID Pegawai Cek]]></text>
+				<text><![CDATA[ID Pegawai]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b643b55e-8be2-4172-8846-4ad72d6ad5f9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+				<reportElement uuid="6d0cb70b-3816-4c8c-b4a2-f7b627a68fc1" mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jumlah Sakit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="460" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6b45fbae-445d-4c70-be3e-2c0b60d92469"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+				<reportElement uuid="2271c9ce-4193-4833-b637-df217048800d" mode="Opaque" x="460" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jumlah Mati]]></text>
 			</staticText>
@@ -103,47 +103,47 @@ FROM
 	<detail>
 		<band height="20">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="897c77bc-0898-4d5c-8dac-ab015e9b9cc0"/>
+				<reportElement uuid="d254c4bf-5acf-4552-86c7-0e1ae5be6d77" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="0" width="56" height="20" uuid="5aa8e2b1-ed9d-493c-8c2f-b5d79f8f1db9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+				<reportElement uuid="2438164e-cf9d-4584-9497-c7e30ed65e0b" x="0" y="0" width="92" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kesehatan_id_kesehatan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="56" y="0" width="106" height="20" uuid="aaa40201-59dc-4526-951d-442e9d3744c6"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+				<reportElement uuid="d21a83b9-5b74-48fa-8c01-2855699d28aa" x="92" y="0" width="92" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kesehatan_nama_kandang}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="162" y="0" width="114" height="20" uuid="be3fcf71-84eb-49f7-93fd-ec42bc5f3a88"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+				<reportElement uuid="154ffbd8-afb8-49f2-9dbd-2a63c4364145" x="184" y="0" width="92" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kesehatan_nama_penyakit}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="276" y="0" width="92" height="20" uuid="8ae3291a-3f6f-4f40-bc82-42fc6bbb1cb7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+				<reportElement uuid="130cdd11-03c3-4641-bbb3-a0d6bd11efe5" x="276" y="0" width="92" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kesehatan_id_pegawai}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="368" y="0" width="92" height="20" uuid="168205fa-943f-40c9-b514-69d22d664795"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+				<reportElement uuid="9529719d-c3ef-49f2-9d28-51fc399c55c8" x="368" y="0" width="92" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kesehatan_jml_sakit}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="460" y="0" width="92" height="20" uuid="576581b8-3050-470b-9e84-bfd1619d91d0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
+				<reportElement uuid="19555116-0911-4d57-b1d1-07253c2f7239" x="460" y="0" width="92" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kesehatan_jml_mati}]]></textFieldExpression>
 			</textField>
@@ -155,16 +155,18 @@ FROM
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a99181ad-644f-448e-860b-0a15e46d887d"/>
+				<reportElement uuid="7f6a9346-8895-4678-9ebb-622c9d1b8afb" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="9f07d563-6ecc-4d45-965a-970fd10b4053"/>
+				<reportElement uuid="8c4cccba-0735-4696-b488-8a208b69bf02" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="0" y="4" width="100" height="13" uuid="8883845d-4bc2-4546-a301-1141029e3bbf"/>
+				<reportElement uuid="65183a7e-bc18-4b00-acc8-59386ad7f7bf" x="0" y="4" width="100" height="13"/>
+				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>

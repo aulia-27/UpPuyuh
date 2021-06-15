@@ -4831,10 +4831,16 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void BtnSimpanPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanPegawaiActionPerformed
         // TODO add your handling code here:
-        controller.insertPegawai();
-        controller.clearFormPegawai();
-        controller.viewTableDataPegawai();
-        controller.viewTableInputPegawai();
+        if (TxtIdPegawai.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Silakan Isi ID Pegawai","Pesan",JOptionPane.INFORMATION_MESSAGE);
+        } else if (JdtTglLahir.getDate().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Silakan Isi Tanggal Lahir","Pesan",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            controller.insertPegawai();
+            controller.clearFormPegawai();
+            controller.viewTableDataPegawai();
+            controller.viewTableInputPegawai();
+        }
     }//GEN-LAST:event_BtnSimpanPegawaiActionPerformed
 
     private void BtnUpdatePegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdatePegawaiActionPerformed
@@ -5221,16 +5227,19 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         int IReport=Integer.parseInt(TxtKodeLaporan.getText());
         
-        if (IReport == 1) {
-            controller.previewLaporanKesehatan();
-        } else if (IReport == 2) {
-            controller.previewLaporanCekTernak();
-        } else if (IReport == 3) {
-            controller.previewLaporanPegawai();
-        } else if (IReport == 4) {
-            controller.previewLaporanPakan();
-        } else {
-            
+        switch(IReport) {
+            case 1:
+                controller.previewLaporanKesehatan();
+                break;
+            case 2:
+                controller.previewLaporanCekTernak();
+                break;
+            case 3:
+                controller.previewLaporanPegawai();
+                break;
+            case 4:
+                controller.previewLaporanPakan();
+                break;
         }
     }//GEN-LAST:event_BtnExportPdfActionPerformed
 

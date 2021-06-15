@@ -23,19 +23,23 @@ FROM
 		<band height="72">
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="3ba6d9ce-0f87-4d8f-b5be-ca223bc22997"/>
+				<image>
+					<reportElement x="22" y="0" width="97" height="92" uuid="581fce23-c7e7-4982-b688-27f734df76dc"/>
+					<imageExpression><![CDATA["D:\\Kuliah\\1. MATERI KULIAH\\SMS 4\\Project 1\\UpPuyuh\\UpPuyuh\\src\\Imange\\Dashboard.png"]]></imageExpression>
+				</image>
 				<staticText>
-					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="b3dce95c-3732-4ffd-bd67-73b9a8b3509c"/>
-					<textElement>
+					<reportElement x="142" y="20" width="322" height="43" forecolor="#FFFFFF" uuid="944fa9e1-01db-4554-a792-5ad05bbf60bb"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[Laporan Pakan]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="99bbea7e-3f1f-4749-a6ac-5909c8190ab7"/>
-					<textElement textAlignment="Right">
+					<reportElement x="210" y="72" width="180" height="20" forecolor="#FFFFFF" uuid="b17bcfeb-ecd2-4a2b-9a9c-0b23771c30e1"/>
+					<textElement textAlignment="Center">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[Sistem Informasi Up Puyuh]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -85,29 +89,29 @@ FROM
 			</line>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="0" y="0" width="138" height="20" uuid="d0d2d8c5-f02b-4a81-9f33-919895cecbb4"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_id_pakan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="138" y="0" width="138" height="20" uuid="6d752909-73b3-4229-965b-1a0a4c3dd27e"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_nama}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="276" y="0" width="138" height="20" uuid="9a126b86-7523-42ab-a135-228d6778f0f6"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_harga}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="414" y="0" width="138" height="20" uuid="3e10f581-90d1-44b4-8c84-b337a069fa59"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_stok}]]></textFieldExpression>
 			</textField>

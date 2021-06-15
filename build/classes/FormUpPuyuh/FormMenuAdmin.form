@@ -2181,7 +2181,6 @@
                                               <Component id="BtnSimpanKandang" min="-2" pref="115" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="BtnUpdateKandang" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
@@ -2974,9 +2973,6 @@
                                 </Component>
                                 <Component class="javax.swing.JRadioButton" name="RbLakiLaki">
                                   <Properties>
-                                    <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                      <ComponentRef name="default"/>
-                                    </Property>
                                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                                       <ComponentRef name="buttonGroup1"/>
                                     </Property>
@@ -2988,9 +2984,6 @@
                                 </Component>
                                 <Component class="javax.swing.JRadioButton" name="RbPerempuan">
                                   <Properties>
-                                    <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                      <ComponentRef name="default"/>
-                                    </Property>
                                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                                       <ComponentRef name="buttonGroup1"/>
                                     </Property>
@@ -3573,10 +3566,8 @@
                                                       <Component id="CariIdPakan" min="-2" pref="107" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Component id="TxtNamaPakan" max="32767" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="TxtStok" alignment="0" pref="200" max="32767" attributes="0"/>
-                                                      <Component id="TxtHarga" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="TxtStok" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="TxtHarga" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
@@ -3635,9 +3626,6 @@
                           <SubComponents>
                             <Component class="javax.swing.JTextField" name="TxtHarga">
                               <Properties>
-                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                  <ComponentRef name="default"/>
-                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
@@ -3649,9 +3637,6 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtStok">
                               <Properties>
-                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                  <ComponentRef name="default"/>
-                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
@@ -3663,9 +3648,6 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtNamaPakan">
                               <Properties>
-                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                  <ComponentRef name="default"/>
-                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
@@ -3674,9 +3656,6 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtIdPakan">
                               <Properties>
-                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                  <ComponentRef name="default"/>
-                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
@@ -4309,8 +4288,8 @@
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="BtnBatalPenyakit" min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="BtnHapusPenyakit" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="BtnHapusPenyakit" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="BtnSimpanPeenyakit" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="BtnUpdatePenyakit" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>

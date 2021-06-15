@@ -7,8 +7,6 @@ package FormUpPuyuh;
 
 import Controller.MenuAdminController;
 
-
-
 import com.toedter.calendar.JDateChooser;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -2017,8 +2015,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                     .addGroup(PanelInputDataKandangLayout.createSequentialGroup()
                         .addComponent(BtnSimpanKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnUpdateKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(266, 266, 266))
+                        .addComponent(BtnUpdateKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelInputDataKandangLayout.createSequentialGroup()
                         .addGap(266, 266, 266)
                         .addComponent(BtnHapusKandang, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2844,9 +2841,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CariIdPakan, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(TxtNamaPakan)
-                            .addGroup(PanelInputDataKandang1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(TxtStok, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addComponent(TxtHarga, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(TxtStok)
+                            .addComponent(TxtHarga))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PanelInputDataKandang1Layout.createSequentialGroup()
                         .addComponent(BtnSimpanPakan, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3296,8 +3292,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(PanelInputDataPenyakiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnBatalPenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnHapusPenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelInputDataPenyakiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BtnHapusPenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BtnSimpanPeenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BtnUpdatePenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -4523,14 +4519,14 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelUpPuyuh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addComponent(MenuUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(MenuUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MenuUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(MenuUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelUpPuyuh))
             .addComponent(SubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4812,6 +4808,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void TblInputDataKandangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataKandangMouseClicked
         // TODO add your handling code here:
+        controller.onClickTabelKandang();
     }//GEN-LAST:event_TblInputDataKandangMouseClicked
 
     private void KembaliDataKandangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataKandangMouseClicked
@@ -4863,6 +4860,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void TblInputDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataPegawaiMouseClicked
         // TODO add your handling code here:
+        controller.onClickTabelPegawai();
     }//GEN-LAST:event_TblInputDataPegawaiMouseClicked
 
     private void KembaliDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataPegawaiMouseClicked
@@ -4914,6 +4912,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void TblInputDataPakanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataPakanMouseClicked
         // TODO add your handling code here:
+        controller.onClickTabelPakan();
     }//GEN-LAST:event_TblInputDataPakanMouseClicked
 
     private void KembaliDataPakanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataPakanMouseClicked
@@ -4965,6 +4964,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void TblInputDataPenyakitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataPenyakitMouseClicked
         // TODO add your handling code here:
+        controller.onClickTabelPenyakit();
     }//GEN-LAST:event_TblInputDataPenyakitMouseClicked
 
     private void KembaliDataPenyakitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataPenyakitMouseClicked
@@ -5017,6 +5017,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void TblInputDataKesehatanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataKesehatanMouseClicked
         // TODO add your handling code here:
+        controller.onClickTabelKesehatan();
     }//GEN-LAST:event_TblInputDataKesehatanMouseClicked
 
     private void BtnIdKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIdKandangActionPerformed
@@ -5077,6 +5078,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void TblInputDataCekTernakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataCekTernakMouseClicked
         // TODO add your handling code here:
+        controller.onClickTabelCekTernak();
     }//GEN-LAST:event_TblInputDataCekTernakMouseClicked
 
     private void KembaliMenuUtamaUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliMenuUtamaUserMouseClicked
@@ -5217,6 +5219,19 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void BtnExportPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExportPdfActionPerformed
         // TODO add your handling code here:
+        int IReport=Integer.parseInt(TxtKodeLaporan.getText());
+        
+        if (IReport == 1) {
+            controller.previewLaporanKesehatan();
+        } else if (IReport == 2) {
+            controller.previewLaporanCekTernak();
+        } else if (IReport == 3) {
+            controller.previewLaporanPegawai();
+        } else if (IReport == 4) {
+            controller.previewLaporanPakan();
+        } else {
+            
+        }
     }//GEN-LAST:event_BtnExportPdfActionPerformed
 
     private void KembaliDataCekTernakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataCekTernakMouseClicked

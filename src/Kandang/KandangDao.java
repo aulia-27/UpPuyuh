@@ -34,10 +34,10 @@ public class KandangDao {
         ps.executeUpdate();
     }
     
-    public static Kandang getKandang(Connection con, String id_kandang) throws SQLException {
-        String sql = "select * from kandang where id_kandang=?";
+    public static Kandang getKandang(Connection con, String nama_kandang) throws SQLException {
+        String sql = "Select * from kandang where nama_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, id_kandang);
+        ps.setString(1, nama_kandang);
         Kandang kandang = null;
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {            

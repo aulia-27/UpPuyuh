@@ -158,21 +158,21 @@ public class MenuAdminController {
         }
     }
     
-    /*public void onClickTabelKandang() {
+    public void onClickTabelKandang() {
         try {
             String kode = viewAdmin.getTblInputDataKandang().getValueAt(viewAdmin.getTblInputDataKandang().getSelectedRow(), 0).toString();
             kandang = KandangDao.getKandang(con, kode);
             if (kandang != null) {
-                kandang.setNamaKandang(viewAdmin.getTxtNamaKandang().getText());
-                kandang.setJmlTernak(Integer.parseInt(viewAdmin.getTxtJumlahTernak().getText()));
+                viewAdmin.getTxtNamaKandang().setText(kandang.getNamaKandang());
+                viewAdmin.getTxtJumlahTernak().setText(""+kandang.getJmlTernak());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
                 clearFormKandang();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KandangController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
     
     public void viewTableDataKandang(){
         try {
@@ -301,28 +301,24 @@ public class MenuAdminController {
         }
     }
     
-    /*public void onClickTabelPegawai() {
+    public void onClickTabelPegawai() {
         try {
-            String kode = viewAdmin.getTblInputPegawai().getValueAt(viewAdmin.getTblInputPegawai().getSelectedRow(), 0).toString();
+            String kode = viewAdmin.getTblInputDataPegawai().getValueAt(viewAdmin.getTblInputDataPegawai().getSelectedRow(), 0).toString();
             pegawai = PegawaiDao.getPegawai(con, kode);
             if (pegawai != null) {
                 viewAdmin.getTxtIdPegawai().setText(pegawai.getIdPegawai());
-                viewAdmin.getTxtNama().setText(pegawai.getNama());
+                viewAdmin.getTxtNamaPegawai().setText(pegawai.getNama());
                 viewAdmin.getTxtAsal().setText(pegawai.getAsal());
-                viewAdmin.getTxtTaggalLahir().setText(pegawai.getTglLahir());
-                viewAdmin.getTxtTaggalLahir().setEditable(true);
-                viewAdmin.getCboJekel().setSelectedItem(pegawai.getJekel());
-                viewAdmin.getTxtNoTelepon().setText(pegawai.getNoTelp());
-                viewAdmin.getTxtAlamat().setText(pegawai.getAlamat());
-                viewAdmin.getCboIdKandang().setSelectedItem(pegawai.getIdKandang());
+                viewAdmin.getTxtNoTelp().setText(pegawai.getNoTelp());
+                viewAdmin.getJtxAlamat().setText(pegawai.getAlamat());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
-                clearForm();
+                clearFormPegawai();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
     
     public void viewTableDataPegawai(){
         try {
@@ -415,9 +411,9 @@ public class MenuAdminController {
         }
     }
     
-    /*public void onClickTabelPakan() {
+    public void onClickTabelPakan() {
         try {
-            String kode = viewAdmin.getTblInputPakan().getValueAt(viewAdmin.getTblInputPakan().getSelectedRow(), 0).toString();
+            String kode = viewAdmin.getTblInputDataPakan().getValueAt(viewAdmin.getTblInputDataPakan().getSelectedRow(), 0).toString();
             pakan = PakanDao.getPakan(con, kode);
             if (pakan != null) {
                 viewAdmin.getTxtIdPakan().setText(pakan.getIdPakan());
@@ -426,12 +422,12 @@ public class MenuAdminController {
                 viewAdmin.getTxtStok().setText(""+pakan.getStok());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
-                clearForm();
+                clearFormPakan();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PakanController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
     
     public void viewTableDataPakan(){
         try {
@@ -520,21 +516,24 @@ public class MenuAdminController {
         }
     }
     
-    /*public void onClickTabel() {
+    public void onClickTabelPenyakit() {
         try {
-            String kode = viewAdmin.getTblInputPenyakit().getValueAt(viewAdmin.getTblInputPenyakit().getSelectedRow(), 0).toString();
+            String kode = viewAdmin.getTblInputDataPenyakit().getValueAt(viewAdmin.getTblInputDataPenyakit().getSelectedRow(), 0).toString();
             penyakit = PenyakitDao.getPenyakit(con, kode);
             if (penyakit != null) {
-                viewAdmin.getTxtNamaPenyakit().setText(penyakit.getNama());
-                viewAdmin.getJtxKeterangan().setText(penyakit.getKeterangan());
+                viewAdmin.getTxtNamaPenyakit().setText(penyakit.getNamaPenyakit());
+                viewAdmin.getJtxGejala().setText(penyakit.getGejala());
+                viewAdmin.getJtxPenularan().setText(penyakit.getPenularan());
+                viewAdmin.getJtxPencegahan().setText(penyakit.getPencegahan());
+                viewAdmin.getJtxPengobatan().setText(penyakit.getPengobatan());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
-                clearForm();
+                clearFormPenyakit();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PenyakitController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
     
     public void viewTableDataPenyakit() {
         try {
@@ -621,22 +620,6 @@ public class MenuAdminController {
         }
     }
     
-    /*public void onClickTabelKandang() {
-        try {
-            String kodeKandang =  viewAdmin.getTblDataKandang().getValueAt(viewAdmin.getTblDataKandang().getSelectedRow(), 0).toString();
-            kandang = KandangDao.getKandangCek(con, kodeKandang);
-            kandang.getJmlTernak();
-            if (kandang != null) {
-                viewAdmin.getTxtIdKandang().setText(kandang.getIdKandang());
-                viewAdmin.getTxtJmlTernak().setText(""+kandang.getJmlTernak());
-            } else {
-                JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada, Silakan Pilih Data Pada Tabel Kandang");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    } */
-    
     public void insertKesehatan(){
         kesehatan = new Kesehatan();
         kesehatan.setIdKesehatan(viewAdmin.getTxtIdKesehatan().getText());
@@ -699,25 +682,25 @@ public class MenuAdminController {
         }
     }
     
-    /*public void onClickTabel() {
+    public void onClickTabelKesehatan() {
         try {
-            String kode = viewAdmin.getTblInputKesehatan().getValueAt(viewAdmin.getTblInputKesehatan().getSelectedRow(), 0).toString();
+            String kode = viewAdmin.getTblInputDataKesehatan().getValueAt(viewAdmin.getTblInputDataKesehatan().getSelectedRow(), 0).toString();
             kesehatan = KesehatanDao.getKesehatan(con, kode);
-            kandang = KandangDao.getKandangCek(con, kode);
             if (kesehatan != null) {
                 viewAdmin.getTxtIdKesehatan().setText(kesehatan.getIdKesehatan());
-                viewAdmin.getTxtIdKandang().setText(kesehatan.getIdKandang());
-                viewAdmin.getCboIdPenyakit().setSelectedItem(kesehatan.getIdSakit());
+                viewAdmin.getCboKandang().setSelectedItem(kesehatan.getNamaKandang());
+                viewAdmin.getCboPenyakit().setSelectedItem(kesehatan.getNamaPenyakit());
+                viewAdmin.getCboIdPegawai().setSelectedItem(kesehatan.getIdPegawai());
                 viewAdmin.getTxtJmlSakit().setText(""+kesehatan.getJmlMati());
                 viewAdmin.getTxtJmlMati().setText(""+kesehatan.getJmlSakit());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
-                clearForm();
+                clearFormKesehatan();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(KesehatanController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } */
+    }
     
     public void viewTableDataKesehatan(){
         try {
@@ -861,25 +844,25 @@ public class MenuAdminController {
         }
     }
     
-    /*public void onClickTabel() {
+    public void onClickTabelCekTernak() {
         try {
-            String kode = viewAdmin.getTblInputCekTernak().getValueAt(viewAdmin.getTblInputCekTernak().getSelectedRow(), 0).toString();
+            String kode = viewAdmin.getTblInputDataCekTernak().getValueAt(viewAdmin.getTblInputDataCekTernak().getSelectedRow(), 0).toString();
             CekTernak = CekTernakDao.getCekTernak(con, kode);
             if (CekTernak != null) {
-                viewAdmin.getTxtIdCek().setText(CekTernak.getIdCek());
-                viewAdmin.getCboIdKandang().setSelectedItem(CekTernak.getIdKandang());
-                viewAdmin.getCboIdPakan().setSelectedItem(CekTernak.getIdPakan());
+                viewAdmin.getTxtIdCekTernak().setText(CekTernak.getIdCek());
+                viewAdmin.getCboKandangCek().setSelectedItem(CekTernak.getNamaKandang());
+                viewAdmin.getCboIdPakanCek().setSelectedItem(CekTernak.getIdPakan());
                 viewAdmin.getTxtJmlTelur().setText(""+CekTernak.getJmlTelur());
                 viewAdmin.getCboKebersihan().setSelectedItem(CekTernak.getKebersihan());
                 viewAdmin.getTxtTglCek().setText(CekTernak.getTglCek());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
-                clearForm();
+                clearFormCekTernak();
             }
         } catch (SQLException ex) {
             Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
     
     public void viewTableDataCekTernak() {
         try {
@@ -1215,7 +1198,7 @@ public class MenuAdminController {
         HashMap parameter = new HashMap();
         JasperPrint jasperPrint = null;
         try {
-            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
+            jasperPrint = JasperFillManager.fillReport("report/LaporanCekTernak.jasper", parameter, con);
             JasperViewer.viewReport(jasperPrint, false);
         } catch (Exception ex) {
             System.out.print(ex.toString());
@@ -1227,7 +1210,7 @@ public class MenuAdminController {
         HashMap parameter = new HashMap();
         JasperPrint jasperPrint = null;
         try {
-            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
+            jasperPrint = JasperFillManager.fillReport("report/LaporanPegawai.jasper", parameter, con);
             JasperViewer.viewReport(jasperPrint, false);
         } catch (Exception ex) {
             System.out.print(ex.toString());
@@ -1239,7 +1222,7 @@ public class MenuAdminController {
         HashMap parameter = new HashMap();
         JasperPrint jasperPrint = null;
         try {
-            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
+            jasperPrint = JasperFillManager.fillReport("report/LaporanPakan.jasper", parameter, con);
             JasperViewer.viewReport(jasperPrint, false);
         } catch (Exception ex) {
             System.out.print(ex.toString());

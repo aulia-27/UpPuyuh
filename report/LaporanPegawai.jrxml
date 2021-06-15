@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4851d186-2777-43ec-9bfd-c86a5bf338d4">
-	<queryString language="SQL">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
 		<![CDATA[SELECT
      pegawai.`id_pegawai` AS pegawai_id_pegawai,
      pegawai.`nama` AS pegawai_nama,
@@ -26,19 +29,23 @@ FROM
 		<band height="72">
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="7292d736-41f9-44f8-a5a0-efeb0541cd93"/>
+				<image>
+					<reportElement x="22" y="0" width="97" height="92" uuid="4b587051-12de-409f-bc2b-da7cd9ababa3"/>
+					<imageExpression><![CDATA["D:\\Kuliah\\1. MATERI KULIAH\\SMS 4\\Project 1\\UpPuyuh\\UpPuyuh\\src\\Imange\\Dashboard.png"]]></imageExpression>
+				</image>
 				<staticText>
-					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="81407da9-5f5c-4e84-911d-89b6a16cda22"/>
-					<textElement>
+					<reportElement x="142" y="20" width="322" height="43" forecolor="#FFFFFF" uuid="7b8d8c06-b5a5-40d7-a8fc-2ac6587bb1f9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[Laporan Pegawai]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="62f71bf7-b871-4265-ae2d-8813e6fbd342"/>
-					<textElement textAlignment="Right">
+					<reportElement x="210" y="72" width="180" height="20" forecolor="#FFFFFF" uuid="fb4c0257-2900-4a49-b81b-56a13dc2523a"/>
+					<textElement textAlignment="Center">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[Sistem Informasi Up Puyuh]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -53,52 +60,52 @@ FROM
 			</line>
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e18420e2-c3ba-4254-811a-b1964b7a5b8c"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pegawai_id_pegawai]]></text>
+				<text><![CDATA[ID Pegawai]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="79" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="44c2b713-24a8-4556-884d-1eac72d97ec5"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pegawai_nama]]></text>
+				<text><![CDATA[Nama]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="158" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="95fd61a9-8ff7-407a-a760-fae3a04f7dd8"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pegawai_asal]]></text>
+				<text><![CDATA[Asal]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="237" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="059deaa5-bac5-47eb-a4a1-5329d8af4b6b"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pegawai_tgl_lahir]]></text>
+				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f813ab7f-8eec-4326-95b5-0ae4fc10223e"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pegawai_jekel]]></text>
+				<text><![CDATA[Jenis Kelamin]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="395" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aceaf08f-9258-46f7-b46c-19db0d7f7acc"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pegawai_no_telp]]></text>
+				<text><![CDATA[No Telepon]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="474" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="cc4c312c-4921-4557-a0c1-fb91e907fd5e"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[pegawai_alamat]]></text>
+				<text><![CDATA[Alamat]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -109,50 +116,50 @@ FROM
 			</line>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="0" y="0" width="79" height="20" uuid="29a57687-1c95-4c7f-a021-262b5bf34927"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_id_pegawai}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="79" y="0" width="79" height="20" uuid="b434a91b-5d28-4e50-83fc-cd8956c627de"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_nama}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="158" y="0" width="79" height="20" uuid="c1f73d67-d9a4-4b6e-8a06-f998a3f4d861"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_asal}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="237" y="0" width="79" height="20" uuid="fba3015e-5776-44c7-aa87-afab7c8a8313"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_tgl_lahir}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="316" y="0" width="79" height="20" uuid="3f46318c-a29b-4773-969d-8d77c5ae6915"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_jekel}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="395" y="0" width="79" height="20" uuid="9f929479-6c02-493a-8272-369e71aef76d"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_no_telp}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="474" y="0" width="79" height="20" uuid="47ca992f-7bda-42e2-ae4c-a77578102728"/>
-				<textElement>
-					<font size="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_alamat}]]></textFieldExpression>
 			</textField>

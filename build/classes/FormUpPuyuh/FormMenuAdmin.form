@@ -2155,41 +2155,40 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel33" max="32767" attributes="0"/>
-                                          <Component id="jLabel29" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="TxtNamaKandang" min="-2" pref="195" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="CariIdKandang" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="TxtJmlTernak" min="-2" pref="108" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="BtnSimpanKandang" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel33" max="32767" attributes="0"/>
+                                                  <Component id="jLabel29" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                              </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="BtnUpdateKandang" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="TxtJmlTernak" min="-2" pref="108" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="TxtNamaKandang" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
-                                              <Component id="BtnHapusKandang" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="BtnBatalKandang" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="BtnSimpanKandang" min="-2" pref="115" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="BtnUpdateKandang" min="-2" pref="115" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                                                      <Component id="BtnHapusKandang" min="-2" pref="115" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="BtnBatalKandang" min="-2" pref="115" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2200,7 +2199,6 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel29" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtNamaKandang" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="CariIdKandang" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2214,7 +2212,7 @@
                                           <Component id="BtnBatalKandang" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnUpdateKandang" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="264" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2287,14 +2285,6 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalKandangActionPerformed"/>
                               </Events>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="CariIdKandang">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="16" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Cari"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnUpdateKandang">
                               <Properties>
@@ -2805,9 +2795,7 @@
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="jLabel27" min="-2" pref="150" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="TxtIdPegawai" min="-2" pref="170" max="-2" attributes="0"/>
-                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                          <Component id="BtnCariIdPegawai" min="-2" pref="120" max="-2" attributes="0"/>
+                                                          <Component id="TxtIdPegawai" min="-2" pref="200" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -2830,13 +2818,12 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                                                   <Component id="jLabel27" min="-2" pref="25" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="TxtIdPegawai" max="32767" attributes="0"/>
-                                              <Component id="BtnCariIdPegawai" alignment="0" pref="35" max="32767" attributes="0"/>
+                                              <Component id="TxtIdPegawai" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
@@ -3055,14 +3042,6 @@
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalPegawaiActionPerformed"/>
                                   </Events>
-                                </Component>
-                                <Component class="javax.swing.JButton" name="BtnCariIdPegawai">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Montserrat" size="16" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Cari"/>
-                                  </Properties>
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnUpdatePegawai">
                                   <Properties>
@@ -3560,12 +3539,8 @@
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="TxtIdPakan" min="-2" pref="217" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="CariIdPakan" min="-2" pref="107" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="TxtNamaPakan" max="32767" attributes="0"/>
+                                                  <Component id="TxtIdPakan" min="-2" pref="217" max="-2" attributes="0"/>
+                                                  <Component id="TxtNamaPakan" pref="331" max="32767" attributes="0"/>
                                                   <Component id="TxtStok" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="TxtHarga" alignment="0" max="32767" attributes="0"/>
                                               </Group>
@@ -3589,12 +3564,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel54" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                              <Component id="TxtIdPakan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="CariIdPakan" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel54" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="TxtIdPakan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -3618,7 +3590,7 @@
                                           <Component id="BtnBatalPakan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnUpdatePakan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="188" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -3726,14 +3698,6 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalPakanActionPerformed"/>
                               </Events>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="CariIdPakan">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="16" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Cari"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnUpdatePakan">
                               <Properties>
@@ -4972,14 +4936,10 @@
                                                       </Group>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Group type="102" alignment="1" attributes="0">
-                                                              <Component id="TxtIdKesehatan" pref="168" max="32767" attributes="0"/>
-                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Component id="BtnIdKandang" min="-2" pref="107" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Component id="CboKandang" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="CboKandang" alignment="0" pref="287" max="32767" attributes="0"/>
                                                           <Component id="CboPenyakit" alignment="0" max="32767" attributes="0"/>
                                                           <Component id="CboIdPegawai" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="TxtIdKesehatan" alignment="0" min="-2" pref="190" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
@@ -4996,7 +4956,6 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel68" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtIdKesehatan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="BtnIdKandang" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -5030,7 +4989,7 @@
                                           <Component id="BtnBatalKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnUpdateKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="113" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -5199,17 +5158,6 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBatalKesehatanActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="BtnIdKandang">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="16" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Cari"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnIdKandangActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnUpdateKesehatan">
@@ -5839,9 +5787,8 @@
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="jLabel79" min="-2" pref="189" max="-2" attributes="0"/>
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="TxtIdCekTernak" min="-2" pref="164" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="BtnCekIdTernak" min="-2" pref="88" max="-2" attributes="0"/>
+                                                          <Component id="TxtIdCekTernak" min="-2" pref="200" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -5880,7 +5827,6 @@
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel79" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="TxtIdCekTernak" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                              <Component id="BtnCekIdTernak" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
@@ -5925,17 +5871,6 @@
                                 </DimensionLayout>
                               </Layout>
                               <SubComponents>
-                                <Component class="javax.swing.JButton" name="BtnCekIdTernak">
-                                  <Properties>
-                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Montserrat" size="16" style="0"/>
-                                    </Property>
-                                    <Property name="text" type="java.lang.String" value="Cari"/>
-                                  </Properties>
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCekIdTernakActionPerformed"/>
-                                  </Events>
-                                </Component>
                                 <Component class="javax.swing.JTextField" name="TxtIdCekTernak">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

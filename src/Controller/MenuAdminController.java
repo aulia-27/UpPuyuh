@@ -134,7 +134,7 @@ public class MenuAdminController {
             KandangDao.insert(con, kandang);
             JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Inputkan");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewAdmin, "Nama Kandang Sudah"); 
+            JOptionPane.showMessageDialog(viewAdmin, "Nama Kandang Sudah", "Pesan", JOptionPane.WARNING_MESSAGE); 
         }
     }
     

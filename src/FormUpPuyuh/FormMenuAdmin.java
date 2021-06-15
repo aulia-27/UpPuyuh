@@ -25,9 +25,13 @@ import javax.swing.table.DefaultTableModel;
 
 import User.User;
 import Controller.UserController;
+
 import User.Enkripsi;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -4779,26 +4783,43 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void BtnSimpanKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanKandangActionPerformed
         // TODO add your handling code here:
-        controller.insertKandang();
-        controller.clearFormKandang();
-        controller.viewTableDataKandang();
-        controller.viewTableInputKandang();
+        if (TxtNamaKandang.getText().equals("") || TxtJmlTernak.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Kandang dan Jumlah Ternak Masih Kosong,\nSilakan Input Nama Kandang dan Jumlah Ternak","Pesan",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            controller.insertKandang();
+            controller.clearFormKandang();
+            controller.viewTableDataKandang();
+            controller.viewTableInputKandang();
+        }
+        
     }//GEN-LAST:event_BtnSimpanKandangActionPerformed
 
     private void BtnUpdateKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateKandangActionPerformed
         // TODO add your handling code here:
-        controller.updateKandang();
-        controller.clearFormKandang();
-        controller.viewTableDataKandang();
-        controller.viewTableInputKandang();
+        if (TxtNamaKandang.getText().equals("") || TxtJmlTernak.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Kandang dan Jumlah Ternak Masih Kosong,\nSilakan Pilih Data Pada Tabel Kandang","Pesan",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            controller.updateKandang();
+            controller.clearFormKandang();
+            controller.viewTableDataKandang();
+            controller.viewTableInputKandang();
+        }
+        
     }//GEN-LAST:event_BtnUpdateKandangActionPerformed
 
     private void BtnHapusKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusKandangActionPerformed
         // TODO add your handling code here:
-        controller.deleteKandang();
-        controller.clearFormKandang();
-        controller.viewTableDataKandang();
-        controller.viewTableInputKandang();
+        if (TxtNamaKandang.getText().equals("") || TxtJmlTernak.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Silakan Pilih Data Pada Tabel Kandang Yang Akan DiHapus","Pesan",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            int pesan = JOptionPane.showConfirmDialog(null, "Apakah Andi Ingin Menghapus Data ?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (pesan == JOptionPane.YES_NO_OPTION) {
+                controller.deleteKandang();
+                controller.clearFormKandang();
+                controller.viewTableDataKandang();
+                controller.viewTableInputKandang();
+            }
+        }
     }//GEN-LAST:event_BtnHapusKandangActionPerformed
 
     private void BtnBatalKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatalKandangActionPerformed
@@ -4865,8 +4886,12 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnBatalPegawaiActionPerformed
 
     private void TblInputDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblInputDataPegawaiMouseClicked
-        // TODO add your handling code here:
-        controller.onClickTabelPegawai();
+        try {
+            // TODO add your handling code here:
+            controller.onClickTabelPegawai();
+        } catch (ParseException ex) {
+            Logger.getLogger(FormMenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_TblInputDataPegawaiMouseClicked
 
     private void KembaliDataPegawaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliDataPegawaiMouseClicked

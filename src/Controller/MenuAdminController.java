@@ -132,9 +132,9 @@ public class MenuAdminController {
         kandang.setJmlTernak(Integer.parseInt(viewAdmin.getTxtJumlahTernak().getText()));
         try {
             KandangDao.insert(con, kandang);
-            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Inputkan");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewAdmin, "Nama Kandang Sudah Ada"); 
+            JOptionPane.showMessageDialog(viewAdmin, "Nama Kandang Sudah"); 
         }
     }
     
@@ -144,7 +144,7 @@ public class MenuAdminController {
         kandang.setJmlTernak(Integer.parseInt(viewAdmin.getTxtNamaKandang().getText()));
         try {
             KandangDao.update(con, kandang);
-            JOptionPane.showMessageDialog(viewAdmin, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Pembaruan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
         }
@@ -153,9 +153,9 @@ public class MenuAdminController {
     public void deleteKandang() {
         try {
             KandangDao.delete(con, kandang);
-            JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Hapus");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(viewAdmin, "Silakan Pilih Data Pada Tabel");
+            JOptionPane.showMessageDialog(viewAdmin, "Error " +e);
         }
     }
     
@@ -299,7 +299,6 @@ public class MenuAdminController {
     public void onClickTabelPegawai() throws ParseException{
         try {
             String kode = viewAdmin.getTblInputDataPegawai().getValueAt(viewAdmin.getTblInputDataPegawai().getSelectedRow(), 0).toString();
-            ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
             pegawai = PegawaiDao.getPegawai(con, kode);
             if (pegawai != null) {
                 viewAdmin.getTxtIdPegawai().setText(pegawai.getIdPegawai());
@@ -307,6 +306,12 @@ public class MenuAdminController {
                 viewAdmin.getTxtAsal().setText(pegawai.getAsal());
                 Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String)pegawai.getTglLahir());
                 viewAdmin.getJdtTglLahir().setDate(date);
+                String jekel = pegawai.getJekel().toString();
+                if (jekel.equals("Laki-Laki")) {
+                    viewAdmin.getRbLakiLaki().setSelected(true);
+                } else {
+                    viewAdmin.getRbPerempuan().setSelected(true);
+                }
                 viewAdmin.getTxtNoTelp().setText(pegawai.getNoTelp());
                 viewAdmin.getJtxAlamat().setText(pegawai.getAlamat());
             } else {

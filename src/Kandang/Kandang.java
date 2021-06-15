@@ -9,6 +9,7 @@ package Kandang;
 public class Kandang {
     private String nama_kandang;
     private int jmlTernak;
+    public String getNamaKandang;
     
     
     public String getNamaKandang() {

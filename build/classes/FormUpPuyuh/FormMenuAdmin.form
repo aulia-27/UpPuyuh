@@ -350,7 +350,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" pref="89" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel8" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
@@ -1105,7 +1105,7 @@
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="303" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="BtnExportPdf" max="32767" attributes="0"/>
                                           <Component id="BtnExportExcel" max="32767" attributes="0"/>
@@ -1166,7 +1166,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="18" style="0"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="4. Laporan Pegawai"/>
+                                <Property name="text" type="java.lang.String" value="4. Laporan Pakan"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel23">
@@ -1174,7 +1174,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="18" style="0"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="3. Laporan Pakan"/>
+                                <Property name="text" type="java.lang.String" value="3. Laporan Pegawai"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel25">
@@ -1187,11 +1187,20 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtKodeLaporan">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtKodeLaporanKeyTyped"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnCekKodeLpr">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cek"/>
                               </Properties>
                               <Events>
@@ -1224,163 +1233,454 @@
                         </Container>
                         <Container class="javax.swing.JPanel" name="PanelTabelLaporan">
 
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="TxtKolom1" pref="133" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtKolom2" pref="133" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtKolom3" pref="132" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtKolom4" pref="131" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtKolom5" pref="133" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtKolom6" pref="136" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtKolom7" pref="132" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="TxtKolom8" pref="138" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="TxtKolom1" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="TxtKolom2" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="TxtKolom3" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="TxtKolom4" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="TxtKolom5" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="TxtKolom6" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="TxtKolom7" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="TxtKolom8" alignment="3" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="242" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
                           <SubComponents>
-                            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-                              <AuxValues>
-                                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                              </AuxValues>
+                            <Container class="javax.swing.JPanel" name="TabelLaporanKosong">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                  <CardConstraints cardName="card6"/>
+                                </Constraint>
+                              </Constraints>
 
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane24" pref="1093" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane24" pref="271" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="TblLaporan">
-                                  <Properties>
-                                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                      <Table columnCount="8" rowCount="0">
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                        <Column editable="true" title="" type="java.lang.Object"/>
-                                      </Table>
-                                    </Property>
-                                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                                      <TableColumnModel selectionModel="0">
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title/>
-                                          <Editor/>
-                                          <Renderer/>
-                                        </Column>
-                                      </TableColumnModel>
-                                    </Property>
-                                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                                    </Property>
-                                  </Properties>
-                                </Component>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane24">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="TblLaporanKosong">
+                                      <Properties>
+                                        <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="0" rowCount="0"/>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0"/>
+                                        </Property>
+                                        <Property name="rowHeight" type="int" value="28"/>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
                               </SubComponents>
                             </Container>
-                            <Component class="javax.swing.JTextField" name="TxtKolom1">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField1"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtKolom2">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField2"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtKolom3">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField3"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtKolom4">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField4"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtKolom5">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField5"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtKolom6">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField6"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtKolom7">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField7"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="TxtKolom8">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="jTextField8"/>
-                              </Properties>
-                            </Component>
+                            <Container class="javax.swing.JPanel" name="TabelLaporanKesehatan">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                  <CardConstraints cardName="card8"/>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="1117" max="32767" attributes="0"/>
+                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jScrollPane20" pref="1093" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="297" max="32767" attributes="0"/>
+                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jScrollPane20" pref="271" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane20">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="TblLaporanKesehatan">
+                                      <Properties>
+                                        <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Montserrat" size="16" style="0"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="6" rowCount="0">
+                                            <Column editable="true" title="ID Kesehatan" type="java.lang.Object"/>
+                                            <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
+                                            <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
+                                            <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
+                                            <Column editable="true" title="Jumlah Sakit" type="java.lang.Object"/>
+                                            <Column editable="true" title="Jumlah Mati" type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title value="ID Kesehatan"/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title value="Nama Kandang"/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title value="Nama Penyakit"/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title value="ID Pegawai"/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title value="Jumlah Sakit"/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title value="Jumlah Mati"/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="rowHeight" type="int" value="28"/>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="TabelLaporanCekTernak">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                  <CardConstraints cardName="card8"/>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="1117" max="32767" attributes="0"/>
+                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jScrollPane21" pref="1093" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="297" max="32767" attributes="0"/>
+                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jScrollPane21" pref="271" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane21">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="TblLaporanCekTernak">
+                                      <Properties>
+                                        <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Montserrat" size="16" style="0"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="7" rowCount="0">
+                                            <Column editable="true" title="ID Cek Ternak" type="java.lang.Object"/>
+                                            <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
+                                            <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
+                                            <Column editable="true" title="ID Pakan" type="java.lang.Object"/>
+                                            <Column editable="true" title="Jumlah Telur" type="java.lang.Object"/>
+                                            <Column editable="true" title="Kebersihan" type="java.lang.Object"/>
+                                            <Column editable="true" title="Tanggal Cek" type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="rowHeight" type="int" value="28"/>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="TabelLaporanPegawai">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                  <CardConstraints cardName="card7"/>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane22" pref="1093" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane22" pref="271" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane22">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="TblLaporanPegawai">
+                                      <Properties>
+                                        <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Montserrat" size="16" style="0"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="7" rowCount="0">
+                                            <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
+                                            <Column editable="true" title="Nama Pegawai" type="java.lang.Object"/>
+                                            <Column editable="true" title="Asal" type="java.lang.Object"/>
+                                            <Column editable="true" title="Tanggal Lahir" type="java.lang.Object"/>
+                                            <Column editable="true" title="Jenis Kelamin" type="java.lang.Object"/>
+                                            <Column editable="true" title="No Telepon" type="java.lang.Object"/>
+                                            <Column editable="true" title="Alamat Kandang" type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="rowHeight" type="int" value="28"/>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="TabelLaporanPakan">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                                  <CardConstraints cardName="card7"/>
+                                </Constraint>
+                              </Constraints>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane23" pref="1093" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane23" pref="271" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JScrollPane" name="jScrollPane23">
+                                  <AuxValues>
+                                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                                  </AuxValues>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JTable" name="TblLaporanPakan">
+                                      <Properties>
+                                        <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Montserrat" size="16" style="0"/>
+                                        </Property>
+                                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                          <Table columnCount="4" rowCount="4">
+                                            <Column editable="true" title="ID Pakan" type="java.lang.Object"/>
+                                            <Column editable="true" title="Nama Pakan" type="java.lang.Object"/>
+                                            <Column editable="true" title="Harga" type="java.lang.Object"/>
+                                            <Column editable="true" title="Stok" type="java.lang.Object"/>
+                                          </Table>
+                                        </Property>
+                                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                          <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                          </TableColumnModel>
+                                        </Property>
+                                        <Property name="rowHeight" type="int" value="28"/>
+                                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                        </Property>
+                                      </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -1514,8 +1814,8 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                                          <Component id="DateKandang" min="-2" pref="230" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Component id="DateKandang" min="-2" pref="260" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Component id="TimeKandang" min="-2" pref="171" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -1672,13 +1972,14 @@
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="TblDataKandang">
                               <Properties>
+                                <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
+                                  <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="2" rowCount="0">
-                                    <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
-                                    <Column editable="true" title="Jumlah Ternak" type="java.lang.Object"/>
+                                  <Table columnCount="2" rowCount="1">
+                                    <Column editable="false" title="Nama Kandang" type="java.lang.Object"/>
+                                    <Column editable="false" title="Jumlah Ternak" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1695,8 +1996,7 @@
                                     </Column>
                                   </TableColumnModel>
                                 </Property>
-                                <Property name="rowHeight" type="int" value="32"/>
-                                <Property name="rowMargin" type="int" value="5"/>
+                                <Property name="rowHeight" type="int" value="28"/>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
@@ -1838,10 +2138,10 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="PanelInputDataKandang" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane11" pref="527" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane11" pref="516" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -1855,52 +2155,60 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jLabel33" max="32767" attributes="0"/>
+                                          <Component id="jLabel29" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="TxtNamaKandang" min="-2" pref="195" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CariIdKandang" max="32767" attributes="0"/>
+                                          </Group>
                                           <Group type="102" attributes="0">
+                                              <Component id="TxtJmlTernak" min="-2" pref="108" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Component id="BtnSimpanKandang" min="-2" pref="115" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="BtnUpdateKandang" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
                                               <Component id="BtnHapusKandang" min="-2" pref="115" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="BtnBatalKandang" min="-2" pref="115" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jLabel33" max="32767" attributes="0"/>
-                                                  <Component id="jLabel29" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="TxtJmlTernak" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="TxtNamaKandang" min="-2" pref="195" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="CariIdKandang" min="-2" pref="105" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
                                       </Group>
-                                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                                      <EmptySpace pref="21" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel29" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtNamaKandang" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                           <Component id="CariIdKandang" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel33" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtJmlTernak" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="BtnSimpanKandang" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnHapusKandang" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
@@ -1915,11 +2223,20 @@
                           <SubComponents>
                             <Component class="javax.swing.JTextField" name="TxtJmlTernak">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtJmlTernakKeyTyped"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtNamaKandang">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
                             </Component>
@@ -1974,6 +2291,9 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="CariIdKandang">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
@@ -2008,13 +2328,14 @@
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="TblInputDataKandang">
                               <Properties>
+                                <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="18" style="0"/>
+                                  <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="2" rowCount="0">
-                                    <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
-                                    <Column editable="true" title="Jumlah Ternak" type="java.lang.Object"/>
+                                  <Table columnCount="2" rowCount="1">
+                                    <Column editable="false" title="Nama Kandang" type="java.lang.Object"/>
+                                    <Column editable="false" title="Jumlah Ternak" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2031,8 +2352,7 @@
                                     </Column>
                                   </TableColumnModel>
                                 </Property>
-                                <Property name="rowHeight" type="int" value="32"/>
-                                <Property name="rowMargin" type="int" value="5"/>
+                                <Property name="rowHeight" type="int" value="28"/>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
@@ -2102,11 +2422,11 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="DatePegawai" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                                  <Component id="DatePegawai" min="-2" pref="260" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="TimePegawai" min="-2" pref="171" max="-2" attributes="0"/>
-                                  <EmptySpace pref="301" max="32767" attributes="0"/>
+                                  <EmptySpace pref="254" max="32767" attributes="0"/>
                                   <Component id="BtnInputDataPegawai" min="-2" pref="240" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -2239,11 +2559,15 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="TblDataPegawai">
                           <Properties>
+                            <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="7" rowCount="4">
-                                <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
-                                <Column editable="true" title="Nama Pegawai" type="java.lang.Object"/>
-                                <Column editable="true" title="Asal" type="java.lang.Object"/>
+                                <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
+                                <Column editable="false" title="Nama Pegawai" type="java.lang.Object"/>
+                                <Column editable="false" title="Asal" type="java.lang.Object"/>
                                 <Column editable="true" title="Tanggal Lahir" type="java.lang.Object"/>
                                 <Column editable="true" title="Jenis Kelamin" type="java.lang.Object"/>
                                 <Column editable="true" title="No Telepon" type="java.lang.Object"/>
@@ -2289,6 +2613,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="rowHeight" type="int" value="28"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -2511,8 +2836,8 @@
                                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                                                   <Component id="jLabel27" min="-2" pref="25" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="TxtIdPegawai" pref="35" max="32767" attributes="0"/>
-                                              <Component id="BtnCariIdPegawai" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="TxtIdPegawai" max="32767" attributes="0"/>
+                                              <Component id="BtnCariIdPegawai" alignment="0" pref="35" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
@@ -2682,6 +3007,9 @@
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="jTextField4"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtNoTelpKeyTyped"/>
+                                  </Events>
                                 </Component>
                                 <Container class="javax.swing.JScrollPane" name="jScrollPane4">
                                   <AuxValues>
@@ -2737,6 +3065,9 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnCariIdPegawai">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Cari"/>
                                   </Properties>
                                 </Component>
@@ -2771,13 +3102,17 @@
                               <SubComponents>
                                 <Component class="javax.swing.JTable" name="TblInputDataPegawai">
                                   <Properties>
+                                    <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="7" rowCount="4">
-                                        <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
-                                        <Column editable="true" title="Nama Pegawai" type="java.lang.Object"/>
-                                        <Column editable="true" title="Asal" type="java.lang.Object"/>
+                                        <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
+                                        <Column editable="false" title="Nama Pegawai" type="java.lang.Object"/>
+                                        <Column editable="false" title="Asal" type="java.lang.Object"/>
                                         <Column editable="true" title="Tanggal Lahir" type="java.lang.Object"/>
-                                        <Column editable="true" title="Jenis Kelamin" type="java.lang.Object"/>
+                                        <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
                                         <Column editable="true" title="No Telepon" type="java.lang.Object"/>
                                         <Column editable="true" title="Alamat Kandang" type="java.lang.Object"/>
                                       </Table>
@@ -2821,6 +3156,7 @@
                                         </Column>
                                       </TableColumnModel>
                                     </Property>
+                                    <Property name="rowHeight" type="int" value="32"/>
                                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                     </Property>
@@ -2892,11 +3228,11 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="DatePakan" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                                  <Component id="DatePakan" min="-2" pref="260" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="TimePakan" min="-2" pref="171" max="-2" attributes="0"/>
-                                  <EmptySpace pref="301" max="32767" attributes="0"/>
+                                  <EmptySpace pref="257" max="32767" attributes="0"/>
                                   <Component id="BtnInputDataPakan" min="-2" pref="240" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -3029,12 +3365,16 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="TblDataPakan">
                           <Properties>
+                            <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="4">
-                                <Column editable="true" title="ID Pakan" type="java.lang.Object"/>
-                                <Column editable="true" title="Nama Pakan" type="java.lang.Object"/>
-                                <Column editable="true" title="Harga" type="java.lang.Object"/>
-                                <Column editable="true" title="Stok" type="java.lang.Object"/>
+                                <Column editable="false" title="ID Pakan" type="java.lang.Object"/>
+                                <Column editable="false" title="Nama Pakan" type="java.lang.Object"/>
+                                <Column editable="false" title="Harga" type="java.lang.Object"/>
+                                <Column editable="false" title="Stok" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -3061,6 +3401,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="rowHeight" type="int" value="28"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -3089,7 +3430,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="PanelMenuInputPakan" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="PanelInputPakan" min="-2" max="-2" attributes="0"/>
+                              <Component id="PanelInputPakan" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -3201,7 +3542,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="PanelInputDataKandang1" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane13" pref="522" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane13" pref="509" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -3218,66 +3559,68 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                   <Component id="jLabel56" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel54" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel55" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel57" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <Component id="jLabel54" alignment="0" pref="150" max="32767" attributes="0"/>
+                                                  <Component id="jLabel57" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="TxtIdPakan" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="TxtIdPakan" min="-2" pref="217" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="CariIdPakan" min="-2" pref="107" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="TxtStok" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  <Component id="TxtHarga" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                                                  <Component id="TxtNamaPakan" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
+                                                  <Component id="TxtNamaPakan" max="32767" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="TxtStok" alignment="0" pref="200" max="32767" attributes="0"/>
+                                                      <Component id="TxtHarga" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="BtnSimpanPakan" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="BtnUpdatePakan" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace pref="13" max="32767" attributes="0"/>
                                               <Component id="BtnHapusPakan" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="BtnBatalPakan" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                               <Component id="jLabel54" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="TxtIdPakan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="CariIdPakan" max="32767" attributes="0"/>
+                                          <Component id="CariIdPakan" min="-2" pref="36" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel55" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtNamaPakan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel56" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtHarga" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel57" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtStok" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="BtnSimpanPakan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnHapusPakan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
@@ -3292,21 +3635,51 @@
                           <SubComponents>
                             <Component class="javax.swing.JTextField" name="TxtHarga">
                               <Properties>
+                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                                  <ComponentRef name="default"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtHargaKeyTyped"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtStok">
                               <Properties>
+                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                                  <ComponentRef name="default"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtStokKeyTyped"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtNamaPakan">
                               <Properties>
+                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                                  <ComponentRef name="default"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField2"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtIdPakan">
                               <Properties>
+                                <Property name="document" type="javax.swing.text.Document" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                                  <ComponentRef name="default"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
                             </Component>
@@ -3377,6 +3750,9 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="CariIdPakan">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                             </Component>
@@ -3402,12 +3778,16 @@
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="TblInputDataPakan">
                               <Properties>
+                                <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="4">
-                                    <Column editable="true" title="ID Pakan" type="java.lang.Object"/>
-                                    <Column editable="true" title="Nama Pakan" type="java.lang.Object"/>
-                                    <Column editable="true" title="Harga" type="java.lang.Object"/>
-                                    <Column editable="true" title="Stok" type="java.lang.Object"/>
+                                    <Column editable="false" title="ID Pakan" type="java.lang.Object"/>
+                                    <Column editable="false" title="Nama Pakan" type="java.lang.Object"/>
+                                    <Column editable="false" title="Harga" type="java.lang.Object"/>
+                                    <Column editable="false" title="Stok" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -3434,6 +3814,7 @@
                                     </Column>
                                   </TableColumnModel>
                                 </Property>
+                                <Property name="rowHeight" type="int" value="28"/>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
@@ -3450,7 +3831,7 @@
                               <Font name="Montserrat" size="24" style="0"/>
                             </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="Input Pakan Kandang Peternakan Burung Puyuh"/>
+                            <Property name="text" type="java.lang.String" value="Input Pakan Peternakan Burung Puyuh"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3512,11 +3893,11 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="DatePenyakit" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="DatePenyakit" min="-2" pref="260" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="TimePenyakit" min="-2" pref="171" max="-2" attributes="0"/>
-                                  <EmptySpace pref="301" max="32767" attributes="0"/>
+                                  <EmptySpace pref="255" max="32767" attributes="0"/>
                                   <Component id="BtnInputDataPenyakit" min="-2" pref="240" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -3649,13 +4030,17 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="TblDataPenyakit">
                           <Properties>
+                            <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="5" rowCount="4">
-                                <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
-                                <Column editable="true" title="Gejala" type="java.lang.Object"/>
-                                <Column editable="true" title="Penularan" type="java.lang.Object"/>
-                                <Column editable="true" title="Pencegahan" type="java.lang.Object"/>
-                                <Column editable="true" title="Pengobatan" type="java.lang.Object"/>
+                                <Column editable="false" title="Nama Penyakit" type="java.lang.Object"/>
+                                <Column editable="false" title="Gejala" type="java.lang.Object"/>
+                                <Column editable="false" title="Penularan" type="java.lang.Object"/>
+                                <Column editable="false" title="Pencegahan" type="java.lang.Object"/>
+                                <Column editable="false" title="Pengobatan" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -3687,6 +4072,8 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="rowHeight" type="int" value="28"/>
+                            <Property name="rowMargin" type="int" value="10"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -3936,6 +4323,9 @@
                           <SubComponents>
                             <Component class="javax.swing.JTextField" name="TxtNamaPenyakit">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
                             </Component>
@@ -3998,6 +4388,10 @@
                                 <Component class="javax.swing.JTextArea" name="JtxGejala">
                                   <Properties>
                                     <Property name="columns" type="int" value="20"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="lineWrap" type="boolean" value="true"/>
                                     <Property name="rows" type="int" value="5"/>
                                   </Properties>
                                 </Component>
@@ -4024,6 +4418,10 @@
                                 <Component class="javax.swing.JTextArea" name="JtxPenularan">
                                   <Properties>
                                     <Property name="columns" type="int" value="20"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="lineWrap" type="boolean" value="true"/>
                                     <Property name="rows" type="int" value="5"/>
                                   </Properties>
                                 </Component>
@@ -4047,6 +4445,10 @@
                                 <Component class="javax.swing.JTextArea" name="JtxPencegahan">
                                   <Properties>
                                     <Property name="columns" type="int" value="20"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="lineWrap" type="boolean" value="true"/>
                                     <Property name="rows" type="int" value="5"/>
                                   </Properties>
                                 </Component>
@@ -4070,6 +4472,10 @@
                                 <Component class="javax.swing.JTextArea" name="JtxPengobatan">
                                   <Properties>
                                     <Property name="columns" type="int" value="20"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="lineWrap" type="boolean" value="true"/>
                                     <Property name="rows" type="int" value="5"/>
                                   </Properties>
                                 </Component>
@@ -4094,13 +4500,17 @@
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="TblInputDataPenyakit">
                               <Properties>
+                                <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="5" rowCount="4">
-                                    <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
-                                    <Column editable="true" title="Gejala" type="java.lang.Object"/>
-                                    <Column editable="true" title="Penularan" type="java.lang.Object"/>
-                                    <Column editable="true" title="Pencegahan" type="java.lang.Object"/>
-                                    <Column editable="true" title="Pengobatan" type="java.lang.Object"/>
+                                    <Column editable="false" title="Nama Penyakit" type="java.lang.Object"/>
+                                    <Column editable="false" title="Gejala" type="java.lang.Object"/>
+                                    <Column editable="false" title="Penularan" type="java.lang.Object"/>
+                                    <Column editable="false" title="Pencegahan" type="java.lang.Object"/>
+                                    <Column editable="false" title="Pengobatan" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -4132,6 +4542,7 @@
                                     </Column>
                                   </TableColumnModel>
                                 </Property>
+                                <Property name="rowHeight" type="int" value="28"/>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
@@ -4210,11 +4621,11 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="DateKesehatan" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+                                  <Component id="DateKesehatan" min="-2" pref="260" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="TimeKesehatan" min="-2" pref="171" max="-2" attributes="0"/>
-                                  <EmptySpace pref="301" max="32767" attributes="0"/>
+                                  <EmptySpace pref="258" max="32767" attributes="0"/>
                                   <Component id="BtnInputDataKesehatan" min="-2" pref="240" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -4338,6 +4749,10 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="TblDataKesehatan">
                           <Properties>
+                            <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="6" rowCount="4">
                                 <Column editable="true" title="ID Kesehatan" type="java.lang.Object"/>
@@ -4351,37 +4766,38 @@
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
+                                  <Title value="ID Kesehatan"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
+                                  <Title value="Nama Kandang"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
+                                  <Title value="Nama Penyakit"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
+                                  <Title value="ID Pegawai"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
+                                  <Title value="Jumlah Sakit"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
+                                  <Title value="Jumlah Mati"/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="rowHeight" type="int" value="28"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -4519,15 +4935,18 @@
                                   <Component id="jScrollPane15" pref="577" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel99" alignment="0" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jScrollPane15" max="32767" attributes="0"/>
+                                  <Component id="jLabel99" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="PanelInputDataKesehatan" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane15" pref="522" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -4574,14 +4993,14 @@
                                                       </Group>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="TxtIdKesehatan" min="-2" pref="150" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="102" alignment="1" attributes="0">
+                                                              <Component id="TxtIdKesehatan" pref="168" max="32767" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                               <Component id="BtnIdKandang" min="-2" pref="107" max="-2" attributes="0"/>
                                                           </Group>
-                                                          <Component id="CboKandang" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
-                                                          <Component id="CboIdPegawai" min="-2" pref="264" max="-2" attributes="0"/>
-                                                          <Component id="CboPenyakit" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
+                                                          <Component id="CboKandang" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="CboPenyakit" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="CboIdPegawai" alignment="0" max="32767" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
@@ -4594,11 +5013,11 @@
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel68" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtIdKesehatan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="BtnIdKandang" alignment="3" pref="44" max="32767" attributes="0"/>
+                                          <Component id="BtnIdKandang" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -4632,7 +5051,7 @@
                                           <Component id="BtnBatalKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnUpdateKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -4688,21 +5107,39 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtIdKesehatan">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtJmlSakit">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtJmlSakitKeyTyped"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtJmlMati">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="jTextField1"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtJmlMatiKeyTyped"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="CboKandang">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
                                     <StringItem index="0" value="Item 1"/>
@@ -4718,6 +5155,9 @@
                             </Component>
                             <Component class="javax.swing.JComboBox" name="CboIdPegawai">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
                                     <StringItem index="0" value="Item 1"/>
@@ -4733,6 +5173,9 @@
                             </Component>
                             <Component class="javax.swing.JComboBox" name="CboPenyakit">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
                                     <StringItem index="0" value="Item 1"/>
@@ -4781,6 +5224,9 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnIdKandang">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cari"/>
                               </Properties>
                               <Events>
@@ -4809,6 +5255,10 @@
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="TblInputDataKesehatan">
                               <Properties>
+                                <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="6" rowCount="4">
                                     <Column editable="true" title="ID Kesehatan" type="java.lang.Object"/>
@@ -4822,37 +5272,38 @@
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                   <TableColumnModel selectionModel="0">
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
+                                      <Title value="ID Kesehatan"/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
+                                      <Title value="Nama Kandang"/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
+                                      <Title value="Nama Penyakit"/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
+                                      <Title value="ID Pegawai"/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
+                                      <Title value="Jumlah Sakit"/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title/>
+                                      <Title value="Jumlah Mati"/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                   </TableColumnModel>
                                 </Property>
+                                <Property name="rowHeight" type="int" value="28"/>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
@@ -4863,6 +5314,15 @@
                             </Component>
                           </SubComponents>
                         </Container>
+                        <Component class="javax.swing.JLabel" name="jLabel99">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="24" style="0"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
+                            <Property name="text" type="java.lang.String" value="Data Kesehatan Peternakan Burung Puyuh"/>
+                          </Properties>
+                        </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>
@@ -4922,11 +5382,11 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                                  <Component id="DateCekTernak" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                                  <Component id="DateCekTernak" min="-2" pref="260" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="TimeCekTernak" min="-2" pref="171" max="-2" attributes="0"/>
-                                  <EmptySpace pref="301" max="32767" attributes="0"/>
+                                  <EmptySpace pref="254" max="32767" attributes="0"/>
                                   <Component id="BtnInputDataCekTernak" min="-2" pref="240" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -5059,6 +5519,10 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="TblDataCekTernak">
                           <Properties>
+                            <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="7" rowCount="4">
                                 <Column editable="true" title="ID Cek Ternak" type="java.lang.Object"/>
@@ -5109,6 +5573,7 @@
                                 </Column>
                               </TableColumnModel>
                             </Property>
+                            <Property name="rowHeight" type="int" value="28"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -5177,6 +5642,9 @@
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KembaliDataCekTernakMouseClicked"/>
+                          </Events>
 
                           <Layout>
                             <DimensionLayout dim="0">
@@ -5236,8 +5704,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="PanelInputDataKesehatan1" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -5273,8 +5740,8 @@
                                       <Component id="jLabel98" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane16" pref="496" max="32767" attributes="0"/>
                                           <Component id="jPanel5" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane16" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -5291,6 +5758,10 @@
                               <SubComponents>
                                 <Component class="javax.swing.JTable" name="TblInputDataCekTernak">
                                   <Properties>
+                                    <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="7" rowCount="4">
                                         <Column editable="true" title="ID Cek Ternak" type="java.lang.Object"/>
@@ -5341,6 +5812,7 @@
                                         </Column>
                                       </TableColumnModel>
                                     </Property>
+                                    <Property name="rowHeight" type="int" value="28"/>
                                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                     </Property>
@@ -5357,58 +5829,67 @@
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel79" min="-2" pref="204" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="TxtIdCekTernak" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="BtnCekIdTernak" min="-2" pref="107" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel80" min="-2" pref="204" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="CboKandangCek" min="-2" pref="264" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jLabel81" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                                                      <Component id="jLabel82" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                              <Component id="jLabel83" max="32767" attributes="0"/>
+                                                              <Component id="jLabel84" max="32767" attributes="0"/>
+                                                              <Component id="jLabel85" pref="189" max="32767" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                  <Component id="TxtJmlTelur" min="-2" pref="130" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="CboKebersihan" max="32767" attributes="0"/>
+                                                                      <Group type="102" attributes="0">
+                                                                          <Component id="TxtTglCek" min="-2" pref="130" max="-2" attributes="0"/>
+                                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                                      </Group>
+                                                                  </Group>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel79" min="-2" pref="189" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="TxtIdCekTernak" min="-2" pref="164" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="BtnCekIdTernak" min="-2" pref="88" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                              <Component id="jLabel80" pref="189" max="32767" attributes="0"/>
+                                                              <Component id="jLabel82" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="jLabel81" alignment="0" max="32767" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="CboIdPakanCek" max="32767" attributes="0"/>
+                                                              <Component id="CboKandangCek" max="32767" attributes="0"/>
+                                                              <Component id="CboIdPegawaiCek" alignment="0" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
                                                   </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="CboIdPegawaiCek" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
-                                                      <Component id="CboIdPakanCek" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
-                                                  </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel83" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                                  <Component id="BtnSimpanCek" min="-2" pref="115" max="-2" attributes="0"/>
+                                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                                                  <Component id="BtnUpdateCek" min="-2" pref="115" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="TxtJmlTelur" min="-2" pref="130" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel84" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <Component id="BtnHapusCek" min="-2" pref="115" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="CboKebersihan" min="-2" pref="264" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel85" min="-2" pref="204" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="TxtTglCek" min="-2" pref="175" max="-2" attributes="0"/>
+                                                  <Component id="BtnBatalCek" min="-2" pref="115" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                          <Component id="BtnSimpanCek" min="-2" pref="115" max="-2" attributes="0"/>
-                                          <EmptySpace pref="22" max="32767" attributes="0"/>
-                                          <Component id="BtnUpdateCek" min="-2" pref="115" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="BtnHapusCek" min="-2" pref="115" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="BtnBatalCek" min="-2" pref="115" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -5422,44 +5903,44 @@
                                               <Component id="TxtIdCekTernak" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="BtnCekIdTernak" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="CboKandangCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="jLabel80" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="CboIdPakanCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="jLabel81" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="CboIdPegawaiCek" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
-                                              <Component id="jLabel82" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel82" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="CboIdPegawaiCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="TxtJmlTelur" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="jLabel83" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel84" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="CboKebersihan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel85" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="TxtTglCek" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="BtnSimpanCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="BtnHapusCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="BtnBatalCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="BtnUpdateCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="45" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -5467,6 +5948,9 @@
                               <SubComponents>
                                 <Component class="javax.swing.JButton" name="BtnCekIdTernak">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Cari"/>
                                   </Properties>
                                   <Events>
@@ -5475,6 +5959,9 @@
                                 </Component>
                                 <Component class="javax.swing.JTextField" name="TxtIdCekTernak">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                                   </Properties>
                                 </Component>
@@ -5496,6 +5983,9 @@
                                 </Component>
                                 <Component class="javax.swing.JComboBox" name="CboKandangCek">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="4">
                                         <StringItem index="0" value="Item 1"/>
@@ -5527,6 +6017,9 @@
                                 </Component>
                                 <Component class="javax.swing.JComboBox" name="CboIdPegawaiCek">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="4">
                                         <StringItem index="0" value="Item 1"/>
@@ -5542,6 +6035,9 @@
                                 </Component>
                                 <Component class="javax.swing.JComboBox" name="CboIdPakanCek">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="4">
                                         <StringItem index="0" value="Item 1"/>
@@ -5557,11 +6053,18 @@
                                 </Component>
                                 <Component class="javax.swing.JTextField" name="TxtTglCek">
                                   <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JComboBox" name="CboKebersihan">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="4">
                                         <StringItem index="0" value="Item 1"/>
@@ -5577,8 +6080,14 @@
                                 </Component>
                                 <Component class="javax.swing.JTextField" name="TxtJmlTelur">
                                   <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtJmlTelurKeyTyped"/>
+                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel83">
                                   <Properties>
@@ -5683,7 +6192,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane10" max="32767" attributes="0"/>
+                          <Component id="jScrollPane10" pref="556" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -5694,15 +6203,10 @@
                           <Component id="PanelMenuDataUser" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel88" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jPanel3" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane10" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jScrollPane10" pref="448" max="32767" attributes="0"/>
+                              <Component id="jPanel3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -5719,6 +6223,10 @@
                   <SubComponents>
                     <Component class="javax.swing.JTable" name="TblDataUser">
                       <Properties>
+                        <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Montserrat" size="16" style="0"/>
+                        </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="4">
                             <Column editable="true" title="ID User" type="java.lang.Object"/>
@@ -5757,6 +6265,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="rowHeight" type="int" value="28"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
@@ -5777,16 +6286,19 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                              <Component id="DateUser" min="-2" pref="158" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="TimeUser" min="-2" pref="171" max="-2" attributes="0"/>
-                              <EmptySpace pref="553" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="KembaliMenuUtamaUser" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                                      <Component id="DateUser" min="-2" pref="260" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="TimeUser" min="-2" pref="171" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="KembaliMenuUtamaUser" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -5982,7 +6494,7 @@
                                   <Component id="BtnHapus" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                   <Component id="BtnDelete" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

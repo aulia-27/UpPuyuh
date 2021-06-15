@@ -97,6 +97,8 @@ public class MenuAdminController {
             viewTableInputKesehatan();
             isiCboKandang();
             isiCboPenyakit();
+            isiCboIdPegawai();
+            
             
             //  Cek Ternak  //
             clearFormCekTernak();
@@ -104,6 +106,7 @@ public class MenuAdminController {
             isiCboIdPakanCek();
             isiCboIdPegawaiCek();
             isiCboKandangCek();
+            isiCboKebersihan();
             viewTableDataCekTernak();
             viewTableInputCekTernak();
             
@@ -606,6 +609,18 @@ public class MenuAdminController {
         }
     }
     
+    public void isiCboIdPegawai() {
+        viewAdmin.getCboIdPegawai().removeAllItems();
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
+            while (rs.next()) {                
+                viewAdmin.getCboIdPegawai().addItem(rs.getString(1)+" - "+rs.getString(2));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     /*public void onClickTabelKandang() {
         try {
             String kodeKandang =  viewAdmin.getTblDataKandang().getValueAt(viewAdmin.getTblDataKandang().getSelectedRow(), 0).toString();
@@ -627,6 +642,7 @@ public class MenuAdminController {
         kesehatan.setIdKesehatan(viewAdmin.getTxtIdKesehatan().getText());
         kesehatan.setNamaKandang(viewAdmin.getCboKandang().getSelectedItem().toString());
         kesehatan.setNamaPenyakit(viewAdmin.getCboPenyakit().getSelectedItem().toString());
+        kesehatan.setIdPegawai(viewAdmin.getCboIdPegawai().getSelectedItem().toString().toString().split("-")[0]);
         kesehatan.setJmlSakit(Integer.parseInt(viewAdmin.getTxtJmlSakit().getText()));
         kesehatan.setJmlMati(Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
         try {
@@ -663,6 +679,7 @@ public class MenuAdminController {
         kesehatan.setIdKesehatan(viewAdmin.getTxtIdKesehatan().getText());
         kesehatan.setNamaKandang(viewAdmin.getCboKandang().getSelectedItem().toString());
         kesehatan.setNamaPenyakit(viewAdmin.getCboPenyakit().getSelectedItem().toString());
+        kesehatan.setIdPegawai(viewAdmin.getCboIdPegawai().getSelectedItem().toString().toString().split("-")[0]);
         kesehatan.setJmlSakit(Integer.parseInt(viewAdmin.getTxtJmlSakit().getText()));
         kesehatan.setJmlMati(Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
         try {
@@ -782,11 +799,11 @@ public class MenuAdminController {
     }
     
     public void isiCboIdPegawaiCek() {
-        viewAdmin.getCboIdPakanCek().removeAllItems();
+        viewAdmin.getCboIdPegawaiCek().removeAllItems();
         try {
             ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
             while (rs.next()) {                
-                viewAdmin.getCboIdPakanCek().addItem(rs.getString(1)+" - "+rs.getString(2));
+                viewAdmin.getCboIdPegawaiCek().addItem(rs.getString(1)+" - "+rs.getString(2));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
@@ -909,18 +926,18 @@ public class MenuAdminController {
     }
     
     /////////////////////       Laporan         ////////////////////////////////
-    
+   
     public void cleartextLaporan() {
-        viewAdmin.getTxtKolom1().setText("");
+         /*viewAdmin.getTxtKolom1().setText("");
         viewAdmin.getTxtKolom2().setText("");
         viewAdmin.getTxtKolom3().setText("");
         viewAdmin.getTxtKolom4().setText("");
         viewAdmin.getTxtKolom5().setText("");
         viewAdmin.getTxtKolom6().setText("");
-        viewAdmin.getTxtKolom7().setText("");
-        viewAdmin.getTxtKolom8().setText("");
+        viewAdmin.getTxtKolom7().setText("");    */
         viewAdmin.getTxtKodeLaporan().setText("");
     }
+
     
     public void setDataKesehatan(){
         try{
@@ -1098,7 +1115,7 @@ public class MenuAdminController {
     
     public void viewTableKesehatanLaporan(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporanKesehantan().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from kesehatan");
             while(rs.next()){
@@ -1119,7 +1136,7 @@ public class MenuAdminController {
     
     public void viewTableCekTernakLaporan(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporanCekTernak().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
             while (rs.next()) { 
@@ -1141,7 +1158,7 @@ public class MenuAdminController {
     
     public void viewTablePegawaiLaporan(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporanPegawai().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
             while(rs.next()){
@@ -1163,7 +1180,7 @@ public class MenuAdminController {
 
     public void viewTablePakanLaporan(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporan().getModel();
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporanPakan().getModel();
             tabelModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from pakan");
             while(rs.next()){
@@ -1177,6 +1194,56 @@ public class MenuAdminController {
             }
         } catch (SQLException ex) {
             Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    //////////////////////          Laporan Ireport         ////////////////////
+    
+    public void previewLaporanKesehatan() {
+        HashMap parameter = new HashMap();
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
+            //Logger.getLogger(formlaporan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void previewLaporanCekTernak() {
+        HashMap parameter = new HashMap();
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
+            //Logger.getLogger(formlaporan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void previewLaporanPegawai() {
+        HashMap parameter = new HashMap();
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
+            //Logger.getLogger(formlaporan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void previewLaporanPakan() {
+        HashMap parameter = new HashMap();
+        JasperPrint jasperPrint = null;
+        try {
+            jasperPrint = JasperFillManager.fillReport("report/LaporanKesehatan.jasper", parameter, con);
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception ex) {
+            System.out.print(ex.toString());
+            //Logger.getLogger(formlaporan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

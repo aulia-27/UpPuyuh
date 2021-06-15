@@ -32,7 +32,7 @@ public class Enkripsi {
             return buffer.toString();
     }
     
-    public static String getSHA1 (String text) throws NoSuchFieldException, UnsupportedOperationException, NoSuchAlgorithmException, UnsupportedEncodingException {
+    public static String getSHA1 (String text) throws UnsupportedOperationException, NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest md;
         md = MessageDigest.getInstance("SHA-1");
         byte[] shalhash = new byte[40];

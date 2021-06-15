@@ -40,7 +40,7 @@ public class UserController {
     public List cariLogin(String username, String password) {
         List logLogin = new ArrayList();
         int result;
-        sql = "select username, password, nama, akses from user where username='" +username+ "' and password='" +password+"' ";
+        sql = "select username, password, nama, akses from user where username='" +username+ "' and password='" +password+"'";
         try {
             rs=st.executeQuery(sql);
             while (rs.next()) {                
@@ -85,8 +85,19 @@ public class UserController {
         return hasil;
     }
     
+    public int update(User user) {
+        sql = "insert into user  values ('"+user.getIdUser()+"','"+user.getUsername()+"','" +user.getPassword()+ "','" +user.getNamaAkun()+ "','"+user.getAkses()+ "')";
+        int hasil = 0;
+        try {
+            hasil = st.executeUpdate(sql);
+        } catch (Exception e) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return hasil;
+    }
+    
     public int delete(User user) {
-        sql = "delete user where id_user='"+user.getIdUser()+"'";
+        sql = "delete from user where id_user='"+user.getIdUser()+"'";
         int hasil = 0;
         try {
             hasil = st.executeUpdate(sql);
@@ -98,7 +109,7 @@ public class UserController {
     
     public List Tampiil () {
         List logMainMenu = new ArrayList();
-        sql = "select id_user, username, password, nama, akses from user order by id_user";
+        sql = "select id_user, username, password, nama, akses from user order by id_user asc";
         try {
             rs = st.executeQuery(sql);
             while (rs.next()) {                

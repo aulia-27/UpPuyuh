@@ -33,9 +33,14 @@ public class FormLogin extends javax.swing.JFrame {
      * Creates new form FormLogin
      */
     
+    List<User> listLogin = new ArrayList<User>();
+    UserController controller = new UserController();
+    User User = new User();
+    
     String user = "root";
     String pwd = "";
     String url = "jdbc:mysql://localhost/uppuyuh";
+    
     
     
     public FormLogin() {
@@ -43,11 +48,19 @@ public class FormLogin extends javax.swing.JFrame {
         setIcon();
         initComponents();
         setLocationRelativeTo(this);
+        clearText();
     }
     
     public void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("puyuh.png")));
     }
+    
+        
+    public void clearText() {
+        TxtUsername.setText("");
+        JpsPassword.setText("");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,6 +150,11 @@ public class FormLogin extends javax.swing.JFrame {
         });
 
         JpsPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        JpsPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JpsPasswordKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
@@ -210,23 +228,62 @@ public class FormLogin extends javax.swing.JFrame {
         } else {
             try {
                 listLogin = controller.cariLogin(TxtUsername.getText(), Enkripsi.getSHA1(JpsPassword.getText()));
-                if (listLogin.size()>1)
-                    if (listLogin.get(0).getAkses().equalsIgnoreCase("admin")) {
+                if (listLogin.size()>=1)
+                    if (listLogin.get(0).getAkses().equalsIgnoreCase("Administrator")) {
+                        FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
+                        formMenuAdmin.setVisible(true);
+                        formMenuAdmin.tampilNama(TxtUsername.getText());
+                        formMenuAdmin.tampilHakAkses("Administrator");
+                        dispose();
+                    } else {
                         FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
                         formMenuAdmin.setVisible(true);
                         dispose();
-                    } else {
-
                     }
                 else {
-                    JOptionPane.showMessageDialog(null, "Username atau Password Tidak Cokok \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
                     JpsPassword.requestFocus();
+                    clearText();
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Terjadi Kesalahan pada " +e);
+            
             }
         }
     }//GEN-LAST:event_BtnLoginActionPerformed
+
+    private void JpsPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JpsPasswordKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if (TxtUsername.getText().equals("") || JpsPassword.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Input Username dan password","Pesan",JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                try {
+                    listLogin = controller.cariLogin(TxtUsername.getText(), Enkripsi.getSHA1(JpsPassword.getText()));
+                    if (listLogin.size()>=1)
+                        if (listLogin.get(0).getAkses().equalsIgnoreCase("Administrator")) {
+                            FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
+                            formMenuAdmin.setVisible(true);
+                            formMenuAdmin.tampilNama(TxtUsername.getText());
+                            formMenuAdmin.tampilHakAkses("Administrator");
+                            dispose();
+                        } else {
+                            FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
+                            formMenuAdmin.setVisible(true);
+                            dispose();
+                        }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
+                        JpsPassword.requestFocus();
+                        clearText();
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Terjadi Kesalahan pada " +e);
+
+                }
+            }
+        }
+    }//GEN-LAST:event_JpsPasswordKeyPressed
 
     /**
      * @param args the command line arguments
@@ -278,7 +335,4 @@ public class FormLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 
-    List<User> listLogin = new ArrayList<User>();
-    UserController controller = new UserController();
-    User user1 = new User();
 }

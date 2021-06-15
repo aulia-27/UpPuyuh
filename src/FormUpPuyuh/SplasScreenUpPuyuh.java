@@ -27,7 +27,7 @@ public class SplasScreenUpPuyuh extends javax.swing.JFrame {
     public void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("puyuh.png")));
     }
-    
+
     
 
     /**

@@ -46,8 +46,8 @@ public class Kesehatan {
         this.nama_kandang = nama_kandang;
     }
     
-    public void setNamaPenyakit(String nama_kandang) {
-        this.nama_kandang = nama_kandang;
+    public void setNamaPenyakit(String nama_penyakit) {
+        this.nama_penyakit = nama_penyakit;
     }
     
     public void setIdPegawai(String id_pegawai) {

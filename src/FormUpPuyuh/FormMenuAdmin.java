@@ -4702,7 +4702,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     private void BtnSimpanKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanKandangActionPerformed
         // TODO add your handling code here:
         if (TxtNamaKandang.getText().equals("") || TxtJmlTernak.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Nama Kandang dan Jumlah Ternak Masih Kosong,\nSilakan Input Nama Kandang dan Jumlah Ternak","Pesan",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Nama Kandang dan Jumlah Ternak Masih Kosong,\nSilakan Isi Terlebih Dahulu","Pesan",JOptionPane.INFORMATION_MESSAGE);
         } else {
             controller.insertKandang();
             controller.clearFormKandang();
@@ -4771,10 +4771,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void BtnSimpanPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanPegawaiActionPerformed
         // TODO add your handling code here:
-        if (TxtIdPegawai.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Silakan Isi ID Pegawai","Pesan",JOptionPane.INFORMATION_MESSAGE);
-        } else if (JdtTglLahir.getDate().equals(null)) {
-            JOptionPane.showMessageDialog(null, "Silakan Isi Tanggal Lahir","Pesan",JOptionPane.INFORMATION_MESSAGE);
+        if (TxtIdPegawai.getText().equals("") || JdtTglLahir.getDate().equals(null)) {
+            JOptionPane.showMessageDialog(null, "Nama Kandang dan Jumlah Ternak Masih Kosong,\nSilakan Isi data terlebih dahulu","Pesan",JOptionPane.INFORMATION_MESSAGE);
         } else {
             controller.insertPegawai();
             controller.clearFormPegawai();
@@ -4785,6 +4783,14 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void BtnUpdatePegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdatePegawaiActionPerformed
         // TODO add your handling code here:
+        if (TxtNamaKandang.getText().equals("") || TxtJmlTernak.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nama Kandang dan Jumlah Ternak Masih Kosong,\nSilakan Pilih Data Pada Tabel Kandang","Pesan",JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            controller.updateKandang();
+            controller.clearFormKandang();
+            controller.viewTableDataKandang();
+            controller.viewTableInputKandang();
+        }
         controller.updatePegawai();
         controller.clearFormPegawai();
         controller.viewTableDataPegawai();

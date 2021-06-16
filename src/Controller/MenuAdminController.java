@@ -134,7 +134,7 @@ public class MenuAdminController {
             KandangDao.insert(con, kandang);
             JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Inputkan");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewAdmin, "Nama Kandang Sudah", "Pesan", JOptionPane.WARNING_MESSAGE); 
+            JOptionPane.showMessageDialog(viewAdmin, "Nama Kandang Sudah Ada", "Pesan", JOptionPane.WARNING_MESSAGE); 
         }
     }
     
@@ -250,9 +250,9 @@ public class MenuAdminController {
         pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
         try {
             PegawaiDao.insert(con, pegawai);
-            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewAdmin, "Data sudah di inputkan");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewAdmin, "Error" +ex); 
+            JOptionPane.showMessageDialog(viewAdmin, "ID Pegawai Sudah Ada"); 
         }
     }
     
@@ -818,6 +818,7 @@ public class MenuAdminController {
             JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+            DateNow();
         }
     }
     
@@ -833,8 +834,10 @@ public class MenuAdminController {
         try {
             CekTernakDao.update(con, CekTernak);
             JOptionPane.showMessageDialog(viewAdmin, "Update Data Ok");
+            DateNow();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+            DateNow();
         }
     }
     
@@ -842,6 +845,7 @@ public class MenuAdminController {
         try {
             CekTernakDao.delete(con, CekTernak);
             JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
+            DateNow();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewAdmin, "Error"+e.getMessage());
         }

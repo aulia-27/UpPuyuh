@@ -68,6 +68,8 @@ public class MenuAdminController {
             Koneksi koneksi = new Koneksi();
             con = koneksi.getKoneksi();
             
+            DateNow();
+            
             // Laporan
             cleartextLaporan();
             
@@ -103,7 +105,6 @@ public class MenuAdminController {
             
             //  Cek Ternak  //
             clearFormCekTernak();
-            DateNow();
             isiCboIdPakanCek();
             isiCboIdPegawaiCek();
             isiCboKandangCek();
@@ -117,6 +118,14 @@ public class MenuAdminController {
         } catch (SQLException ex) {
             Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE,null, ex);
         }
+    }
+    
+        
+    public void DateNow() {
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        viewAdmin.getTxtTglCek().setText(sdf.format(d));
+        viewAdmin.getTxtTglCekKesehatan().setText(sdf.format(d));
     }
     
     /////////////////////       Kandang     ////////////////////////////////////
@@ -631,6 +640,7 @@ public class MenuAdminController {
         kesehatan.setIdPegawai(viewAdmin.getCboIdPegawai().getSelectedItem().toString().toString().split("-")[0]);
         kesehatan.setJmlSakit(Integer.parseInt(viewAdmin.getTxtJmlSakit().getText()));
         kesehatan.setJmlMati(Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
+        kesehatan.setTglCek(viewAdmin.getTxtTglCekKesehatan().getText());
         try {
             KesehatanDao.insert(con, kesehatan);
             JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
@@ -668,11 +678,14 @@ public class MenuAdminController {
         kesehatan.setIdPegawai(viewAdmin.getCboIdPegawai().getSelectedItem().toString().toString().split("-")[0]);
         kesehatan.setJmlSakit(Integer.parseInt(viewAdmin.getTxtJmlSakit().getText()));
         kesehatan.setJmlMati(Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
+        kesehatan.setTglCek(viewAdmin.getTxtTglCekKesehatan().getText());
         try {
             KesehatanDao.update(con, kesehatan);
             JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+            DateNow();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+            DateNow();
         }
     }
     
@@ -680,8 +693,10 @@ public class MenuAdminController {
         try {
             KesehatanDao.delete(con, kesehatan);
             JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
+            DateNow();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewAdmin, "Error"+e.getMessage());
+            DateNow();
         }
     }
     
@@ -696,6 +711,7 @@ public class MenuAdminController {
                 viewAdmin.getCboIdPegawai().setSelectedItem(kesehatan.getIdPegawai());
                 viewAdmin.getTxtJmlSakit().setText(""+kesehatan.getJmlMati());
                 viewAdmin.getTxtJmlMati().setText(""+kesehatan.getJmlSakit());
+                viewAdmin.getTxtTglCekKesehatan().setText(kesehatan.getTglCek());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
                 clearFormKesehatan();
@@ -717,7 +733,8 @@ public class MenuAdminController {
                     rs.getString(3),
                     rs.getString(4),
                     rs.getInt(5),
-                    rs.getInt(6)
+                    rs.getInt(6),
+                    rs.getString(7)
                 };
                 tabelModel.addRow(data);
             }
@@ -738,7 +755,8 @@ public class MenuAdminController {
                     rs.getString(3),
                     rs.getString(4),
                     rs.getInt(5),
-                    rs.getInt(6)
+                    rs.getInt(6),
+                    rs.getString(7)
                 };
                 tabelModel.addRow(data);
             }
@@ -752,12 +770,6 @@ public class MenuAdminController {
     public void clearFormCekTernak(){
         viewAdmin.getTxtIdCekTernak().setText("");
         viewAdmin.getTxtJmlTelur().setText("");
-    }
-    
-    public void DateNow() {
-        Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        viewAdmin.getTxtTglCek().setText(sdf.format(d));
     }
     
     public void isiCboKandangCek() {
@@ -1126,8 +1138,8 @@ public class MenuAdminController {
     
     public void viewTableCekTernakLaporan(){
         try {
-            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblLaporanCekTernak().getModel();
-            tabelModel.setRowCount(0);
+            DefaultTableModel tableModel = (DefaultTableModel) viewAdmin.getTblLaporanCekTernak().getModel();
+            tableModel.setRowCount(0);
             ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
             while (rs.next()) { 
                 Object [] data = {
@@ -1139,7 +1151,7 @@ public class MenuAdminController {
                     rs.getString(6),
                     rs.getString(7)
                 };
-            tabelModel.addRow(data);
+            tableModel.addRow(data);
             }
         } catch (SQLException ex) {
             Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);

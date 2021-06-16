@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 
 public class KesehatanDao {
     public static void insert(Connection con, Kesehatan kesehatan ) throws SQLException{
-        String sql = "insert into kesehatan values (?,?,?,?,?,?)";
+        String sql = "insert into kesehatan values (?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kesehatan.getIdKesehatan());
         ps.setString(2, kesehatan.getNamaKandang());
@@ -20,18 +20,20 @@ public class KesehatanDao {
         ps.setString(4, kesehatan.getIdPegawai());
         ps.setInt(5, kesehatan.getJmlSakit());
         ps.setInt(6, kesehatan.getJmlMati());
+        ps.setString(7, kesehatan.getTglCek());
         ps.executeUpdate();
     }
     
     public static void update(Connection con,  Kesehatan kesehatan) throws SQLException{
-        String sql = "update kesehatan set nama_kandang=?, nama_penyakit=?, id_pegawai=?, jml_sakit=?, jml_mati=? " + "where id_kesehatan=?";
+        String sql = "update kesehatan set nama_kandang=?, nama_penyakit=?, id_pegawai=?, jml_sakit=?, jml_mati=?, tgl_cek=? " + "where id_kesehatan=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kesehatan.getNamaKandang());
         ps.setString(2, kesehatan.getNamaPenyakit());
         ps.setString(3, kesehatan.getIdPegawai());
         ps.setInt(4, kesehatan.getJmlSakit());
         ps.setInt(5, kesehatan.getJmlMati());
-        ps.setString(6, kesehatan.getIdKesehatan());
+        ps.setString(6, kesehatan.getTglCek());
+        ps.setString(7, kesehatan.getIdKesehatan());
         ps.executeUpdate();
     }
     
@@ -56,6 +58,7 @@ public class KesehatanDao {
             kesehatan.setIdPegawai(rs.getString(4));
             kesehatan.setJmlSakit(rs.getInt(5));
             kesehatan.setJmlMati(rs.getInt(6));
+            kesehatan.setTglCek(rs.getString(7));
         }
         return kesehatan;
     }

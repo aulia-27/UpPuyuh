@@ -13,6 +13,7 @@ public class Kesehatan {
     private String id_pegawai;
     private int jml_sakit;
     private int jml_mati;
+    private String tgl_cek;
     
     public String getIdKesehatan() {
         return id_kesehatan;
@@ -38,6 +39,10 @@ public class Kesehatan {
         return jml_mati;
     }
     
+    public String getTglCek() {
+        return tgl_cek;
+    }
+    
     public void setIdKesehatan(String id_kesehatan) {
         this.id_kesehatan = id_kesehatan;
     }
@@ -60,5 +65,9 @@ public class Kesehatan {
     
     public void setJmlMati(int jml_mati) {
         this.jml_mati = jml_mati;
+    }
+    
+    public void setTglCek(String tgl_cek) {
+        this.tgl_cek = tgl_cek;
     }
 }

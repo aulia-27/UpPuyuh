@@ -1337,44 +1337,50 @@
                                           <Font name="Montserrat" size="16" style="0"/>
                                         </Property>
                                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                          <Table columnCount="6" rowCount="0">
-                                            <Column editable="true" title="ID Kesehatan" type="java.lang.Object"/>
-                                            <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
-                                            <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
-                                            <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
-                                            <Column editable="true" title="Jumlah Sakit" type="java.lang.Object"/>
-                                            <Column editable="true" title="Jumlah Mati" type="java.lang.Object"/>
+                                          <Table columnCount="7" rowCount="0">
+                                            <Column editable="false" title="ID Kesehatan" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nama Kandang" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nama Penyakit" type="java.lang.Object"/>
+                                            <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
+                                            <Column editable="false" title="Jumlah Sakit" type="java.lang.Object"/>
+                                            <Column editable="false" title="Jumlah Mati" type="java.lang.Object"/>
+                                            <Column editable="true" title="Tanggal Cek" type="java.lang.Object"/>
                                           </Table>
                                         </Property>
                                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                           <TableColumnModel selectionModel="0">
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title value="ID Kesehatan"/>
+                                              <Title/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title value="Nama Kandang"/>
+                                              <Title/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title value="Nama Penyakit"/>
+                                              <Title/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title value="ID Pegawai"/>
+                                              <Title/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title value="Jumlah Sakit"/>
+                                              <Title/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                              <Title value="Jumlah Mati"/>
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
                                               <Editor/>
                                               <Renderer/>
                                             </Column>
@@ -1438,14 +1444,14 @@
                                           <Font name="Montserrat" size="16" style="0"/>
                                         </Property>
                                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                          <Table columnCount="7" rowCount="0">
-                                            <Column editable="true" title="ID Cek Ternak" type="java.lang.Object"/>
-                                            <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
-                                            <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
-                                            <Column editable="true" title="ID Pakan" type="java.lang.Object"/>
-                                            <Column editable="true" title="Jumlah Telur" type="java.lang.Object"/>
-                                            <Column editable="true" title="Kebersihan" type="java.lang.Object"/>
-                                            <Column editable="true" title="Tanggal Cek" type="java.lang.Object"/>
+                                          <Table columnCount="7" rowCount="3">
+                                            <Column editable="false" title="ID Cek Ternak" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nama Kandang" type="java.lang.Object"/>
+                                            <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
+                                            <Column editable="false" title="ID Pakan" type="java.lang.Object"/>
+                                            <Column editable="false" title="Jumlah Telur" type="java.lang.Object"/>
+                                            <Column editable="false" title="Kebersihan" type="java.lang.Object"/>
+                                            <Column editable="false" title="Tanggal Cek" type="java.lang.Object"/>
                                           </Table>
                                         </Property>
                                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -4697,44 +4703,50 @@
                               <Font name="Montserrat" size="16" style="0"/>
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="6" rowCount="4">
+                              <Table columnCount="7" rowCount="4">
                                 <Column editable="true" title="ID Kesehatan" type="java.lang.Object"/>
                                 <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
                                 <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
                                 <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
                                 <Column editable="true" title="Jumlah Sakit" type="java.lang.Object"/>
                                 <Column editable="true" title="Jumlah Mati" type="java.lang.Object"/>
+                                <Column editable="true" title="Tanggal Cek" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title value="ID Kesehatan"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title value="Nama Kandang"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title value="Nama Penyakit"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title value="ID Pegawai"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title value="Jumlah Sakit"/>
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title value="Jumlah Mati"/>
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
                                   <Editor/>
                                   <Renderer/>
                                 </Column>
@@ -4945,6 +4957,12 @@
                                               </Group>
                                               <EmptySpace min="39" max="32767" attributes="0"/>
                                           </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel100" min="-2" pref="204" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="TxtTglCekKesehatan" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -4982,14 +5000,19 @@
                                           <Component id="jLabel73" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtJmlMati" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel100" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="TxtTglCekKesehatan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="BtnSimpanKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnHapusKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnBatalKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnUpdateKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="113" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -5171,6 +5194,25 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdateKesehatanActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel100">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Tanggal Cek"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="TxtTglCekKesehatan">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTglCekKesehatanKeyTyped"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane15">
@@ -5187,44 +5229,50 @@
                                   <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="6" rowCount="4">
-                                    <Column editable="true" title="ID Kesehatan" type="java.lang.Object"/>
-                                    <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
+                                  <Table columnCount="7" rowCount="4">
+                                    <Column editable="false" title="ID Kesehatan" type="java.lang.Object"/>
+                                    <Column editable="false" title="Nama Kandang" type="java.lang.Object"/>
                                     <Column editable="true" title="Nama Penyakit" type="java.lang.Object"/>
-                                    <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
-                                    <Column editable="true" title="Jumlah Sakit" type="java.lang.Object"/>
+                                    <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
+                                    <Column editable="false" title="Jumlah Sakit" type="java.lang.Object"/>
                                     <Column editable="true" title="Jumlah Mati" type="java.lang.Object"/>
+                                    <Column editable="false" title="Tanggal Cek" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                   <TableColumnModel selectionModel="0">
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title value="ID Kesehatan"/>
+                                      <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title value="Nama Kandang"/>
+                                      <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title value="Nama Penyakit"/>
+                                      <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title value="ID Pegawai"/>
+                                      <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title value="Jumlah Sakit"/>
+                                      <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                      <Title value="Jumlah Mati"/>
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>

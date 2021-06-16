@@ -315,6 +315,10 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         return TxtJmlMati;
     }
     
+    public JTextField getTxtTglCekKesehatan() {
+        return TxtTglCekKesehatan;
+    }
+    
     public JComboBox getCboKandang() {
         return CboKandang;
     }
@@ -696,6 +700,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         BtnHapusKesehatan = new javax.swing.JButton();
         BtnBatalKesehatan = new javax.swing.JButton();
         BtnUpdateKesehatan = new javax.swing.JButton();
+        jLabel100 = new javax.swing.JLabel();
+        TxtTglCekKesehatan = new javax.swing.JTextField();
         jScrollPane15 = new javax.swing.JScrollPane();
         TblInputDataKesehatan = new javax.swing.JTable();
         jLabel99 = new javax.swing.JLabel();
@@ -1481,19 +1487,19 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Kesehatan", "Nama Kandang", "Nama Penyakit", "ID Pegawai", "Jumlah Sakit", "Jumlah Mati"
+                "ID Kesehatan", "Nama Kandang", "Nama Penyakit", "ID Pegawai", "Jumlah Sakit", "Jumlah Mati", "Tanggal Cek"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TblLaporanKesehatan.setRowHeight(28);
         jScrollPane20.setViewportView(TblLaporanKesehatan);
-        if (TblLaporanKesehatan.getColumnModel().getColumnCount() > 0) {
-            TblLaporanKesehatan.getColumnModel().getColumn(0).setHeaderValue("ID Kesehatan");
-            TblLaporanKesehatan.getColumnModel().getColumn(1).setHeaderValue("Nama Kandang");
-            TblLaporanKesehatan.getColumnModel().getColumn(2).setHeaderValue("Nama Penyakit");
-            TblLaporanKesehatan.getColumnModel().getColumn(3).setHeaderValue("ID Pegawai");
-            TblLaporanKesehatan.getColumnModel().getColumn(4).setHeaderValue("Jumlah Sakit");
-            TblLaporanKesehatan.getColumnModel().getColumn(5).setHeaderValue("Jumlah Mati");
-        }
 
         javax.swing.GroupLayout TabelLaporanKesehatanLayout = new javax.swing.GroupLayout(TabelLaporanKesehatan);
         TabelLaporanKesehatan.setLayout(TabelLaporanKesehatanLayout);
@@ -1522,12 +1528,22 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         TblLaporanCekTernak.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         TblLaporanCekTernak.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "ID Cek Ternak", "Nama Kandang", "ID Pegawai", "ID Pakan", "Jumlah Telur", "Kebersihan", "Tanggal Cek"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TblLaporanCekTernak.setRowHeight(28);
         jScrollPane21.setViewportView(TblLaporanCekTernak);
 
@@ -3408,25 +3424,17 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         TblDataKesehatan.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         TblDataKesehatan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Kesehatan", "Nama Kandang", "Nama Penyakit", "ID Pegawai", "Jumlah Sakit", "Jumlah Mati"
+                "ID Kesehatan", "Nama Kandang", "Nama Penyakit", "ID Pegawai", "Jumlah Sakit", "Jumlah Mati", "Tanggal Cek"
             }
         ));
         TblDataKesehatan.setRowHeight(28);
         jScrollPane8.setViewportView(TblDataKesehatan);
-        if (TblDataKesehatan.getColumnModel().getColumnCount() > 0) {
-            TblDataKesehatan.getColumnModel().getColumn(0).setHeaderValue("ID Kesehatan");
-            TblDataKesehatan.getColumnModel().getColumn(1).setHeaderValue("Nama Kandang");
-            TblDataKesehatan.getColumnModel().getColumn(2).setHeaderValue("Nama Penyakit");
-            TblDataKesehatan.getColumnModel().getColumn(3).setHeaderValue("ID Pegawai");
-            TblDataKesehatan.getColumnModel().getColumn(4).setHeaderValue("Jumlah Sakit");
-            TblDataKesehatan.getColumnModel().getColumn(5).setHeaderValue("Jumlah Mati");
-        }
 
         jLabel66.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -3585,6 +3593,17 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             }
         });
 
+        jLabel100.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jLabel100.setText("Tanggal Cek");
+
+        TxtTglCekKesehatan.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        TxtTglCekKesehatan.setText("jTextField1");
+        TxtTglCekKesehatan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTglCekKesehatanKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelInputDataKesehatanLayout = new javax.swing.GroupLayout(PanelInputDataKesehatan);
         PanelInputDataKesehatan.setLayout(PanelInputDataKesehatanLayout);
         PanelInputDataKesehatanLayout.setHorizontalGroup(
@@ -3623,7 +3642,12 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                                     .addComponent(CboPenyakit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(CboIdPegawai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(TxtIdKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PanelInputDataKesehatanLayout.createSequentialGroup()
+                        .addComponent(jLabel100, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TxtTglCekKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         PanelInputDataKesehatanLayout.setVerticalGroup(
             PanelInputDataKesehatanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3652,28 +3676,40 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 .addGroup(PanelInputDataKesehatanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtJmlMati, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(12, 12, 12)
+                .addGroup(PanelInputDataKesehatanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel100, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtTglCekKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(PanelInputDataKesehatanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnSimpanKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnHapusKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnBatalKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnUpdateKesehatan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TblInputDataKesehatan.setAutoCreateRowSorter(true);
         TblInputDataKesehatan.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         TblInputDataKesehatan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Kesehatan", "Nama Kandang", "Nama Penyakit", "ID Pegawai", "Jumlah Sakit", "Jumlah Mati"
+                "ID Kesehatan", "Nama Kandang", "Nama Penyakit", "ID Pegawai", "Jumlah Sakit", "Jumlah Mati", "Tanggal Cek"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TblInputDataKesehatan.setRowHeight(28);
         TblInputDataKesehatan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3681,14 +3717,6 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             }
         });
         jScrollPane15.setViewportView(TblInputDataKesehatan);
-        if (TblInputDataKesehatan.getColumnModel().getColumnCount() > 0) {
-            TblInputDataKesehatan.getColumnModel().getColumn(0).setHeaderValue("ID Kesehatan");
-            TblInputDataKesehatan.getColumnModel().getColumn(1).setHeaderValue("Nama Kandang");
-            TblInputDataKesehatan.getColumnModel().getColumn(2).setHeaderValue("Nama Penyakit");
-            TblInputDataKesehatan.getColumnModel().getColumn(3).setHeaderValue("ID Pegawai");
-            TblInputDataKesehatan.getColumnModel().getColumn(4).setHeaderValue("Jumlah Sakit");
-            TblInputDataKesehatan.getColumnModel().getColumn(5).setHeaderValue("Jumlah Mati");
-        }
 
         jLabel99.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -5119,7 +5147,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 TabelLaporanCekTernak.setVisible(true);
                 TabelLaporanPegawai.setVisible(false);
                 TabelLaporanPakan.setVisible(false);
-                controller.viewTableDataCekTernak();
+                controller.viewTableCekTernakLaporan();
                 break;
             case 3:
                 TabelLaporanKosong.setVisible(false);
@@ -5261,6 +5289,10 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_TxtJmlTelurKeyTyped
+
+    private void TxtTglCekKesehatanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTglCekKesehatanKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtTglCekKesehatanKeyTyped
 
     
     /**
@@ -5509,6 +5541,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField TxtNoTelp;
     private javax.swing.JTextField TxtStok;
     private javax.swing.JTextField TxtTglCek;
+    private javax.swing.JTextField TxtTglCekKesehatan;
     private javax.swing.JTextField TxtUsername;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton10;
@@ -5516,6 +5549,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jDashboard;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

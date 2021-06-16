@@ -34,6 +34,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -60,6 +61,8 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         showTimePanel();
         setActiveMenu();
         
+        getTime();
+        
         //User
         clearText();
         buatTable();
@@ -67,8 +70,31 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         
         // Laporan
         disableTabelLaporan();
+        
         //user
         controller = new MenuAdminController(this);
+        System.out.println(controller.getNotif("2021-06-16"));
+        controller.showNotif();
+    }
+    
+    public void getTime() {
+        Date dt = new Date();
+        int hours = dt.getHours();
+        int min = dt.getMinutes();
+        //System.out.println(dt);
+
+        if(hours>=1 && hours<=10){
+            StatusTime.setText("Selamat Pagi");
+        }
+        if(hours>=10 && hours<=16){
+            StatusTime.setText("Selamat Siang");
+        }
+        if(hours>=16 && hours<=19){
+            StatusTime.setText("Selamat Sore");
+        }
+        if(hours>=19 && hours<=1){
+            StatusTime.setText("Selamat Malam");
+        }
     }
     
     public void setIcon() {
@@ -418,6 +444,11 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         }
     }
     
+    ////////////////////        Notif       ///////////////////
+    
+    public JPanel getNotifikasi1() {
+        return Notifikasi1;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -4578,6 +4609,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         MenuKesehatan.setVisible(false);
         MenuCekTernak.setVisible(false);
         MenuDataUser.setVisible(false);
+        controller.viewTableDataKandang();
     }//GEN-LAST:event_BtnDataKandangActionPerformed
 
     private void BtnDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataPegawaiActionPerformed
@@ -4680,6 +4712,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     
     private void NotifBtnSdhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotifBtnSdhActionPerformed
         // TODO add your handling code here:
+        controller.toHideNotif();
         Notifikasi1.setVisible(false);
     }//GEN-LAST:event_NotifBtnSdhActionPerformed
 
@@ -4720,6 +4753,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         MenuDataKandang.setVisible(false);
         MenuInputKandang.setVisible(true);
+        controller.viewTableInputKandang();
     }//GEN-LAST:event_BtnInputDataKandangActionPerformed
 
     private void KembaliMenuUtama1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliMenuUtama1MouseClicked
@@ -4742,14 +4776,10 @@ public class FormMenuAdmin extends javax.swing.JFrame {
 
     private void BtnUpdateKandangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateKandangActionPerformed
         // TODO add your handling code here:
-        if (TxtNamaKandang.getText().equals("") || TxtJmlTernak.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Nama Kandang dan Jumlah Ternak Masih Kosong,\nSilakan Pilih Data Pada Tabel Kandang","Pesan",JOptionPane.INFORMATION_MESSAGE);
-        } else {
             controller.updateKandang();
             controller.clearFormKandang();
             controller.viewTableDataKandang();
             controller.viewTableInputKandang();
-        }
         
     }//GEN-LAST:event_BtnUpdateKandangActionPerformed
 
@@ -4975,6 +5005,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         controller.clearFormKesehatan();
         controller.viewTableDataKesehatan();
         controller.viewTableInputKesehatan();
+        controller.viewTableDataKandang();
         Notifikasi2.setVisible(false);
     }//GEN-LAST:event_BtnSimpanKesehatanActionPerformed
 

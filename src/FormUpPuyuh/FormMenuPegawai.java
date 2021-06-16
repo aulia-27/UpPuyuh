@@ -69,7 +69,11 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         disableTabelLaporan();
         //user
         controller = new MenuPegawaiController(this);
+        
+        
     }
+    
+    
     
     public void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("puyuh.png")));
@@ -4680,7 +4684,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
     
     private void NotifBtnSdhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotifBtnSdhActionPerformed
         // TODO add your handling code here:
-        Notifikasi1.setVisible(false);
     }//GEN-LAST:event_NotifBtnSdhActionPerformed
 
     private void NotifInputKshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotifInputKshActionPerformed

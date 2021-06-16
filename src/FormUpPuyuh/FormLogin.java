@@ -6,6 +6,7 @@
 package FormUpPuyuh;
 
 import FormUpPuyuh.FormMenuAdmin;
+import FormUpPuyuh.FormMenuPegawai;
 
 import Controller.UserController;
 import User.Enkripsi;
@@ -236,8 +237,10 @@ public class FormLogin extends javax.swing.JFrame {
                         formMenuAdmin.tampilHakAkses("Administrator");
                         dispose();
                     } else {
-                        FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
-                        formMenuAdmin.setVisible(true);
+                        FormMenuPegawai formMenuPegawai = new FormMenuPegawai();
+                        formMenuPegawai.setVisible(true);
+                        formMenuPegawai.tampilNama(TxtUsername.getText());
+                        formMenuPegawai.tampilHakAkses("Pegawai");
                         dispose();
                     }
                 else {
@@ -268,8 +271,10 @@ public class FormLogin extends javax.swing.JFrame {
                             formMenuAdmin.tampilHakAkses("Administrator");
                             dispose();
                         } else {
-                            FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
-                            formMenuAdmin.setVisible(true);
+                            FormMenuPegawai formMenuPegawai = new FormMenuPegawai();
+                            formMenuPegawai.setVisible(true);
+                            formMenuPegawai.tampilNama(TxtUsername.getText());
+                            formMenuPegawai.tampilHakAkses("Pegawai");
                             dispose();
                         }
                     else {

@@ -74,6 +74,23 @@ public class UserController {
         return logLogin;
     } 
     
+    public List username(String username) {
+        List logLogin = new ArrayList();
+        int result;
+        sql =  "select username from user where username ='" +username+ "'";
+        try {
+            rs = st.executeQuery(sql);
+            while (rs.next()) {                
+                User user = new User(); 
+                user.setUsername(rs.getString("username"));
+                logLogin.add(user);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pencarian data id, pada" +e);
+        }
+        return logLogin;
+    } 
+    
     public int tambah(User user) {
         sql = "insert into user  values ('"+user.getIdUser()+"','"+user.getUsername()+"','" +user.getPassword()+ "','" +user.getNamaAkun()+ "','"+user.getAkses()+ "')";
         int hasil = 0;
@@ -86,7 +103,18 @@ public class UserController {
     }
     
     public int update(User user) {
-        sql = "insert into user  values ('"+user.getIdUser()+"','"+user.getUsername()+"','" +user.getPassword()+ "','" +user.getNamaAkun()+ "','"+user.getAkses()+ "')";
+        sql = "update user set ('"+user.getPassword()+"') where username='"+user.getUsername()+"'";
+        int hasil = 0;
+        try {
+            hasil = st.executeUpdate(sql);
+        } catch (Exception e) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return hasil;
+    }
+    
+    public int updatePassword(User user, String psw) {
+        sql = "update user set password = '" +psw+ "' where username='"+user.getUsername()+"'";
         int hasil = 0;
         try {
             hasil = st.executeUpdate(sql);
@@ -125,6 +153,25 @@ public class UserController {
             JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Tampil, pada : "+e);
         }
         return logMainMenu;
+    }
+    
+    public User getUser(String User){
+        User user = new User(); 
+        sql = "select * from user where username='" +User+ "'";
+        try{
+            rs = st.executeQuery(sql);
+            while (rs.next()) {                
+                user.setIdUser(rs.getInt("id_user"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setNamaAkun(rs.getString("nama"));
+                user.setAkses(rs.getString("akses"));
+            }
+            return user;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Tampil, pada : "+e);
+        }
+        return user;
     }
     
 }

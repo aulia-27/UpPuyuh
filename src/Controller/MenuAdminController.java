@@ -21,6 +21,7 @@ import Pakan.PakanDao;
 import Koneksi.Koneksi;
 import Penyakit.Penyakit;
 import Penyakit.PenyakitDao;
+import User.Enkripsi;
 import User.User;
 import User.UserDao;
 import java.io.FileOutputStream;
@@ -68,6 +69,11 @@ public class MenuAdminController {
     Connection con;
     KandangDao kandangdao;
     KesehatanDao kesehatandao;
+    
+    UserController controllerUser = new UserController();
+    User user = new User();
+    List<User> listPengguna = new ArrayList<User>();
+    
     public MenuAdminController (FormMenuAdmin viewAdmin) {
         try {
             this.viewAdmin = viewAdmin;
@@ -128,6 +134,22 @@ public class MenuAdminController {
         }
     }
     
+    public void changePassword(){
+        FormMenuAdmin formMenuAdmin = new FormMenuAdmin();
+        if (viewAdmin.getTxtUsername().getText().isEmpty() || viewAdmin.getJpsPassword().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong" , "pesan", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (viewAdmin.getJpsPassword().getText() == null ? viewAdmin.getJpsRePassword().getText() != null : !viewAdmin.getJpsPassword().getText().equals(viewAdmin.getJpsRePassword().getText())) {
+                JOptionPane.showMessageDialog(null, "Password Tidak Cocok, Perisak Kembali","pesan",JOptionPane.WARNING_MESSAGE);
+            viewAdmin.getJpsPassword().requestFocus();
+            } else {
+                //listPengguna = controllerUser.username(viewAdmin.getTxtUsername().getText());
+                user = controllerUser.getUser(viewAdmin.getTxtUsername().getText());
+                controllerUser.updatePassword(user, viewAdmin.getJpsPassword().getText());
+                JOptionPane.showMessageDialog(viewAdmin, "Password Sudah di Ganti");
+            }
+        }
+    }
     
     
     public int getNotif1(String tgl){
@@ -363,6 +385,7 @@ public class MenuAdminController {
     
      public void clearFormPegawai(){
         
+        viewAdmin.getTxtIdPegawai().setText("");
         viewAdmin.getTxtNamaPegawai().setText("");
         viewAdmin.getTxtAsal().setText("");
         viewAdmin.getJdtTglLahir().setDate(null);
@@ -688,6 +711,24 @@ public class MenuAdminController {
         }
     }
     
+    public void onClickTabelDataPenyakit() {
+        try {
+            String kode = viewAdmin.getTblDataPenyakit().getValueAt(viewAdmin.getTblDataPenyakit().getSelectedRow(), 0).toString();
+            penyakit = PenyakitDao.getPenyakit(con, kode);
+            if (penyakit != null) {
+                viewAdmin.getJtxGejalaData().setText(penyakit.getGejala());
+                viewAdmin.getJtxPenularanData().setText(penyakit.getPenularan());
+                viewAdmin.getJtxPencegahanData().setText(penyakit.getPencegahan());
+                viewAdmin.getJtxPengobatanData().setText(penyakit.getPengobatan());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewAdmin, "Data Tidak Ada");
+                clearFormPenyakit();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void viewTableDataPenyakit() {
         try {
             DefaultTableModel tableModel = (DefaultTableModel) viewAdmin.getTblDataPenyakit().getModel();
@@ -789,6 +830,7 @@ public class MenuAdminController {
             kandangdao.update(con, kandang,Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
             //kandangdao.update(con, kandang);
             JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Simpan");
+            DateNow();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "ID Kesehatan Sudah Ada"); 
         }
@@ -838,6 +880,7 @@ public class MenuAdminController {
         try {
             String kode = viewAdmin.getTblInputDataKesehatan().getValueAt(viewAdmin.getTblInputDataKesehatan().getSelectedRow(), 0).toString();
             kesehatan = KesehatanDao.getKesehatan(con, kode);
+            pegawai = PegawaiDao.getPegawai(con, kode);
             if (kesehatan != null) {
                 viewAdmin.getTxtIdKesehatan().setText(kesehatan.getIdKesehatan());
                 viewAdmin.getCboKandang().setSelectedItem(kesehatan.getNamaKandang());
@@ -966,6 +1009,7 @@ public class MenuAdminController {
             CekTernakDao.insert(con, CekTernak);
             PakanDao.update(con, pakan, Integer.parseInt(viewAdmin.getTxtJmlPakan().getText()));
             JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Simpan");
+            DateNow();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "ID Cek Ternak Sudah Ada"); 
             DateNow();
@@ -1043,7 +1087,7 @@ public class MenuAdminController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getInt(4),
+                    rs.getInt(4) + " Kg",
                     rs.getString(5),
                     rs.getInt(6) + " Buah",
                     rs.getString(7),
@@ -1066,7 +1110,7 @@ public class MenuAdminController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getInt(4),
+                    rs.getInt(4) + " Kg",
                     rs.getString(5),
                     rs.getInt(6) + " Buah",
                     rs.getString(7),
@@ -1109,9 +1153,9 @@ public class MenuAdminController {
             row1.createCell(3).setCellValue("ID Pegawai");
             row1.createCell(4).setCellValue("Jumlah Sakit");
             row1.createCell(5).setCellValue("Jumlah Mati");
-            row1.createCell(5).setCellValue("Tanggal Cek");
+            row1.createCell(6).setCellValue("Tanggal Cek");
             Row row2 ;
-            ResultSet rs = statement.executeQuery("select id_kesehatan, nama_kandang, nama_penyakit, id_pegawai, jml_sakit, jml_mati from kesehatan");
+            ResultSet rs = statement.executeQuery("select id_kesehatan, nama_kandang, nama_penyakit, id_pegawai, jml_sakit, jml_mati, tgl_cek from kesehatan");
             while(rs.next()){
                 int a = rs.getRow();
                 row2 = worksheet.createRow((short)a);
@@ -1152,22 +1196,24 @@ public class MenuAdminController {
             row1.createCell(0).setCellValue("ID Cek") ;
             row1.createCell(1).setCellValue("Nama Kandang");
             row1.createCell(2).setCellValue("ID Pakan");
-            row1.createCell(3).setCellValue("ID Pegawai");
-            row1.createCell(4).setCellValue("Jumlah Telur");
-            row1.createCell(5).setCellValue("Kebersihan");
-            row1.createCell(6).setCellValue("Tanggal Cek");
+            row1.createCell(3).setCellValue("Jumlah Pakan");
+            row1.createCell(4).setCellValue("ID Pegawai");
+            row1.createCell(5).setCellValue("Jumlah Telur");
+            row1.createCell(6).setCellValue("Kebersihan");
+            row1.createCell(7).setCellValue("Tanggal Cek");
             Row row2 ;
-            ResultSet rs = statement.executeQuery("select id_cek, nama_kandang, id_pakan, id_pegawai, jml_telur, kebersihan, tgl_cek from cek_ternak");
+            ResultSet rs = statement.executeQuery("select id_cek, nama_kandang, id_pakan, jml_pakan, id_pegawai, jml_telur, kebersihan, tgl_cek from cek_ternak");
             while(rs.next()){
                 int a = rs.getRow();
                 row2 = worksheet.createRow((short)a);
                 row2.createCell(0).setCellValue(rs.getString(1));
                 row2.createCell(1).setCellValue(rs.getString(2));
                 row2.createCell(2).setCellValue(rs.getString(3));
-                row2.createCell(3).setCellValue(rs.getString(4));
-                row2.createCell(4).setCellValue(rs.getInt(5)+" Buah");
-                row2.createCell(5).setCellValue(rs.getString(6));
+                row2.createCell(3).setCellValue(rs.getInt(4)+" Kg");
+                row2.createCell(4).setCellValue(rs.getString(5));
+                row2.createCell(5).setCellValue(rs.getInt(6)+" Buah");
                 row2.createCell(6).setCellValue(rs.getString(7));
+                row2.createCell(7).setCellValue(rs.getString(8));
             }
             workbook.write(fileOut);
             fileOut.flush();
@@ -1195,14 +1241,14 @@ public class MenuAdminController {
             HSSFSheet worksheet = workbook.createSheet("Sheet 0");
             Row row1 = worksheet.createRow((short)0);
             row1.createCell(0).setCellValue("ID Pegawai") ;
-            row1.createCell(1).setCellValue("Nama");
-            row1.createCell(2).setCellValue("Asal");
+            row1.createCell(1).setCellValue("Nama Pegawai");
+            row1.createCell(2).setCellValue("Asal Daerah");
             row1.createCell(3).setCellValue("Tanggal Lahir");
             row1.createCell(4).setCellValue("Jenis Kelamin");
             row1.createCell(5).setCellValue("No Telepon");
             row1.createCell(6).setCellValue("Alamat");
             Row row2 ;
-            ResultSet rs = statement.executeQuery("select id_pegawai, nama, asal, tgl_lahir, jekel, no_telp, alamat from pegawai");
+            ResultSet rs = statement.executeQuery("select * from pegawai");
             while(rs.next()){
                 int a = rs.getRow();
                 row2 = worksheet.createRow((short)a);
@@ -1213,7 +1259,7 @@ public class MenuAdminController {
                 row2.createCell(4).setCellValue(rs.getString(5));
                 row2.createCell(5).setCellValue(rs.getString(6));
                 row2.createCell(6).setCellValue(rs.getString(7));
-                }
+            }
             workbook.write(fileOut);
             fileOut.flush();
             fileOut.close();
@@ -1301,10 +1347,11 @@ public class MenuAdminController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getString(4),
-                    rs.getInt(5) + " Buah",
-                    rs.getString(6),
-                    rs.getString(7)
+                    rs.getInt(4) + " Kg",
+                    rs.getString(5),
+                    rs.getInt(6) + " Buah",
+                    rs.getString(7),
+                    rs.getString(8)
                 };
             tableModel.addRow(data);
             }

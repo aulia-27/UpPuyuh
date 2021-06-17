@@ -5,10 +5,11 @@
  */
 package Controller;
 
-import FormUpPuyuh.FormMenuPegawai;
+import FormUpPuyuh.FormMenuAdmin;
 
 import CekTernak.CekTernak;
 import CekTernak.CekTernakDao;
+import FormUpPuyuh.FormMenuPegawai;
 import Kesehatan.Kesehatan;
 import Kesehatan.KesehatanDao;
 import Kandang.Kandang;
@@ -21,18 +22,23 @@ import Pakan.PakanDao;
 import Koneksi.Koneksi;
 import Penyakit.Penyakit;
 import Penyakit.PenyakitDao;
+import User.Enkripsi;
 import User.User;
+import User.UserDao;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+//import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -57,10 +63,17 @@ public class MenuPegawaiController {
     Kandang kandang;
     Pegawai pegawai;
     Pakan pakan;
+    PakanDao pakanDao;
     Penyakit penyakit;
     CekTernak CekTernak;
     Kesehatan kesehatan;
     Connection con;
+    KandangDao kandangdao;
+    KesehatanDao kesehatandao;
+    
+    UserController controllerUser = new UserController();
+    User user = new User();
+    List<User> listPengguna = new ArrayList<User>();
     
     public MenuPegawaiController (FormMenuPegawai viewPegawai) {
         try {
@@ -69,6 +82,7 @@ public class MenuPegawaiController {
             con = koneksi.getKoneksi();
             
             DateNow();
+
             
             // Laporan
             cleartextLaporan();
@@ -112,6 +126,7 @@ public class MenuPegawaiController {
             viewTableDataCekTernak();
             viewTableInputCekTernak();
             
+            //         Use  //
  
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE,null, ex);
@@ -120,13 +135,162 @@ public class MenuPegawaiController {
         }
     }
     
+    public void changePassword(){
+        FormMenuPegawai menuPegawai = new FormMenuPegawai();
+        if (viewPegawai.getTxtUsername().getText().isEmpty() || viewPegawai.getJpsPassword().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong" , "pesan", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (viewPegawai.getJpsPassword().getText() == null ? viewPegawai.getJpsRePassword().getText() != null : !viewPegawai.getJpsPassword().getText().equals(viewPegawai.getJpsRePassword().getText())) {
+                JOptionPane.showMessageDialog(null, "Password Tidak Cocok, Perisak Kembali","pesan",JOptionPane.WARNING_MESSAGE);
+            viewPegawai.getJpsPassword().requestFocus();
+            } else {
+                //listPengguna = controllerUser.username(viewPegawai.getTxtUsername().getText());
+                user = controllerUser.getUser(viewPegawai.getTxtUsername().getText());
+                controllerUser.updatePassword(user, viewPegawai.getJpsPassword().getText());
+                JOptionPane.showMessageDialog(viewPegawai, "Password Sudah di Ganti");
+            }
+        }
+    }
+    
+    
+    public int getNotif1(String tgl){
+        try {
+            String sql = "select notif1 from notif where tgl=?";
+            java.sql.Date date=java.sql.Date.valueOf(tgl);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, date);
+            ResultSet rs = ps.executeQuery();
+            int x = 0;
+            while (rs.next()) {
+                x = rs.getInt(1);
+            }
+            return x;
+        } catch (SQLException e) {
+            
+        }
+        return 2;
+    }
+    
+    public int getNotif2(String tgl){
+        try {
+            String sql = "select notif2 from notif where tgl=?";
+            java.sql.Date date=java.sql.Date.valueOf(tgl);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, date);
+            ResultSet rs = ps.executeQuery();
+            int x = 0;
+            while (rs.next()) {
+                x = rs.getInt(1);
+            }
+            return x;
+        } catch (SQLException e) {
+            
+        }
+        return 2;
+    }
+    
+    public int getNotif3(String tgl){
+        try {
+            String sql = "select notif3 from notif where tgl=?";
+            java.sql.Date date=java.sql.Date.valueOf(tgl);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, date);
+            ResultSet rs = ps.executeQuery();
+            int x = 0;
+            while (rs.next()) {
+                x = rs.getInt(1);
+            }
+            return x;
+        } catch (SQLException e) {
+            
+        }
+        return 2;
+    }
+    
+    public void toHideNotif1(){
+        try {
+            Date date = new Date();
+            java.sql.Date sDate = new java.sql.Date(date.getTime());
+            String sql = "update notif set notif1=? where tgl=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, 1);
+            ps.setDate(2, sDate);
+            ps.executeUpdate();
+            System.out.print("Done");
+        } catch (SQLException e) {
+            System.out.print(e);
+        } catch (Exception e){
+            System.out.print(e);
+        }
+    }
+    
+    public void toHideNotif2(){
+        try {
+            Date date = new Date();
+            java.sql.Date sDate = new java.sql.Date(date.getTime());
+            String sql = "update notif set notif2=? where tgl=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, 1);
+            ps.setDate(2, sDate);
+            ps.executeUpdate();
+            System.out.print("Done");
+        } catch (SQLException e) {
+            System.out.print(e);
+        } catch (Exception e){
+            System.out.print(e);
+        }
+    }
+    
+    public void toHideNotif3(){
+        try {
+            Date date = new Date();
+            java.sql.Date sDate = new java.sql.Date(date.getTime());
+            String sql = "update notif set notif3=? where tgl=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, 1);
+            ps.setDate(2, sDate);
+            ps.executeUpdate();
+            System.out.print("Done");
+        } catch (SQLException e) {
+            System.out.print(e);
+        } catch (Exception e){
+            System.out.print(e);
+        }
+    }
+    
+    public void showNotif(){
+        Date date = new Date();
+        java.sql.Date sDate = new java.sql.Date(date.getTime());
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");  
+        String text = df.format(sDate);  
+        int x = getNotif1(text);
+        int y = getNotif2(text);
+        int z = getNotif3(text);
+        if(x == 0){
+            viewPegawai.getNotifikasi1().setVisible(true);
+        } else {
+            viewPegawai.getNotifikasi1().setVisible(false);
+        }
+        if (y == 0) {
+            viewPegawai.getNotifikasi2().setVisible(true);
+        } else {
+            viewPegawai.getNotifikasi2().setVisible(false);
+        }
+        if (z == 0) {
+            viewPegawai.getNotifikasi3().setVisible(true);
+        } else {
+            viewPegawai.getNotifikasi3().setVisible(false);
+        }
         
+    }
+    
     public void DateNow() {
         Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         viewPegawai.getTxtTglCek().setText(sdf.format(d));
         viewPegawai.getTxtTglCekKesehatan().setText(sdf.format(d));
     }
+    
     
     /////////////////////       Kandang     ////////////////////////////////////
     
@@ -150,10 +314,10 @@ public class MenuPegawaiController {
     public void updateKandang() {
         kandang = new Kandang();
         kandang.setNamaKandang(viewPegawai.getTxtNamaKandang().getText());
-        kandang.setJmlTernak(Integer.parseInt(viewPegawai.getTxtNamaKandang().getText()));
+        kandang.setJmlTernak(Integer.parseInt(viewPegawai.getTxtJumlahTernak().getText()));
         try {
             KandangDao.update(con, kandang);
-            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Pembaruan");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di perbaharui");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
         }
@@ -192,7 +356,7 @@ public class MenuPegawaiController {
             while(rs.next()){
                 Object[] data={
                     rs.getString(1),
-                    rs.getInt(2)
+                    rs.getInt(2)+ " Ekor"
                 };
                 tabelModel.addRow(data);
             }
@@ -209,7 +373,7 @@ public class MenuPegawaiController {
             while(rs.next()){
                 Object[] data={
                     rs.getString(1),
-                    rs.getInt(2)
+                    rs.getInt(2)+ " Ekor"
                 };
                 tabelModel.addRow(data);
             }
@@ -221,6 +385,7 @@ public class MenuPegawaiController {
     ////////////////////////        Pegawai         ////////////////////////////
     
      public void clearFormPegawai(){
+        
         viewPegawai.getTxtIdPegawai().setText("");
         viewPegawai.getTxtNamaPegawai().setText("");
         viewPegawai.getTxtAsal().setText("");
@@ -261,7 +426,7 @@ public class MenuPegawaiController {
             PegawaiDao.insert(con, pegawai);
             JOptionPane.showMessageDialog(viewPegawai, "Data sudah di inputkan");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "ID Pegawai Sudah Ada"); 
+            JOptionPane.showMessageDialog(viewPegawai, "ID Pegawai Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
         }
     }
     
@@ -290,7 +455,7 @@ public class MenuPegawaiController {
         pegawai.setAlamat(viewPegawai.getJtxAlamat().getText());
         try {
             PegawaiDao.update(con, pegawai);
-            JOptionPane.showMessageDialog(viewPegawai, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Perbaharui");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
         }
@@ -299,7 +464,7 @@ public class MenuPegawaiController {
     public void deletePegawai() {
         try {
             PegawaiDao.delete(con, pegawai);
-            JOptionPane.showMessageDialog(viewPegawai, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Hapus");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewPegawai, "Error"+e.getMessage());
         }
@@ -394,10 +559,10 @@ public class MenuPegawaiController {
             pakan.setHarga(Double.parseDouble(viewPegawai.getTxtHarga().getText()));
             pakan.setStok(Integer.parseInt(viewPegawai.getTxtStok().getText()));
             PakanDao.insert(con, pakan);
-            JOptionPane.showMessageDialog(viewPegawai, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
-        }
+            JOptionPane.showMessageDialog(viewPegawai, "ID Pakan Sudah Tersedia","pesan",JOptionPane.WARNING_MESSAGE);
+        } 
     }
     
     public void updatePakan(){
@@ -408,7 +573,7 @@ public class MenuPegawaiController {
         pakan.setStok(Integer.parseInt(viewPegawai.getTxtStok().getText()));
         try {
             PakanDao.update(con, pakan);
-            JOptionPane.showMessageDialog(viewPegawai, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Perbaharui");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
         }
@@ -417,7 +582,7 @@ public class MenuPegawaiController {
     public void deletePakan() {
         try {
             PakanDao.delete(con, pakan);
-            JOptionPane.showMessageDialog(viewPegawai, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Hapus");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewPegawai, "Error"+e.getMessage());
         }
@@ -450,8 +615,8 @@ public class MenuPegawaiController {
                 Object[] data={
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getDouble(3),
-                    rs.getInt(4)
+                    "Rp."+rs.getDouble(3),
+                    rs.getInt(4) + " Kg"
                 };
                 tabelModel.addRow(data);
             }
@@ -469,8 +634,8 @@ public class MenuPegawaiController {
                 Object[] data={
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getDouble(3),
-                    rs.getInt(4)
+                    "Rp."+rs.getDouble(3),
+                    rs.getInt(4)+ " Kg"
                 };
                 tabelModel.addRow(data);
             }
@@ -538,6 +703,24 @@ public class MenuPegawaiController {
                 viewPegawai.getJtxPenularan().setText(penyakit.getPenularan());
                 viewPegawai.getJtxPencegahan().setText(penyakit.getPencegahan());
                 viewPegawai.getJtxPengobatan().setText(penyakit.getPengobatan());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewPegawai, "Data Tidak Ada");
+                clearFormPenyakit();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void onClickTabelDataPenyakit() {
+        try {
+            String kode = viewPegawai.getTblDataPenyakit().getValueAt(viewPegawai.getTblDataPenyakit().getSelectedRow(), 0).toString();
+            penyakit = PenyakitDao.getPenyakit(con, kode);
+            if (penyakit != null) {
+                viewPegawai.getJtxGejalaData().setText(penyakit.getGejala());
+                viewPegawai.getJtxPenularanData().setText(penyakit.getPenularan());
+                viewPegawai.getJtxPencegahanData().setText(penyakit.getPencegahan());
+                viewPegawai.getJtxPengobatanData().setText(penyakit.getPengobatan());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewPegawai, "Data Tidak Ada");
                 clearFormPenyakit();
@@ -642,32 +825,17 @@ public class MenuPegawaiController {
         kesehatan.setJmlMati(Integer.parseInt(viewPegawai.getTxtJmlMati().getText()));
         kesehatan.setTglCek(viewPegawai.getTxtTglCekKesehatan().getText());
         try {
+            kandang = kandangdao.getKandang(con,viewPegawai.getCboKandang().getSelectedItem().toString());
+            System.out.print(kandang.getNamaKandang());
             KesehatanDao.insert(con, kesehatan);
-            JOptionPane.showMessageDialog(viewPegawai, "Entri Data Ok");
+            kandangdao.update(con, kandang,Integer.parseInt(viewPegawai.getTxtJmlMati().getText()));
+            //kandangdao.update(con, kandang);
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
+            DateNow();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewPegawai, "ID Kesehatan Sudah Ada"); 
         }
     }
-    
-    /*public void insert(){
-        try {
-            kandang = KandangDao.getKandangCek(con, kodeKandang);
-            kandang.getJmlTernak();
-            
-            kesehatan = new Kesehatan();
-            kesehatan.setIdKesehatan(viewPegawai.getTxtIdKesehatan().getText());
-            kesehatan.setIdKandang(viewPegawai.getTxtIdKandang().getText());
-            kesehatan.setIdSakit(viewPegawai.getCboIdPenyakit().getSelectedItem().toString().split("-")[0]);
-            kesehatan.setJmlSakit(Integer.parseInt(viewPegawai.getTxtJmlSakit().getText()));
-            kesehatan.setJmlMati(Integer.parseInt(viewPegawai.getTxtJmlMati().getText()));
-            kandang.setJmlTernak(Integer.parseInt(viewPegawai.getTxtTotal().getText()));
-            kandangDao.update(con, kandang);
-            KesehatanDao.insert(con, kesehatan);
-            JOptionPane.showMessageDialog(viewPegawai, "Entri Data Ok");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
-        }
-    } */
     
     
     public void updateKesehatan(){
@@ -680,8 +848,13 @@ public class MenuPegawaiController {
         kesehatan.setJmlMati(Integer.parseInt(viewPegawai.getTxtJmlMati().getText()));
         kesehatan.setTglCek(viewPegawai.getTxtTglCekKesehatan().getText());
         try {
+            kandang = kandangdao.getKandang(con,viewPegawai.getCboKandang().getSelectedItem().toString());
+            Kesehatan k1 = new Kesehatan();
+            k1 = kesehatandao.getKesehatan(con,viewPegawai.getTxtIdKesehatan().getText());
+            int x = k1.getJmlMati();
+            kandangdao.update(con, kandang,Integer.parseInt(viewPegawai.getTxtJmlMati().getText()),x);
             KesehatanDao.update(con, kesehatan);
-            JOptionPane.showMessageDialog(viewPegawai, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Perbaharui");
             DateNow();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
@@ -691,8 +864,12 @@ public class MenuPegawaiController {
     
     public void deleteKesehatan() {
         try {
+            kandang = kandangdao.getKandang(con,viewPegawai.getCboKandang().getSelectedItem().toString());
+            Kesehatan k1 = new Kesehatan();
+            k1 = kesehatandao.getKesehatan(con,viewPegawai.getTxtIdKesehatan().getText());
+            kandangdao.updateDelete(con, kandang,Integer.parseInt(viewPegawai.getTxtJmlMati().getText()));
             KesehatanDao.delete(con, kesehatan);
-            JOptionPane.showMessageDialog(viewPegawai, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Hapus");
             DateNow();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewPegawai, "Error"+e.getMessage());
@@ -704,13 +881,14 @@ public class MenuPegawaiController {
         try {
             String kode = viewPegawai.getTblInputDataKesehatan().getValueAt(viewPegawai.getTblInputDataKesehatan().getSelectedRow(), 0).toString();
             kesehatan = KesehatanDao.getKesehatan(con, kode);
+            pegawai = PegawaiDao.getPegawai(con, kode);
             if (kesehatan != null) {
                 viewPegawai.getTxtIdKesehatan().setText(kesehatan.getIdKesehatan());
                 viewPegawai.getCboKandang().setSelectedItem(kesehatan.getNamaKandang());
                 viewPegawai.getCboPenyakit().setSelectedItem(kesehatan.getNamaPenyakit());
                 viewPegawai.getCboIdPegawai().setSelectedItem(kesehatan.getIdPegawai());
-                viewPegawai.getTxtJmlSakit().setText(""+kesehatan.getJmlMati());
-                viewPegawai.getTxtJmlMati().setText(""+kesehatan.getJmlSakit());
+                viewPegawai.getTxtJmlSakit().setText(""+kesehatan.getJmlSakit());
+                viewPegawai.getTxtJmlMati().setText(""+kesehatan.getJmlMati());
                 viewPegawai.getTxtTglCekKesehatan().setText(kesehatan.getTglCek());
             } else {
                 javax.swing.JOptionPane.showMessageDialog(viewPegawai, "Data Tidak Ada");
@@ -732,8 +910,8 @@ public class MenuPegawaiController {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getInt(5),
-                    rs.getInt(6),
+                    rs.getInt(5)+" Ekor",
+                    rs.getInt(6)+" Ekor",
                     rs.getString(7)
                 };
                 tabelModel.addRow(data);
@@ -754,8 +932,8 @@ public class MenuPegawaiController {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getInt(5),
-                    rs.getInt(6),
+                    rs.getInt(5)+" Ekor",
+                    rs.getInt(6)+" Ekor",
                     rs.getString(7)
                 };
                 tabelModel.addRow(data);
@@ -770,6 +948,7 @@ public class MenuPegawaiController {
     public void clearFormCekTernak(){
         viewPegawai.getTxtIdCekTernak().setText("");
         viewPegawai.getTxtJmlTelur().setText("");
+        viewPegawai.getTxtJmlPakan().setText("");
     }
     
     public void isiCboKandangCek() {
@@ -821,15 +1000,19 @@ public class MenuPegawaiController {
         CekTernak.setIdCek(viewPegawai.getTxtIdCekTernak().getText());
         CekTernak.setNamaKandang(viewPegawai.getCboKandangCek().getSelectedItem().toString());
         CekTernak.setIdPakan(viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setJmlPakan(Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
         CekTernak.setIdPegawai(viewPegawai.getCboIdPegawaiCek().getSelectedItem().toString().split("-")[0]);
         CekTernak.setJmlTelur(Integer.parseInt(viewPegawai.getTxtJmlTelur().getText()));
         CekTernak.setKebersihan(viewPegawai.getCboKebersihan().getSelectedItem().toString());
         CekTernak.setTglCek(viewPegawai.getTxtTglCek().getText());
         try {
+            pakan = PakanDao.getPakan(con, viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
             CekTernakDao.insert(con, CekTernak);
-            JOptionPane.showMessageDialog(viewPegawai, "Entri Data Ok");
+            PakanDao.update(con, pakan, Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
+            DateNow();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewPegawai, "ID Cek Ternak Sudah Ada"); 
             DateNow();
         }
     }
@@ -839,13 +1022,19 @@ public class MenuPegawaiController {
         CekTernak.setIdCek(viewPegawai.getTxtIdCekTernak().getText());
         CekTernak.setNamaKandang(viewPegawai.getCboKandangCek().getSelectedItem().toString());
         CekTernak.setIdPakan(viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+        CekTernak.setJmlPakan(Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
         CekTernak.setIdPegawai(viewPegawai.getCboIdPegawaiCek().getSelectedItem().toString().split("-")[0]);
         CekTernak.setJmlTelur(Integer.parseInt(viewPegawai.getTxtJmlTelur().getText()));
         CekTernak.setKebersihan(viewPegawai.getCboKebersihan().getSelectedItem().toString());
         CekTernak.setTglCek(viewPegawai.getTxtTglCek().getText());
         try {
+            pakan = PakanDao.getPakan(con, viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+            CekTernak cekTernak = new CekTernak();
+            cekTernak = CekTernakDao.getCekTernak(con, viewPegawai.getTxtIdCekTernak().getText());
+            int y = cekTernak.getJmlPakan();
+            pakanDao.update(con, pakan, Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()), y);
             CekTernakDao.update(con, CekTernak);
-            JOptionPane.showMessageDialog(viewPegawai, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Perbaharui");
             DateNow();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
@@ -855,8 +1044,12 @@ public class MenuPegawaiController {
     
     public void deleteCekTernak() {
         try {
+            pakan = PakanDao.getPakan(con, viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+            CekTernak cekTernak = new CekTernak();
+            cekTernak = CekTernakDao.getCekTernak(con, viewPegawai.getTxtIdCekTernak().getText());
+            pakanDao.updateDelete(con, pakan, Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
             CekTernakDao.delete(con, CekTernak);
-            JOptionPane.showMessageDialog(viewPegawai, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Hapus");
             DateNow();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewPegawai, "Error"+e.getMessage());
@@ -871,6 +1064,8 @@ public class MenuPegawaiController {
                 viewPegawai.getTxtIdCekTernak().setText(CekTernak.getIdCek());
                 viewPegawai.getCboKandangCek().setSelectedItem(CekTernak.getNamaKandang());
                 viewPegawai.getCboIdPakanCek().setSelectedItem(CekTernak.getIdPakan());
+                viewPegawai.getTxtJmlPakan().setText(""+CekTernak.getJmlPakan());
+                viewPegawai.getCboIdPegawaiCek().setSelectedItem(CekTernak.getIdPegawai());
                 viewPegawai.getTxtJmlTelur().setText(""+CekTernak.getJmlTelur());
                 viewPegawai.getCboKebersihan().setSelectedItem(CekTernak.getKebersihan());
                 viewPegawai.getTxtTglCek().setText(CekTernak.getTglCek());
@@ -893,10 +1088,11 @@ public class MenuPegawaiController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getString(4),
-                    rs.getInt(5),
-                    rs.getString(6),
-                    rs.getString(7)
+                    rs.getInt(4) + " Kg",
+                    rs.getString(5),
+                    rs.getInt(6) + " Buah",
+                    rs.getString(7),
+                    rs.getString(8)
                 };
             tableModel.addRow(data);
             }
@@ -915,10 +1111,11 @@ public class MenuPegawaiController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getString(4),
-                    rs.getInt(5),
-                    rs.getString(6),
-                    rs.getString(7)
+                    rs.getInt(4) + " Kg",
+                    rs.getString(5),
+                    rs.getInt(6) + " Buah",
+                    rs.getString(7),
+                    rs.getString(8)
                 };
             tableModel.addRow(data);
             }
@@ -957,8 +1154,9 @@ public class MenuPegawaiController {
             row1.createCell(3).setCellValue("ID Pegawai");
             row1.createCell(4).setCellValue("Jumlah Sakit");
             row1.createCell(5).setCellValue("Jumlah Mati");
+            row1.createCell(6).setCellValue("Tanggal Cek");
             Row row2 ;
-            ResultSet rs = statement.executeQuery("select id_kesehatan, nama_kandang, nama_penyakit, id_pegawai, jml_sakit, jml_mati from kesehatan");
+            ResultSet rs = statement.executeQuery("select id_kesehatan, nama_kandang, nama_penyakit, id_pegawai, jml_sakit, jml_mati, tgl_cek from kesehatan");
             while(rs.next()){
                 int a = rs.getRow();
                 row2 = worksheet.createRow((short)a);
@@ -966,8 +1164,9 @@ public class MenuPegawaiController {
                 row2.createCell(1).setCellValue(rs.getString(2));
                 row2.createCell(2).setCellValue(rs.getString(3));
                 row2.createCell(3).setCellValue(rs.getString(4));
-                row2.createCell(4).setCellValue(rs.getInt(5));
-                row2.createCell(5).setCellValue(rs.getInt(6));
+                row2.createCell(4).setCellValue(rs.getInt(5)+" Ekor");
+                row2.createCell(5).setCellValue(rs.getInt(6)+" Ekor");
+                row2.createCell(6).setCellValue(rs.getString(7));
             }
             workbook.write(fileOut);
             fileOut.flush();
@@ -998,22 +1197,24 @@ public class MenuPegawaiController {
             row1.createCell(0).setCellValue("ID Cek") ;
             row1.createCell(1).setCellValue("Nama Kandang");
             row1.createCell(2).setCellValue("ID Pakan");
-            row1.createCell(3).setCellValue("ID Pegawai");
-            row1.createCell(4).setCellValue("Jumlah Telur");
-            row1.createCell(5).setCellValue("Kebersihan");
-            row1.createCell(6).setCellValue("Tanggal Cek");
+            row1.createCell(3).setCellValue("Jumlah Pakan");
+            row1.createCell(4).setCellValue("ID Pegawai");
+            row1.createCell(5).setCellValue("Jumlah Telur");
+            row1.createCell(6).setCellValue("Kebersihan");
+            row1.createCell(7).setCellValue("Tanggal Cek");
             Row row2 ;
-            ResultSet rs = statement.executeQuery("select id_cek, nama_kandang, id_pakan, id_pegawai, jml_telur, kebersihan, tgl_cek from cek_ternak");
+            ResultSet rs = statement.executeQuery("select id_cek, nama_kandang, id_pakan, jml_pakan, id_pegawai, jml_telur, kebersihan, tgl_cek from cek_ternak");
             while(rs.next()){
                 int a = rs.getRow();
                 row2 = worksheet.createRow((short)a);
                 row2.createCell(0).setCellValue(rs.getString(1));
                 row2.createCell(1).setCellValue(rs.getString(2));
                 row2.createCell(2).setCellValue(rs.getString(3));
-                row2.createCell(3).setCellValue(rs.getString(4));
-                row2.createCell(4).setCellValue(rs.getInt(5));
-                row2.createCell(5).setCellValue(rs.getString(6));
+                row2.createCell(3).setCellValue(rs.getInt(4)+" Kg");
+                row2.createCell(4).setCellValue(rs.getString(5));
+                row2.createCell(5).setCellValue(rs.getInt(6)+" Buah");
                 row2.createCell(6).setCellValue(rs.getString(7));
+                row2.createCell(7).setCellValue(rs.getString(8));
             }
             workbook.write(fileOut);
             fileOut.flush();
@@ -1041,14 +1242,14 @@ public class MenuPegawaiController {
             HSSFSheet worksheet = workbook.createSheet("Sheet 0");
             Row row1 = worksheet.createRow((short)0);
             row1.createCell(0).setCellValue("ID Pegawai") ;
-            row1.createCell(1).setCellValue("Nama");
-            row1.createCell(2).setCellValue("Asal");
+            row1.createCell(1).setCellValue("Nama Pegawai");
+            row1.createCell(2).setCellValue("Asal Daerah");
             row1.createCell(3).setCellValue("Tanggal Lahir");
             row1.createCell(4).setCellValue("Jenis Kelamin");
             row1.createCell(5).setCellValue("No Telepon");
             row1.createCell(6).setCellValue("Alamat");
             Row row2 ;
-            ResultSet rs = statement.executeQuery("select id_pegawai, nama, asal, tgl_lahir, jekel, no_telp, alamat from pegawai");
+            ResultSet rs = statement.executeQuery("select * from pegawai");
             while(rs.next()){
                 int a = rs.getRow();
                 row2 = worksheet.createRow((short)a);
@@ -1059,7 +1260,7 @@ public class MenuPegawaiController {
                 row2.createCell(4).setCellValue(rs.getString(5));
                 row2.createCell(5).setCellValue(rs.getString(6));
                 row2.createCell(6).setCellValue(rs.getString(7));
-                }
+            }
             workbook.write(fileOut);
             fileOut.flush();
             fileOut.close();
@@ -1096,8 +1297,8 @@ public class MenuPegawaiController {
                 row2 = worksheet.createRow((short)a);
                 row2.createCell(0).setCellValue(rs.getString(1));
                 row2.createCell(1).setCellValue(rs.getString(2));
-                row2.createCell(2).setCellValue(rs.getInt(3));
-                row2.createCell(3).setCellValue(rs.getInt(4));
+                row2.createCell(2).setCellValue("Rp."+rs.getInt(3));
+                row2.createCell(3).setCellValue(rs.getInt(4)+ " Kg");
             }
             workbook.write(fileOut);
             fileOut.flush();
@@ -1126,8 +1327,9 @@ public class MenuPegawaiController {
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getInt(5),
-                    rs.getInt(6)
+                    rs.getInt(5) +" Ekor",
+                    rs.getInt(6) +" Ekor",
+                    rs.getString(7)
                 };
                 tabelModel.addRow(data);
             }
@@ -1146,10 +1348,11 @@ public class MenuPegawaiController {
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
-                    rs.getString(4),
-                    rs.getInt(5),
-                    rs.getString(6),
-                    rs.getString(7)
+                    rs.getInt(4) + " Kg",
+                    rs.getString(5),
+                    rs.getInt(6) + " Buah",
+                    rs.getString(7),
+                    rs.getString(8)
                 };
             tableModel.addRow(data);
             }
@@ -1189,8 +1392,8 @@ public class MenuPegawaiController {
                 Object[] data={
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getInt(3),
-                    rs.getInt(4)
+                    "Rp."+rs.getDouble(3),
+                    rs.getInt(4)+" Kg"
                 };
                 tabelModel.addRow(data);
             }

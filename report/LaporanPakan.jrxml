@@ -90,28 +90,28 @@ FROM
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="fcc76c7c-2fb8-4844-9837-14404afab1d8" x="0" y="0" width="138" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14"/>
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_id_pakan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="d951c6b8-3911-4809-b5c3-b6052f7c447e" x="138" y="0" width="138" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14"/>
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_nama}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="8be5b2c2-0e03-4109-bf54-78a3644d01f4" x="276" y="0" width="138" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14"/>
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_harga}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="cdb23150-11eb-4955-8a1e-ee32a3900fff" x="414" y="0" width="138" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="14"/>
+					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_stok}]]></textFieldExpression>
 			</textField>

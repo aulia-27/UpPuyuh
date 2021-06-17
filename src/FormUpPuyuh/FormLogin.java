@@ -6,7 +6,6 @@
 package FormUpPuyuh;
 
 import FormUpPuyuh.FormMenuAdmin;
-import FormUpPuyuh.FormMenuPegawai;
 
 import Controller.UserController;
 import User.Enkripsi;
@@ -230,22 +229,28 @@ public class FormLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Input Username dan password","Pesan",JOptionPane.INFORMATION_MESSAGE);
         } else {
             try {
-                listLogin = controller.cariLogin(TxtUsername.getText(), Enkripsi.getSHA1(JpsPassword.getText()));
-                if (listLogin.size()>=1)
+                User user = controller.getUser(TxtUsername.getText());
+                listLogin = controller.cariLogin(TxtUsername.getText(), JpsPassword.getText());
+                //if (listLogin.size()>=1)
+                if(user.getPassword().equals(JpsPassword.getText())) {
                     if (listLogin.get(0).getAkses().equalsIgnoreCase("Administrator")) {
                         FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
                         formMenuAdmin.setVisible(true);
                         formMenuAdmin.tampilNama(TxtUsername.getText());
                         formMenuAdmin.tampilHakAkses("Administrator");
+                        formMenuAdmin.getTxtUsername().setText(TxtUsername.getText());
+                        formMenuAdmin.getTxtHakAkses().setText("Administrator");
                         dispose();
                     } else {
-                        FormMenuPegawai formMenuPegawai = new FormMenuPegawai();
+                        FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
                         formMenuPegawai.setVisible(true);
                         formMenuPegawai.tampilNama(TxtUsername.getText());
                         formMenuPegawai.tampilHakAkses("Pegawai");
+                        formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
+                        formMenuPegawai.getTxtHakAkses().setText("Pegawai");
                         dispose();
                     }
-                else {
+                }else {
                     JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
                     JpsPassword.requestFocus();
                     clearText();
@@ -264,19 +269,23 @@ public class FormLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Input Username dan password","Pesan",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 try {
-                    listLogin = controller.cariLogin(TxtUsername.getText(), Enkripsi.getSHA1(JpsPassword.getText()));
+                    listLogin = controller.cariLogin(TxtUsername.getText(), JpsPassword.getText());
                     if (listLogin.size()>=1)
                         if (listLogin.get(0).getAkses().equalsIgnoreCase("Administrator")) {
                             FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
                             formMenuAdmin.setVisible(true);
                             formMenuAdmin.tampilNama(TxtUsername.getText());
                             formMenuAdmin.tampilHakAkses("Administrator");
+                            formMenuAdmin.getTxtUsername().setText(TxtUsername.getText());
+                            formMenuAdmin.getTxtHakAkses().setText("Administrator");
                             dispose();
                         } else {
-                            FormMenuPegawai formMenuPegawai = new FormMenuPegawai();
+                            FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
                             formMenuPegawai.setVisible(true);
                             formMenuPegawai.tampilNama(TxtUsername.getText());
                             formMenuPegawai.tampilHakAkses("Pegawai");
+                            formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
+                            formMenuPegawai.getTxtHakAkses().setText("Pegawai");
                             dispose();
                         }
                     else {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanCekTernak" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12f49978-180b-49b0-94bc-00311a6a5710">
-	<property name="ireport.zoom" value="1.4641000000000006"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanCekTernak" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="204f0d5b-a169-4104-a8c7-fb0b6ea2f509">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
@@ -8,6 +8,7 @@
      cek_ternak.`id_cek` AS cek_ternak_id_cek,
      cek_ternak.`nama_kandang` AS cek_ternak_nama_kandang,
      cek_ternak.`id_pakan` AS cek_ternak_id_pakan,
+     cek_ternak.`jml_pakan` AS cek_ternak_jml_pakan,
      cek_ternak.`id_pegawai` AS cek_ternak_id_pegawai,
      cek_ternak.`jml_telur` AS cek_ternak_jml_telur,
      cek_ternak.`kebersihan` AS cek_ternak_kebersihan,
@@ -18,6 +19,7 @@ FROM
 	<field name="cek_ternak_id_cek" class="java.lang.String"/>
 	<field name="cek_ternak_nama_kandang" class="java.lang.String"/>
 	<field name="cek_ternak_id_pakan" class="java.lang.String"/>
+	<field name="cek_ternak_jml_pakan" class="java.lang.Integer"/>
 	<field name="cek_ternak_id_pegawai" class="java.lang.String"/>
 	<field name="cek_ternak_jml_telur" class="java.lang.Integer"/>
 	<field name="cek_ternak_kebersihan" class="java.lang.String"/>
@@ -28,24 +30,24 @@ FROM
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement uuid="f11dd40e-dea3-4b60-9d28-ae912b0fe0ae" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
-				<staticText>
-					<reportElement uuid="e44a1a82-f781-4f65-9713-095b6251fec7" x="141" y="29" width="318" height="43" forecolor="#FFFFFF"/>
-					<textElement textAlignment="Center">
-						<font size="32" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Laporan Cek Ternak]]></text>
-				</staticText>
+				<reportElement uuid="e7c4a04a-5fd7-4f6d-bdf8-2d4d51bdfe49" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
 				<image>
-					<reportElement uuid="324b58b8-8846-445d-9053-9ef46036ec6f" x="34" y="9" width="79" height="83"/>
+					<reportElement uuid="324b58b8-8846-445d-9053-9ef46036ec6f" x="41" y="9" width="79" height="83"/>
 					<imageExpression><![CDATA["D:\\Kuliah\\1. MATERI KULIAH\\SMS 4\\Project 1\\UpPuyuh\\UpPuyuh\\src\\Imange\\Dashboard.png"]]></imageExpression>
 				</image>
 				<staticText>
-					<reportElement uuid="59a80851-a73b-4e52-a79f-b19e17a0787a" x="213" y="72" width="180" height="20" forecolor="#FFFFFF"/>
+					<reportElement uuid="59a80851-a73b-4e52-a79f-b19e17a0787a" x="230" y="63" width="180" height="20" forecolor="#FFFFFF"/>
 					<textElement textAlignment="Center">
 						<font size="14" isBold="false"/>
 					</textElement>
 					<text><![CDATA[Sistem Informasi Up Puyuh]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e44a1a82-f781-4f65-9713-095b6251fec7" x="158" y="20" width="318" height="43" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font size="32" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Laporan Cek Ternak]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -56,52 +58,59 @@ FROM
 	<columnHeader>
 		<band height="21">
 			<line>
-				<reportElement uuid="e02a9081-ae40-4545-832a-c2916c975db9" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+				<reportElement uuid="c72100b6-6642-4d37-883e-319b8328fbea" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
 			</line>
 			<staticText>
-				<reportElement uuid="55cc2a6b-2dfa-4755-8e4e-6b2564ec09cd" mode="Opaque" x="0" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="cb95b5f5-bdd5-40da-9625-90af7f48865f" mode="Opaque" x="0" y="0" width="54" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="658d82cc-d97f-4ce8-908c-b9192585bf12" mode="Opaque" x="79" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="6ec05573-4966-47be-b19a-d8f66a255f25" mode="Opaque" x="54" y="0" width="84" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Kandang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="450d90e4-fa56-42c9-bc02-81f53406775d" mode="Opaque" x="158" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="9a6129f6-7c93-48f8-ba9f-cab2e26e32da" mode="Opaque" x="138" y="0" width="72" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID Pakan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d7a1a2e4-cda2-4aaa-bf6b-eb354b66a3b4" mode="Opaque" x="237" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="947298cb-3ef6-49e8-bed3-0dffb741f538" mode="Opaque" x="210" y="0" width="66" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Pakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f2816efc-5a98-4dec-b9af-036cdee6a552" mode="Opaque" x="276" y="0" width="69" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID Pegawai]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d8c6f675-8246-4802-ab04-8ec6c34f4c0f" mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="f7734307-6abc-4de5-a6c1-bdb52774331f" mode="Opaque" x="345" y="0" width="59" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Jumlah Telur]]></text>
+				<text><![CDATA[Jumlah Ternak]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="4052a4a1-7563-4a81-af40-8d9d56137c0c" mode="Opaque" x="395" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="90e13316-7494-4371-97a5-6dd798493720" mode="Opaque" x="404" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Kebersihan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c88afdb5-045d-4c83-b121-d0f10fd841d8" mode="Opaque" x="474" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="ffacf11a-34a3-4f93-84bc-a3ea74873a3a" mode="Opaque" x="483" y="0" width="69" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -112,54 +121,61 @@ FROM
 	<detail>
 		<band height="20">
 			<line>
-				<reportElement uuid="7bf15220-d432-4c29-b516-307fe14b1697" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+				<reportElement uuid="c5ab17ea-ad35-4124-8dd8-39fbc8829eee" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="ce12778a-dba9-4cf5-8904-f796c6007a42" x="0" y="0" width="79" height="20"/>
+				<reportElement uuid="53e08208-7495-4e28-a6af-f0ac420a6f34" x="0" y="0" width="54" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cek_ternak_id_cek}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c3ce84ae-1971-4cf5-b3e7-a14e4163e7f5" x="79" y="0" width="79" height="20"/>
+				<reportElement uuid="b4fa3d04-9431-4777-8eab-a0f1d0075e4d" x="54" y="0" width="84" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cek_ternak_nama_kandang}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="20641ad4-fb1d-4bf2-b25e-956032a84f7b" x="158" y="0" width="79" height="20"/>
+				<reportElement uuid="81bed31b-19ae-4c85-9c7f-e5289cbdf37a" x="138" y="0" width="72" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cek_ternak_id_pakan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="cc68480c-02db-4b06-9242-efa6783f5414" x="237" y="0" width="79" height="20"/>
+				<reportElement uuid="7fce42f5-37a2-43fa-bfb1-c0d0b9851ca9" x="210" y="0" width="66" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cek_ternak_jml_pakan}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="88549f3e-3872-4af3-9b7f-d6a635f44b41" x="276" y="0" width="69" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cek_ternak_id_pegawai}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="ea71f1a7-f7b1-4192-8ca4-2886c79418c0" x="316" y="0" width="79" height="20"/>
+				<reportElement uuid="77dc5cdb-4511-43a3-b691-98866f7837af" x="345" y="0" width="59" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cek_ternak_jml_telur}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="6d9fce2e-897a-46f2-ae19-92c3aef16536" x="395" y="0" width="79" height="20"/>
+				<reportElement uuid="05efdb44-d8ef-4261-9d13-52e9cd6add98" x="404" y="0" width="79" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cek_ternak_kebersihan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="d4e28431-32fd-48db-b611-3e7fe4be12bc" x="474" y="0" width="79" height="20"/>
+				<reportElement uuid="7631648d-be42-4f0f-b8dc-bbd4365562c0" x="483" y="0" width="69" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cek_ternak_tgl_cek}]]></textFieldExpression>
 			</textField>
@@ -171,17 +187,17 @@ FROM
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement uuid="01970b02-d3e7-49cf-9fa2-b7ac59564eb6" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="b4174b9c-a6c9-489a-9a80-a64b44c13ef6" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="0686ed96-3b97-4e99-929f-1edc3c9f4cad" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="91bba992-862c-46ae-91e7-2193094ab345" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="4c72d463-ce08-45bf-8c83-4366d46af0ed" x="0" y="4" width="100" height="13"/>
+				<reportElement uuid="ebf2b882-fea6-49de-aa98-6c0e4f7d51fa" x="0" y="4" width="100" height="13"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>

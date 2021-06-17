@@ -98,7 +98,6 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="MenuJadwal" max="32767" attributes="0"/>
                   <Component id="MenuLaporan" max="32767" attributes="0"/>
                   <Component id="MenuLogout" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -112,15 +111,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="MenuHome" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="MenuUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="MenuJadwal" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="MenuLaporan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="MenuLogout" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -147,7 +144,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jDashboard" min="-2" pref="99" max="-2" attributes="0"/>
-                          <EmptySpace pref="9" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -179,57 +176,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="MenuJadwal">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f7" green="f7" red="f7" type="rgb"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MenuJadwalMouseClicked"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel3" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel3">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Imange/IconCalender.png"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Montserrat" size="18" style="0"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="47" red="0" type="rgb"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Jadwal"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JPanel" name="MenuLaporan">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -251,7 +197,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -295,7 +241,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="jLabel5" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -303,8 +249,9 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" pref="89" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jLabel8" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -431,6 +378,237 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+                <Container class="javax.swing.JPanel" name="PanelAkun">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="StatusTime" min="-2" max="-2" attributes="0"/>
+                                  <Component id="HakAkses" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                  <Component id="NamaAkun" min="-2" pref="350" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="StatusTime" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="NamaAkun" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                      <Component id="HakAkses" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="NamaAkun">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Montserrat" size="24" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="47" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Nama"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="HakAkses">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Montserrat" size="14" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="51" green="50" red="f0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Hak Akses"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel1">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Imange/User.png"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="StatusTime">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+                      <SubComponents>
+                        <Container class="javax.swing.JPanel" name="Pagi">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                              <CardConstraints cardName="card2"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel10" min="-2" pref="349" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel10" alignment="0" pref="30" max="32767" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel10">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Selamat Pagi"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JPanel" name="Siang">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                              <CardConstraints cardName="card3"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel103" alignment="1" pref="350" max="32767" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel103" alignment="0" pref="30" max="32767" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel103">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Tahoma" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Selamat Siang"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JPanel" name="Sore">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                              <CardConstraints cardName="card4"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel104" alignment="1" pref="350" max="32767" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel104" alignment="0" pref="30" max="32767" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel104">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Selamat Sore"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JPanel" name="Malam">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                              <CardConstraints cardName="card5"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel105" alignment="1" pref="350" max="32767" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel105" alignment="0" pref="30" max="32767" attributes="0"/>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel105">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Selamat Malam"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
                 <Container class="javax.swing.JPanel" name="Menu">
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -488,7 +666,9 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jLabel107" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="NotifBtnSdh" min="-2" pref="150" max="-2" attributes="0"/>
@@ -499,10 +679,14 @@
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="NotifBtnSdh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel13" max="32767" attributes="0"/>
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel107" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="NotifBtnSdh" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -513,7 +697,7 @@
                             <Component class="javax.swing.JLabel" name="jLabel13">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="14" style="0"/>
+                                  <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Sudahkah Anda Mememberi Makan Burung Puyuh ?"/>
                               </Properties>
@@ -535,6 +719,13 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NotifBtnSdhActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel107">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/Imange/exclamation.png"/>
+                                </Property>
+                              </Properties>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="Notifikasi2">
@@ -548,7 +739,9 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jLabel106" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="NotifInputKsh" min="-2" pref="150" max="-2" attributes="0"/>
@@ -559,10 +752,14 @@
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="NotifInputKsh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel15" max="32767" attributes="0"/>
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel106" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="NotifInputKsh" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -573,9 +770,9 @@
                             <Component class="javax.swing.JLabel" name="jLabel15">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="14" style="0"/>
+                                  <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="Anda Belum Memasukan Data Kesehatan  Burung Puyuh Hari Ini Hari Ini "/>
+                                <Property name="text" type="java.lang.String" value="Anda Belum Memasukan Data Kesehatan  Burung Puyuh Hari Ini Hari Ini  !"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JButton" name="NotifInputKsh">
@@ -595,6 +792,13 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NotifInputKshActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel106">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/Imange/danger.png"/>
+                                </Property>
+                              </Properties>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="Notifikasi3">
@@ -608,9 +812,11 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="302" max="32767" attributes="0"/>
                                       <Component id="NotifBtnCek" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -619,10 +825,14 @@
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="NotifBtnCek" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabel17" max="32767" attributes="0"/>
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="NotifBtnCek" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -650,9 +860,16 @@
                             <Component class="javax.swing.JLabel" name="jLabel17">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="14" style="0"/>
+                                  <Font name="Montserrat" size="16" style="0"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="Anda Belum Memasukan Data Cek Ternak Burung Puyuh Hari Ini Hari Ini "/>
+                                <Property name="text" type="java.lang.String" value="Anda Belum Memasukan Data Cek Ternak Burung Puyuh Hari Ini Hari Ini  ! "/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel4">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/Imange/danger.png"/>
+                                </Property>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -705,7 +922,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="BtnDataUser" min="-2" pref="60" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -830,11 +1047,11 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="33" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -854,15 +1071,15 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="278" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jLabel18" alignment="1" max="32767" attributes="0"/>
                                                   <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel12" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="jLabel19" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                                  <Component id="jLabel19" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -873,19 +1090,29 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jButton10" min="-2" pref="190" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jButton11" min="-2" pref="190" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="278" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="BtnSimpanPass" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="BtnChangePasswd" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="BtnCancelPass" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel11" min="-2" pref="35" max="-2" attributes="0"/>
@@ -906,12 +1133,13 @@
                                               <Component id="JpsRePassword" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jButton10" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                                          <Component id="jButton11" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                          <Component id="BtnChangePasswd" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Component id="BtnSimpanPass" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Component id="BtnCancelPass" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                                      <EmptySpace pref="70" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -949,19 +1177,26 @@
                                 <Property name="text" type="java.lang.String" value="Username"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton10">
+                            <Component class="javax.swing.JButton" name="BtnSimpanPass">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="14" style="0"/>
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanPassActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtUsername">
                               <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="14" style="0"/>
                                 </Property>
@@ -969,6 +1204,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="TxtHakAkses">
                               <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="14" style="0"/>
                                 </Property>
@@ -990,13 +1226,46 @@
                                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton11">
+                            <Component class="javax.swing.JButton" name="BtnChangePasswd">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Montserrat" size="14" style="0"/>
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Ubah Password"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnChangePasswdActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel3">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/Imange/User2.png"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="BtnCancelPass">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="3c" green="f" red="f2" type="rgb"/>
+                                </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Cancle"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelPassActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1024,7 +1293,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel101" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="509" max="32767" attributes="0"/>
+                                  <EmptySpace pref="568" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1206,8 +1475,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnCekKodeLpr">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Cek"/>
                               </Properties>
@@ -1217,8 +1492,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnExportExcel">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="0" green="99" red="0" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Cetak Laporan Format Excel"/>
                               </Properties>
@@ -1228,8 +1509,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnExportPdf">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="33" green="0" red="ff" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="18" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Cetak Laporan Format PDF"/>
                               </Properties>
@@ -1264,7 +1551,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane24" pref="272" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane24" pref="331" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1319,11 +1606,11 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="298" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="357" max="32767" attributes="0"/>
                                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jScrollPane20" pref="272" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane20" pref="331" max="32767" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -1414,25 +1701,19 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="1117" max="32767" attributes="0"/>
-                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jScrollPane21" pref="1093" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane21" pref="1093" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="298" max="32767" attributes="0"/>
-                                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jScrollPane21" pref="272" max="32767" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane21" pref="331" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1452,11 +1733,12 @@
                                           <Font name="Montserrat" size="16" style="0"/>
                                         </Property>
                                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                          <Table columnCount="7" rowCount="3">
+                                          <Table columnCount="8" rowCount="3">
                                             <Column editable="false" title="ID Cek Ternak" type="java.lang.Object"/>
                                             <Column editable="false" title="Nama Kandang" type="java.lang.Object"/>
-                                            <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
                                             <Column editable="false" title="ID Pakan" type="java.lang.Object"/>
+                                            <Column editable="true" title="Jumlah Terpakai" type="java.lang.Object"/>
+                                            <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
                                             <Column editable="false" title="Jumlah Telur" type="java.lang.Object"/>
                                             <Column editable="false" title="Kebersihan" type="java.lang.Object"/>
                                             <Column editable="false" title="Tanggal Cek" type="java.lang.Object"/>
@@ -1464,6 +1746,11 @@
                                         </Property>
                                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                           <TableColumnModel selectionModel="0">
+                                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                              <Title/>
+                                              <Editor/>
+                                              <Renderer/>
+                                            </Column>
                                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                               <Title/>
                                               <Editor/>
@@ -1532,7 +1819,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane22" pref="272" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane22" pref="331" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1554,13 +1841,13 @@
                                         </Property>
                                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                           <Table columnCount="7" rowCount="0">
-                                            <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
-                                            <Column editable="true" title="Nama Pegawai" type="java.lang.Object"/>
-                                            <Column editable="true" title="Asal" type="java.lang.Object"/>
-                                            <Column editable="true" title="Tanggal Lahir" type="java.lang.Object"/>
-                                            <Column editable="true" title="Jenis Kelamin" type="java.lang.Object"/>
+                                            <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
+                                            <Column editable="false" title="Nama Pegawai" type="java.lang.Object"/>
+                                            <Column editable="false" title="Asal Daerah" type="java.lang.Object"/>
+                                            <Column editable="false" title="Tanggal Lahir" type="java.lang.Object"/>
+                                            <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
                                             <Column editable="true" title="No Telepon" type="java.lang.Object"/>
-                                            <Column editable="true" title="Alamat Kandang" type="java.lang.Object"/>
+                                            <Column editable="false" title="Alamat" type="java.lang.Object"/>
                                           </Table>
                                         </Property>
                                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1633,7 +1920,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane23" pref="272" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane23" pref="331" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1699,96 +1986,6 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="PanelAkun">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="HakAkses" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                  <Component id="NamaAkun" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="DateAkun" min="-2" pref="260" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="TimeAkun" min="-2" pref="171" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="DateAkun" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TimeAkun" alignment="3" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
-                              <Component id="NamaAkun" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                              <Component id="HakAkses" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="NamaAkun">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Montserrat" size="18" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Nama"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="HakAkses">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Montserrat" size="18" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Hak Akses"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="DateAkun">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Montserrat" size="20" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Date"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="TimeAkun">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Montserrat" size="20" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Time"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel1">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/Imange/User.png"/>
-                        </Property>
-                      </Properties>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -1870,7 +2067,6 @@
                                               <Component id="DateKandang" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="TimeKandang" alignment="3" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="32767" attributes="0"/>
@@ -1885,10 +2081,16 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="BtnInputDataKandang">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Montserrat" size="18" style="0"/>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e7" green="71" red="44" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tambah Data"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="14" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Tambah dan Update Data"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataKandangActionPerformed"/>
@@ -2193,8 +2395,13 @@
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="TxtJmlTernak" min="-2" pref="108" max="-2" attributes="0"/>
                                                   <Component id="TxtNamaKandang" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="TxtJmlTernak" min="-2" pref="99" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="jLabel108" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -2230,6 +2437,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel33" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtJmlTernak" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="jLabel108" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2281,8 +2489,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnSimpanKandang">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
@@ -2292,8 +2506,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnHapusKandang">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="3c" green="f" red="f2" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
@@ -2303,8 +2523,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnBatalKandang">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Batal"/>
                               </Properties>
@@ -2314,14 +2540,28 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnUpdateKandang">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Update"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdateKandangActionPerformed"/>
                               </Events>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel108">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Ekor"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2478,10 +2718,16 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="BtnInputDataPegawai">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Montserrat" size="18" style="0"/>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e7" green="71" red="44" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tambah Data"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Tambah dan Update Data"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataPegawaiActionPerformed"/>
@@ -2582,7 +2828,7 @@
                               <Table columnCount="7" rowCount="4">
                                 <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
                                 <Column editable="false" title="Nama Pegawai" type="java.lang.Object"/>
-                                <Column editable="false" title="Asal" type="java.lang.Object"/>
+                                <Column editable="false" title="Asal Daerah" type="java.lang.Object"/>
                                 <Column editable="true" title="Tanggal Lahir" type="java.lang.Object"/>
                                 <Column editable="true" title="Jenis Kelamin" type="java.lang.Object"/>
                                 <Column editable="true" title="No Telepon" type="java.lang.Object"/>
@@ -2916,7 +3162,7 @@
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="18" style="0"/>
                                     </Property>
-                                    <Property name="text" type="java.lang.String" value="Asal"/>
+                                    <Property name="text" type="java.lang.String" value="Asal Daerah"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel39">
@@ -3038,8 +3284,14 @@
                                 </Container>
                                 <Component class="javax.swing.JButton" name="BtnSimpanPegawai">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="d2" green="44" red="15" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Simpan"/>
                                   </Properties>
@@ -3049,8 +3301,14 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnHapusPegawai">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="3c" green="f" red="f2" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Hapus"/>
                                   </Properties>
@@ -3060,8 +3318,14 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnBatalPegawai">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="d2" green="44" red="15" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Batal"/>
                                   </Properties>
@@ -3071,8 +3335,14 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnUpdatePegawai">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="d2" green="44" red="15" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Update"/>
                                   </Properties>
@@ -3108,7 +3378,7 @@
                                       <Table columnCount="7" rowCount="4">
                                         <Column editable="false" title="ID Pegawai" type="java.lang.Object"/>
                                         <Column editable="false" title="Nama Pegawai" type="java.lang.Object"/>
-                                        <Column editable="false" title="Asal" type="java.lang.Object"/>
+                                        <Column editable="false" title="Asal Daerah" type="java.lang.Object"/>
                                         <Column editable="true" title="Tanggal Lahir" type="java.lang.Object"/>
                                         <Column editable="false" title="Jenis Kelamin" type="java.lang.Object"/>
                                         <Column editable="true" title="No Telepon" type="java.lang.Object"/>
@@ -3267,10 +3537,16 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="BtnInputDataPakan">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Montserrat" size="18" style="0"/>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e7" green="71" red="44" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tambah Data"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Tambah dan Update Data"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataPakanActionPerformed"/>
@@ -3557,20 +3833,24 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jLabel56" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel55" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel54" alignment="0" pref="150" max="32767" attributes="0"/>
-                                                  <Component id="jLabel57" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jLabel55" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel54" alignment="0" pref="150" max="32767" attributes="0"/>
+                                                      <Component id="jLabel57" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel56" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="TxtIdPakan" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                                   <Component id="TxtNamaPakan" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="TxtStok" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="TxtHarga" alignment="0" pref="170" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="TxtStok" min="-2" pref="170" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jLabel110" min="-2" max="-2" attributes="0"/>
                                                   </Group>
+                                                  <Component id="TxtHarga" min="-2" pref="171" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
@@ -3610,6 +3890,7 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel57" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtStok" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="jLabel110" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -3696,8 +3977,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnSimpanPakan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
@@ -3707,8 +3994,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnHapusPakan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="3c" green="f" red="f2" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
@@ -3718,8 +4011,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnBatalPakan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Batal"/>
                               </Properties>
@@ -3729,14 +4028,28 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnUpdatePakan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Update"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnUpdatePakanActionPerformed"/>
                               </Events>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel110">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Kg"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3832,11 +4145,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="PanelMenuDataPenyakit" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel60" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane6" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -3845,9 +4159,10 @@
                               <Component id="PanelMenuDataPenyakit" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jScrollPane6" pref="437" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane6" min="-2" pref="239" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jPanel6" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3905,10 +4220,16 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="BtnInputDataPenyakit">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Montserrat" size="18" style="0"/>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e7" green="71" red="44" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tambah Data"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Tambah dan Update Data"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataPenyakitActionPerformed"/>
@@ -4006,36 +4327,12 @@
                               <Font name="Montserrat" size="16" style="0"/>
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="5" rowCount="4">
+                              <Table columnCount="1" rowCount="4">
                                 <Column editable="false" title="Nama Penyakit" type="java.lang.Object"/>
-                                <Column editable="false" title="Gejala" type="java.lang.Object"/>
-                                <Column editable="false" title="Penularan" type="java.lang.Object"/>
-                                <Column editable="false" title="Pencegahan" type="java.lang.Object"/>
-                                <Column editable="false" title="Pengobatan" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>
@@ -4048,6 +4345,172 @@
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TblDataPenyakitMouseClicked"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="jPanel6">
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel114" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane25" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel115" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel116" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane26" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane27" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel117" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel114" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel115" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel116" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel117" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane25" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane26" alignment="1" pref="167" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane27" alignment="1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTextArea" name="JtxGejalaData">
+                              <Properties>
+                                <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="lineWrap" type="boolean" value="true"/>
+                                <Property name="rows" type="int" value="5"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane25">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTextArea" name="JtxPenularanData">
+                              <Properties>
+                                <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="lineWrap" type="boolean" value="true"/>
+                                <Property name="rows" type="int" value="5"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane26">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTextArea" name="JtxPencegahanData">
+                              <Properties>
+                                <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="lineWrap" type="boolean" value="true"/>
+                                <Property name="rows" type="int" value="5"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="javax.swing.JScrollPane" name="jScrollPane27">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTextArea" name="JtxPengobatanData">
+                              <Properties>
+                                <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="lineWrap" type="boolean" value="true"/>
+                                <Property name="rows" type="int" value="5"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Component class="javax.swing.JLabel" name="jLabel114">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Gejala"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel115">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Penularan"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel116">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Pencegahan"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel117">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Pengobatan"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -4207,9 +4670,9 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="BtnSimpanPeenyakit" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                               <Component id="BtnUpdatePenyakit" min="-2" pref="115" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="BtnHapusPenyakit" min="-2" pref="115" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                               <Component id="BtnBatalPenyakit" min="-2" pref="115" max="-2" attributes="0"/>
@@ -4237,10 +4700,10 @@
                                                   </Group>
                                               </Group>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jScrollPane19" linkSize="2" pref="340" max="32767" attributes="0"/>
-                                                  <Component id="jScrollPane18" linkSize="2" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="jScrollPane17" linkSize="2" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="jScrollPane7" linkSize="2" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane19" pref="340" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane18" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane17" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="jScrollPane7" max="32767" attributes="0"/>
                                                   <Component id="TxtNamaPenyakit" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -4259,22 +4722,22 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane7" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
                                           <Component id="jLabel63" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane7" min="-2" pref="85" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane17" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane17" min="-2" pref="85" max="-2" attributes="0"/>
                                           <Component id="jLabel95" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane18" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane18" min="-2" pref="85" max="-2" attributes="0"/>
                                           <Component id="jLabel96" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane19" linkSize="1" min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane19" min="-2" pref="85" max="-2" attributes="0"/>
                                           <Component id="jLabel97" min="-2" pref="35" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -4318,8 +4781,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnSimpanPeenyakit">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
@@ -4329,8 +4798,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnHapusPenyakit">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="3c" green="f" red="f2" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
@@ -4340,8 +4815,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnBatalPenyakit">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Batal"/>
                               </Properties>
@@ -4370,8 +4851,14 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="BtnUpdatePenyakit">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Update"/>
                               </Properties>
@@ -4633,10 +5120,16 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="BtnInputDataKesehatan">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Montserrat" size="18" style="0"/>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e7" green="71" red="44" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tambah Data"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Tambah dan Update Data"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataKesehatanActionPerformed"/>
@@ -4955,11 +5448,15 @@
                                                       <Component id="jLabel72" min="-2" pref="204" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="TxtJmlSakit" min="-2" pref="150" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jLabel111" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel73" min="-2" pref="204" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="TxtJmlMati" min="-2" pref="150" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -5016,11 +5513,13 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="TxtJmlSakit" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="jLabel72" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="jLabel111" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel73" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="TxtJmlMati" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="jLabel112" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -5034,7 +5533,7 @@
                                           <Component id="BtnBatalKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           <Component id="BtnUpdateKesehatan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="77" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -5174,8 +5673,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnSimpanKesehatan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Simpan"/>
                               </Properties>
@@ -5185,8 +5690,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnHapusKesehatan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="3c" green="f" red="f2" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Hapus"/>
                               </Properties>
@@ -5196,8 +5707,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnBatalKesehatan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Batal"/>
                               </Properties>
@@ -5207,8 +5724,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="BtnUpdateKesehatan">
                               <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="d2" green="44" red="15" type="rgb"/>
+                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Update"/>
                               </Properties>
@@ -5234,6 +5757,22 @@
                               <Events>
                                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTglCekKesehatanKeyTyped"/>
                               </Events>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel111">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Ekor"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel112">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Montserrat" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Ekor"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -5420,10 +5959,16 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="BtnInputDataCekTernak">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Montserrat" size="18" style="0"/>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="e7" green="71" red="44" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Tambah Data"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Montserrat" size="16" style="0"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Tambah dan Update Data"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInputDataCekTernakActionPerformed"/>
@@ -5744,7 +6289,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jPanel5" max="32767" attributes="0"/>
-                                          <Component id="jScrollPane16" pref="509" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane16" pref="516" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -5769,9 +6314,9 @@
                                       <Table columnCount="8" rowCount="4">
                                         <Column editable="true" title="ID Cek Ternak" type="java.lang.Object"/>
                                         <Column editable="true" title="Nama Kandang" type="java.lang.Object"/>
-                                        <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
-                                        <Column editable="true" title="Jumlah Pakan" type="java.lang.Object"/>
                                         <Column editable="true" title="ID Pakan" type="java.lang.Object"/>
+                                        <Column editable="true" title="Jumlah Pakan" type="java.lang.Object"/>
+                                        <Column editable="true" title="ID Pegawai" type="java.lang.Object"/>
                                         <Column editable="true" title="Jumlah Telur" type="java.lang.Object"/>
                                         <Column editable="true" title="Kebersihan" type="java.lang.Object"/>
                                         <Column editable="true" title="Tanggal Cek" type="java.lang.Object"/>
@@ -5838,73 +6383,74 @@
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jLabel80" pref="189" max="32767" attributes="0"/>
+                                                      <Component id="jLabel82" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel81" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="CboIdPakanCek" max="32767" attributes="0"/>
+                                                      <Component id="CboKandangCek" max="32767" attributes="0"/>
+                                                      <Component id="CboIdPegawaiCek" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jLabel83" max="32767" attributes="0"/>
+                                                      <Component id="jLabel84" max="32767" attributes="0"/>
+                                                      <Component id="jLabel85" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
+                                                  </Group>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="jLabel79" min="-2" pref="189" max="-2" attributes="0"/>
                                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="TxtIdCekTernak" min="-2" pref="200" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          <Component id="TxtJmlTelur" min="-2" pref="130" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="jLabel113" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                              <Component id="jLabel80" pref="189" max="32767" attributes="0"/>
-                                                              <Component id="jLabel82" alignment="0" max="32767" attributes="0"/>
-                                                              <Component id="jLabel81" alignment="0" max="32767" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="CboIdPakanCek" max="32767" attributes="0"/>
-                                                              <Component id="CboKandangCek" max="32767" attributes="0"/>
-                                                              <Component id="CboIdPegawaiCek" alignment="0" max="32767" attributes="0"/>
-                                                          </Group>
+                                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                          <Component id="TxtTglCek" min="-2" pref="130" max="-2" attributes="0"/>
+                                                          <EmptySpace min="0" pref="196" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                              <Component id="jLabel83" max="32767" attributes="0"/>
-                                                              <Component id="jLabel84" max="32767" attributes="0"/>
-                                                              <Component id="jLabel85" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                  <Component id="TxtJmlTelur" min="-2" pref="130" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                                  <Component id="TxtTglCek" min="-2" pref="130" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" attributes="0">
-                                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                                  <Component id="CboKebersihan" max="32767" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                          <Component id="CboKebersihan" max="32767" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                                   <Component id="BtnSimpanCek" min="-2" pref="115" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                                                  <EmptySpace pref="31" max="32767" attributes="0"/>
                                                   <Component id="BtnUpdateCek" min="-2" pref="115" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="BtnHapusCek" min="-2" pref="115" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="BtnBatalCek" min="-2" pref="115" max="-2" attributes="0"/>
                                               </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel79" min="-2" pref="189" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="TxtIdCekTernak" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel102" min="-2" pref="189" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="TxtJmlPakan" min="-2" pref="130" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="jLabel109" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel102" min="-2" pref="189" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="TxtJmlPakan" min="-2" pref="130" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -5930,6 +6476,7 @@
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel102" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="TxtJmlPakan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="jLabel109" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -5940,25 +6487,26 @@
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel83" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="TxtJmlTelur" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <Component id="jLabel113" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="jLabel84" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="CboKebersihan" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="TxtTglCek" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                                               <Component id="jLabel85" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="BtnSimpanCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="BtnHapusCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="BtnBatalCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                               <Component id="BtnUpdateCek" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -6122,8 +6670,14 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnSimpanCek">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="d2" green="44" red="15" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Simpan"/>
                                   </Properties>
@@ -6133,8 +6687,14 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnUpdateCek">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="d2" green="44" red="15" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Update"/>
                                   </Properties>
@@ -6144,8 +6704,14 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnHapusCek">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="3c" green="f" red="f2" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Hapus"/>
                                   </Properties>
@@ -6155,8 +6721,14 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="BtnBatalCek">
                                   <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="d2" green="44" red="15" type="rgb"/>
+                                    </Property>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Batal"/>
                                   </Properties>
@@ -6178,6 +6750,22 @@
                                       <Font name="Montserrat" size="16" style="0"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="jTextField1"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel109">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Kg"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel113">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Montserrat" size="16" style="0"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Buah"/>
                                   </Properties>
                                 </Component>
                               </SubComponents>
@@ -6624,8 +7212,14 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="BtnSimpan">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="d2" green="44" red="15" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Montserrat" size="16" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Simpan"/>
                       </Properties>
@@ -6635,8 +7229,14 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="BtnHapus">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="3c" green="f" red="f2" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Montserrat" size="16" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Hapus"/>
                       </Properties>
@@ -6646,8 +7246,14 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="BtnDelete">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="d2" green="44" red="15" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Montserrat" size="16" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Batal"/>
                       </Properties>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2021 at 06:12 PM
+-- Generation Time: Jun 17, 2021 at 10:15 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -32,6 +32,7 @@ CREATE TABLE `cek_ternak` (
   `id_cek` varchar(15) NOT NULL,
   `nama_kandang` varchar(25) NOT NULL,
   `id_pakan` varchar(15) NOT NULL,
+  `jml_pakan` int(11) NOT NULL,
   `id_pegawai` varchar(15) NOT NULL,
   `jml_telur` int(11) NOT NULL,
   `kebersihan` varchar(25) NOT NULL,
@@ -42,8 +43,9 @@ CREATE TABLE `cek_ternak` (
 -- Dumping data for table `cek_ternak`
 --
 
-INSERT INTO `cek_ternak` (`id_cek`, `nama_kandang`, `id_pakan`, `id_pegawai`, `jml_telur`, `kebersihan`, `tgl_cek`) VALUES
-('CT001', 'Kandang 1', '0001 ', '0002 ', 500, 'Bersih', '2021-06-15');
+INSERT INTO `cek_ternak` (`id_cek`, `nama_kandang`, `id_pakan`, `jml_pakan`, `id_pegawai`, `jml_telur`, `kebersihan`, `tgl_cek`) VALUES
+('1', 'Kandang 1', '1 ', 50, '1 ', 100, 'Sangat bersih', '2021-06-17'),
+('2', 'Kandang 1', '2 ', 5, '1 ', 1, 'Sangat bersih', '2021-06-17');
 
 -- --------------------------------------------------------
 
@@ -61,21 +63,12 @@ CREATE TABLE `kandang` (
 --
 
 INSERT INTO `kandang` (`nama_kandang`, `jml_ternak`) VALUES
-('Kandang 1', 500),
-('Kandang 2', 800),
-('Kandang 3', 750);
-
---
--- Triggers `kandang`
---
-DELIMITER $$
-CREATE TRIGGER `TRIGGER_UPDATE_KESEHATAN` AFTER UPDATE ON `kandang` FOR EACH ROW UPDATE kandang 
-SET kandang.nama_kandang = NEW.nama_kandang,
-kandang.jml_ternak = NEW.jml_ternak,
-total = kandang.jml_ternak - kesehatan.jml_mati
-WHERE kandang.nama_kandang
-$$
-DELIMITER ;
+('Kandang 1', 915),
+('Kandang 2', 500),
+('Kandang 3', 400),
+('Kandang 4', 500),
+('Kandang 5', 400),
+('Kandang 6', 400);
 
 -- --------------------------------------------------------
 
@@ -88,9 +81,43 @@ CREATE TABLE `kesehatan` (
   `nama_kandang` varchar(25) NOT NULL,
   `nama_penyakit` varchar(30) NOT NULL,
   `id_pegawai` varchar(15) NOT NULL,
-  `jml_sakit` int(11) NOT NULL,
-  `jml_mati` int(11) NOT NULL
+  `jml_sakit` int(11) DEFAULT NULL,
+  `jml_mati` int(11) DEFAULT NULL,
+  `tgl_cek` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kesehatan`
+--
+
+INSERT INTO `kesehatan` (`id_kesehatan`, `nama_kandang`, `nama_penyakit`, `id_pegawai`, `jml_sakit`, `jml_mati`, `tgl_cek`) VALUES
+('1', 'Kandang 1', 'Pullorum (berak putih)', '1 ', 10, 100, '2021-06-17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notif`
+--
+
+CREATE TABLE `notif` (
+  `tgl` date NOT NULL,
+  `notif1` int(11) NOT NULL,
+  `notif2` int(11) NOT NULL,
+  `notif3` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notif`
+--
+
+INSERT INTO `notif` (`tgl`, `notif1`, `notif2`, `notif3`) VALUES
+('2021-06-16', 1, 0, 0),
+('2021-06-17', 1, 1, 1),
+('2021-06-18', 0, 0, 0),
+('2021-06-19', 0, 0, 0),
+('2021-06-20', 0, 0, 0),
+('2021-06-21', 0, 0, 0),
+('2021-06-22', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -110,8 +137,8 @@ CREATE TABLE `pakan` (
 --
 
 INSERT INTO `pakan` (`id_pakan`, `nama`, `harga`, `stok`) VALUES
-('0001', 'Dadak Padi', 50000, 500),
-('0002', 'Jagung', 400000, 300);
+('1', 'Dedak Padi', 50000, 400),
+('2', 'Jagung', 850000, 495);
 
 -- --------------------------------------------------------
 
@@ -123,9 +150,9 @@ CREATE TABLE `pegawai` (
   `id_pegawai` varchar(15) NOT NULL,
   `nama` varchar(25) NOT NULL,
   `asal` varchar(35) NOT NULL,
-  `tgl_lahir` date NOT NULL,
+  `tgl_lahir` date DEFAULT NULL,
   `jekel` varchar(10) NOT NULL,
-  `no_telp` text NOT NULL,
+  `no_telp` text DEFAULT NULL,
   `alamat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -134,10 +161,9 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `asal`, `tgl_lahir`, `jekel`, `no_telp`, `alamat`) VALUES
-('0001', 'Budi', 'Bukittinggi', '2021-06-11', 'Laki-laki', '083754546343', 'Pasar Baru, Kecamatan Pauh, Kota Padang'),
-('0002', 'Ahmad', 'Padang', '1999-09-08', 'Laki-Laki', '0839578463', 'Padang Barat'),
-('0003', 'Anggi', 'Payakumbuh', '1987-08-27', 'Perempuan', '08746574657', 'Payakumbuh Barat'),
-('0004', 'Anton', 'Jambi', '1970-08-04', 'Laki-Laki', '089758645', 'Padang Utara');
+('1', 'Budi Prakoso', 'Padang', '1970-08-08', 'Laki-Laki', '0888888888', 'Padang'),
+('2', 'Anton Prakoso', 'Medan', '1980-01-10', 'Laki-Laki', '08748564646', 'Pauah, Padang'),
+('3', 'Anggi Prakoso', 'Jambi', '1980-01-19', 'Perempuan', '08777777777', 'Padang Barat, Padang');
 
 -- --------------------------------------------------------
 
@@ -159,7 +185,7 @@ CREATE TABLE `penyakit` (
 
 INSERT INTO `penyakit` (`nama_penyakit`, `gejala`, `penularan`, `pencegahan`, `pengobatan`) VALUES
 ('Pullorum (berak putih)', '1. kotoran berwarna putih, nafsu makan hilang, \n2. sesak nafas, \n3. bulu-bulu mengkerut  \n4. sayap lemah menggantung. ', '1. Melalui pakan dan minum \n2. peralatan kandang yang kurang bersih', 'Menjaga kebersihan kandang dan peralatan kandang yang digunakan', 'Ampicilin, colistin,Enrofloxasin. Dan untuk meningkatkan kondisi diberikan vitamin.'),
-('Radang Usus', '1. puyuh tampak lesu \n2. nafsu makan menurun\n3. bulu kelihatan kusam\n4. diare encer', '', '', '');
+('Radang Usus', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -213,6 +239,12 @@ ALTER TABLE `kesehatan`
   ADD KEY `nama_kandang` (`nama_kandang`),
   ADD KEY `id_pegawai` (`id_pegawai`),
   ADD KEY `id_sakit` (`nama_penyakit`);
+
+--
+-- Indexes for table `notif`
+--
+ALTER TABLE `notif`
+  ADD PRIMARY KEY (`tgl`);
 
 --
 -- Indexes for table `pakan`

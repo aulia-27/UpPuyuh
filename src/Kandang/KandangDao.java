@@ -32,7 +32,6 @@ public class KandangDao {
         String sql = "update kandang set jml_ternak=? where nama_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, kandang.getJmlTernak()-mati);
-        System.out.print(kandang.getJmlTernak()-mati);
         ps.setString(2, kandang.getNamaKandang());
         ps.executeUpdate();
         System.out.print("Done");
@@ -42,7 +41,15 @@ public class KandangDao {
         String sql = "update kandang set jml_ternak=? where nama_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, kandang.getJmlTernak()-mati+x);
-        System.out.print(kandang.getJmlTernak()-mati);
+        ps.setString(2, kandang.getNamaKandang());
+        ps.executeUpdate();
+        System.out.print("Done");
+    }
+    
+    public static void updateDelete(Connection con, Kandang kandang, int mati) throws SQLException {
+        String sql = "update kandang set jml_ternak=? where nama_kandang=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, kandang.getJmlTernak()+mati);
         ps.setString(2, kandang.getNamaKandang());
         ps.executeUpdate();
         System.out.print("Done");

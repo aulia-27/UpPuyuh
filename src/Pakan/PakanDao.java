@@ -23,11 +23,41 @@ public class PakanDao {
     }
     
     public static void update(Connection con, Pakan pakan) throws SQLException{
-        String sql = "update pakan set nama=?, harga=?, stok=? " + "where id_pakan=?";
+        String sql = "update pakan set nama=?, harga=?, stok=? where id_pakan=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, pakan.getNama());
         ps.setDouble(2, pakan.getHarga());
         ps.setInt(3, pakan.getStok());
+        ps.setString(4, pakan.getIdPakan());
+        ps.executeUpdate();
+    }
+    
+    public static void update(Connection con, Pakan pakan, int krng) throws SQLException{
+        String sql = "update pakan set nama=?, harga=?, stok=? where id_pakan=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, pakan.getNama());
+        ps.setDouble(2, pakan.getHarga());
+        ps.setInt(3, pakan.getStok()-krng);
+        ps.setString(4, pakan.getIdPakan());
+        ps.executeUpdate();
+    }
+    
+    public static void update(Connection con, Pakan pakan, int krng, int x) throws SQLException{
+        String sql = "update pakan set nama=?, harga=?, stok=? where id_pakan=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, pakan.getNama());
+        ps.setDouble(2, pakan.getHarga());
+        ps.setInt(3, pakan.getStok()-krng+x);
+        ps.setString(4, pakan.getIdPakan());
+        ps.executeUpdate();
+    }
+    
+    public static void updateDelete(Connection con, Pakan pakan, int krng) throws SQLException{
+        String sql = "update pakan set nama=?, harga=?, stok=? where id_pakan=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, pakan.getNama());
+        ps.setDouble(2, pakan.getHarga());
+        ps.setInt(3, pakan.getStok()+krng);
         ps.setString(4, pakan.getIdPakan());
         ps.executeUpdate();
     }

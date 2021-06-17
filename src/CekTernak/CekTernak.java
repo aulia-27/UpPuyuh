@@ -9,6 +9,7 @@ public class CekTernak {
     private String id_cek;
     private String nama_kandang;
     private String id_pakan;
+    private int jml_pakan;
     private String id_pegawai;
     private int jml_telur;
     private String kebersihan;
@@ -24,6 +25,10 @@ public class CekTernak {
     
     public String getIdPakan() {
         return id_pakan;
+    }
+    
+    public int getJmlPakan(){
+        return jml_pakan;
     }
     
     public String getIdPegawai() {
@@ -53,6 +58,10 @@ public class CekTernak {
     public void setIdPakan(String id_pakan) {
         this.id_pakan = id_pakan;
     }
+    
+    public void setJmlPakan(int jml_pakan) {
+        this.jml_pakan = jml_pakan;
+    } 
     
     public void setIdPegawai(String id_pegawai) {
         this.id_pegawai = id_pegawai;

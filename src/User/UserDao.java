@@ -59,4 +59,21 @@ public class UserDao {
         }
         return user;
     }
+    
+    public static User getUsername(Connection con, String username) throws SQLException {
+        String sql = "select * from user where username=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, username);
+        User user = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            user = new User();
+            user.setIdUser(rs.getInt(1));
+            user.setUsername(rs.getString(2));
+            user.setPassword(rs.getString(3));
+            user.setNamaAkun(rs.getString(4));
+            user.setAkses(rs.getString(5));
+        }
+        return user;
+    }
 }

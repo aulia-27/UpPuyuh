@@ -11,6 +11,7 @@ import FormUpPuyuh.FormMenuPegawai;
 import Controller.UserController;
 import User.Enkripsi;
 import User.User;
+import User.UserDao;
 import java.awt.Toolkit;
 
 import java.util.List;
@@ -41,6 +42,7 @@ public class FormLogin extends javax.swing.JFrame {
     String user = "root";
     String pwd = "";
     String url = "jdbc:mysql://localhost/uppuyuh";
+    Connection con;
     
     
     

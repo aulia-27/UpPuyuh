@@ -3971,6 +3971,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
         jLabel100.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel100.setText("Tanggal Cek");
 
+        TxtTglCekKesehatan.setEditable(false);
         TxtTglCekKesehatan.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         TxtTglCekKesehatan.setText("jTextField1");
         TxtTglCekKesehatan.addKeyListener(new java.awt.event.KeyAdapter() {

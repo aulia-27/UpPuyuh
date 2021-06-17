@@ -1482,8 +1482,10 @@ public class FormMenuPegawai extends javax.swing.JFrame {
             }
         });
 
+        TxtUsername.setEditable(false);
         TxtUsername.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
 
+        TxtHakAkses.setEditable(false);
         TxtHakAkses.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
 
         JpsPassword.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
@@ -1535,15 +1537,13 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                             .addComponent(JpsRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(227, 227, 227)
-                        .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSimpanPass, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnChangePasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnCancelPass, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(BtnSimpanPass, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnChangePasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnCancelPass, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -3980,6 +3980,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         jLabel100.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel100.setText("Tanggal Cek");
 
+        TxtTglCekKesehatan.setEditable(false);
         TxtTglCekKesehatan.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         TxtTglCekKesehatan.setText("jTextField1");
         TxtTglCekKesehatan.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -4489,8 +4490,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(TxtJmlTelur, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel113)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel113))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(TxtTglCek, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)

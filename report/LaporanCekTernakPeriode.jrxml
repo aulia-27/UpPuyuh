@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanCekTernak" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c21350b7-2b69-4887-b7fa-fd541d7461b1">
+	<property name="ireport.zoom" value="1.3310000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="awal" class="java.util.Date">
+		<defaultValueExpression><![CDATA["dd MMMM yyyy"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="akhir" class="java.util.Date">
+		<defaultValueExpression><![CDATA["dd MMMM yyyy"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     cek_ternak.`id_cek` AS cek_ternak_id_cek,
+     cek_ternak.`nama_kandang` AS cek_ternak_nama_kandang,
+     cek_ternak.`id_pakan` AS cek_ternak_id_pakan,
+     cek_ternak.`jml_pakan` AS cek_ternak_jml_pakan,
+     cek_ternak.`id_pegawai` AS cek_ternak_id_pegawai,
+     cek_ternak.`jml_telur` AS cek_ternak_jml_telur,
+     cek_ternak.`kebersihan` AS cek_ternak_kebersihan,
+     cek_ternak.`tgl_cek` AS cek_ternak_tgl_cek,
+     pegawai.`id_pegawai` AS pegawai_id_pegawai,
+     pegawai.`nama` AS pegawai_nama,
+     pegawai.`asal` AS pegawai_asal,
+     pegawai.`tgl_lahir` AS pegawai_tgl_lahir,
+     pegawai.`jekel` AS pegawai_jekel,
+     pegawai.`no_telp` AS pegawai_no_telp,
+     pegawai.`alamat` AS pegawai_alamat,
+     pakan.`id_pakan` AS pakan_id_pakan,
+     pakan.`nama` AS pakan_nama,
+     pakan.`harga` AS pakan_harga,
+     pakan.`stok` AS pakan_stok
+FROM
+     `pegawai` pegawai INNER JOIN `cek_ternak` cek_ternak ON pegawai.`id_pegawai` = cek_ternak.`id_pegawai`
+     INNER JOIN `pakan` pakan ON cek_ternak.`id_pakan` = pakan.`id_pakan`
+WHERE
+	 cek_ternak.`tgl_cek` BETWEEN $P{awal} AND $P{akhir}
+ORDER BY cek_ternak.`tgl_cek` desc]]>
+	</queryString>
+	<field name="cek_ternak_id_cek" class="java.lang.String"/>
+	<field name="cek_ternak_nama_kandang" class="java.lang.String"/>
+	<field name="cek_ternak_id_pakan" class="java.lang.String"/>
+	<field name="cek_ternak_jml_pakan" class="java.lang.Integer"/>
+	<field name="cek_ternak_id_pegawai" class="java.lang.String"/>
+	<field name="cek_ternak_jml_telur" class="java.lang.Integer"/>
+	<field name="cek_ternak_kebersihan" class="java.lang.String"/>
+	<field name="cek_ternak_tgl_cek" class="java.sql.Date"/>
+	<field name="pegawai_id_pegawai" class="java.lang.String"/>
+	<field name="pegawai_nama" class="java.lang.String"/>
+	<field name="pegawai_asal" class="java.lang.String"/>
+	<field name="pegawai_tgl_lahir" class="java.sql.Date"/>
+	<field name="pegawai_jekel" class="java.lang.String"/>
+	<field name="pegawai_no_telp" class="java.lang.String"/>
+	<field name="pegawai_alamat" class="java.lang.String"/>
+	<field name="pakan_id_pakan" class="java.lang.String"/>
+	<field name="pakan_nama" class="java.lang.String"/>
+	<field name="pakan_harga" class="java.lang.Double"/>
+	<field name="pakan_stok" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="478a8406-8c80-4791-85fc-3f39d11e3239" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="59a80851-a73b-4e52-a79f-b19e17a0787a" x="204" y="63" width="180" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Sistem Informasi Up Puyuh]]></text>
+				</staticText>
+				<image>
+					<reportElement uuid="324b58b8-8846-445d-9053-9ef46036ec6f" x="20" y="9" width="79" height="83"/>
+					<imageExpression><![CDATA["D:\\Kuliah\\1. MATERI KULIAH\\SMS 4\\Project 1\\UpPuyuh\\UpPuyuh\\src\\Imange\\Dashboard.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement uuid="e44a1a82-f781-4f65-9713-095b6251fec7" x="133" y="20" width="318" height="43" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font size="32" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Laporan Cek Ternak]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37">
+			<staticText>
+				<reportElement uuid="187b0589-ecf0-48b1-907a-8df24cecf488" x="0" y="17" width="79" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Awal]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="10971bff-14dd-41b2-b314-c1875e6cf2ba" x="79" y="17" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{awal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="eff0ca5c-f2df-42bd-9e65-ce7417fc5293" x="355" y="17" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Akhir]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="d72204b7-46d7-4b6c-a92f-1c4beccc9b64" x="455" y="17" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{akhir}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="8c4dbb36-2e12-4740-b5d9-1566225b2b05" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="1c81b39f-3539-46c9-ae7e-f3c23b0a3706" mode="Opaque" x="0" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Cek]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="efae8d04-4675-4388-bfbd-be41beb0afdf" mode="Opaque" x="55" y="0" width="73" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Kandang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5c82bdd8-2516-4ce8-8a46-6ec7a2e064f4" mode="Opaque" x="192" y="0" width="68" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Pakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="65a6af8e-43a4-407d-b4b8-410624deef8f" mode="Opaque" x="339" y="0" width="73" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Telur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1b65ba45-aa38-4bde-aea4-8fb83036a2f0" mode="Opaque" x="412" y="0" width="71" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kebersihan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ebad6fe5-d40b-42be-bd32-f6cd14594850" mode="Opaque" x="483" y="0" width="72" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Cek]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec8b4241-9d9d-46a2-93a0-d4c373478fe6" mode="Opaque" x="128" y="0" width="64" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="89d96d70-a091-414b-b33b-eaee639d990c" mode="Opaque" x="260" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pegawai]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="b94656da-5757-44c5-aa4c-4321ed46fff1" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c0caf9fb-d432-4d14-bddf-69b7171ffdec" x="0" y="0" width="55" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cek_ternak_id_cek}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5098de0d-a7fd-4b32-8dff-1745c38de549" x="55" y="0" width="73" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cek_ternak_nama_kandang}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="667318c9-d450-474b-a6d1-d43d9f60f787" x="192" y="0" width="68" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cek_ternak_jml_pakan}+' Kg']]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5beec323-fc8b-4c47-b1a7-0ac0b559b069" x="339" y="0" width="73" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cek_ternak_jml_telur}+' Buah']]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="abba7635-6540-4380-bdda-40e90ca3fe4f" x="412" y="0" width="71" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cek_ternak_kebersihan}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd MMMMM yyyy">
+				<reportElement uuid="c6dac88f-3d2a-4302-aa8a-dac45fe83892" x="483" y="0" width="72" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cek_ternak_tgl_cek}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="518a977b-1c4c-4fb5-a7e1-b979ab27279a" x="128" y="0" width="64" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pakan_nama}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="af923f79-7bae-4c8b-998d-18d44c3b023d" x="260" y="0" width="79" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pegawai_nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="fc003661-2c7f-46f3-99e5-19cc7dfbcb02" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="b67f1367-6c04-4af3-93eb-26f67f4cd834" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="3097811d-f960-439f-a89d-fea2f892d088" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

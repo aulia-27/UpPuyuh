@@ -35,7 +35,7 @@ FROM
 					<textElement textAlignment="Center">
 						<font size="32" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Laporan Pegawai]]></text>
+					<text><![CDATA[Laporan Pakan]]></text>
 				</staticText>
 				<image>
 					<reportElement uuid="324b58b8-8846-445d-9053-9ef46036ec6f" x="40" y="9" width="79" height="83"/>
@@ -101,19 +101,19 @@ FROM
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pakan_nama}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement uuid="8be5b2c2-0e03-4109-bf54-78a3644d01f4" x="276" y="0" width="138" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pakan_harga}]]></textFieldExpression>
+				<textFieldExpression><![CDATA['Rp.'+$F{pakan_harga}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement uuid="cdb23150-11eb-4955-8a1e-ee32a3900fff" x="414" y="0" width="138" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pakan_stok}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pakan_stok}+' Kg']]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

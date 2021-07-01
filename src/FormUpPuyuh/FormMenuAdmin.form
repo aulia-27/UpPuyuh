@@ -171,7 +171,7 @@
                       <Color blue="ff" green="47" red="0" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Dashboard"/>
+                    <Property name="text" type="java.lang.String" value="UpPuyuh"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1093,16 +1093,14 @@
                                               <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="BtnSimpanPass" min="-2" pref="190" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="BtnChangePasswd" min="-2" pref="190" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="BtnCancelPass" min="-2" pref="190" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="BtnSimpanPass" min="-2" pref="190" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="BtnChangePasswd" min="-2" pref="190" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="BtnCancelPass" min="-2" pref="190" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1134,10 +1132,12 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="BtnChangePasswd" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                                          <Component id="BtnSimpanPass" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                                          <Component id="BtnCancelPass" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="BtnSimpanPass" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                                              <Component id="BtnCancelPass" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace pref="70" max="32767" attributes="0"/>
                                   </Group>
@@ -6411,7 +6411,6 @@
                                                           <Component id="TxtJmlTelur" min="-2" pref="130" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
                                                           <Component id="jLabel113" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="32767" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>

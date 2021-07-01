@@ -5,7 +5,6 @@
  */
 package FormUpPuyuh;
 
-import Controller.MenuAdminController;
 import Controller.MenuPegawaiController;
 
 import com.toedter.calendar.JDateChooser;
@@ -37,6 +36,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+
+import FormUpPuyuh.FormLaporanCekTernakPeriode;
+import FormUpPuyuh.FormLaporanKesehatanPeriode;
 
 /**
  *
@@ -75,18 +77,9 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         //user
         clearForm();
         setDisableJpsPassword();
-        
-        disableForPegawai();
-        
         controller = new MenuPegawaiController(this);
         //System.out.println(controller.getNotif1("2021-06-16"));
         controller.showNotif();
-    }
-    
-    public void disableForPegawai() {
-        BtnDataUser.setVisible(false);
-        BtnInputDataPegawai.setVisible(false);
-        BtnInputDataPenyakit.setVisible(false);
     }
     
     public void getTime() {
@@ -577,7 +570,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         BtnDataPenyakit = new javax.swing.JButton();
         BtnDataKesehatan = new javax.swing.JButton();
         BtnDataCekTernak = new javax.swing.JButton();
-        BtnDataUser = new javax.swing.JButton();
         TabAkun = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -658,7 +650,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         MenuPegawai = new javax.swing.JPanel();
         MenuDataPegawai = new javax.swing.JPanel();
         PanelMenuDataPegawai = new javax.swing.JPanel();
-        BtnInputDataPegawai = new javax.swing.JButton();
         TimePegawai = new javax.swing.JLabel();
         DatePegawai = new javax.swing.JLabel();
         KembaliMenuUtama2 = new javax.swing.JPanel();
@@ -735,7 +726,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         MenuPenyakit = new javax.swing.JPanel();
         MenuDataPenyakit = new javax.swing.JPanel();
         PanelMenuDataPenyakit = new javax.swing.JPanel();
-        BtnInputDataPenyakit = new javax.swing.JButton();
         TimePenyakit = new javax.swing.JLabel();
         DatePenyakit = new javax.swing.JLabel();
         KembaliMenuUtama4 = new javax.swing.JPanel();
@@ -925,7 +915,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 71, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Dashboard");
+        jLabel16.setText("UpPuyuh");
 
         javax.swing.GroupLayout MenuHomeLayout = new javax.swing.GroupLayout(MenuHome);
         MenuHome.setLayout(MenuHomeLayout);
@@ -1378,24 +1368,13 @@ public class FormMenuPegawai extends javax.swing.JFrame {
             }
         });
 
-        BtnDataUser.setBackground(new java.awt.Color(250, 250, 250));
-        BtnDataUser.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        BtnDataUser.setText("Data User");
-        BtnDataUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnDataUserActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout BtnTakAdminLayout = new javax.swing.GroupLayout(BtnTakAdmin);
         BtnTakAdmin.setLayout(BtnTakAdminLayout);
         BtnTakAdminLayout.setHorizontalGroup(
             BtnTakAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BtnTakAdminLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(BtnTakAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtnDataUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnDataKandang, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                .addComponent(BtnDataKandang, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
                 .addComponent(BtnDataPegawai, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
@@ -1419,9 +1398,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                     .addComponent(BtnDataKesehatan, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(BtnDataCekTernak, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(BtnDataPenyakit, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(BtnDataUser, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
+                .addGap(268, 268, 268))
         );
 
         javax.swing.GroupLayout TabTugasLayout = new javax.swing.GroupLayout(TabTugas);
@@ -2352,16 +2329,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
 
         PanelMenuDataPegawai.setBackground(new java.awt.Color(255, 255, 255));
 
-        BtnInputDataPegawai.setBackground(new java.awt.Color(68, 113, 231));
-        BtnInputDataPegawai.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        BtnInputDataPegawai.setForeground(new java.awt.Color(255, 255, 255));
-        BtnInputDataPegawai.setText("Tambah dan Update Data");
-        BtnInputDataPegawai.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnInputDataPegawaiActionPerformed(evt);
-            }
-        });
-
         TimePegawai.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         TimePegawai.setText("Time");
 
@@ -2408,9 +2375,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                 .addComponent(DatePegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TimePegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(BtnInputDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(506, Short.MAX_VALUE))
             .addGroup(PanelMenuDataPegawaiLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(KembaliMenuUtama2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2419,17 +2384,12 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         PanelMenuDataPegawaiLayout.setVerticalGroup(
             PanelMenuDataPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuDataPegawaiLayout.createSequentialGroup()
-                .addGroup(PanelMenuDataPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PanelMenuDataPegawaiLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(KembaliMenuUtama2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addGroup(PanelMenuDataPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TimePegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DatePegawai, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)))
-                    .addGroup(PanelMenuDataPegawaiLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnInputDataPegawai, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addComponent(KembaliMenuUtama2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(PanelMenuDataPegawaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TimePegawai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DatePegawai, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -3210,16 +3170,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
 
         PanelMenuDataPenyakit.setBackground(new java.awt.Color(255, 255, 255));
 
-        BtnInputDataPenyakit.setBackground(new java.awt.Color(68, 113, 231));
-        BtnInputDataPenyakit.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        BtnInputDataPenyakit.setForeground(new java.awt.Color(255, 255, 255));
-        BtnInputDataPenyakit.setText("Tambah dan Update Data");
-        BtnInputDataPenyakit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnInputDataPenyakitActionPerformed(evt);
-            }
-        });
-
         TimePenyakit.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         TimePenyakit.setText("Time");
 
@@ -3266,9 +3216,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                 .addComponent(DatePenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TimePenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
-                .addComponent(BtnInputDataPenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(507, Short.MAX_VALUE))
             .addGroup(PanelMenuDataPenyakitLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(KembaliMenuUtama4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3277,17 +3225,12 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         PanelMenuDataPenyakitLayout.setVerticalGroup(
             PanelMenuDataPenyakitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuDataPenyakitLayout.createSequentialGroup()
-                .addGroup(PanelMenuDataPenyakitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PanelMenuDataPenyakitLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(KembaliMenuUtama4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addGroup(PanelMenuDataPenyakitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TimePenyakit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DatePenyakit, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)))
-                    .addGroup(PanelMenuDataPenyakitLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnInputDataPenyakit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addComponent(KembaliMenuUtama4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(PanelMenuDataPenyakitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TimePenyakit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DatePenyakit, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -4487,17 +4430,19 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                             .addComponent(jLabel85, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TxtJmlTelur, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel113))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(TxtTglCek, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 196, Short.MAX_VALUE))
+                                .addComponent(CboKebersihan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(CboKebersihan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(TxtJmlTelur, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel113))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(TxtTglCek, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(BtnSimpanCek, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
@@ -4906,14 +4851,14 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelUpPuyuh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addComponent(MenuUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(MenuUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MenuUtama, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(MenuUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelUpPuyuh))
             .addComponent(SubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -5058,23 +5003,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BtnDataCekTernakActionPerformed
 
-    private void BtnDataUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataUserActionPerformed
-        // TODO add your handling code here:
-        MenuAdmin.setVisible(false);
-        TabTugas.setVisible(false);
-        TabAkun.setVisible(false);
-        TabJadwal.setVisible(false);
-        TabLaporan.setVisible(false);
-        MenuKandang.setVisible(false);
-        MenuPegawai.setVisible(false);
-        MenuPakan.setVisible(false);
-        MenuPenyakit.setVisible(false);
-        MenuKesehatan.setVisible(false);
-        MenuCekTernak.setVisible(false);
-        MenuDataUser.setVisible(true);
-        
-    }//GEN-LAST:event_BtnDataUserActionPerformed
-
     private void BtnDataPenyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDataPenyakitActionPerformed
         // TODO add your handling code here:
         MenuAdmin.setVisible(false);
@@ -5204,13 +5132,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         MenuInputKandang.setVisible(false);
         controller.clearFormKandang();
     }//GEN-LAST:event_KembaliDataKandangMouseClicked
-
-    ////////////////////////  Panel Pegawai
-    private void BtnInputDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInputDataPegawaiActionPerformed
-        // TODO add your handling code here:
-        MenuDataPegawai.setVisible(false);
-        MenuInputPegawai.setVisible(true);
-    }//GEN-LAST:event_BtnInputDataPegawaiActionPerformed
 
     private void KembaliMenuUtama2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KembaliMenuUtama2MouseClicked
         // TODO add your handling code here:
@@ -5357,12 +5278,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         setActiveMenu();
         getTime();
     }//GEN-LAST:event_KembaliMenuUtama4MouseClicked
-
-    private void BtnInputDataPenyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInputDataPenyakitActionPerformed
-        // TODO add your handling code here:
-        MenuDataPenyakit.setVisible(false);
-        MenuInputPenyakit.setVisible(true);
-    }//GEN-LAST:event_BtnInputDataPenyakitActionPerformed
 
     private void BtnSimpanPeenyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanPeenyakitActionPerformed
         // TODO add your handling code here:
@@ -5652,46 +5567,49 @@ public class FormMenuPegawai extends javax.swing.JFrame {
     //////////////////              Laporan      ////////////////////////////
     private void BtnCekKodeLprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCekKodeLprActionPerformed
         // TODO add your handling code here:
-        int Database=Integer.parseInt(TxtKodeLaporan.getText());
-        
-        switch(Database){
-            case 1:
-                TabelLaporanKosong.setVisible(false);
-                TabelLaporanKesehatan.setVisible(true);
-                TabelLaporanCekTernak.setVisible(false);
-                TabelLaporanPegawai.setVisible(false);
-                TabelLaporanPakan.setVisible(false);
-                controller.viewTableKesehatanLaporan();
-                break;
-            case 2:
-                TabelLaporanKosong.setVisible(false);
-                TabelLaporanKesehatan.setVisible(false);
-                TabelLaporanCekTernak.setVisible(true);
-                TabelLaporanPegawai.setVisible(false);
-                TabelLaporanPakan.setVisible(false);
-                controller.viewTableCekTernakLaporan();
-                break;
-            case 3:
-                TabelLaporanKosong.setVisible(false);
-                TabelLaporanKesehatan.setVisible(false);
-                TabelLaporanCekTernak.setVisible(false);
-                TabelLaporanPegawai.setVisible(true);
-                TabelLaporanPakan.setVisible(false);
-                controller.viewTablePegawaiLaporan();
-                break;
-            case 4:
-                TabelLaporanKosong.setVisible(false);
-                TabelLaporanKesehatan.setVisible(false);
-                TabelLaporanCekTernak.setVisible(false);
-                TabelLaporanPegawai.setVisible(false);
-                TabelLaporanPakan.setVisible(true);
-                controller.viewTablePakanLaporan();
-                break;
-            default:
-                JOptionPane.showMessageDialog(this, "Kode Salah, Silakan Masukan Kode");
-                disableTabelLaporan();
-                controller.cleartextLaporan();
-                break;
+        if (TxtKodeLaporan.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Kode Masih Kosong");
+        } else {
+            int Database=Integer.parseInt(TxtKodeLaporan.getText());
+            switch(Database){
+                case 1:
+                    TabelLaporanKosong.setVisible(false);
+                    TabelLaporanKesehatan.setVisible(true);
+                    TabelLaporanCekTernak.setVisible(false);
+                    TabelLaporanPegawai.setVisible(false);
+                    TabelLaporanPakan.setVisible(false);
+                    controller.viewTableKesehatanLaporan();
+                    break;
+                case 2:
+                    TabelLaporanKosong.setVisible(false);
+                    TabelLaporanKesehatan.setVisible(false);
+                    TabelLaporanCekTernak.setVisible(true);
+                    TabelLaporanPegawai.setVisible(false);
+                    TabelLaporanPakan.setVisible(false);
+                    controller.viewTableCekTernakLaporan();
+                    break;
+                case 3:
+                    TabelLaporanKosong.setVisible(false);
+                    TabelLaporanKesehatan.setVisible(false);
+                    TabelLaporanCekTernak.setVisible(false);
+                    TabelLaporanPegawai.setVisible(true);
+                    TabelLaporanPakan.setVisible(false);
+                    controller.viewTablePegawaiLaporan();
+                    break;
+                case 4:
+                    TabelLaporanKosong.setVisible(false);
+                    TabelLaporanKesehatan.setVisible(false);
+                    TabelLaporanCekTernak.setVisible(false);
+                    TabelLaporanPegawai.setVisible(false);
+                    TabelLaporanPakan.setVisible(true);
+                    controller.viewTablePakanLaporan();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Kode Salah, Silakan Masukan Kode");
+                    disableTabelLaporan();
+                    controller.cleartextLaporan();
+                    break;
+            }
         }
     }//GEN-LAST:event_BtnCekKodeLprActionPerformed
 
@@ -5717,13 +5635,24 @@ public class FormMenuPegawai extends javax.swing.JFrame {
     private void BtnExportPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExportPdfActionPerformed
         // TODO add your handling code here:
         int IReport=Integer.parseInt(TxtKodeLaporan.getText());
-        
         switch(IReport) {
             case 1:
-                controller.previewLaporanKesehatan();
+                int pesan = JOptionPane.showConfirmDialog(null, "Apakah Anda Ingin Cetek Dalam Periode?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (pesan == JOptionPane.YES_NO_OPTION) {
+                    FormLaporanKesehatanPeriode formLaporanKesehatanPeriode = new FormLaporanKesehatanPeriode();
+                    formLaporanKesehatanPeriode.setVisible(true);
+                } else if (pesan != JOptionPane.YES_NO_OPTION){
+                    controller.previewLaporanKesehatan();
+                }
                 break;
             case 2:
-                controller.previewLaporanCekTernak();
+                int pesan1 = JOptionPane.showConfirmDialog(null, "Apakah Anda Ingin Cetek Dalam Periode?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (pesan1 == JOptionPane.YES_NO_OPTION) {
+                    FormLaporanCekTernakPeriode formLaporanCekTernakPeriode = new FormLaporanCekTernakPeriode();
+                    formLaporanCekTernakPeriode.setVisible(true);
+                } else if (pesan1 != JOptionPane.YES_NO_OPTION) {
+                    controller.previewLaporanCekTernak();
+                }
                 break;
             case 3:
                 controller.previewLaporanPegawai();
@@ -5905,6 +5834,8 @@ public class FormMenuPegawai extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -5931,7 +5862,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
     private javax.swing.JButton BtnDataPakan;
     private javax.swing.JButton BtnDataPegawai;
     private javax.swing.JButton BtnDataPenyakit;
-    private javax.swing.JButton BtnDataUser;
     private javax.swing.JButton BtnDelete;
     private javax.swing.JButton BtnExportExcel;
     private javax.swing.JButton BtnExportPdf;
@@ -5946,8 +5876,6 @@ public class FormMenuPegawai extends javax.swing.JFrame {
     private javax.swing.JButton BtnInputDataKandang;
     private javax.swing.JButton BtnInputDataKesehatan;
     private javax.swing.JButton BtnInputDataPakan;
-    private javax.swing.JButton BtnInputDataPegawai;
-    private javax.swing.JButton BtnInputDataPenyakit;
     private javax.swing.JButton BtnSimpan;
     private javax.swing.JButton BtnSimpanCek;
     private javax.swing.JButton BtnSimpanKandang;

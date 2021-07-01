@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2021 at 10:15 AM
+-- Generation Time: Jul 01, 2021 at 07:11 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -44,8 +44,8 @@ CREATE TABLE `cek_ternak` (
 --
 
 INSERT INTO `cek_ternak` (`id_cek`, `nama_kandang`, `id_pakan`, `jml_pakan`, `id_pegawai`, `jml_telur`, `kebersihan`, `tgl_cek`) VALUES
-('1', 'Kandang 1', '1 ', 50, '1 ', 100, 'Sangat bersih', '2021-06-17'),
-('2', 'Kandang 1', '2 ', 5, '1 ', 1, 'Sangat bersih', '2021-06-17');
+('402', 'Kandang 1', '20001 ', 50, '10001 ', 100, 'Bersih', '2021-06-30'),
+('403', 'Kandang 2', '20001 ', 300, '10001 ', 200, 'Bersih', '2021-06-30');
 
 -- --------------------------------------------------------
 
@@ -63,12 +63,14 @@ CREATE TABLE `kandang` (
 --
 
 INSERT INTO `kandang` (`nama_kandang`, `jml_ternak`) VALUES
-('Kandang 1', 915),
-('Kandang 2', 500),
-('Kandang 3', 400),
-('Kandang 4', 500),
+('Kandang 1', 975),
+('Kandang 2', 585),
+('Kandang 3', 700),
+('Kandang 4', 503),
 ('Kandang 5', 400),
-('Kandang 6', 400);
+('Kandang 6', 400),
+('Kandang 7', 700),
+('Kandang 8', 500);
 
 -- --------------------------------------------------------
 
@@ -77,7 +79,7 @@ INSERT INTO `kandang` (`nama_kandang`, `jml_ternak`) VALUES
 --
 
 CREATE TABLE `kesehatan` (
-  `id_kesehatan` varchar(15) NOT NULL,
+  `id_kesehatan` varchar(10) NOT NULL,
   `nama_kandang` varchar(25) NOT NULL,
   `nama_penyakit` varchar(30) NOT NULL,
   `id_pegawai` varchar(15) NOT NULL,
@@ -91,7 +93,11 @@ CREATE TABLE `kesehatan` (
 --
 
 INSERT INTO `kesehatan` (`id_kesehatan`, `nama_kandang`, `nama_penyakit`, `id_pegawai`, `jml_sakit`, `jml_mati`, `tgl_cek`) VALUES
-('1', 'Kandang 1', 'Pullorum (berak putih)', '1 ', 10, 100, '2021-06-17');
+('304', 'Kandang 1', 'Pullorum (berak putih)', '10001 ', 0, 10, '2021-07-01'),
+('302', 'Kandang 1', 'Radang usus (Quail enteritis)', '10001 ', 0, 5, '2021-07-01'),
+('306', 'Kandang 4', 'Pullorum (berak putih)', '10002', 0, 0, '2021-07-02'),
+('303', 'Kandang 6', 'Pullorum (berak putih)', '10001 ', 4, 0, '2021-07-01'),
+('305', 'Kandang 6', 'Radang usus (Quail enteritis)', '10001 ', 0, 0, '2021-07-01');
 
 -- --------------------------------------------------------
 
@@ -100,7 +106,7 @@ INSERT INTO `kesehatan` (`id_kesehatan`, `nama_kandang`, `nama_penyakit`, `id_pe
 --
 
 CREATE TABLE `notif` (
-  `tgl` date NOT NULL,
+  `tgl` date NOT NULL DEFAULT current_timestamp(),
   `notif1` int(11) NOT NULL,
   `notif2` int(11) NOT NULL,
   `notif3` int(11) NOT NULL
@@ -111,13 +117,13 @@ CREATE TABLE `notif` (
 --
 
 INSERT INTO `notif` (`tgl`, `notif1`, `notif2`, `notif3`) VALUES
-('2021-06-16', 1, 0, 0),
-('2021-06-17', 1, 1, 1),
-('2021-06-18', 0, 0, 0),
-('2021-06-19', 0, 0, 0),
-('2021-06-20', 0, 0, 0),
-('2021-06-21', 0, 0, 0),
-('2021-06-22', 0, 0, 0);
+('2021-07-02', 0, 0, 0),
+('2021-07-03', 0, 0, 0),
+('2021-07-04', 0, 0, 0),
+('2021-07-05', 0, 0, 0),
+('2021-07-06', 0, 0, 0),
+('2021-07-07', 0, 0, 0),
+('2021-07-08', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -137,8 +143,8 @@ CREATE TABLE `pakan` (
 --
 
 INSERT INTO `pakan` (`id_pakan`, `nama`, `harga`, `stok`) VALUES
-('1', 'Dedak Padi', 50000, 400),
-('2', 'Jagung', 850000, 495);
+('20001', 'BP', 50000, 2205),
+('20002', 'Jagung', 2000000, 10000);
 
 -- --------------------------------------------------------
 
@@ -161,9 +167,11 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `asal`, `tgl_lahir`, `jekel`, `no_telp`, `alamat`) VALUES
-('1', 'Budi Prakoso', 'Padang', '1970-08-08', 'Laki-Laki', '0888888888', 'Padang'),
-('2', 'Anton Prakoso', 'Medan', '1980-01-10', 'Laki-Laki', '08748564646', 'Pauah, Padang'),
-('3', 'Anggi Prakoso', 'Jambi', '1980-01-19', 'Perempuan', '08777777777', 'Padang Barat, Padang');
+('10001', 'Anton P', 'Padang', '1980-03-13', 'Laki-Laki', '0823457673', 'Padang Utara, Padang'),
+('10002', 'Budi', 'Payakumbuh', '1975-02-14', 'Laki-Laki', '0895746475', 'Kec Pauh, Padang'),
+('10003', 'Anja', 'Medan', '1988-06-21', 'Laki-Laki', '0874645553', 'Lubuak Aluang, Padang Pariaman'),
+('10004', 'Andi', 'Bukit', '2021-03-18', 'Laki-Laki', '0888654546', 'Padang'),
+('10005', 'Anti', 'Agam', '1980-02-14', 'Perempuan', '0898943754', 'Padang');
 
 -- --------------------------------------------------------
 
@@ -185,7 +193,268 @@ CREATE TABLE `penyakit` (
 
 INSERT INTO `penyakit` (`nama_penyakit`, `gejala`, `penularan`, `pencegahan`, `pengobatan`) VALUES
 ('Pullorum (berak putih)', '1. kotoran berwarna putih, nafsu makan hilang, \n2. sesak nafas, \n3. bulu-bulu mengkerut  \n4. sayap lemah menggantung. ', '1. Melalui pakan dan minum \n2. peralatan kandang yang kurang bersih', 'Menjaga kebersihan kandang dan peralatan kandang yang digunakan', 'Ampicilin, colistin,Enrofloxasin. Dan untuk meningkatkan kondisi diberikan vitamin.'),
-('Radang Usus', '', '', '', '');
+('Radang usus (Quail enteritis)', '1. Lemas\n2. Nafsu Makan Menurun\n3. Bulu Kusam\n4. Diare Encer', 'Melalui Pakan dan Minuman Terkontaminasi feses', '1. Memperbaiki tata laksana pemelihara\n2. Memisahkan Burung Yang Sehat dan Sakit\n3. Menjaga Kebersihan Kandang', '1. Melalui Pakan / air minum dengan mencampur basitrasi, \n2. Klotetrasiklin, eritromisin, \ndoksisiklin, ampisilin, tilosin, \ndan linkomisin,\n\nDosis Basitrasi : 100g/ton');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__bookmark`
+--
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__central_columns`
+--
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_length` text COLLATE utf8_bin DEFAULT NULL,
+  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
+  `col_default` text COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__column_info`
+--
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__designer_settings`
+--
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `settings_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__export_templates`
+--
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
+  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `template_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__history`
+--
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sqlquery` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__navigationhiding`
+--
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__pdf_pages`
+--
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__recent`
+--
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__relation`
+--
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__savedsearches`
+--
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_coords`
+--
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT 0,
+  `x` float UNSIGNED NOT NULL DEFAULT 0,
+  `y` float UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_info`
+--
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_uiprefs`
+--
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__tracking`
+--
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin DEFAULT NULL,
+  `data_sql` longtext COLLATE utf8_bin DEFAULT NULL,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__userconfig`
+--
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `config_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__usergroups`
+--
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
+  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__users`
+--
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
 
 -- --------------------------------------------------------
 
@@ -206,11 +475,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `akses`) VALUES
-(0, 'Admin', '4e7afebcfbae000b22c7c85e5560f89a2a0280b4', 'Admin UpPuyuh', 'Administrator'),
-(1, 'syarif', '29fe2954c7ec4a74f6f410e45e2a6e99bc5ad1de', 'Syarif Hidayat', 'Administrator'),
-(2, 'Alvin', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'Alvin Faiz', 'Administrator'),
-(3, 'tiara', 'c35bf6e2b2bc7397ff9f2321c39ecabd9043f671', 'Tiara Harmila', 'Pegawai'),
-(4, 'Syarif', 'ff6cbb3e0c97b3e406587727abf48f91acf5962f', 'Syarif Hidayat', 'Pegawai');
+(0, 'Admin', 'Admin', 'Admin', 'Administrator'),
+(1, 'Pegawai', 'Pegawai', 'Pegawai', 'Pegawai');
 
 --
 -- Indexes for dumped tables
@@ -220,8 +486,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `akses`) VALUES
 -- Indexes for table `cek_ternak`
 --
 ALTER TABLE `cek_ternak`
-  ADD PRIMARY KEY (`id_cek`),
-  ADD KEY `id_kandang` (`nama_kandang`),
+  ADD PRIMARY KEY (`nama_kandang`,`tgl_cek`) USING BTREE,
   ADD KEY `id_pegawai` (`id_pegawai`),
   ADD KEY `id_pakan` (`id_pakan`);
 
@@ -235,8 +500,7 @@ ALTER TABLE `kandang`
 -- Indexes for table `kesehatan`
 --
 ALTER TABLE `kesehatan`
-  ADD PRIMARY KEY (`id_kesehatan`),
-  ADD KEY `nama_kandang` (`nama_kandang`),
+  ADD PRIMARY KEY (`nama_kandang`,`nama_penyakit`,`tgl_cek`) USING BTREE,
   ADD KEY `id_pegawai` (`id_pegawai`),
   ADD KEY `id_sakit` (`nama_penyakit`);
 
@@ -265,10 +529,170 @@ ALTER TABLE `penyakit`
   ADD PRIMARY KEY (`nama_penyakit`);
 
 --
+-- Indexes for table `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pma__central_columns`
+--
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+--
+-- Indexes for table `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Indexes for table `pma__designer_settings`
+--
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+--
+-- Indexes for table `pma__favorite`
+--
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__history`
+--
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Indexes for table `pma__navigationhiding`
+--
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+--
+-- Indexes for table `pma__recent`
+--
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__relation`
+--
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Indexes for table `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+--
+-- Indexes for table `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Indexes for table `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Indexes for table `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__usergroups`
+--
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+--
+-- Indexes for table `pma__users`
+--
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`,`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__history`
+--
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -286,9 +710,9 @@ ALTER TABLE `cek_ternak`
 -- Constraints for table `kesehatan`
 --
 ALTER TABLE `kesehatan`
-  ADD CONSTRAINT `kesehatan_ibfk_1` FOREIGN KEY (`nama_kandang`) REFERENCES `kandang` (`nama_kandang`),
   ADD CONSTRAINT `kesehatan_ibfk_2` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`),
-  ADD CONSTRAINT `kesehatan_ibfk_3` FOREIGN KEY (`nama_penyakit`) REFERENCES `penyakit` (`nama_penyakit`);
+  ADD CONSTRAINT `kesehatan_ibfk_3` FOREIGN KEY (`nama_penyakit`) REFERENCES `penyakit` (`nama_penyakit`),
+  ADD CONSTRAINT `kesehatan_ibfk_4` FOREIGN KEY (`nama_kandang`) REFERENCES `kandang` (`nama_kandang`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

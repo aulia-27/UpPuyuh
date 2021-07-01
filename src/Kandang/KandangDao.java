@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class KandangDao {
     public static void insert(Connection con, Kandang kandang) throws SQLException {
@@ -31,10 +32,17 @@ public class KandangDao {
     public static void update(Connection con, Kandang kandang, int mati) throws SQLException {
         String sql = "update kandang set jml_ternak=? where nama_kandang=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, kandang.getJmlTernak()-mati);
-        ps.setString(2, kandang.getNamaKandang());
-        ps.executeUpdate();
-        System.out.print("Done");
+        if (kandang.getJmlTernak() < mati) {
+            ps.setInt(1, 0);
+            ps.setString(2, kandang.getNamaKandang());
+            ps.executeUpdate();
+            System.out.print("Done");
+        } else {
+            ps.setInt(1, kandang.getJmlTernak()-mati);
+            ps.setString(2, kandang.getNamaKandang());
+            ps.executeUpdate();
+            System.out.print("Done");
+        }
     }
     
     public static void update(Connection con, Kandang kandang, int mati, int x) throws SQLException {

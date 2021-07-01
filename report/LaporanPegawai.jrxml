@@ -135,7 +135,7 @@ FROM
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pegawai_asal}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
+			<textField isStretchWithOverflow="true" pattern="dd MMMMM yyyy">
 				<reportElement uuid="c94dcf77-2ec1-4018-9708-db7fb484e401" x="222" y="0" width="79" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10"/>

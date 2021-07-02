@@ -256,8 +256,7 @@ public class FormLogin extends javax.swing.JFrame {
                     clearText();
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Terjadi Kesalahan pada " +e);
-            
+                 JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_BtnLoginActionPerformed

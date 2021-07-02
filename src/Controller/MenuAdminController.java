@@ -452,10 +452,18 @@ public class MenuAdminController {
         pegawai.setNoTelp(viewAdmin.getTxtNoTelp().getText());
         pegawai.setAlamat(viewAdmin.getJtxAlamat().getText());
         try {
-            PegawaiDao.insert(con, pegawai);
-            JOptionPane.showMessageDialog(viewAdmin, "Data sudah di inputkan");
+            String ID = viewAdmin.getTxtIdPegawai().getText();
+            Pegawai pegawai1 = new Pegawai();
+            pegawai1 = PegawaiDao.getPegawai(con, ID);
+            if (pegawai1 != null) {
+                JOptionPane.showMessageDialog(viewAdmin, "ID Pegawai Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
+            } else {
+                PegawaiDao.insert(con, pegawai);
+                JOptionPane.showMessageDialog(viewAdmin, "Data sudah di inputkan");
+            }
+            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewAdmin, "ID Pegawai Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
+            JOptionPane.showMessageDialog(viewAdmin, "Silakan isi data","Pesan",JOptionPane.WARNING_MESSAGE); 
         }
     }
     
@@ -740,7 +748,7 @@ public class MenuAdminController {
             PenyakitDao.insert(con, penyakit);
             JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewAdmin, "Nama Penyakit Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
         }
     }
     
@@ -906,14 +914,21 @@ public class MenuAdminController {
             System.out.print(kandang.getJmlTernak());
             int mati = Integer.parseInt(viewAdmin.getTxtJmlMati().getText());
             int ternak = kandang.getJmlTernak();
-            if (mati > ternak) {
-                JOptionPane.showMessageDialog(viewAdmin, "Jumlah Mati Sudah Melebihi Jumlah Ternak");
+            Kesehatan kesehatan_id = new Kesehatan();
+            String id_kes = viewAdmin.getTxtIdKesehatan().getText();
+            kesehatan_id = KesehatanDao.getKesehatan(con, id_kes);
+            if (kesehatan_id != null) {
+                JOptionPane.showMessageDialog(viewAdmin, "ID Kesehatan Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE);
             } else {
-                KesehatanDao.insert(con, kesehatan);
-                kandangdao.update(con, kandang,Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
-                //kandangdao.update(con, kandang);
-                JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Simpan");
-                DateNow();
+                if (mati > ternak) {
+                    JOptionPane.showMessageDialog(viewAdmin, "Jumlah Mati Sudah Melebihi Jumlah Ternak");
+                } else {
+                    KesehatanDao.insert(con, kesehatan);
+                    kandangdao.update(con, kandang,Integer.parseInt(viewAdmin.getTxtJmlMati().getText()));
+                    //kandangdao.update(con, kandang);
+                    JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Simpan");
+                    DateNow();
+                }
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "Data Sudah Ada Hari Ini"); 
@@ -986,7 +1001,7 @@ public class MenuAdminController {
         }
     }
     
-    public void onPressBtnCariKesehatan() {
+    public void onClickBtnCariKesehatan() {
         try {
             String kode = viewAdmin.getTxtIdKesehatan().getText();
             kesehatan = KesehatanDao.getKesehatan(con, kode);
@@ -1132,13 +1147,20 @@ public class MenuAdminController {
             pakan = PakanDao.getPakan(con, viewAdmin.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
             int jml_stok = Integer.parseInt(viewAdmin.getTxtJmlPakan().getText());
             int jml_pakan = pakan.getStok();
-            if (jml_stok > jml_pakan) {
-                JOptionPane.showMessageDialog(viewAdmin, "Jumlah Pemakaian Sudah Melebihi Jumlah Stok");
+            CekTernak CekTernak_id = new CekTernak();
+            String id_cek = viewAdmin.getTxtIdCekTernak().getText();
+            CekTernak_id = CekTernakDao.getCekTernak(con, id_cek);
+            if (CekTernak_id != null) {
+                JOptionPane.showMessageDialog(viewAdmin, "ID Cek Ternak Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE);
             } else {
-                CekTernakDao.insert(con, CekTernak);
-                PakanDao.update(con, pakan, Integer.parseInt(viewAdmin.getTxtJmlPakan().getText()));
-                JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Simpan");
-                DateNow();
+                if (jml_stok > jml_pakan) {
+                    JOptionPane.showMessageDialog(viewAdmin, "Jumlah Pemakaian Sudah Melebihi Jumlah Stok");
+                } else {
+                    CekTernakDao.insert(con, CekTernak);
+                    PakanDao.update(con, pakan, Integer.parseInt(viewAdmin.getTxtJmlPakan().getText()));
+                    JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Simpan");
+                    DateNow();
+                }
             }
 
         } catch (SQLException ex) {

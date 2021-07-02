@@ -66,4 +66,23 @@ public class CekTernakDao {
         return cekTernak;
     }
     
+    public static CekTernak getCekTernak(Connection con, int jml_telur) throws SQLException {
+        String sql = "select * from cek_ternak where jml_telur=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, jml_telur);
+        CekTernak cekTernak = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            cekTernak = new CekTernak();
+            cekTernak.setIdCek(rs.getString(1));
+            cekTernak.setNamaKandang(rs.getString(2));
+            cekTernak.setIdPakan(rs.getString(3));
+            cekTernak.setJmlPakan(rs.getInt(4));
+            cekTernak.setIdPegawai(rs.getString(5));
+            cekTernak.setJmlTelur(rs.getInt(6));
+            cekTernak.setKebersihan(rs.getString(7));
+            cekTernak.setTglCek(rs.getString(8));
+        }
+        return cekTernak;
+    }
 }

@@ -9,6 +9,7 @@ import User.User;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
@@ -17,11 +18,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import FormUpPuyuh.FormMenuAdmin;
 /**
  *
  * @author Aulia
  */
 public class UserController {
+    FormMenuAdmin viewAdmin;
     Connection con = null;
     Statement st = null;
     ResultSet rs = null;
@@ -66,6 +69,24 @@ public class UserController {
             while (rs.next()) {                
                 User user = new User(); 
                 user.setIdUser(rs.getInt("id_user"));
+                logLogin.add(user);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pencarian data id, pada" +e);
+        }
+        return logLogin;
+    } 
+    
+    public List getIdAndUsername(int id_user, String username) {
+        List logLogin = new ArrayList();
+        int result;
+        sql =  "select id_user from user where id_user ='" +id_user+ "' and username ='"+username+"'";
+        try {
+            rs = st.executeQuery(sql);
+            while (rs.next()) {                
+                User user = new User(); 
+                user.setIdUser(rs.getInt("id_user"));
+                user.setUsername(rs.getString("username"));
                 logLogin.add(user);
             }
         } catch (Exception e) {
@@ -174,4 +195,21 @@ public class UserController {
         return user;
     }
     
+    public static User getUser(Connection con, String username) throws SQLException {
+        String sql = "select * from user where username=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, username);
+        User user = null;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {            
+            user = new User();
+            user.setIdUser(rs.getInt(1));
+            user.setUsername(rs.getString(2));
+            user.setPassword(rs.getString(3));
+            user.setNamaAkun(rs.getString(4));
+            user.setAkses(rs.getString(5));
+        }
+        return user;
+    }
 }
+

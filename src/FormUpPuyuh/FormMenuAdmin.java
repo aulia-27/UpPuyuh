@@ -5665,28 +5665,27 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Pengguna Telah Digunakan User Lain","pesan", JOptionPane.WARNING_MESSAGE);
                     TxtIdUser.requestFocus();
                 } else {
-                    listPengguna = controllerUser.getIdAndUsername(Integer.parseInt(TxtIdUser.getText()), TxtDataUsername.getText());
-                    if (listPengguna.size() == 0) {
-                        JOptionPane.showMessageDialog(null, "Pengguna Username Telah digunakan","pesan", JOptionPane.WARNING_MESSAGE);
-                        TxtDataUsername.requestFocus();
-                    } else {
-                        try {
-                            user.setIdUser(Integer.parseInt(TxtIdUser.getText()));
-                            user.setUsername(TxtDataUsername.getText());
-                            user.setPassword(JpsDataPassword.getText());
-                            user.setNamaAkun(TxtDataNama.getText());
-                            user.setAkses(CboAkses.getSelectedItem().toString());
-                            if (controllerUser.tambah(user) == 1) {
-                                JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
-                                buatTable();
-                                showTable();
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Data Gagal Disimpan");
-                            }
-                            clearText();
-                        } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, "Tidak dapat Enkripsi Password");
+                    listPengguna = controllerUser.username(TxtUsername.getText());
+                    if (listPengguna.size() == 1) {
+                        JOptionPane.showMessageDialog(null, "Pengguna Username Udh Digunakan","pesan", JOptionPane.WARNING_MESSAGE);
+                        TxtIdUser.requestFocus();
+                    }
+                    try {
+                        user.setIdUser(Integer.parseInt(TxtIdUser.getText()));
+                        user.setUsername(TxtDataUsername.getText());
+                        user.setPassword(JpsDataPassword.getText());
+                        user.setNamaAkun(TxtDataNama.getText());
+                        user.setAkses(CboAkses.getSelectedItem().toString());
+                        if (controllerUser.tambah(user) == 1) {
+                            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+                            buatTable();
+                            showTable();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan");
                         }
+                        clearText();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Tidak dapat Enkripsi Password");
                     }
                 }
             }

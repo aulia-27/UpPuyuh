@@ -15,7 +15,7 @@ import java.sql.ResultSet;
  */
 public class UserDao {
     public static void insert(Connection con, User user) throws SQLException {
-        String sql = "insert into user values(?,?,?,?)";
+        String sql = "insert into user values(?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, user.getIdUser());
         ps.setString(2, user.getUsername());
@@ -37,16 +37,16 @@ public class UserDao {
     }
     
     public static void delete(Connection con, User user) throws SQLException{
-        String sql = "delete from penyakit where id_user=?";
+        String sql = "delete from user where id_user=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, user.getIdUser());
         ps.executeUpdate();
     } 
     
-    public static User getUser(Connection con, String username) throws SQLException {
+    public static User getUser(Connection con, int id_user) throws SQLException {
         String sql = "select * from user where id_user=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, username);
+        ps.setInt(1, id_user);
         User user = null;
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {            

@@ -211,5 +211,24 @@ public class UserController {
         }
         return user;
     }
+    
+    public int getNotif2(String tgl){
+        try {
+            
+            String sql = "select notif2 from notif where tgl=?";
+            java.sql.Date date=java.sql.Date.valueOf(tgl);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, date);
+            ResultSet rs = ps.executeQuery();
+            int x = 0;
+            while (rs.next()) {
+                x = rs.getInt(1);
+            }
+            return x;
+        } catch (SQLException e) {
+            
+        }
+        return 2;
+    }
 }
 

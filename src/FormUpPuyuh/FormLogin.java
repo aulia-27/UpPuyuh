@@ -111,18 +111,18 @@ public class FormLogin extends javax.swing.JFrame {
             IconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
         );
         IconLayout.setVerticalGroup(
             IconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IconLayout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         Login.setBackground(new java.awt.Color(255, 255, 255));
@@ -178,7 +178,7 @@ public class FormLogin extends javax.swing.JFrame {
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginLayout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
+                .addContainerGap(101, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,7 +190,7 @@ public class FormLogin extends javax.swing.JFrame {
                 .addComponent(JpsPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
@@ -219,7 +219,7 @@ public class FormLogin extends javax.swing.JFrame {
             .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1384, 815));
+        setSize(new java.awt.Dimension(1298, 767));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -236,19 +236,26 @@ public class FormLogin extends javax.swing.JFrame {
                     if (listLogin.get(0).getAkses().equalsIgnoreCase("Administrator")) {
                         FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
                         formMenuAdmin.setVisible(true);
-                        formMenuAdmin.tampilNama(TxtUsername.getText());
+                        if (user != null) {
+                            String user_name = user.getNamaAkun();
+                            formMenuAdmin.tampilNama(user_name);
+                            formMenuAdmin.getTxtNamaPengguna().setText(user_name);
+                        } else {
+                            formMenuAdmin.tampilNama(TxtUsername.getText());
+                            formMenuAdmin.getTxtNamaPengguna().setText(TxtUsername.getText());
+                        }
                         formMenuAdmin.tampilHakAkses("Administrator");
                         formMenuAdmin.getTxtUsername().setText(TxtUsername.getText());
                         formMenuAdmin.getTxtHakAkses().setText("Administrator");
                         dispose();
                     } else {
-                        FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
-                        formMenuPegawai.setVisible(true);
-                        formMenuPegawai.tampilNama(TxtUsername.getText());
-                        formMenuPegawai.tampilHakAkses("Pegawai");
-                        formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
-                        formMenuPegawai.getTxtHakAkses().setText("Pegawai");
-                        dispose();
+//                        FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
+//                        formMenuPegawai.setVisible(true);
+//                        formMenuPegawai.tampilNama(TxtUsername.getText());
+//                        formMenuPegawai.tampilHakAkses("Pegawai");
+//                        formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
+//                        formMenuPegawai.getTxtHakAkses().setText("Pegawai");
+//                        dispose();
                     }
                 }else {
                     JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
@@ -268,33 +275,39 @@ public class FormLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Input Username dan password","Pesan",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 try {
+                    User user = controller.getUser(TxtUsername.getText());
                     listLogin = controller.cariLogin(TxtUsername.getText(), JpsPassword.getText());
-                    if (listLogin.size()>=1)
+                    //if (listLogin.size()>=1)
+                    if(user.getPassword().equals(JpsPassword.getText())) {
                         if (listLogin.get(0).getAkses().equalsIgnoreCase("Administrator")) {
                             FormMenuAdmin formMenuAdmin =  new FormMenuAdmin();
                             formMenuAdmin.setVisible(true);
-                            formMenuAdmin.tampilNama(TxtUsername.getText());
+                            if (user != null) {
+                                String user_name = user.getNamaAkun();
+                                formMenuAdmin.tampilNama(user_name);
+                            } else {
+                                formMenuAdmin.tampilNama(TxtUsername.getText());
+                            }
                             formMenuAdmin.tampilHakAkses("Administrator");
                             formMenuAdmin.getTxtUsername().setText(TxtUsername.getText());
                             formMenuAdmin.getTxtHakAkses().setText("Administrator");
                             dispose();
                         } else {
-                            FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
-                            formMenuPegawai.setVisible(true);
-                            formMenuPegawai.tampilNama(TxtUsername.getText());
-                            formMenuPegawai.tampilHakAkses("Pegawai");
-                            formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
-                            formMenuPegawai.getTxtHakAkses().setText("Pegawai");
-                            dispose();
+//                            FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
+//                            formMenuPegawai.setVisible(true);
+//                            formMenuPegawai.tampilNama(TxtUsername.getText());
+//                            formMenuPegawai.tampilHakAkses("Pegawai");
+//                            formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
+//                            formMenuPegawai.getTxtHakAkses().setText("Pegawai");
+//                            dispose();
                         }
-                    else {
+                    }else {
                         JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
                         JpsPassword.requestFocus();
                         clearText();
                     }
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Terjadi Kesalahan pada " +e);
-
+                     JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
                 }
             }
         }

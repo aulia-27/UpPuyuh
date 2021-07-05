@@ -102,11 +102,13 @@ public class MenuPegawaiController {
             jekel();
             viewTableDataPegawai();
             viewTableInputPegawai();
+            getAutoIncrementIdPegawai();
             
             //  Pakan   //
             clearFormPakan();
             viewTableDataPakan();
             viewTableInputPakan();
+            getAutoIncrementIdPakan();
             
             //  penyakit   //
             clearFormPenyakit();
@@ -117,6 +119,7 @@ public class MenuPegawaiController {
             clearFormKesehatan();
             viewTableDataKesehatan();
             viewTableInputKesehatan();
+            getAutoIncrementIdKesehatan();
             isiCboKandang();
             isiCboPenyakit();
             isiCboIdPegawai();
@@ -130,8 +133,13 @@ public class MenuPegawaiController {
             isiCboKebersihan();
             viewTableDataCekTernak();
             viewTableInputCekTernak();
+            getAutoIncrementIdCekTernak();
             
             //         Use  //
+            clearFormUser();
+            isiCboAkses();
+            getAutoIncrementIdUser();
+            viewTableDataUser();
  
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE,null, ex);
@@ -412,81 +420,140 @@ public class MenuPegawaiController {
     }
     
     ////////////////////////        Pegawai         ////////////////////////////
-    
-     public void clearFormPegawai(){
-        
-        viewPegawai.getTxtIdPegawai().setText("");
+    public void clearFormPegawai(){
         viewPegawai.getTxtNamaPegawai().setText("");
         viewPegawai.getTxtAsal().setText("");
         viewPegawai.getJdtTglLahir().setDate(null);
+        viewPegawai.getRbLakiLaki().setSelected(false);
+        viewPegawai.getRbPerempuan().setSelected(false);
         viewPegawai.getTxtNoTelp().setText("");
         viewPegawai.getJtxAlamat().setText("");
     }
+    
+    public void getAutoIncrementIdPegawai() {
+        viewPegawai.getTxtIdPegawai().setText("1001");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from pegawai");
+            String cek_id = viewPegawai.getTxtIdPegawai().getText();
+            if (cek_id != null) {
+                while (rs.next()) {             
+                    int id = rs.getInt(1)+1;
+                    viewPegawai.getTxtIdPegawai().setText(""+id);
+                }
+            } else {
+                viewPegawai.getTxtIdPegawai().setText("1001");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
      
      public void jekel() {
          viewPegawai.getRbLakiLaki().setText("Laki-Laki");
          viewPegawai.getRbPerempuan().setText("Perempuan");
      }
+     
+     public String getNoTelepon() {
+        if (viewPegawai.getTxtNoTelp().getText().length() > 13) {
+            return "1";
+        }else {
+            return viewPegawai.getTxtNoTelp().getText();
+        }
+    }
     
     public void insertPegawai(){
-        pegawai = new Pegawai();
-        pegawai.setIdPegawai(viewPegawai.getTxtIdPegawai().getText());
-        pegawai.setNama(viewPegawai.getTxtNamaPegawai().getText());
-        pegawai.setAsal(viewPegawai.getTxtAsal().getText());
-
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
-        String strDate = dateFormat.format(viewPegawai.getJdtTglLahir().getDate());
-        pegawai.setTglLahir(strDate);
-
-        if(viewPegawai.getRbLakiLaki().isSelected())  {
-            String Jekel;
-            Jekel = "Laki-Laki";
-            pegawai.setJekel(Jekel);
-        }
-        else if(viewPegawai.getRbPerempuan().isSelected()) {
-            String Jekel;
-            Jekel = "Perempuan";
-            pegawai.setJekel(Jekel);
-        }
-
-        pegawai.setNoTelp(viewPegawai.getTxtNoTelp().getText());
-        pegawai.setAlamat(viewPegawai.getJtxAlamat().getText());
-        try {
-            PegawaiDao.insert(con, pegawai);
-            JOptionPane.showMessageDialog(viewPegawai, "Data sudah di inputkan");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "ID Pegawai Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
+        if (viewPegawai.getTxtNamaPegawai().getText().equals("") && viewPegawai.getTxtAsal().getText().equals("") && viewPegawai.getTxtNoTelp().getText().equals("")) {
+            System.out.println("1");
+            JOptionPane.showMessageDialog(viewPegawai, "Silakan isi data"); 
+        } else {
+            if (getNoTelepon() == "1") {
+                JOptionPane.showMessageDialog(viewPegawai, "Nomor Telepon Lebih dari 13 digit","Pesan",JOptionPane.WARNING_MESSAGE); 
+            }else {
+                pegawai = new Pegawai();
+                pegawai.setIdPegawai(viewPegawai.getTxtIdPegawai().getText());
+                pegawai.setNama(viewPegawai.getTxtNamaPegawai().getText());
+                pegawai.setAsal(viewPegawai.getTxtAsal().getText());
+                SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
+                if (viewPegawai.getJdtTglLahir().getDate().equals(null)) {
+                    JOptionPane.showMessageDialog(viewPegawai, "Silakan isi Tanggal Lahir"); 
+                } else {
+                    String strDate = dateFormat.format(viewPegawai.getJdtTglLahir().getDate());
+                    pegawai.setTglLahir(strDate);
+                }
+                if(viewPegawai.getRbLakiLaki().isSelected())  {
+                    String Jekel;
+                    Jekel = "Laki-Laki";
+                    pegawai.setJekel(Jekel);
+                }
+                else if(viewPegawai.getRbPerempuan().isSelected()) {
+                    String Jekel;
+                    Jekel = "Perempuan";
+                    pegawai.setJekel(Jekel);
+                } else {
+                    JOptionPane.showMessageDialog(viewPegawai, "Silakan Pilih Jenis Kelamin"); 
+                }
+                pegawai.setNoTelp(viewPegawai.getTxtNoTelp().getText());
+                pegawai.setAlamat(viewPegawai.getJtxAlamat().getText());
+                try {
+                    String ID = viewPegawai.getTxtIdPegawai().getText();
+                    Pegawai pegawai1 = new Pegawai();
+                    pegawai1 = PegawaiDao.getPegawai(con, ID);
+                    if (pegawai1 != null) {
+                        JOptionPane.showMessageDialog(viewPegawai, "ID Pegawai Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
+                    } else {
+                        PegawaiDao.insert(con, pegawai);
+                        JOptionPane.showMessageDialog(viewPegawai, "Data sudah di inputkan");
+                        clearFormPegawai();
+                    }
+                } catch (Exception ex) {
+                    System.err.println("2");
+                }
+            }
         }
     }
     
     public void updatePegawai(){
-        pegawai = new Pegawai();
-        pegawai.setIdPegawai(viewPegawai.getTxtIdPegawai().getText());
-        pegawai.setNama(viewPegawai.getTxtNamaPegawai().getText());
-        pegawai.setAsal(viewPegawai.getTxtAsal().getText());
-
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
-        String strDate = dateFormat.format(viewPegawai.getJdtTglLahir().getDate());
-        pegawai.setTglLahir(strDate);
-
-        if(viewPegawai.getRbLakiLaki().isSelected())  {
-            String Jekel;
-            Jekel = "Laki-Laki";
-            pegawai.setJekel(Jekel);
-        }
-        else if(viewPegawai.getRbPerempuan().isSelected()) {
-            String Jekel;
-            Jekel = "Perempuan";
-            pegawai.setJekel(Jekel);
-        }
-
-        pegawai.setNoTelp(viewPegawai.getTxtNoTelp().getText());
-        pegawai.setAlamat(viewPegawai.getJtxAlamat().getText());
-        try {
-            PegawaiDao.update(con, pegawai);
-            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Perbaharui");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
+        if (viewPegawai.getTxtNamaPegawai().getText().equals("") && viewPegawai.getTxtAsal().getText().equals("") && viewPegawai.getTxtNoTelp().getText().equals("")) {
+            System.out.println("1");
+            JOptionPane.showMessageDialog(viewPegawai, "Silakan isi data"); 
+        } else {
+            if (getNoTelepon() == "1") {
+                JOptionPane.showMessageDialog(viewPegawai, "Nomor Telepon Lebih dari 13 digit","Pesan",JOptionPane.WARNING_MESSAGE); 
+            }else {
+                pegawai = new Pegawai();
+                pegawai.setIdPegawai(viewPegawai.getTxtIdPegawai().getText());
+                pegawai.setNama(viewPegawai.getTxtNamaPegawai().getText());
+                pegawai.setAsal(viewPegawai.getTxtAsal().getText());
+                SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
+                if (viewPegawai.getJdtTglLahir().getDate().equals(null)) {
+                    JOptionPane.showMessageDialog(viewPegawai, "Silakan isi Tanggal Lahir"); 
+                } else {
+                    String strDate = dateFormat.format(viewPegawai.getJdtTglLahir().getDate());
+                    pegawai.setTglLahir(strDate);
+                }
+                if(viewPegawai.getRbLakiLaki().isSelected())  {
+                    String Jekel;
+                    Jekel = "Laki-Laki";
+                    pegawai.setJekel(Jekel);
+                }
+                else if(viewPegawai.getRbPerempuan().isSelected()) {
+                    String Jekel;
+                    Jekel = "Perempuan";
+                    pegawai.setJekel(Jekel);
+                } else {
+                    JOptionPane.showMessageDialog(viewPegawai, "Silakan Pilih Jenis Kelamin"); 
+                }
+                pegawai.setNoTelp(viewPegawai.getTxtNoTelp().getText());
+                pegawai.setAlamat(viewPegawai.getJtxAlamat().getText());
+                try {
+                    PegawaiDao.update(con, pegawai);
+                    JOptionPane.showMessageDialog(viewPegawai, "Data sudah di inputkan");
+                    clearFormPegawai();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
+                }
+            }
         }
     }
     
@@ -504,7 +571,7 @@ public class MenuPegawaiController {
             String kode = viewPegawai.getTblInputDataPegawai().getValueAt(viewPegawai.getTblInputDataPegawai().getSelectedRow(), 0).toString();
             pegawai = PegawaiDao.getPegawai(con, kode);
             if (pegawai != null) {
-                viewPegawai.getTxtIdPegawai().setText(pegawai.getIdPegawai());
+                viewPegawai.getTxtIdPegawai().setText(""+pegawai.getIdPegawai());
                 viewPegawai.getTxtNamaPegawai().setText(pegawai.getNama());
                 viewPegawai.getTxtAsal().setText(pegawai.getAsal());
                 Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String)pegawai.getTglLahir());
@@ -528,30 +595,45 @@ public class MenuPegawaiController {
     
     public void onClickBtnCariPegawai() throws ParseException {
         try {
-            String kode = viewPegawai.getTxtIdPegawai().getText();
-            pegawai = PegawaiDao.getPegawai(con, kode);
-            if (pegawai != null) {
-                viewPegawai.getTxtIdPegawai().setText(pegawai.getIdPegawai());
-                viewPegawai.getTxtNamaPegawai().setText(pegawai.getNama());
-                viewPegawai.getTxtAsal().setText(pegawai.getAsal());
-                Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String)pegawai.getTglLahir());
-                viewPegawai.getJdtTglLahir().setDate(date);
-                String jekel = pegawai.getJekel().toString();
-                if (jekel.equals("Laki-Laki")) {
-                    viewPegawai.getRbLakiLaki().setSelected(true);
-                } else {
-                    viewPegawai.getRbPerempuan().setSelected(true);
-                }
-                viewPegawai.getTxtNoTelp().setText(pegawai.getNoTelp());
-                viewPegawai.getJtxAlamat().setText(pegawai.getAlamat());
+            if (viewPegawai.getTxtIdPegawai().getText().equals("")) {
+                javax.swing.JOptionPane.showMessageDialog(viewPegawai, "Silakan Isi ID Pegawai");
             } else {
-                javax.swing.JOptionPane.showMessageDialog(viewPegawai, "Data Tidak Ada");
-                clearFormPegawai();
+                String kode = viewPegawai.getTxtIdPegawai().getText();
+                pegawai = PegawaiDao.getPegawai(con, kode);
+                if (pegawai != null) {
+                    viewPegawai.getTxtIdPegawai().setText(""+pegawai.getIdPegawai());
+                    viewPegawai.getTxtNamaPegawai().setText(pegawai.getNama());
+                    viewPegawai.getTxtAsal().setText(pegawai.getAsal());
+                    Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String)pegawai.getTglLahir());
+                    viewPegawai.getJdtTglLahir().setDate(date);
+                    String jekel = pegawai.getJekel().toString();
+                    if (jekel.equals("Laki-Laki")) {
+                        viewPegawai.getRbLakiLaki().setSelected(true);
+                    } else {
+                        viewPegawai.getRbPerempuan().setSelected(true);
+                    }
+                    viewPegawai.getTxtNoTelp().setText(pegawai.getNoTelp());
+                    viewPegawai.getJtxAlamat().setText(pegawai.getAlamat());
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(viewPegawai, "Data Tidak Ada");
+                    clearFormPegawai();
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+//    public void onSearchDataPegawai() {
+//        String data = viewPegawai.getTxtPencarianDataPegawai().getText().toLowerCase();
+//        try {
+//            DefaultTableModel tabelModel = (DefaultTableModel) viewPegawai.getTblInputDataPegawai().getModel();
+//            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(tabelModel);
+//            viewPegawai.getTblInputDataPegawai().setRowSorter(tr);
+//            tr.setRowFilter(RowFilter.regexFilter(data));
+//        } catch (Exception e) {
+//        }
+//    }
     
     public void viewTableDataPegawai(){
         try {
@@ -560,7 +642,7 @@ public class MenuPegawaiController {
             ResultSet rs = con.createStatement().executeQuery("select id_pegawai, nama, asal, date_format(tgl_lahir, '%d %M %Y'), jekel, no_telp, alamat from pegawai");
             while(rs.next()){
                 Object[] data={
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
@@ -582,7 +664,7 @@ public class MenuPegawaiController {
             ResultSet rs = con.createStatement().executeQuery("select id_pegawai, nama, asal, date_format(tgl_lahir, '%d %M %Y'), jekel, no_telp, alamat from pegawai");
             while(rs.next()){
                 Object[] data={
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
@@ -601,10 +683,27 @@ public class MenuPegawaiController {
     ////////////////                Pakan                   ////////////////////
     
     public void clearFormPakan(){
-        viewPegawai.getTxtIdPakan().setText("");
         viewPegawai.getTxtNamaPakan().setText("");
         viewPegawai.getTxtHarga().setText("");
         viewPegawai.getTxtStok().setText("");
+    }
+    
+    public void getAutoIncrementIdPakan() {
+        viewPegawai.getTxtIdPakan().setText("2001");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from pakan");
+            String cek_id = viewPegawai.getTxtIdPakan().getText();
+            if (cek_id != null) {
+                while (rs.next()) {             
+                    int id = rs.getInt(1)+1;
+                    viewPegawai.getTxtIdPakan().setText(""+id);
+                }
+            } else {
+                viewPegawai.getTxtIdPakan().setText("2001");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void insertPakan(){
@@ -649,7 +748,7 @@ public class MenuPegawaiController {
             String kode = viewPegawai.getTblInputDataPakan().getValueAt(viewPegawai.getTblInputDataPakan().getSelectedRow(), 0).toString();
             pakan = PakanDao.getPakan(con, kode);
             if (pakan != null) {
-                viewPegawai.getTxtIdPakan().setText(pakan.getIdPakan());
+                viewPegawai.getTxtIdPakan().setText(""+pakan.getIdPakan());
                 viewPegawai.getTxtNamaPakan().setText(pakan.getNama());
                 viewPegawai.getTxtHarga().setText(""+pakan.getHarga());
                 viewPegawai.getTxtStok().setText(""+pakan.getStok());
@@ -667,7 +766,7 @@ public class MenuPegawaiController {
             String kode = viewPegawai.getTxtIdPakan().getText();
             pakan = PakanDao.getPakan(con, kode);
             if (pakan != null) {
-                viewPegawai.getTxtIdPakan().setText(pakan.getIdPakan());
+                viewPegawai.getTxtIdPakan().setText(""+pakan.getIdPakan());
                 viewPegawai.getTxtNamaPakan().setText(pakan.getNama());
                 viewPegawai.getTxtHarga().setText(""+pakan.getHarga());
                 viewPegawai.getTxtStok().setText(""+pakan.getStok());
@@ -740,7 +839,7 @@ public class MenuPegawaiController {
             PenyakitDao.insert(con, penyakit);
             JOptionPane.showMessageDialog(viewPegawai, "Entri Data Ok");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
+            JOptionPane.showMessageDialog(viewPegawai, "Nama Penyakit Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
         }
     }
     
@@ -849,10 +948,30 @@ public class MenuPegawaiController {
     /////////////////////////       Kesehatan       ////////////////////////////
     
     public void clearFormKesehatan(){
-        viewPegawai.getTxtIdKesehatan().setText("");
         viewPegawai.getTxtNamaKandang().setText("");
         viewPegawai.getTxtJmlSakit().setText("");
+        isiCboIdPegawai();
+        isiCboKandang();
+        isiCboPenyakit();
         viewPegawai.getTxtJmlMati().setText("");
+    }
+    
+    public void getAutoIncrementIdKesehatan() {
+        viewPegawai.getTxtIdKesehatan().setText("3001");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from kesehatan");
+            String cek_id = viewPegawai.getTxtIdKesehatan().getText();
+            if (cek_id != null) {
+                while (rs.next()) {             
+                    int id = rs.getInt(1)+1;
+                    viewPegawai.getTxtIdKesehatan().setText(""+id);
+                }
+            } else {
+                viewPegawai.getTxtIdKesehatan().setText("3001");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void isiCboPenyakit() {
@@ -902,18 +1021,23 @@ public class MenuPegawaiController {
         kesehatan.setTglCek(viewPegawai.getTxtTglCekKesehatan().getText());
         try {
             kandang = kandangdao.getKandang(con,viewPegawai.getCboKandang().getSelectedItem().toString());
-            System.out.print(kandang.getNamaKandang());
-            System.out.print(kandang.getJmlTernak());
             int mati = Integer.parseInt(viewPegawai.getTxtJmlMati().getText());
             int ternak = kandang.getJmlTernak();
-            if (mati > ternak) {
-                JOptionPane.showMessageDialog(viewPegawai, "Jumlah Mati Sudah Melebihi Jumlah Ternak");
+            Kesehatan kesehatan_id = new Kesehatan();
+            String id_kes = viewPegawai.getTxtIdKesehatan().getText();
+            kesehatan_id = KesehatanDao.getKesehatan(con, id_kes);
+            if (kesehatan_id != null) {
+                JOptionPane.showMessageDialog(viewPegawai, "ID Kesehatan Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE);
             } else {
-                KesehatanDao.insert(con, kesehatan);
-                kandangdao.update(con, kandang,Integer.parseInt(viewPegawai.getTxtJmlMati().getText()));
-                //kandangdao.update(con, kandang);
-                JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
-                DateNow();
+                if (mati > ternak) {
+                    JOptionPane.showMessageDialog(viewPegawai, "Jumlah Mati Sudah Melebihi Jumlah Ternak");
+                } else {
+                    KesehatanDao.insert(con, kesehatan);
+                    kandangdao.update(con, kandang,Integer.parseInt(viewPegawai.getTxtJmlMati().getText()));
+                    //kandangdao.update(con, kandang);
+                    JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
+                    DateNow();
+                }
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewPegawai, "Data Sudah Ada Hari Ini"); 
@@ -968,7 +1092,7 @@ public class MenuPegawaiController {
             System.out.println("1");
             if (kesehatan != null) {
                 System.out.println("2");
-                viewPegawai.getTxtIdKesehatan().setText(kesehatan.getIdKesehatan());
+                viewPegawai.getTxtIdKesehatan().setText(""+kesehatan.getIdKesehatan());
                 viewPegawai.getCboKandang().setSelectedItem(kesehatan.getNamaKandang());
                 viewPegawai.getCboPenyakit().setSelectedItem(kesehatan.getNamaPenyakit());
                 viewPegawai.getCboIdPegawai().setSelectedItem(kesehatan.getIdPegawai());
@@ -986,12 +1110,12 @@ public class MenuPegawaiController {
         }
     }
     
-    public void onPressBtnCariKesehatan() {
+    public void onClickBtnCariKesehatan() {
         try {
             String kode = viewPegawai.getTxtIdKesehatan().getText();
             kesehatan = KesehatanDao.getKesehatan(con, kode);
             if (kesehatan != null) {
-                viewPegawai.getTxtIdKesehatan().setText(kesehatan.getIdKesehatan());
+                viewPegawai.getTxtIdKesehatan().setText(""+kesehatan.getIdKesehatan());
                 viewPegawai.getCboKandang().setSelectedItem(kesehatan.getNamaKandang());
                 viewPegawai.getCboPenyakit().setSelectedItem(kesehatan.getNamaPenyakit());
                 viewPegawai.getCboIdPegawai().setSelectedItem(kesehatan.getIdPegawai());
@@ -1017,11 +1141,11 @@ public class MenuPegawaiController {
                     + "from kesehatan "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek desc"
+                    + "order by tgl_cek,id_kesehatan desc"
             );
             while(rs.next()){
                 Object[] data={
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
@@ -1045,11 +1169,11 @@ public class MenuPegawaiController {
                     + "from kesehatan "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek desc"
+                    + "order by tgl_cek,id_kesehatan desc"
             );
             while(rs.next()){
                 Object[] data={
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
@@ -1067,9 +1191,30 @@ public class MenuPegawaiController {
     ////////////////        Cek Ternak          ///////////////////////////////
     
     public void clearFormCekTernak(){
-        viewPegawai.getTxtIdCekTernak().setText("");
         viewPegawai.getTxtJmlTelur().setText("");
+        isiCboKandangCek();
+        isiCboIdPakanCek();
+        isiCboIdPegawaiCek();
+        isiCboKebersihan();
         viewPegawai.getTxtJmlPakan().setText("");
+    }
+    
+    public void getAutoIncrementIdCekTernak() {
+        viewPegawai.getTxtIdCekTernak().setText("4001");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from cek_ternak");
+            String cek_id = viewPegawai.getTxtIdCekTernak().getText();
+            if (cek_id != null) {
+                while (rs.next()) {             
+                    int id = rs.getInt(1)+1;
+                    viewPegawai.getTxtIdCekTernak().setText(""+id);
+                }
+            } else {
+                viewPegawai.getTxtIdCekTernak().setText("3001");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void isiCboKandangCek() {
@@ -1132,13 +1277,20 @@ public class MenuPegawaiController {
             pakan = PakanDao.getPakan(con, viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
             int jml_stok = Integer.parseInt(viewPegawai.getTxtJmlPakan().getText());
             int jml_pakan = pakan.getStok();
-            if (jml_stok > jml_pakan) {
-                JOptionPane.showMessageDialog(viewPegawai, "Jumlah Pemakaian Sudah Melebihi Jumlah Stok");
+            CekTernak CekTernak_id = new CekTernak();
+            String id_cek = viewPegawai.getTxtIdCekTernak().getText();
+            CekTernak_id = CekTernakDao.getCekTernak(con, id_cek);
+            if (CekTernak_id != null) {
+                JOptionPane.showMessageDialog(viewPegawai, "ID Cek Ternak Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE);
             } else {
-                CekTernakDao.insert(con, CekTernak);
-                PakanDao.update(con, pakan, Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
-                JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
-                DateNow();
+                if (jml_stok > jml_pakan) {
+                    JOptionPane.showMessageDialog(viewPegawai, "Jumlah Pemakaian Sudah Melebihi Jumlah Stok");
+                } else {
+                    CekTernakDao.insert(con, CekTernak);
+                    PakanDao.update(con, pakan, Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
+                    JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
+                    DateNow();
+                }
             }
 
         } catch (SQLException ex) {
@@ -1245,11 +1397,11 @@ public class MenuPegawaiController {
                     + "using (id_pakan) "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek desc"
+                    + "order by tgl_cek,id_cek desc"
             );
             while (rs.next()) { 
                 Object [] data = {
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getInt(4) + " Kg",
@@ -1278,11 +1430,11 @@ public class MenuPegawaiController {
                     + "using (id_pakan) "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek desc"
+                    + "order by tgl_cek,id_cek desc"
             );
             while (rs.next()) { 
                 Object [] data = {
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getInt(4) + " Kg",
@@ -1298,6 +1450,172 @@ public class MenuPegawaiController {
         }
     }
     
+    ////////////////////////////////////////////////////////////////////////////
+    
+    public void clearFormUser() {
+        viewPegawai.getTxtDataUsername().setText("");
+        viewPegawai.getJpsDataPassword().setText("");
+        viewPegawai.getJpsReDataPassword().setText("");
+        viewPegawai.getTxtDataNama().setText("");
+    }
+    
+    public void getAutoIncrementIdUser() {
+        viewPegawai.getTxtIdUser().setText("1");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select * from user");
+            String cek_id = viewPegawai.getTxtIdUser().getText();
+            if (cek_id != null) {
+                while (rs.next()) {             
+                    int id = rs.getInt(1)+1;
+                    viewPegawai.getTxtIdUser().setText(""+id);
+                }
+            } else {
+                viewPegawai.getTxtIdUser().setText("1");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void isiCboAkses() {
+        viewPegawai.getCboAkses().removeAllItems();
+        viewPegawai.getCboAkses().addItem("Administrator");
+        viewPegawai.getCboAkses().addItem("Pegawai");
+    }
+    
+    public String getPasswordCheck() {
+        if (viewPegawai.getJpsDataPassword().getText().equals("")) {
+            return "0";
+        } else if (viewPegawai.getJpsDataPassword().getText().length() < 6) {
+            return "1";
+        } else if (!viewPegawai.getJpsDataPassword().getText().equals(viewPegawai.getJpsReDataPassword().getText())) {
+            return "2";
+        } else {
+            return viewPegawai.getJpsDataPassword().getText();
+        }
+    }
+    
+    public void insertUser() {
+        user.setIdUser(Integer.parseInt(viewPegawai.getTxtIdUser().getText()));
+        user.setUsername(viewPegawai.getTxtDataUsername().getText());
+        user.setPassword(viewPegawai.getJpsDataPassword().getText());
+        user.setNamaAkun(viewPegawai.getTxtDataNama().getText());
+        user.setAkses(viewPegawai.getCboAkses().getSelectedItem().toString());
+        if (getPasswordCheck()== "0") {
+            JOptionPane.showMessageDialog(viewPegawai, "Silakan Isi Password");
+        } else if (getPasswordCheck() == "1") {
+            JOptionPane.showMessageDialog(viewPegawai, "Password Minimal 6 Karakter");
+        } else if (getPasswordCheck() == "2") {
+            JOptionPane.showMessageDialog(viewPegawai, "Password Tidak Sama");
+        } else {
+            try {
+                User userId = new User();
+                User username = new User();
+                int id_user = Integer.parseInt(viewPegawai.getTxtIdUser().getText());
+                String user_username = viewPegawai.getTxtDataUsername().getText();
+                userId = UserDao.getUser(con, id_user);
+                username = UserDao.getUsername(con, user_username);
+                if (userId != null) {
+                    JOptionPane.showMessageDialog(viewPegawai, "ID Username Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE);
+                } else{
+                    if (username != null) {
+                        JOptionPane.showMessageDialog(viewPegawai, "Username Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        UserDao.insert(con, user);
+                        JOptionPane.showMessageDialog(viewPegawai, "Akun Sudah Di inputkan");
+                    }
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(viewPegawai, "Error "+ex.getMessage()); 
+            }
+        }
+    }
+    
+    public void deleteUser() {
+        try {
+            UserDao.delete(con, user);
+            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Hapus");
+            DateNow();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(viewPegawai, "Error"+e.getMessage());
+        }
+    }
+    
+    public void onClickTabelDataUser() {
+        try {
+            int kode = Integer.parseInt(viewPegawai.getTblDataUser().getValueAt(viewPegawai.getTblDataUser().getSelectedRow(), 0).toString());
+            user = UserDao.getUser(con, kode);
+            if (user != null) {
+                viewPegawai.getTxtIdUser().setText(""+user.getIdUser());
+                viewPegawai.getTxtDataUsername().setText(user.getUsername());
+                viewPegawai.getTxtDataNama().setText(user.getNamaAkun());
+                viewPegawai.getCboAkses().setSelectedItem(user.getAkses());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(viewPegawai, "Data Tidak Ada");
+                clearFormCekTernak();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void viewTableDataUser() {
+        try {
+            DefaultTableModel tableModel = (DefaultTableModel) viewPegawai.getTblDataUser().getModel();
+            tableModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery("select * from user");
+            while (rs.next()) { 
+                Object [] data = {
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5)
+                };
+            tableModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+//    public void insertCekTernak(){
+//        CekTernak = new CekTernak();
+//        CekTernak.setIdCek(viewPegawai.getTxtIdCekTernak().getText());
+//        CekTernak.setNamaKandang(viewPegawai.getCboKandangCek().getSelectedItem().toString());
+//        CekTernak.setIdPakan(viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+//        CekTernak.setJmlPakan(Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
+//        CekTernak.setIdPegawai(viewPegawai.getCboIdPegawaiCek().getSelectedItem().toString().split("-")[0]);
+//        CekTernak.setJmlTelur(Integer.parseInt(viewPegawai.getTxtJmlTelur().getText()));
+//        CekTernak.setKebersihan(viewPegawai.getCboKebersihan().getSelectedItem().toString());
+//        CekTernak.setTglCek(viewPegawai.getTxtTglCek().getText());
+//        try {
+//            Pakan pakan;
+//            pakan = new Pakan();
+//            pakan = PakanDao.getPakan(con, viewPegawai.getCboIdPakanCek().getSelectedItem().toString().split("-")[0]);
+//            int jml_stok = Integer.parseInt(viewPegawai.getTxtJmlPakan().getText());
+//            int jml_pakan = pakan.getStok();
+//            CekTernak CekTernak_id = new CekTernak();
+//            String id_cek = viewPegawai.getTxtIdCekTernak().getText();
+//            CekTernak_id = CekTernakDao.getCekTernak(con, id_cek);
+//            if (CekTernak_id != null) {
+//                JOptionPane.showMessageDialog(viewPegawai, "ID Cek Ternak Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE);
+//            } else {
+//                if (jml_stok > jml_pakan) {
+//                    JOptionPane.showMessageDialog(viewPegawai, "Jumlah Pemakaian Sudah Melebihi Jumlah Stok");
+//                } else {
+//                    CekTernakDao.insert(con, CekTernak);
+//                    PakanDao.update(con, pakan, Integer.parseInt(viewPegawai.getTxtJmlPakan().getText()));
+//                    JOptionPane.showMessageDialog(viewPegawai, "Data Sudah di Simpan");
+//                    DateNow();
+//                }
+//            }
+//
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(viewPegawai, "Data Sudah Ada Hari ini !"); 
+//            DateNow();
+//        }
+//    }
     /////////////////////       Laporan         ////////////////////////////////
    
     public void cleartextLaporan() {
@@ -1515,7 +1833,7 @@ public class MenuPegawaiController {
                     + "from kesehatan "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek desc"
+                    + "order by tgl_cek,id_kesehatan desc"
             );
             while(rs.next()){
                 Object[] data={
@@ -1547,7 +1865,7 @@ public class MenuPegawaiController {
                     + "using (id_pakan) "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek desc"
+                    + "order by tgl_cek,id_cek desc"
             );
             while (rs.next()) { 
                 Object [] data = {

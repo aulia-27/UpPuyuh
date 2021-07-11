@@ -230,5 +230,17 @@ public class UserController {
         }
         return 2;
     }
+    
+    public void createDate(){
+        try {
+            String sql = "INSERT INTO notif VALUES (NOW(),0,0,0)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.print(e);
+        } catch (Exception e){
+            System.out.print(e);
+        }
+    }
 }
 

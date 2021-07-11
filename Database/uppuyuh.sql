@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2021 at 06:28 AM
+-- Generation Time: Jul 11, 2021 at 06:35 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -39,14 +39,6 @@ CREATE TABLE `cek_ternak` (
   `tgl_cek` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cek_ternak`
---
-
-INSERT INTO `cek_ternak` (`id_cek`, `nama_kandang`, `id_pakan`, `jml_pakan`, `id_pegawai`, `jml_telur`, `kebersihan`, `tgl_cek`) VALUES
-('401', 'Kandang 1', '20002 ', 500, '10001 ', 5001, 'Bersih', '2021-06-29'),
-('402', 'Kandang 2', '20002', 250, '10003', 500, 'Bersih', '2021-06-29');
-
 -- --------------------------------------------------------
 
 --
@@ -63,12 +55,8 @@ CREATE TABLE `kandang` (
 --
 
 INSERT INTO `kandang` (`nama_kandang`, `jml_ternak`) VALUES
-('Kandang 1', 975),
-('Kandang 2', 585),
-('Kandang 3', 700),
-('Kandang 4', 498),
-('Kandang 5', 400),
-('Kandang 6', 400);
+('Kandang 1', 1000),
+('Kandang 2', 500);
 
 -- --------------------------------------------------------
 
@@ -86,18 +74,6 @@ CREATE TABLE `kesehatan` (
   `tgl_cek` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `kesehatan`
---
-
-INSERT INTO `kesehatan` (`id_kesehatan`, `nama_kandang`, `nama_penyakit`, `id_pegawai`, `jml_sakit`, `jml_mati`, `tgl_cek`) VALUES
-('302', 'Kandang 1', 'Radang usus (Quail enteritis)', '10001 ', 0, 5, '2021-07-01'),
-('304', 'Kandang 2', 'Pullorum (berak putih)', '10001 ', 0, 10, '2021-07-01'),
-('306', 'Kandang 4', 'Pullorum (berak putih)', '10002', 0, 0, '2021-07-02'),
-('307', 'Kandang 4', 'Radang usus (Quail enteritis)', '10001 ', 0, 5, '2021-07-02'),
-('303', 'Kandang 6', 'Pullorum (berak putih)', '10001 ', 4, 0, '2021-07-01'),
-('305', 'Kandang 6', 'Radang usus (Quail enteritis)', '10001 ', 0, 0, '2021-07-01');
-
 -- --------------------------------------------------------
 
 --
@@ -105,7 +81,7 @@ INSERT INTO `kesehatan` (`id_kesehatan`, `nama_kandang`, `nama_penyakit`, `id_pe
 --
 
 CREATE TABLE `notif` (
-  `tgl` date NOT NULL DEFAULT current_timestamp(),
+  `tgl` date NOT NULL,
   `notif1` int(11) NOT NULL,
   `notif2` int(11) NOT NULL,
   `notif3` int(11) NOT NULL
@@ -116,13 +92,7 @@ CREATE TABLE `notif` (
 --
 
 INSERT INTO `notif` (`tgl`, `notif1`, `notif2`, `notif3`) VALUES
-('2021-07-02', 0, 1, 0),
-('2021-07-03', 0, 0, 0),
-('2021-07-04', 0, 0, 0),
-('2021-07-05', 0, 0, 0),
-('2021-07-06', 0, 0, 0),
-('2021-07-07', 0, 0, 0),
-('2021-07-08', 0, 0, 0);
+('2021-07-11', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -142,8 +112,8 @@ CREATE TABLE `pakan` (
 --
 
 INSERT INTO `pakan` (`id_pakan`, `nama`, `harga`, `stok`) VALUES
-('20001', 'BP2', 5000, 215),
-('20002', 'Jagung', 2000000, 10000);
+('2001', 'Jagung', 10000000, 3500),
+('2002', 'BP', 25000000, 5000);
 
 -- --------------------------------------------------------
 
@@ -166,12 +136,9 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `asal`, `tgl_lahir`, `jekel`, `no_telp`, `alamat`) VALUES
-('10001', 'Anton Putra', 'Padang', '1980-03-13', 'Laki-Laki', '0823457673', 'Padang Utara, Padang'),
-('10002', 'Budi', 'Payakumbuh', '1975-02-05', 'Laki-Laki', '0895746475', 'Kec Pauh, Padang'),
-('10003', 'Anja', 'Medan', '1988-06-21', 'Laki-Laki', '0874645553', 'Lubuak Aluang, Padang Pariaman'),
-('10004', 'Andi', 'Bukit', '2021-03-18', 'Laki-Laki', '0888654546', 'Padang'),
-('10005', 'Anti', 'Agam', '1980-02-14', 'Perempuan', '0898943754', 'Padang'),
-('10006', 'Budi Z', 'Padang', '1980-07-09', 'Laki-Laki', '08675564576', 'Padang');
+('1001', 'Anton Putra', 'Padang', '1980-03-13', 'Laki-Laki', '082345767312', 'Padang Utara, Padang'),
+('1002', 'Budi', 'Payakumbuh', '1975-02-05', 'Laki-Laki', '0895746475123', 'Kec Pauh, Padang'),
+('1003', 'Budi Hartono', 'Padang Panjang', '1975-02-13', 'Laki-Laki', '089574647513', 'Kec Pauh, Padang');
 
 -- --------------------------------------------------------
 
@@ -214,9 +181,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `akses`) VALUES
-(0, 'Admin', 'Admin', 'Admin', 'Administrator'),
-(1, 'Pegawai', '27082000', 'Pegawai', 'Pegawai'),
-(2, 'Admin', 'Admin', 'Admin', 'Administrator');
+(0, 'Admin', '12345678', 'Admin', 'Administrator'),
+(4, 'Pegawai', 'Pegawai', 'Pegawai Up Puyuh', 'Pegawai');
 
 --
 -- Indexes for dumped tables

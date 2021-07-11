@@ -4998,7 +4998,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel102, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -5044,10 +5044,11 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtIdCekTernak, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtIdCekTernak, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CboKandangCek, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5915,6 +5916,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 controller.getAutoIncrementIdPakan();
                 controller.viewTableDataPakan();
                 controller.viewTableInputPakan();
+                setVisibleBtnPakan();
             }
         }
         
@@ -6090,6 +6092,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             controller.viewTableDataKesehatan();
             controller.viewTableInputKesehatan();
             controller.viewTableDataKandang();
+            setVisibleBtnKesehatan();
         }
     }//GEN-LAST:event_BtnUpdateKesehatanActionPerformed
 
@@ -6106,6 +6109,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 controller.viewTableDataKesehatan();
                 controller.viewTableInputKesehatan();
                 controller.viewTableDataKandang();
+                setVisibleBtnKesehatan();
             }
         }
         
@@ -6169,12 +6173,12 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Silakan Isi data terlebih dahulu","Pesan",JOptionPane.INFORMATION_MESSAGE);
         } else {
             controller.insertCekTernak();
-            controller.getAutoIncrementIdCekTernak();
             controller.clearFormCekTernak();
             controller.viewTableDataCekTernak();
             controller.viewTableInputCekTernak();
             controller.viewTableDataPakan();
             controller.viewTableInputPakan();
+            controller.getAutoIncrementIdCekTernak();
             controller.toHideNotif3();
             Notifikasi3.setVisible(false);
         }
@@ -6193,6 +6197,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
             controller.viewTableDataPakan();
             controller.viewTableInputPakan();
             controller.getAutoIncrementIdCekTernak();
+            setVisibleBtnCekTernak();
         }
         
     }//GEN-LAST:event_BtnUpdateCekActionPerformed
@@ -6212,6 +6217,7 @@ public class FormMenuAdmin extends javax.swing.JFrame {
                 controller.viewTableDataPakan();
                 controller.viewTableInputPakan();
                 controller.getAutoIncrementIdCekTernak();
+                setVisibleBtnCekTernak();
             }
         }
         
@@ -6288,7 +6294,6 @@ public class FormMenuAdmin extends javax.swing.JFrame {
     private void BtnCekKodeLprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCekKodeLprActionPerformed
         // TODO add your handling code here:
         int Database=Integer.parseInt(TxtKodeLaporan.getText());
-        
         switch(Database){
             case 1:
                 TabelLaporanKosong.setVisible(false);

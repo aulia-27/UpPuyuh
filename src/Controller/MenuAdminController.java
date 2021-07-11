@@ -787,7 +787,7 @@ public class MenuAdminController {
             ResultSet rs = con.createStatement().executeQuery("select * from pakan");
             while(rs.next()){
                 Object[] data={
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     "Rp."+rs.getDouble(3),
                     rs.getInt(4) + " Kg"
@@ -806,7 +806,7 @@ public class MenuAdminController {
             ResultSet rs = con.createStatement().executeQuery("select * from pakan");
             while(rs.next()){
                 Object[] data={
-                    rs.getString(1),
+                    rs.getInt(1),
                     rs.getString(2),
                     "Rp."+rs.getDouble(3),
                     rs.getInt(4)+ " Kg"
@@ -837,7 +837,7 @@ public class MenuAdminController {
         penyakit.setPengobatan(viewAdmin.getJtxPengobatan().getText());
         try {
             PenyakitDao.insert(con, penyakit);
-            JOptionPane.showMessageDialog(viewAdmin, "Entri Data Ok");
+            JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Simpan");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "Nama Penyakit Sudah Ada","Pesan",JOptionPane.WARNING_MESSAGE); 
         }
@@ -852,7 +852,7 @@ public class MenuAdminController {
         penyakit.setPengobatan(viewAdmin.getJtxPengobatan().getText());
         try {
             PenyakitDao.update(con, penyakit);
-            JOptionPane.showMessageDialog(viewAdmin, "Update Data Ok");
+            JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Perbaharui");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(viewAdmin, "Error "+ex.getMessage()); 
         }
@@ -861,7 +861,7 @@ public class MenuAdminController {
     public void deletePenyakit() {
         try {
             PenyakitDao.delete(con, penyakit);
-            JOptionPane.showMessageDialog(viewAdmin, "Delete Data OK");
+            JOptionPane.showMessageDialog(viewAdmin, "Data Sudah di Hapus");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(viewAdmin, "Data Penyakit = "+viewAdmin.getTxtNamaPenyakit().getText()+" Terikat dengan Data Kesehatan");
         }
@@ -1141,7 +1141,7 @@ public class MenuAdminController {
                     + "from kesehatan "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek,id_kesehatan desc"
+                    + "order by tgl_cek desc"
             );
             while(rs.next()){
                 Object[] data={
@@ -1169,7 +1169,7 @@ public class MenuAdminController {
                     + "from kesehatan "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek,id_kesehatan desc"
+                    + "order by tgl_cek desc"
             );
             while(rs.next()){
                 Object[] data={
@@ -1397,11 +1397,11 @@ public class MenuAdminController {
                     + "using (id_pakan) "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek,id_cek desc"
+                    + "order by tgl_cek desc"
             );
             while (rs.next()) { 
                 Object [] data = {
-                    rs.getInt(1),
+                    rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getInt(4) + " Kg",
@@ -1430,11 +1430,11 @@ public class MenuAdminController {
                     + "using (id_pakan) "
                     + "join pegawai "
                     + "using (id_pegawai) "
-                    + "order by tgl_cek,id_cek desc"
+                    + "order by tgl_cek desc"
             );
             while (rs.next()) { 
                 Object [] data = {
-                    rs.getInt(1),
+                    rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getInt(4) + " Kg",

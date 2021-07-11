@@ -247,15 +247,24 @@ public class FormLogin extends javax.swing.JFrame {
                         formMenuAdmin.tampilHakAkses("Administrator");
                         formMenuAdmin.getTxtUsername().setText(TxtUsername.getText());
                         formMenuAdmin.getTxtHakAkses().setText("Administrator");
+                        controller.createDate();
                         dispose();
                     } else {
-//                        FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
-//                        formMenuPegawai.setVisible(true);
-//                        formMenuPegawai.tampilNama(TxtUsername.getText());
-//                        formMenuPegawai.tampilHakAkses("Pegawai");
-//                        formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
-//                        formMenuPegawai.getTxtHakAkses().setText("Pegawai");
-//                        dispose();
+                        FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
+                        formMenuPegawai.setVisible(true);
+                        if (user != null) {
+                            String user_name = user.getNamaAkun();
+                            formMenuPegawai.tampilNama(user_name);
+                            formMenuPegawai.getTxtNamaPengguna().setText(user_name);
+                        } else {
+                            formMenuPegawai.tampilNama(TxtUsername.getText());
+                            formMenuPegawai.getTxtNamaPengguna().setText(TxtUsername.getText());
+                        }
+                        formMenuPegawai.tampilHakAkses("Pegawai");
+                        formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
+                        formMenuPegawai.getTxtHakAkses().setText("Pegawai");
+                        controller.createDate();
+                        dispose();
                     }
                 }else {
                     JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);
@@ -272,7 +281,7 @@ public class FormLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if (TxtUsername.getText().equals("") || JpsPassword.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Input Username dan password","Pesan",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Input Username dan password","Pesan",JOptionPane.INFORMATION_MESSAGE);
             } else {
                 try {
                     User user = controller.getUser(TxtUsername.getText());
@@ -285,21 +294,32 @@ public class FormLogin extends javax.swing.JFrame {
                             if (user != null) {
                                 String user_name = user.getNamaAkun();
                                 formMenuAdmin.tampilNama(user_name);
+                                formMenuAdmin.getTxtNamaPengguna().setText(user_name);
                             } else {
                                 formMenuAdmin.tampilNama(TxtUsername.getText());
+                                formMenuAdmin.getTxtNamaPengguna().setText(TxtUsername.getText());
                             }
                             formMenuAdmin.tampilHakAkses("Administrator");
                             formMenuAdmin.getTxtUsername().setText(TxtUsername.getText());
                             formMenuAdmin.getTxtHakAkses().setText("Administrator");
+                            controller.createDate();
                             dispose();
                         } else {
-//                            FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
-//                            formMenuPegawai.setVisible(true);
-//                            formMenuPegawai.tampilNama(TxtUsername.getText());
-//                            formMenuPegawai.tampilHakAkses("Pegawai");
-//                            formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
-//                            formMenuPegawai.getTxtHakAkses().setText("Pegawai");
-//                            dispose();
+                            FormMenuPegawai formMenuPegawai =  new FormMenuPegawai();
+                            formMenuPegawai.setVisible(true);
+                            if (user != null) {
+                                String user_name = user.getNamaAkun();
+                                formMenuPegawai.tampilNama(user_name);
+                                formMenuPegawai.getTxtNamaPengguna().setText(user_name);
+                            } else {
+                                formMenuPegawai.tampilNama(TxtUsername.getText());
+                                formMenuPegawai.getTxtNamaPengguna().setText(TxtUsername.getText());
+                            }
+                            formMenuPegawai.tampilHakAkses("Pegawai");
+                            formMenuPegawai.getTxtUsername().setText(TxtUsername.getText());
+                            formMenuPegawai.getTxtHakAkses().setText("Pegawai");
+                            controller.createDate();
+                            dispose();
                         }
                     }else {
                         JOptionPane.showMessageDialog(null, "Username atau Password Tidak Ditemukan \nHarap Diulangi","Pesan", JOptionPane.WARNING_MESSAGE);

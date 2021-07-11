@@ -5842,6 +5842,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                 controller.getAutoIncrementIdPakan();
                 controller.viewTableDataPakan();
                 controller.viewTableInputPakan();
+                setVisibleBtnPakan();
             }
         }
         
@@ -6011,6 +6012,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
             controller.viewTableDataKesehatan();
             controller.viewTableInputKesehatan();
             controller.viewTableDataKandang();
+            setVisibleBtnKesehatan();
         }
     }//GEN-LAST:event_BtnUpdateKesehatanActionPerformed
 
@@ -6027,6 +6029,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                 controller.viewTableDataKesehatan();
                 controller.viewTableInputKesehatan();
                 controller.viewTableDataKandang();
+                setVisibleBtnKesehatan();
             }
         }
         
@@ -6090,12 +6093,12 @@ public class FormMenuPegawai extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Silakan Isi data terlebih dahulu","Pesan",JOptionPane.INFORMATION_MESSAGE);
         } else {
             controller.insertCekTernak();
-            controller.getAutoIncrementIdCekTernak();
             controller.clearFormCekTernak();
             controller.viewTableDataCekTernak();
             controller.viewTableInputCekTernak();
             controller.viewTableDataPakan();
             controller.viewTableInputPakan();
+            controller.getAutoIncrementIdCekTernak();
             controller.toHideNotif3();
             Notifikasi3.setVisible(false);
         }
@@ -6114,6 +6117,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
             controller.viewTableDataPakan();
             controller.viewTableInputPakan();
             controller.getAutoIncrementIdCekTernak();
+            setVisibleBtnCekTernak();
         }
         
     }//GEN-LAST:event_BtnUpdateCekActionPerformed
@@ -6133,6 +6137,7 @@ public class FormMenuPegawai extends javax.swing.JFrame {
                 controller.viewTableDataPakan();
                 controller.viewTableInputPakan();
                 controller.getAutoIncrementIdCekTernak();
+                setVisibleBtnCekTernak();
             }
         }
         

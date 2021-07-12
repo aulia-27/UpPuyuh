@@ -326,6 +326,8 @@ public class MenuPegawaiController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         viewAdmin.getTxtTglCek().setText(sdf.format(d));
         viewAdmin.getTxtTglCekKesehatan().setText(sdf.format(d));
+        viewAdmin.getFiltertgl_cekternak().setText(sdf.format(d));
+        viewAdmin.getTgl_cekkesehatan().setText(sdf.format(d));
     }
     
     
@@ -1160,6 +1162,36 @@ public class MenuPegawaiController {
         }
     }
     
+    public void viewTableDataKesehatanFilter(){
+        try {
+            DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblDataKesehatan().getModel();
+            tabelModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery(""
+                    + "select id_kesehatan, nama_kandang, nama_penyakit, nama, jml_sakit, jml_mati, date_format(tgl_cek, '%d %M %Y') "
+                    + "from kesehatan "
+                    + "join pegawai "
+                    + "using (id_pegawai) "
+                    + "where tgl_cek='"
+                    + viewAdmin.getTgl_cekkesehatan().getText()
+                    + "'"
+            );
+            while(rs.next()){
+                Object[] data={
+                    rs.getInt(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5)+" Ekor",
+                    rs.getInt(6)+" Ekor",
+                    rs.getString(7)
+                };
+                tabelModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void viewTableInputKesehatan(){
         try {
             DefaultTableModel tabelModel = (DefaultTableModel) viewAdmin.getTblInputDataKesehatan().getModel();
@@ -1414,6 +1446,41 @@ public class MenuPegawaiController {
             }
         } catch (SQLException ex) {
             Logger.getLogger(MenuPegawaiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void viewTableDataCekTernakFilter() {
+        try {
+            DefaultTableModel tableModel = (DefaultTableModel) viewAdmin.getTblDataCekTernak().getModel();
+            tableModel.setRowCount(0);
+            ResultSet rs = con.createStatement().executeQuery(""
+                    + "select id_cek, nama_kandang, concat (pakan.nama)'id_pakan', "
+                    + "jml_pakan, concat(pegawai.nama)'id_pegawai', "
+                    + "jml_telur, kebersihan, date_format(tgl_cek, '%d %M %Y')"
+                    + "from cek_ternak "
+                    + "join pakan "
+                    + "using (id_pakan) "
+                    + "join pegawai "
+                    + "using (id_pegawai) "
+                    + "where tgl_cek='"
+                    + viewAdmin.getFiltertgl_cekternak().getText()
+                    + "' order by tgl_cek desc"
+            );
+            while (rs.next()) { 
+                Object [] data = {
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getInt(4) + " Kg",
+                    rs.getString(5),
+                    rs.getInt(6) + " Buah",
+                    rs.getString(7),
+                    rs.getString(8)
+                };
+            tableModel.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
